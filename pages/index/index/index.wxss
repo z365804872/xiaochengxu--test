@@ -1,0 +1,90 @@
+Page{
+  background-color: #fff;
+}
+
+.container{
+  padding: 60rpx 30rpx 50rpx;
+}
+/***************************************************/
+.user-info{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  height: 75rpx;
+  padding-bottom: 25rpx;
+  border-bottom: 1rpx solid #ccc;
+}
+
+.user-info .avatar{
+  width: 75rpx;
+  height: 75rpx;
+}
+
+.user-info .avatar image{
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+
+.user-info .user-status{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #454545;
+  margin-left: 20rpx;
+}
+
+.user-status > view:last-child{
+  font-size: 25rpx;
+  font-weight: 500;
+  color: #999999;
+}
+/********************************************************/
+.content{
+  padding-top: 25rpx;
+  width: 100%;
+  border-bottom: 1rpx solid #ccc;
+}
+
+.content-item{
+  display: flex;
+  flex-direction: row;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  margin-bottom: 25rpx;
+}
+
+.content-item-title{
+  color: #999999;
+  width: 130rpx;
+}
+
+.content-item-info{
+  color: #454545;
+  flex: 1;
+  margin-left: 30rpx;
+}
+
+.content-item-info text{
+  color: blue;
+}
+
+/*****************************************************/
+.history{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #454545;
+  font-size: 35rpx;
+  line-height: 35rpx;
+  padding: 25rpx 0;
+  font-weight: 500;
+}
+
+.history .arrow{
+  color: #333333;
+}
