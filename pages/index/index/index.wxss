@@ -1,90 +1,51 @@
-Page{
-  background-color: #fff;
-}
-
-.container{
-  padding: 60rpx 30rpx 50rpx;
-}
-/***************************************************/
-.user-info{
+/**index.wxss**/
+.section{
   width: 100%;
+}
+.searchBar{
   display: flex;
-  flex-direction: row;
-  height: 75rpx;
-  padding-bottom: 25rpx;
-  border-bottom: 1rpx solid #ccc;
+  justify-content: center;
+  height: 100rpx;
+  background: #b8b8b8;
+}
+.searchBar .searBar-box{
+  display: inline-block;
+  width: 710rpx;
+  height: 64rpx;
+  margin-top: 26rpx;
+  background: #ccc;
+}
+.searchBar .searBar-box input{
+  height: 64rpx;
+  padding-left:60rpx;
+  font-size:28rpx;
+}
+.searBar-box.tap{
+  background: rgba(255,247,231,.9);
+}
+.search-plac{
+  text-align: left;
+  font-size: 11pt;
+
+  margin-top: 4rpx;
+  color: #fff;
+  background: #ccc;
+  font-size: 28rpx;
+}
+.searBar-box .search-icon{
+  position: absolute;
+  left: 45rpx;
+  top: 45rpx;
+  width: 30rpx;
+  height: 30rpx;
+  z-index: 1000;
 }
 
-.user-info .avatar{
-  width: 75rpx;
-  height: 75rpx;
-}
-
-.user-info .avatar image{
+.section-swiper .slide{
   width: 100%;
-  height: 100%;
-  border-radius: 100%;
+  height: 380rpx;
 }
-
-.user-info .user-status{
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  font-size: 30rpx;
-  font-weight: 700;
-  color: #454545;
-  margin-left: 20rpx;
-}
-
-.user-status > view:last-child{
-  font-size: 25rpx;
-  font-weight: 500;
-  color: #999999;
-}
-/********************************************************/
-.content{
-  padding-top: 25rpx;
+.section-swiper .slide-image{
   width: 100%;
-  border-bottom: 1rpx solid #ccc;
-}
-
-.content-item{
-  display: flex;
-  flex-direction: row;
-  font-size: 30rpx;
-  line-height: 30rpx;
-  margin-bottom: 25rpx;
-}
-
-.content-item-title{
-  color: #999999;
-  width: 130rpx;
-}
-
-.content-item-info{
-  color: #454545;
-  flex: 1;
-  margin-left: 30rpx;
-}
-
-.content-item-info text{
-  color: blue;
-}
-
-/*****************************************************/
-.history{
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  color: #454545;
-  font-size: 35rpx;
-  line-height: 35rpx;
-  padding: 25rpx 0;
-  font-weight: 500;
-}
-
-.history .arrow{
-  color: #333333;
+  display: block;
 }

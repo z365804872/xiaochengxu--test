@@ -6,5 +6,9 @@ export default {
   'shoesDetail': {
     title: '首页鞋子详情',
     path: '/shoesDetail'
+  },
+  'newHome': {
+    title: '首页banner',
+    path: '/home/newHome'
   }
 }
