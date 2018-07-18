@@ -6,4 +6,18 @@
 
     <button open-type="openSetting">打开授权设置页</button>
     <button bindtap="test">button</button>
+
+    <button open-type="openSetting">openSetting</button>
+    <button open-type="getPhoneNumber"
+            bindgetphonenumber="getPhoneNumber">getPhoneNumber</button>
+
+
+    <!--<open-data type="groupName" lang="zh_CN"></open-data>-->
+    <!--<open-data type="userNickName" lang="zh_CN"></open-data>-->
+    <!--<open-data type="userGender" lang="zh_CN"></open-data>-->
+    <!--<open-data type="userCity" lang="zh_CN"></open-data>-->
+    <!--<open-data type="userCountry" lang="zh_CN"></open-data>-->
+    <!--<open-data type="userLanguage" lang="zh_CN"></open-data>-->
+    <!--<open-data type="userAvatarUrl"></open-data>-->
 </view>
+<nav-tab tabName="index"></nav-tab>

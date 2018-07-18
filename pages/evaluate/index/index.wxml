@@ -1,2 +1,3 @@
 <!--pages/evaluate/index/index.wxml-->
 <text>鉴定</text>
+<nav-tab tabName="evaluate"></nav-tab>

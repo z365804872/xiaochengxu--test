@@ -1,9 +1,9 @@
-import {devConfig, productionConfig} from '../config/config';
+import config from '../config/config';
 import apiObj from '../api/api';
 
 export default function (globalData) {
-  let {userInfo, isDev} = globalData;
-  let config = isDev ? devConfig : productionConfig;
+  let {userInfo} = globalData;
+  let isDev = wx.isDev;
 
   /***
    * 去除两端空格
@@ -64,7 +64,7 @@ export default function (globalData) {
         title: `接口${apiKey}调用方法不正确`
       })
     }
-    if(method.toUpperCase() === 'POST' && userInfo !== null){
+    if (method.toUpperCase() === 'POST' && userInfo !== null) {
       postData.uid = userInfo.uid
     }
 

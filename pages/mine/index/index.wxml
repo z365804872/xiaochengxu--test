@@ -1,2 +1,3 @@
 <!--pages/mine/index/index.wxml-->
 <text>我的</text>
+<nav-tab tabName="mine"></nav-tab>

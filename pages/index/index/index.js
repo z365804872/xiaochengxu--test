@@ -12,27 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // wx.authorize({
-    //   scope: 'scope.userInfo'
-    // }).then(res => {
-    //   console.log(res)
-    // })
 
-    wx.showLoading({
-      title: '加载中...',
-      mask: true
-    })
-
-    wx.getSetting().then(res => {
-      console.log(res)
-      if(res.authSetting && res.authSetting['scope.userInfo']){
-        wx.authorize({
-          scope: 'scope.userInfo'
-        }).then(res => {
-          console.log(res)
-        })
-      }
-    })
   },
 
   /**
@@ -82,13 +62,6 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-
-  getUserInfo(e){
-    console.log(e)
-  },
-
-  test(){
-    console.log('------')
   }
+
 })
