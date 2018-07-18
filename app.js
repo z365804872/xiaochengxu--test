@@ -10,8 +10,9 @@ App({
     let that = this;
     //初始化方法
     // login().then((userInfo) => {
-    //   that.globalData.userInfo = userInfo;
-    //   init(that.globalData)
+    //临时变更为了接口可以调用
+      that.globalData.userInfo = {} || userInfo;
+      init(that.globalData)
     // })
 
   },
