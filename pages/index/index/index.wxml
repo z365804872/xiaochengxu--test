@@ -21,3 +21,5 @@
 	</view><!-- end-section section-swiper -->
 </view>
 
+
+<nav-tab tabName="index"></nav-tab>

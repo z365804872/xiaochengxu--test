@@ -83,13 +83,6 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-
-  getUserInfo(e){
-    console.log(e)
-  },
-
-  test(){
-    console.log('------')
   }
+
 })

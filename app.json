@@ -9,27 +9,5 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "SNCN",
     "navigationBarTextStyle":"black"
-  },
-  "tabBar": {
-    "list": [
-      {
-        "pagePath": "pages/index/index/index",
-        "text": "首页",
-        "iconPath": "./images/index.png",
-        "selectedIconPath": "./images/index1.png"
-      },
-      {
-        "pagePath": "pages/evaluate/index/index",
-        "text": "鉴定",
-        "iconPath": "./images/evaluate.png",
-        "selectedIconPath": "./images/evaluate1.png"
-      },
-      {
-        "pagePath": "pages/mine/index/index",
-        "text": "我的",
-        "iconPath": "./images/mine.png",
-        "selectedIconPath": "./images/mine1.png"
-      }
-    ]
   }
 }

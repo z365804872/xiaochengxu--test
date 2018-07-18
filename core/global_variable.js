@@ -1,0 +1,1 @@
+wx.isDev = true

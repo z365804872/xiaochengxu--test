@@ -1,3 +1,4 @@
+const uid = true
 export default {
   'hotShoes': {
     title: '首页热门商品',
@@ -10,5 +11,9 @@ export default {
   'newHome': {
     title: '首页banner',
     path: '/home/newHome'
+  },
+  'loginMember': {
+    title: '第三方登陆',
+    path: '/loginMember'
   }
 }
