@@ -2,7 +2,9 @@
   "pages":[
     "pages/index/index/index",
     "pages/evaluate/index/index",
-    "pages/mine/index/index"
+    "pages/mine/index/index",
+    "pages/mine/register/index",
+    "pages/mine/password/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

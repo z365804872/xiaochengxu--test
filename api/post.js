@@ -1,4 +1,4 @@
-const uid = true
+const needUid = true
 export default {
   'hotShoes': {
     title: '首页热门商品',
@@ -15,5 +15,9 @@ export default {
   'loginMember': {
     title: '第三方登陆',
     path: '/loginMember'
+  },
+  'wxsns': {
+    title: '微信用户小程序授权',
+    path: '/wxsns'
   }
 }
