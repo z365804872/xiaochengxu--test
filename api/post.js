@@ -1,4 +1,4 @@
-const needUid = true
+const uid = true
 export default {
   'hotShoes': {
     title: '首页热门商品',
