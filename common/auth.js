@@ -11,65 +11,28 @@ class Auth {
    * 获取code
    * ***/
   getLoginCode() {
-    return wx.login().catch(err => {
-      console.error('wx.login fail')
-      return Promise.reject('wx.login fail')
-    })
+    return wx.login()
+      .then(res => {
+        if (res.errMsg === "login:ok") return res.code
+      })
+      .catch(err => {
+        return Promise.reject('wx.login fail')
+      })
   }
 
   /***
    * 根据code换取openId
    * ***/
-  getOpenId(code) {
-    return new Promise((resolve, reject) => {
-      wx.request({
-        url: `${config.host}${config.prefix}${api.loginMember}`,
-        method: 'POST',
-        data: {code},
-        success: suc => {
-          wx.setStorageSync(OPEN_ID, suc)
-          resolve(suc)
-        },
-        fail: err => reject(err)
-      })
+  getOpenId(resCode) {
+    return wx.post({
+      api: 'wxsns',
+      data: {resCode},
+      needLoading: false
+    }).then(suc => {
+      let openid = suc.openid
+      if (openid) wx.setStorageSync(OPEN_ID, openid)
+      return !!openid ? openid : Promise.reject(false)
     })
-  }
-
-  /***
-   * 用户允许授权，获取用户信息，执行登陆操作
-   * ***/
-  doLogin(data) {
-    let openId = wx.getStorageSync(OPEN_ID)
-
-    let openIdPromise
-    if(!!openId){
-      openIdPromise = Promise.resolve(openId)
-    }else{
-      openIdPromise = this.getLoginCode().then(loginCode => this.getOpenId(loginCode))
-    }
-
-    return openIdPromise.then(openId => {
-      let postData = {}
-      postData.headPhoto = data.avatarUrl
-      postData.nickName = data.nickName
-      postData.clientId = data.clientId
-      postData.sex = data.gender
-      postData.openId = openId
-
-      return new Promise((resolve, reject) => {
-        wx.request({
-          url: `${config.host}${config.prefix}${api.loginMember}`,
-          method: 'POST',
-          data: postData,
-          success: suc => {
-            wx.setStorageSync(WX_USER_INFO, suc)
-            resolve(suc)
-          },
-          fail: err => reject(err)
-        })
-      })
-    })
-
   }
 
   /***
@@ -77,59 +40,134 @@ class Auth {
    * ***/
   checkLogin() {
     return this.getAppGlobalData().then(globalData => {
-      return !!globalData.uid ? Promise.resolve() : Promise.reject()
+      return !!globalData.uid ? Promise.resolve(true) : Promise.reject(false)
     })
   }
 
   /***
-   * 校验是否授权
+   * 页面校验是否授权
+   * ****/
+  checkAuthorizeVerified() {
+    return wx.getSetting().then(res => {
+      if (res.authSetting && res.authSetting['scope.userInfo']) return true
+      return Promise.reject(false)
+    })
+  }
+
+  /***
+   * 按钮授权
    * **/
   authorizedVerify(e) {
-    let wx_user_info = wx.getStorageSync(WX_USER_INFO)
     let that = this
+    if (!!e && e.type === "getuserinfo" && !!e.detail.userInfo) {
+      wx.showLoading({title: '授权中'})
+      wx.setStorageSync(WX_USER_INFO, e.detail.userInfo)
 
-    return new Promise((resolve, reject) => {
-      if (!!wx_user_info) {
-        resolve(true)
-      } else {
-        if(!!e && e.type === "getuserinfo" && !!e.detail.userInfo){
-          wx.showLoading({title: '授权中'})
-          wx.setStorageSync(WX_USER_INFO, e.detail.userInfo)
+      //根据用户信息，发起登陆请求
+      return that.login().then(res => {
+        return true
+      }).finally(() => {
+        wx.hideLoading()
+      })
+    } else {
+      return Promise.reject(false)
+    }
 
-          //根据用户信息，发起登陆请求
-          that.doLogin().then(res => {
-            wx.hideLoading()
-            resolve(true)
-          })
-        }else{
-          reject(false)
-        }
-      }
-    })
   }
 
   /***
    * 登陆
    * ***/
-  login() {
-    this.getLoginCode()
-      .then(loginCode => this.getOpenId(loginCode))
-      .then(openId => this.authorizedVerify())
-      .then(res => res && this.doLogin())
-      .then()
+  login(userInfo) {
+    let that = this
+    userInfo = userInfo || wx.getStorageSync(WX_USER_INFO)
+
+    if (!!userInfo) {
+      return that.loginWithUserInfo(userInfo)
+    }
+    //校验是否授权
+    return that.checkAuthorizeVerified().then(()=>{
+      if (wx.canIUse && wx.canIUse('getUserInfo')) {
+        return wx.getUserInfo().then(res => {
+          wx.setStorageSync(WX_USER_INFO, res.userInfo)
+          that.loginWithUserInfo(res.userInfo)
+        })
+      }
+    })
+
+    //本地调试用
+    if (wx.isDev) wx.showModal({content: '用户没有授权'});
   }
+
+  /***
+   * 用户允许授权，获取用户信息，执行登陆操作
+   * ***/
+  loginWithUserInfo(userInfo) {
+    let that = this
+    let openId = wx.getStorageSync(OPEN_ID)
+
+    let openIdPromise
+    if (!!openId) {
+      openIdPromise = Promise.resolve(openId)
+    } else {
+      openIdPromise = this.getLoginCode().then(loginCode => this.getOpenId(loginCode))
+    }
+
+    return openIdPromise.then(openId => {
+      let postData = {}
+      postData.headPhoto = userInfo.avatarUrl
+      postData.nickName = userInfo.nickName
+      postData.sex = userInfo.gender
+      postData.openId = openId
+
+      return wx.post({api: 'loginMember', data: postData})
+        .then(suc => {
+          that.handleLoginResult(suc)
+          return suc.success === 0 ? true : Promise.reject(false)
+        })
+    })
+
+  }
+
+  /***
+   * 处理第三方登陆返回结果
+   * 0登录成功,1验证手机号,2.需要设置登录密码
+   * ***/
+  handleLoginResult(suc) {
+    let app = getApp()
+    let pages = getCurrentPages()
+    let currentPageRoute = pages[pages.length-1].route
+    switch (suc.success) {
+      case 0:
+        app.globalData.uid = suc.uid
+        app.globalData.userInfo = suc
+        wx.setStorageSync(USER_INFO, suc)
+        break;
+      case 1:
+        wx.redirectTo({
+          url: `/pages/mine/register/index?url=${encodeURIComponent(currentPageRoute)}`
+        })
+        break;
+      case 2:
+        wx.redirectTo({
+          url: `/pages/mine/password/index?url=${encodeURIComponent(currentPageRoute)}`
+        })
+        break;
+    }
+  }
+
 
   /***
    * 页面初始化，获取openId
    * ***/
-  init(){
+  init() {
     this.getLoginCode().then(loginCode => this.getOpenId(loginCode))
   }
 
   /***
    * 获取小程序对象
    * ***/
-  getAppGlobalData(){
+  getAppGlobalData() {
     let app = getApp()
     let globalData = app.globalData
     return Promise.resolve(globalData)
