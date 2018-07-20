@@ -31,7 +31,7 @@ class Auth {
     }).then(suc => {
       let openid = suc.openid
       if (openid) wx.setStorageSync(OPEN_ID, openid)
-      return !!openid ? openid : Promise.reject(false)
+      return !!openid ? openid : Promise.reject('get openId failed')
     })
   }
 
@@ -90,7 +90,7 @@ class Auth {
       if (wx.canIUse && wx.canIUse('getUserInfo')) {
         return wx.getUserInfo().then(res => {
           wx.setStorageSync(WX_USER_INFO, res.userInfo)
-          that.loginWithUserInfo(res.userInfo)
+          return that.loginWithUserInfo(res.userInfo)
         })
       }
     })
