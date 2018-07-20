@@ -1,10 +1,18 @@
+@import "./styles/global.wxss";
+@import './styles/iconfont.wxss';
+/*****************global***************/
 Page{
   font-family: PingFangSC-Regular;
   background-color: #ffffff;
-  padding: 0 30rpx;
   font-size: 28rpx;
+  letter-spacing: 0;
+  word-break: break-all;
 }
 
-.container {
-  width: 100%;
-} 
+.layout{
+  padding: 0 30rpx;
+}
+
+.match-iphone-x{
+  padding-bottom: 56rpx;
+}
