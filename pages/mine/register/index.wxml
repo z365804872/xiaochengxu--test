@@ -5,11 +5,11 @@
     </view>
     <form>
         <view class="phone">
-            <text class="icon iconfont icon-kafeiting"></text>
+            <text class="iconfont icon-shoujihao1"></text>
             <input type="text" placeholder-class="input-placeholder" placeholder="请填写手机号"/>
         </view>
         <view class="password">
-            <text class="icon iconfont icon-kafeiting"></text>
+            <text class="iconfont icon-yanzhengma"></text>
             <input type="text" placeholder-class="input-placeholder" placeholder="请填写短信验证码"/>
             <button class="btn btn-sms">发送</button>
         </view>

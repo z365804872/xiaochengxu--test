@@ -7,6 +7,7 @@ Page{
   font-size: 28rpx;
   letter-spacing: 0;
   word-break: break-all;
+  color: #000000;
 }
 
 .layout{
