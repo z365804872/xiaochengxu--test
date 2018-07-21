@@ -1,0 +1,28 @@
+/* pages/mine/preference/index.wxss */
+
+scroll-view{
+    height: 140rpx;
+}
+
+scroll-view view{
+    display: inline-block;
+    width: 140rpx;
+    height: 140rpx;
+    background-color: #FAFAFA;
+    color: #000000;
+    opacity: 0.5;
+    font-size: 44rpx;
+    line-height: 140rpx;
+    text-align: center;
+    margin-left: 10rpx;
+}
+
+scroll-view view:first-child{
+    margin-left: 0;
+}
+
+.icon-jiaobiao{
+    transform: rotate(90deg);
+    transform-origin: center;
+}
+

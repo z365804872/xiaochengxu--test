@@ -191,6 +191,10 @@
     padding-left: 32rpx;
 }
 
+.padding-tb-60{
+    padding: 60rpx 0;
+}
+
 
 /**********************margin******************************************************/
 .margin-lr30{
@@ -211,6 +215,14 @@
 
 .margin-l16{
     margin-left: 16rpx;
+}
+
+.margin-l12{
+    margin-left: 12rpx;
+}
+
+.margin-t60{
+    margin-top: 60rpx;
 }
 
 .margin-t40{
@@ -243,6 +255,10 @@
     margin-top: 8rpx;
 }
 
+.margin-r18{
+    margin-right: 18rpx;
+}
+
 /**********************width*******************************************************/
 .width100{
   width: 100%;
@@ -250,6 +266,10 @@
 
 .width-240{
     width: 240rpx;
+}
+
+.width-140{
+    width: 140rpx;
 }
 
 
@@ -268,6 +288,10 @@
 
 .height-160{
     height: 160rpx;
+}
+
+.height-140{
+    height: 140rpx;
 }
 
 .height-124{

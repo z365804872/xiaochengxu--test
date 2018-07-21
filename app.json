@@ -8,7 +8,8 @@
     "pages/mine/account/index",
     "pages/mine/trade_list/index",
     "pages/mine/coupon/index",
-    "pages/mine/coupon_exchange/index"
+    "pages/mine/coupon_exchange/index",
+    "pages/mine/preference/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
