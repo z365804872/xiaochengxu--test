@@ -187,6 +187,10 @@
   padding: 0 50rpx;
 }
 
+.padding-lr4{
+    padding: 0 4rpx;
+}
+
 .padding-l32{
     padding-left: 32rpx;
 }
@@ -203,6 +207,10 @@
 
 .margin-l64{
     margin-left: 64rpx;
+}
+
+.margin-l30{
+    margin-left: 30rpx;
 }
 
 .margin-l24{
@@ -272,15 +280,24 @@
     width: 140rpx;
 }
 
+.width-120{
+    width: 120rpx;
+}
 
 /**********************height******************************************************/
 .height100{
   height: 100%;
 }
 
+
+.height-220{
+    height: 220rpx;
+}
+
 .height-216{
     height: 216rpx;
 }
+
 
 .height-164{
     height: 164rpx;
@@ -313,6 +330,9 @@
     height: 80rpx;
 }
 
+.height-30{
+    height: 30rpx;
+}
 
 
 
@@ -343,13 +363,17 @@
   background-color: #f7f7f7;
 }
 
-.bgc-red{
+.bgc-red, .bgc-ff4{
     background-color: #FF484A;
 }
 
-/*.bgc-pink{*/
-    /*background-color: #FF484A;*/
-/*}*/
+.bgc-000{
+    background-color: #000000;
+}
+
+.bgc-d1c{
+    background-color: #D1CFD1;
+}
 
 /**********************button******************************************************/
 button{
@@ -496,7 +520,9 @@ button::after{
 .lheight-40{
     line-height: 40rpx;
 }
-
+.lheight-30{
+    line-height: 30rpx;
+}
 
 .lheight-33{
      line-height: 33rpx;

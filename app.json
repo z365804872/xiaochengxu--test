@@ -9,7 +9,8 @@
     "pages/mine/trade_list/index",
     "pages/mine/coupon/index",
     "pages/mine/coupon_exchange/index",
-    "pages/mine/preference/index"
+    "pages/mine/preference/index",
+    "pages/mine/address/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
