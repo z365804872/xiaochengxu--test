@@ -10,7 +10,7 @@
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#f9f9f9",
     "navigationBarTitleText": "SNCN",
     "navigationBarTextStyle":"black",
     "enablePullDownRefresh": true
