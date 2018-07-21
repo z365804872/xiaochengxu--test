@@ -19,5 +19,9 @@ export default {
   'wxsns': {
     title: '微信用户小程序授权',
     path: '/wxsns'
+  },
+  "shoesSort": {
+    title: '鞋子',
+    path: '/shoesSort'   
   }
 }

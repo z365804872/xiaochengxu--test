@@ -12,6 +12,9 @@ Page({
     circular: true,
     indexSlides:[],
     brandHome: [],
+    listData:[],
+    page: 1,
+    listFlag: true
   },
 
   /**
@@ -40,9 +43,15 @@ Page({
         brandHome: res.brandHome
       })
     })
-    // wx.post({api:'shoesSort', data:{}}).then(res => {
-    //   console.log(res)
-    // })
+    wx.post({api:'shoesSort', data:{}}).then(res => {
+      console.log(res)
+    })
+    wx.post({api:'hotShoes', data:{pageNum:this.data.page,pageSize:10}}).then(res => {
+      console.log(res)
+      this.setData({
+        listData: res
+      })
+    })
   },
 
   /**
@@ -84,7 +93,29 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
+    if(!this.data.listFlag) {
+      wx.showToast({
+        title: '没有更多商品~'
+      })
+      return false
+    }
+    
+
+    this.setData({
+      page: this.data.page + 1
+    })
+    wx.post({api:'hotShoes', data:{pageNum:this.data.page,pageSize:10}, needLoading:false}).then(res => {
+      console.log(res)
+      if(res.length == 0){
+        this.setData({
+          listFlag: false
+        })
+      }
+      this.setData({
+        listData: [...this.data.listData,...res]
+      })
+    })
   },
 
   /**
