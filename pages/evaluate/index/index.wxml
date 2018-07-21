@@ -1,3 +1,5 @@
 <!--pages/evaluate/index/index.wxml-->
-<text>鉴定</text>
+<scroll-view scroll-y class="container">
+    
+</scroll-view>
 <nav-tab tabName="evaluate"></nav-tab>

@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container">
+<scroll-view scroll-y class="container">
 	<!-- 顶部搜索栏 -->
 	<view class="section searchBar">
 		<view class="section searBar-box {{isTap?'tap':''}}">
@@ -26,25 +26,60 @@
 	<view class="section navBar">
 		<view class="section nav-list" wx:for="{{brandHome}}" wx:key="index">
 			<navigator url="{{item.nav_urls}}" hover-class="none">
-				<view class="nav-item">
-					<image src="{{item.photo}}" class="item-img" />
+				<view class="nav-item" style="background:url('{{item.photo}}'); background-size:80rpx 80rpx;background-repeat:no-repeat;background-position:68rpx 10rpx;">
 					<text class="item-text">{{item.brandName}}</text>
 				</view>
 			</navigator>
 		</view>
-		<view class="section nav-list">
+		<view class="section nav-list-more">
 			<navigator url="" hover-class="none">
-				<view class="nav-item">
-					<image src="{{item.photo}}" class="item-img" />
-					<text class="item-text">{{item.brandName}}</text>
+				<view class="nav-item-more" style="background:url('../../../images/more.png'); background-size:41rpx 28rpx;background-repeat:no-repeat;background-position:30rpx 48rpx;">
+					<text class="item-text"></text>
 				</view>
 			</navigator>
 		</view>
 	</view><!-- end-section navBar -->
 
+	<!-- 活动入口 -->
+	<view class="index-enter">
+		<navigator url="" hover-class="none">
+			<view  class="index-enter-left">
+				<text class="enter-text-left">SNCN活动</text> 
+			</view>
+		</navigator>
+		<navigator url="" hover-class="none">
+			<view  class="index-enter-right">
+				<text class="enter-text-right">球鞋鉴定</text> 
+			</view>
+		</navigator>
+	</view>
 
+	<!-- 商品列表 -->
+	<view  class="index-list">
+		<view class = "list-title">
+			<text  class="list-text-c">推荐商品</text>
+			<text  class="list-text-e">Recommend</text>
+		</view>
 
-</view>
+		<view class = "list-content">
+			<view  class = "list-content-list" wx:for="{{listData}}"  wx:key="{{index}}">
+				<view class = "list-item-image"  style="background:url('{{item.photo}}');background-size:346rpx 186rpx;background-repeat:no-repeat;">
+				</view>
+				<view class = "list-item-name">
+					{{item.shoesName}} 
+				</view>
+				<view class = "list-item-price">
+					￥{{item.referencePrice}}
+				</view>
+				<view class = "list-sale-qiugou">
+					<text class = "list-sale">出售 {{item.sellTotal}}|</text><text class = "list-qiugou">求购 {{item.wantBuyTotal}}</text>
+				</view>
+			</view>
+		</view>
+
+	</view>
+
+</scroll-view>
 
 
 <nav-tab tabName="index"></nav-tab>
