@@ -1,9 +1,19 @@
+@import "./styles/global.wxss";
+@import './styles/iconfont.wxss';
+/*****************global***************/
 Page{
   font-family: PingFangSC-Regular;
   background-color: #ffffff;
   font-size: 28rpx;
+  letter-spacing: 0;
+  word-break: break-all;
+  color: #000000;
 }
 
-.container {
-  width: 100%;
-} 
+.layout{
+  padding: 0 30rpx;
+}
+
+.match-iphone-x{
+  padding-bottom: 56rpx;
+}

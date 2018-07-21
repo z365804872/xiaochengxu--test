@@ -1,0 +1,73 @@
+/* pages/mine/register/index.wxss */
+.container{
+  padding: 0 50rpx;
+}
+
+.logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 402rpx;
+}
+
+.logo image{
+  display: block;
+  width: 267rpx;
+  height: 80rpx;
+}
+
+.phone,.password{
+  border: 2rpx solid #C0CCDA;
+  height: 120rpx;
+  background-color: rgba(255,255,255,0.20);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.phone>text:first-child, .password>text:first-child{
+  font-size: 40rpx;
+  margin: 0 30rpx;
+  color: #333333;
+}
+
+.phone>input,.password>input{
+  flex:1;
+  font-size: 36rpx;
+}
+
+.phone{
+  border-radius:4rpx 4rpx 0 0;
+  border-bottom: 0;
+}
+
+.password{
+  border-radius:0 0 4rpx 4rpx;
+}
+
+.btn{
+  background-color: #5DBCFF;
+  border-radius: 4rpx;
+  color: #ffffff;
+  font-size: 32rpx;
+  font-family: PingFangSC-Semibold;
+}
+
+.btn-submit{
+  margin-top: 40rpx;
+  font-size: 44rpx;
+  line-height: 100rpx;
+}
+
+.btn-sms{
+  margin-right: 30rpx;
+  padding: 0rpx 9rpx;
+  min-width: 160rpx;
+  line-height: 80rpx;
+}
+
+.send-sms{
+  color: #A5AAB4;
+  background-color: #FAFAFA;
+  font-family: PingFangSC-Regular;
+}

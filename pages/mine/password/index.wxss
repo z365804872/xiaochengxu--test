@@ -1,0 +1,37 @@
+/* pages/mine/password/index.wxss */
+@import "../register/index.wxss";
+
+.agreement{
+    margin-top: 40rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+}
+
+.agreement .checkbox checkbox{
+    width: 40rpx;
+    line-height: 40rpx;
+    margin-right: 20rpx;
+}
+
+.agreement .checkbox>text{
+    color: #47C99D;
+    vertical-align: middle;
+}
+
+.password .icon{
+    font-size: 40rpx;
+}
+
+.password .icon-xianshi{
+    margin-right: 30rpx;
+}
+
+.btn-submit{
+    margin-top: 158rpx;
+}
+
+.password{
+    background: rgba(255,255,255,0.20);
+    border: 2rpx solid #C0CCDA;
+    border-radius: 4rpx;
+}
