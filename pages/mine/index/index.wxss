@@ -1,1 +1,44 @@
 /* pages/mine/index/index.wxss */
+page{
+    background-color: #f7f7f7;
+}
+
+.container>view{
+    padding:0 30rpx;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.container .iconfont{
+    color: #082359;
+    font-size: 40rpx;
+}
+
+.container .icon-jiaobiao{
+    font-size: 15rpx;
+    color: #000000;
+}
+
+.my-avatar{
+    height: 290rpx;
+}
+
+.my-avatar .avatar{
+    width: 112rpx;
+    height: 112rpx;
+}
+
+.my-avatar .iconfont{
+    font-size: 30rpx;
+    color: #FF4081;
+    margin-left: 10rpx;
+}
+
+.my-order{
+    height: 116rpx;
+}
+
+.phone-num .icon-shoujihao{
+    font-size: 43rpx;
+}

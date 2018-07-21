@@ -40,9 +40,9 @@ Page({
         brandHome: res.brandHome
       })
     })
-    wx.post({api:'shoesSort', data:{}}).then(res => {
-      console.log(res)
-    })
+    // wx.post({api:'shoesSort', data:{}}).then(res => {
+    //   console.log(res)
+    // })
   },
 
   /**
