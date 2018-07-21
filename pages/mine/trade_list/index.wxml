@@ -1,0 +1,43 @@
+<!--pages/mine/trade_list/index.wxml-->
+<view class="padding-lr30">
+    <view class="flex-column-center height-216 border-b2">
+        <view class="flex-row-between">
+            <view class="font-regular font-28 lheight-40 ">支出</view>
+            <view class="font-semibold font-32">-￥2000.00</view>
+        </view>
+        <view class="flex-row-between margin-t16">
+            <view class="font-light font-24 lheight-33">购买商品</view>
+            <view class="font-light font-24 opacity5">2017/9/12 12:22</view>
+        </view>
+    </view>
+    <view class="flex-column-center height-216 border-b2">
+        <view class="flex-row-between">
+            <view class="font-regular font-28 lheight-40 ">支出</view>
+            <view class="font-semibold font-32">-￥2000.00</view>
+        </view>
+        <view class="flex-row-between margin-t16">
+            <view class="font-light font-24 lheight-33">购买商品</view>
+            <view class="font-light font-24 opacity5">2017/9/12 12:22</view>
+        </view>
+    </view>
+    <view class="flex-column-center height-216 border-b2">
+        <view class="flex-row-between">
+            <view class="font-regular font-28 lheight-40 ">支出</view>
+            <view class="font-semibold font-32">-￥2000.00</view>
+        </view>
+        <view class="flex-row-between margin-t16">
+            <view class="font-light font-24 lheight-33">购买商品</view>
+            <view class="font-light font-24 opacity5">2017/9/12 12:22</view>
+        </view>
+    </view>
+    <view class="flex-column-center height-216 border-b2">
+        <view class="flex-row-between">
+            <view class="font-regular font-28 lheight-40 ">支出</view>
+            <view class="font-semibold font-32">-￥2000.00</view>
+        </view>
+        <view class="flex-row-between margin-t16">
+            <view class="font-light font-24 lheight-33">购买商品</view>
+            <view class="font-light font-24 opacity5">2017/9/12 12:22</view>
+        </view>
+    </view>
+</view>
