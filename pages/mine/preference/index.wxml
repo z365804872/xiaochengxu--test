@@ -1,6 +1,6 @@
 <!--pages/mine/preference/index.wxml-->
 <view class="padding-lr30">
-    <view class="padding-tb-60 font-regular font-32 lheight-45 color-000">
+    <view class="padding-tb60 font-regular font-32 lheight-45 color-000">
         您常穿的尺码是多少
     </view>
     <scroll-view scroll-x="true" style="display: flex; height: 140rpx; white-space: nowrap">

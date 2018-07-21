@@ -1,0 +1,37 @@
+<!--pages/mine/add_address/index.wxml-->
+<view class="padding-lr30">
+    <view class="height-160 border-b2 flex-center">
+        <input type="text"
+               maxlength="20"
+               class="flex1 font-36"
+               placeholder-class="placeholder"
+               placeholder="姓名" />
+    </view>
+    <view class="height-160 border-b2 flex-center">
+        <input type="number"
+               maxlength="11"
+               class="flex1 font-36"
+               placeholder-class="placeholder"
+               placeholder="手机号码" />
+    </view>
+    <view class="height-160 border-b2 flex-row-start flex-row_center font-30 color-000 opacity5">
+        <!--<input type="text"-->
+               <!--class="flex1 font-36"-->
+               <!--placeholder-class="placeholder"-->
+               <!--placeholder="省、市、区" />-->
+        <view>省、市、区</view>
+    </view>
+    <view class="height-160 border-b2 flex-center">
+        <input type="text"
+               maxlength="60"
+               class="flex1 font-36"
+               placeholder-class="placeholder"
+               placeholder="地址（街道、小区、门牌号）" />
+    </view>
+    <view class="height-160 border-b2 flex-row-between flex-row_center color-000 font-regular font-32">
+        <view>设为默认收货地址</view>
+        <view><switch></switch></view>
+    </view>
+</view>
+
+<button class="height-120 flex-center pos-fixed bottom0 bgc-fff width100 font-semibold font-32 color-333 save-btn">保存</button>

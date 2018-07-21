@@ -10,7 +10,8 @@
     "pages/mine/coupon/index",
     "pages/mine/coupon_exchange/index",
     "pages/mine/preference/index",
-    "pages/mine/address/index"
+    "pages/mine/address/index",
+    "pages/mine/add_address/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

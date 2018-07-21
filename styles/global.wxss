@@ -195,7 +195,7 @@
     padding-left: 32rpx;
 }
 
-.padding-tb-60{
+.padding-tb60{
     padding: 60rpx 0;
 }
 
@@ -662,12 +662,12 @@ button::after{
     border-radius: 8rpx;
 }
 
-.border-radius-tlr-4, .bdra-tlr-4{
+.border-radius-tlr-4, .bdra-tlr-4 , .bdra-tlr4{
   border-top-left-radius: 4rpx;
   border-top-right-radius: 4rpx;
 }
 
-.border-radius-blr-4, .bdra-blr-4{
+.border-radius-blr-4, .bdra-blr-4, .bgra-blr4{
   border-bottom-left-radius: 4rpx;
   border-bottom-right-radius: 4rpx;
 }

@@ -1,0 +1,16 @@
+/* pages/mine/add_address/index.wxss */
+.placeholder{
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #000;
+    opacity: 0.5;
+    font-weight: 300;
+}
+
+input{
+    font-size: 30rpx;
+}
+
+.save-btn{
+    box-shadow: 0 0 8rpx 0 rgba(0,0,0,0.20);
+}
