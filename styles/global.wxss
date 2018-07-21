@@ -10,13 +10,6 @@
   justify-content: center;
 }
 
-.flex-row-center-center{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
 .flex-row-between{
   display: flex;
   flex-direction: row;
@@ -41,6 +34,32 @@
   justify-content: flex-end;
 }
 
+.flex-row-center-center{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-row_start{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.flex-row_end{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.flex-row_center{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
 .flex-column{
   display: flex;
   flex-direction: column;
@@ -50,13 +69,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.flex-column-center-center{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .flex-column-between{
@@ -81,6 +93,31 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+}
+
+.flex-column_start{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.flex-column_end{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.flex-column_center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flex-column-center-center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .flex-center{
@@ -134,21 +171,41 @@
   padding: 30rpx;
 }
 
-.padding-lr-30{
+.padding-lr30{
   padding: 0 30rpx;
 }
 
-.padding-lr-50{
+.padding-lr50{
   padding: 0 50rpx;
 }
 
 
 
 /**********************margin******************************************************/
-.margin-lr-30{
+.margin-lr30{
   margin: 0 30rpx;
 }
 
+.margin-l24{
+    margin-left: 24rpx;
+}
+
+.margin-l20{
+    margin-left: 20rpx;
+}
+
+
+.margin-t20{
+  margin-top: 20rpx;
+}
+
+.margin-t10{
+    margin-top: 8rpx;
+}
+
+.margin-t8{
+    margin-top: 8rpx;
+}
 
 /**********************width*******************************************************/
 .width100{
@@ -163,6 +220,13 @@
 
 .height-100{
   height: 100rpx;
+}
+.height-96{
+    height: 96rpx;
+}
+
+.height-80{
+    height: 80rpx;
 }
 
 
@@ -184,13 +248,17 @@
   background-color: #47C99D;
 }
 
-.bgc-white{
+.bgc-white,.bgc-fff{
   background-color: #fff;
 }
 
-.bgc-FA{
+.bgc-fa{
    background-color: #FAFAFA;
 }
+.bgc-f7{
+  background-color: #f7f7f7;
+}
+
 
 /**********************button******************************************************/
 button{
@@ -213,7 +281,37 @@ button::after{
 }
 
 
-
+/**********************opacity*****************************************************/
+.opacity0{
+  opacity: 0.6;
+}
+.opacity1{
+  opacity: 0.6;
+}
+.opacity2{
+  opacity: 0.6;
+}
+.opacity3{
+  opacity: 0.6;
+}
+.opacity4{
+  opacity: 0.6;
+}
+.opacity5{
+  opacity: 0.6;
+}
+.opacity6{
+  opacity: 0.6;
+}
+.opacity7{
+  opacity: 0.6;
+}
+.opacity8{
+  opacity: 0.6;
+}
+.opacity9{
+  opacity: 0.6;
+}
 
 /**********************font********************************************************/
 .font-light{
@@ -238,22 +336,48 @@ button::after{
 
 .font-44{
   font-size: 44rpx;
-  line-height: 44rpx;
+}
+
+.font-30{
+  font-size: 30rpx;
+}
+
+
+.font-32{
+  font-size: 32rpx;
 }
 
 .font-28{
   font-size: 28rpx;
-  line-height: 28rpx;
 }
 
 .font-24{
   font-size: 24rpx;
-  line-height: 24rpx;
+}
+
+.font-20{
+    font-size: 20rpx;
+}
+
+.font-18{
+    font-size: 18rpx;
 }
 
 .font-16{
   font-size: 16rpx;
-  line-height: 16rpx;
+}
+
+/**********************line-height*************************************************/
+.lheight-45{
+  line-height: 45rpx;
+}
+
+.lheight-33{
+     line-height: 33rpx;
+ }
+
+.lheight-28{
+    line-height: 28rpx;
 }
 
 /**********************color*******************************************************/
@@ -277,13 +401,17 @@ button::after{
   color: #000000;
 }
 
+.color-082{
+    color: #082359;
+}
+
 
 /**********************border******************************************************/
 .no-border{
   border: 0;
 }
 
-.border-1rpx::after{
+.border1::after{
   top: 0;
   position: absolute;
   display: block;
@@ -297,8 +425,24 @@ button::after{
   transform: scale(0.5, 0.5);
 }
 
+.border-r1{
+  border-right: 1rpx solid #F7F7F7;
+}
+
+.border-l1{
+  border-left: 1rpx solid #F7F7F7;
+}
+
+.border-t1{
+  border-top: 1rpx solid #F7F7F7;
+}
+
+.border-b1{
+  border-bottom: 1rpx solid #F7F7F7;
+}
+
 /**********************border-radius***********************************************/
-.border-circle{
+.border-circle, .bdra-circle{
   border-radius: 50%;
 }
 
@@ -344,7 +488,9 @@ button::after{
 
 /**********************other*******************************************************/
 
-
+.border-box{
+  box-sizing: border-box;
+}
 
 
 
