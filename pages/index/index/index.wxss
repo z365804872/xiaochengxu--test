@@ -190,9 +190,9 @@
   padding: 12rpx 20rpx;
   opacity: 0.8;
   display: -webkit-box;
--webkit-box-orient: vertical;
--webkit-line-clamp: 2;
-overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 .list-sale-qiugou{
   width: 346rpx;

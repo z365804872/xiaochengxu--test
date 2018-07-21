@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/index/index/index",
+    "pages/index/detail/index",
     "pages/evaluate/index/index",
     "pages/mine/index/index",
     "pages/mine/register/index",
