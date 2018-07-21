@@ -44,10 +44,8 @@ Page({
       })
     })
     wx.post({api:'shoesSort', data:{}}).then(res => {
-      console.log(res)
     })
     wx.post({api:'hotShoes', data:{pageNum:this.data.page,pageSize:10}}).then(res => {
-      console.log(res)
       this.setData({
         listData: res
       })

@@ -1,0 +1,89 @@
+<!--index.wxml-->
+<scroll-view scroll-y class="container">
+	    	<!-- 详情轮播图 -->
+	<view class="section section-swiper">
+		<swiper class="slide" indicator-dots="{{indicator_dots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+			<block wx:for="{{detailData.photoList}}" wx:key="{{index}}">
+				<swiper-item>
+					<navigator url="">
+						<view style="background:url('{{item}}');background-size:750rpx 400rpx;background-repeat:no-repeat;" mode="widthFix" class="slide-image" data-id="{{item.shoesId}}"></view>
+					</navigator>
+				</swiper-item>
+			</block>
+		</swiper>
+	</view><!-- end-section section-swiper -->
+	<!-- 详情信息 -->
+	<view class="detail-header">
+		<view class="detail-header-name">
+			<text class="header-name">{{detailData.shoesName}}</text>
+			<text class="header-info">{{detailData.shoesArticleNumber}} {{detailData.sellDate}}</text>
+		</view>
+		<view class="detail-header-price">
+			<view class="header-price">
+				￥{{detailData.referencePrice}}
+			</view>
+			<view class="header-priceIcon">
+				今日参考价 
+			</view>
+			<view class="header-fprice">	
+				发售价：￥{{detailData.sellMoney}}
+			</view>		
+		</view>		
+	</view>
+
+	<!-- 曲线图 -->
+	<view class="calendar">
+		
+	</view>
+
+	<!-- 尺码选择 -->
+	<view class="sizeList">
+		<view class="sizeList-title">
+			尺码选择
+		</view>	
+		<view class="sizeList-box">
+			<view  wx:for="{{detailData.sizeList}}" wx:key="{{index}}"  class="sizeList-item {{detailData.defaultSize==item.shoesSize?'size-choode':''}}" data-index="{{item.shoesSize}}" bindtap="changeSize">
+				<view class="sizeList-size">
+					{{item.shoesSize}}码
+				</view>
+				<view class="sizeList-price">
+					{{item.sellMoney}}
+				</view>
+			</view>	
+		</view>			
+	</view>
+	
+	<!-- 尺码选择 -->
+	<view class="sellList">
+		<view class="sellList-tab">
+			<view class="sellList-tab-cj">
+				成交记录
+			</view>	
+			<view class="sellList-tab-cs">
+				出售列表
+			</view>	
+			<view class="sellList-tab-qg">
+				求购列表
+			</view>	
+		</view>	
+		<view class="sellList-num">
+			成交总量 12双
+		</view>
+		<view class="sellList-box">
+			<view class="box-cj-item">
+				<view class="cj-item-size">
+					41码
+				</view>
+				<view class="cj-item-date">
+					2017/8/22
+				</view>
+				<view class="cj-item-price">
+					￥1128.00
+				</view>
+				<view class="cj-item-info">
+					成交价
+				</view>
+			</view>
+		</view>			
+	</view>
+</scroll-view>

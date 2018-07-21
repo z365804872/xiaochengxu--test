@@ -63,17 +63,19 @@
 
 		<view class = "list-content">
 			<view  class = "list-content-list" wx:for="{{listData}}"  wx:key="{{index}}">
-				<view class = "list-item-image"  style="background:url('{{item.photo}}');background-size:346rpx 186rpx;background-repeat:no-repeat;">
-				</view>
-				<view class = "list-item-name">
-					{{item.shoesName}} 
-				</view>
-				<view class = "list-item-price">
-					￥{{item.referencePrice}}
-				</view>
-				<view class = "list-sale-qiugou">
-					<text class = "list-sale">出售 {{item.sellTotal}}|</text><text class = "list-qiugou">求购 {{item.wantBuyTotal}}</text>
-				</view>
+				<navigator url="/pages/index/detail/index?shoesId={{item.shoesId}}" hover-class="none">
+					<view class = "list-item-image"  style="background:url('{{item.photo}}');background-size:346rpx 186rpx;background-repeat:no-repeat;">
+					</view>
+					<view class = "list-item-name">
+						{{item.shoesName}} 
+					</view>
+					<view class = "list-item-price">
+						￥{{item.referencePrice}}
+					</view>
+					<view class = "list-sale-qiugou">
+						<text class = "list-sale">出售 {{item.sellTotal}}|</text><text class = "list-qiugou">求购 {{item.wantBuyTotal}}</text>
+					</view>
+				</navigator>
 			</view>
 		</view>
 
