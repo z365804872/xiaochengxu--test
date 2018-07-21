@@ -1,2 +1,21 @@
 <!--pages/mine/password/index.wxml-->
-<text>pages/mine/password/index.wxml</text>
+<view class="padding-lr-50">
+    <view class="logo">
+        <image src="../../../images/register_logo.png"></image>
+    </view>
+    <form onsubmit="login">
+
+        <view class="password">
+            <text class="iconfont icon-mima"></text>
+            <input type="password" name="password" maxlength="6" placeholder-class="input-placeholder"
+                   placeholder="请填写6位数密码"/>
+            <text class="iconfont icon-xianshi"></text>
+        </view>
+        <button form-type="submit" class="btn btn-submit">登录</button>
+        <view class="agreement">
+            <label class="checkbox" bindchange="checkboxChange">
+                <checkbox name="agreement" value="test" checked="true"/>我已阅读并同意 <text>SneakerCN用户协议</text>
+            </label>
+        </view>
+    </form>
+</view>

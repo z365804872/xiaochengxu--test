@@ -62,5 +62,13 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
+
+    checkboxChange(){
+      console.log('checkboxChange')
+    },
+
+    login(e){
+      console.log(e)
+    }
 })

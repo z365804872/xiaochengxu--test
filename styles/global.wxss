@@ -188,6 +188,10 @@
   background-color: #fff;
 }
 
+.bgc-FA{
+   background-color: #FAFAFA;
+}
+
 /**********************button******************************************************/
 button{
   border-radius: 0;
