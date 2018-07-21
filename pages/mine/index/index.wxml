@@ -11,7 +11,7 @@
         </view>
     </view>
     <view class="margin-t10 flex-row bgc-fff my-order">
-        <view class="flex1 border-r1 height100 flex-column-center-center">
+        <view class="flex1 height100 flex-column-center-center">
             <text class="iconfont icon-goumaidingdan"></text>
             <view class="font-regular font-20 lheight-28 color-333 opacity6 margin-t8">购买订单</view>
         </view>
@@ -25,28 +25,28 @@
         <view class="font-18 color-000 font-light opacity5">1760***0669</view>
     </view>
     <view class='bgc-fff margin-t10 my-info'>
-        <view class="flex-row-between flex-row_center height-96 border-b1">
+        <view class="flex-row-between flex-row_center height-96 border-b2">
             <view class="flex-row-start flex-row_center">
                 <text class="iconfont icon-wodeqianbao"></text>
                 <text class="margin-l20 font-20 font-regular color-333">我的钱包</text>
             </view>
             <view><text class="iconfont icon-jiaobiao"></text></view>
         </view>
-        <view class="flex-row-between flex-row_center height-96 border-b1">
+        <view class="flex-row-between flex-row_center height-96 border-b2">
             <view class="flex-row-start flex-row_center">
                 <text class="iconfont icon-pianhaoshoucang"></text>
                 <text class="margin-l20 font-20 font-regular color-333">偏好设置</text>
             </view>
             <view><text class="iconfont icon-jiaobiao"></text></view>
         </view>
-        <view class="flex-row-between flex-row_center height-96 border-b1">
+        <view class="flex-row-between flex-row_center height-96 border-b2">
             <view class="flex-row-start flex-row_center">
                 <text class="iconfont icon-dizhi1"></text>
                 <text class="margin-l20 font-20 font-regular color-333">收货地址</text>
             </view>
             <view><text class="iconfont icon-jiaobiao"></text></view>
         </view>
-        <view class="flex-row-between flex-row_center height-96 border-b1">
+        <view class="flex-row-between flex-row_center height-96 ">
             <view class="flex-row-start flex-row_center">
                 <text class="iconfont icon-kefu"></text>
                 <text class="margin-l20 font-20 font-regular color-333">联系客服</text>

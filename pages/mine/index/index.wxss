@@ -12,7 +12,7 @@ page{
 
 .container .iconfont{
     color: #082359;
-    font-size: 40rpx;
+    font-size: 35rpx;
 }
 
 .container .icon-jiaobiao{
@@ -39,6 +39,7 @@ page{
     height: 116rpx;
 }
 
-.phone-num .icon-shoujihao{
-    font-size: 43rpx;
+.my-order>view:first-child{
+    border-right: 2rpx solid #f7f7f7;
 }
+
