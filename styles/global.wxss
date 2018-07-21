@@ -179,15 +179,26 @@
   padding: 0 30rpx;
 }
 
+.padding-lr20{
+    padding: 0 20rpx;
+}
+
 .padding-lr50{
   padding: 0 50rpx;
 }
 
+.padding-l32{
+    padding-left: 32rpx;
+}
 
 
 /**********************margin******************************************************/
 .margin-lr30{
   margin: 0 30rpx;
+}
+
+.margin-l64{
+    margin-left: 64rpx;
 }
 
 .margin-l24{
@@ -202,6 +213,9 @@
     margin-left: 16rpx;
 }
 
+.margin-t30{
+    margin-top: 30rpx;
+}
 
 .margin-t20{
   margin-top: 20rpx;
@@ -210,6 +224,11 @@
 .margin-t16{
     margin-top: 16rpx;
 }
+
+.margin-t14{
+    margin-top: 14rpx;
+}
+
 
 .margin-t10{
     margin-top: 10rpx;
@@ -222,6 +241,10 @@
 /**********************width*******************************************************/
 .width100{
   width: 100%;
+}
+
+.width-240{
+    width: 240rpx;
 }
 
 
@@ -240,6 +263,10 @@
 
 .height-160{
     height: 160rpx;
+}
+
+.height-120{
+    height: 120rpx;
 }
 
 .height-100{
@@ -283,6 +310,13 @@
   background-color: #f7f7f7;
 }
 
+.bgc-red{
+    background-color: #FF484A;
+}
+
+/*.bgc-pink{*/
+    /*background-color: #FF484A;*/
+/*}*/
 
 /**********************button******************************************************/
 button{
@@ -336,7 +370,9 @@ button::after{
 .opacity9{
   opacity: 0.6;
 }
-
+.opacity05{
+    opacity: 0.05;
+}
 /**********************font********************************************************/
 .font-light{
   font-family: PingFangSC-Light;
@@ -356,6 +392,10 @@ button::after{
 
 .font-num{
   font-family: DINAlternate-Bold;
+}
+
+.font-48{
+    font-size: 48rpx;
 }
 
 .font-44{
@@ -396,6 +436,14 @@ button::after{
 }
 
 /**********************line-height*************************************************/
+.lheight-80{
+    line-height: 80rpx;
+}
+
+.lheight-68{
+    line-height: 68rpx;
+}
+
 .lheight-62{
     line-height: 62rpx;
 }
@@ -430,7 +478,7 @@ button::after{
   color: #47C99D;
 }
 
-.color-pink{
+.color-red{
   color:  #FF484A;
 }
 
@@ -446,13 +494,21 @@ button::after{
     color: #082359;
 }
 
+.color-fff{
+    color: #ffffff;
+}
+
+.color-ff5{
+    color: #FF5B5A;
+}
+
 
 /**********************border******************************************************/
 .no-border{
   border: 0;
 }
 
-.border1::after{
+.btn-border1::after{
   top: 0;
   position: absolute;
   display: block;
@@ -467,7 +523,7 @@ button::after{
 }
 
 
-.border2::after{
+.btn-border2::after{
     top: 0;
     position: absolute;
     display: block;
@@ -480,6 +536,7 @@ button::after{
     -webkit-transform: scale(0.5, 0.5);
     transform: scale(0.5, 0.5);
 }
+
 
 .border-r1{
     border-right-width: 1rpx;
@@ -538,6 +595,10 @@ button::after{
   border-radius: 4rpx;
 }
 
+.border-radius-8,.bdra-8{
+    border-radius: 8rpx;
+}
+
 .border-radius-tlr-4, .bdra-tlr-4{
   border-top-left-radius: 4rpx;
   border-top-right-radius: 4rpx;
@@ -547,9 +608,6 @@ button::after{
   border-bottom-left-radius: 4rpx;
   border-bottom-right-radius: 4rpx;
 }
-
-
-
 
 
 /**********************文本溢出******************************************************/
@@ -574,10 +632,41 @@ button::after{
   text-align-last: justify;
 }
 
+/**********************text-align**************************************************/
+.text-left{
+    text-align: left;
+}
+
+.text-right{
+    text-align: right;
+}
+
+.text-center{
+    text-align: center;
+}
+
+
+
 /**********************other*******************************************************/
 
 .border-box{
   box-sizing: border-box;
+}
+
+.bottom0{
+    bottom: 0;
+}
+
+.left0{
+    left: 0;
+}
+
+.right0{
+    right: 0;
+}
+
+.top0{
+    top: 0;
 }
 
 

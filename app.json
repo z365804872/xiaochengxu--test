@@ -6,7 +6,8 @@
     "pages/mine/register/index",
     "pages/mine/password/index",
     "pages/mine/account/index",
-    "pages/mine/trade_list/index"
+    "pages/mine/trade_list/index",
+    "pages/mine/coupon/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

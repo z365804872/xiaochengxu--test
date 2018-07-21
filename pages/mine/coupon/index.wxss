@@ -1,0 +1,41 @@
+/* pages/mine/coupon/index.wxss */
+.coupon-item{
+    border: 2rpx solid #979797;
+}
+
+.coupon-item-up{
+    background-color: rgb(255, 235, 235);
+    border-bottom: 2rpx dotted #333;
+}
+
+.coupon-item-up::after{
+    position: absolute;
+    content: '';
+    display: block;
+    width: 20rpx;
+    height: 20rpx;
+    border-right: 2rpx solid #979797;
+    border-top: 2rpx solid #979797;
+    border-bottom: 2rpx solid #979797;
+    border-top-right-radius: 100%;
+    border-bottom-right-radius: 100%;
+    bottom: -10rpx;
+    left: -10rpx;
+    background-color: #fff;
+}
+
+.coupon-item-up::before{
+    position: absolute;
+    content: '';
+    display: block;
+    width: 20rpx;
+    height: 20rpx;
+    border-left: 2rpx solid #979797;
+    border-top: 2rpx solid #979797;
+    border-bottom: 2rpx solid #979797;
+    border-top-left-radius: 100%;
+    border-bottom-left-radius: 100%;
+    bottom: -10rpx;
+    right: -10rpx;
+    background-color: #fff;
+}
