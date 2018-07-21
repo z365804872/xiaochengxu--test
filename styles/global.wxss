@@ -213,6 +213,11 @@
     margin-left: 16rpx;
 }
 
+.margin-t40{
+    margin-top: 40rpx;
+}
+
+
 .margin-t30{
     margin-top: 30rpx;
 }
@@ -263,6 +268,10 @@
 
 .height-160{
     height: 160rpx;
+}
+
+.height-124{
+    height: 124rpx;
 }
 
 .height-120{
@@ -436,6 +445,10 @@ button::after{
 }
 
 /**********************line-height*************************************************/
+.lheight-124{
+    line-height: 124rpx;
+}
+
 .lheight-80{
     line-height: 80rpx;
 }
