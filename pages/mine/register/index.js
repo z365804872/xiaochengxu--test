@@ -1,6 +1,6 @@
 // pages/mine/register/index.js
 import {phoneRegExp} from '../../../utils/regExp';
-import {phoneErrorMsg, smsCode, smsCodeErr} from '../../../utils/errMsg';
+import {phoneErrorMsg, smsCodeErr} from '../../../common/errMsg';
 import utils from '../../../utils/util';
 import auth from  '../../../common/auth';
 
