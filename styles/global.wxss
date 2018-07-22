@@ -276,6 +276,11 @@
     width: 240rpx;
 }
 
+
+.width-210{
+    width: 210rpx;
+}
+
 .width-140{
     width: 140rpx;
 }

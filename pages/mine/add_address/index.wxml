@@ -32,4 +32,8 @@
     </view>
 </view>
 
-<button class="height-120 flex-center pos-fixed bottom0 bgc-fff width100 font-semibold font-32 color-333 save-btn">保存</button>
+<view class="flex-row pos-fixed bottom0 bgc-fff height-120 width100 btn-group">
+    <!--修改地址时显示-->
+    <!--<button class="width-210 flex-center font-semibold font-32 color-fff bgc-red">删除</button>-->
+    <button class=" flex1 flex-center  font-semibold font-32 color-333 save-btn">保存</button>
+</view>
