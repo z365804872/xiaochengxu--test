@@ -1,30 +1,28 @@
 <!--pages/mine/add_address/index.wxml-->
-<view class="padding-lr30">
+<view class="padding-lr30 add-address">
     <view class="height-160 border-b2 flex-center">
         <input type="text"
                maxlength="20"
-               class="flex1 font-36"
                placeholder-class="placeholder"
                placeholder="姓名" />
     </view>
     <view class="height-160 border-b2 flex-center">
         <input type="number"
                maxlength="11"
-               class="flex1 font-36"
                placeholder-class="placeholder"
                placeholder="手机号码" />
     </view>
-    <view class="height-160 border-b2 flex-row-start flex-row_center font-30 color-000 opacity5">
-        <!--<input type="text"-->
-               <!--class="flex1 font-36"-->
-               <!--placeholder-class="placeholder"-->
-               <!--placeholder="省、市、区" />-->
-        <view>省、市、区</view>
+    <view catchtap="selectRegion"
+            class="height-160 border-b2 flex-row-start flex-row_center font-30 color-000 opacity5">
+        <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+            <view class="picker font-36 color-000 {{region.length ? ' opacity-all' : 'opacity3'}}">
+                {{region.length ? region[0] + ' ' + region[1] + ' ' + region[2] : '省、市、区'}}
+            </view>
+        </picker>
     </view>
     <view class="height-160 border-b2 flex-center">
         <input type="text"
                maxlength="60"
-               class="flex1 font-36"
                placeholder-class="placeholder"
                placeholder="地址（街道、小区、门牌号）" />
     </view>

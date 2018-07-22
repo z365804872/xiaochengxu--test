@@ -430,6 +430,9 @@ button::after{
 .opacity05{
     opacity: 0.05;
 }
+.opacity-all{
+    opacity: 1;
+}
 /**********************font********************************************************/
 .font-light{
   font-family: PingFangSC-Light;

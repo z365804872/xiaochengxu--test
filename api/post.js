@@ -23,5 +23,9 @@ export default {
   "shoesSort": {
     title: '鞋子',
     path: '/shoesSort'   
-  }
+  },
+    "city": {
+        title: '省市区选择',
+        path: '/city'
+    }
 }
