@@ -1,4 +1,4 @@
-const uid = true
+const needUid = true
 export default {
     'hotShoes': {
         title: '首页热门商品',
@@ -31,5 +31,10 @@ export default {
     "sms": {
         title: '短信验证码',
         path: '/sms'
+    },
+    "myMember": {
+        title: '我的页面',
+        path: '/myMember',
+        needUid
     }
 }

@@ -39,5 +39,18 @@ export default {
         }
 
         return queryObj
+    },
+
+    //手机号加密
+    phoneEncrypted(mobile){
+        return (mobile+'').replace(/^(\d{3})\d{4}(\d{4})$/, '$1****$2')
+    },
+
+    //金额
+    keepTwoDecimal(num){
+        let index = (num + '').indexOf('.')
+        num = index === -1 ? num + '.00' : num + '00'
+        index = num.indexOf('.')
+        return  num.slice(0, index + 3)
     }
 }

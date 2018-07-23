@@ -1,17 +1,17 @@
 <!--pages/mine/account/index.wxml-->
 <view>
     <view class="flex-column-center-center height-216 border-b2 bgc-fa">
-        <view class="font-semibold font-44 lheight-62 color-000">2040.00</view>
+        <view class="font-semibold font-44 lheight-62 color-000">{{totalMoneyStd}}</view>
         <view class="font-light font-24 lheight-33 color-000 opacity5">账户总额(元)</view>
     </view>
     <view class="padding-lr30">
         <view class="flex-row_center height-164 border-b2">
             <view class="flex-column-center-center flex1">
-                <view class="font-semibold font-36 lheight-50 color-000">2000.00</view>
+                <view class="font-semibold font-36 lheight-50 color-000">{{moneyStd}}</view>
                 <view class="font-light font-24 lheight-33 color-000 opacity5">可提现金额(元)</view>
             </view>
             <view class="flex-column-center-center flex1">
-                <view class="font-semibold font-36 lheight-50 color-000">0.00</view>
+                <view class="font-semibold font-36 lheight-50 color-000">{{forzenMoneyStd}}</view>
                 <view class="font-light font-24 lheight-33 color-000 opacity5">已冻结金额(元)</view>
             </view>
         </view>
