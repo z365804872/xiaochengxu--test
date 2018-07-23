@@ -54,6 +54,14 @@ Page({
 
     init(){
         console.log('mine init')
+    },
+    quit(){
+        wx.clearStorageSync()
+        let app = getApp()
+        let globalData = app.globalData
+        Object.keys(globalData).forEach(data => globalData[data] = undefined)
+
+        wx.reLaunch({url: '/pages/index/index/index'})
     }
 
 
