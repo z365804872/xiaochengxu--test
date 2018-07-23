@@ -18,11 +18,8 @@
     vertical-align: middle;
 }
 
-.password .icon{
-    font-size: 40rpx;
-}
-
-.password .icon-xianshi{
+.password .iconfont{
+    font-size: 35rpx;
     margin-right: 30rpx;
 }
 

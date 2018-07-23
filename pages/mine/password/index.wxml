@@ -12,7 +12,7 @@
                    maxlength="6"
                    placeholder-class="input-placeholder"
                    placeholder="请输入密码"/>
-            <text catchtap="showPwd" class="iconfont icon-xianshi"></text>
+            <text catchtap="showPwd" class="iconfont {{type === 'text' ? 'icon-xianshi' : 'icon-yincang'}}"></text>
         </view>
         <button form-type="submit" class="btn btn-submit">登录</button>
         <view class="agreement">
