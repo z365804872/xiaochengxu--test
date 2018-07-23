@@ -1,9 +1,7 @@
 /***
  * 用于登陆，获取用户的信息
  * ***/
-import config from '../config/config';
-import api from '../api/api';
-import {WX_USER_INFO, OPEN_ID, USER_INFO} from './constants';
+import {WX_USER_INFO, OPEN_ID, USER_INFO, URL} from './constants';
 import utils from '../utils/util';
 
 class Auth {
@@ -63,12 +61,19 @@ class Auth {
             wx.showLoading({title: '授权中'})
             wx.setStorageSync(WX_USER_INFO, e.detail.userInfo)
 
-            //根据用户信息，发起登陆请求
-            return that.login().then(res => {
-                return true
-            }).finally(() => {
-                wx.hideLoading()
+            // let app = getApp()
+            // if(!!app.globalData.uid) return true
+            return that.getAppGlobalData().then(globalData => {
+                if(!!globalData.uid) return true
+                //根据用户信息，发起登陆请求
+                return that.login().then(res => {
+                    return true
+                }).finally(() => {
+                    wx.hideLoading()
+                })
             })
+
+
         } else {
             return Promise.reject(false)
         }
@@ -120,10 +125,17 @@ class Auth {
             postData.sex = userInfo.gender
             postData.openId = openId
 
+            if(userInfo.mobile) postData.mobile = userInfo.mobile;
+            if(userInfo.password) postData.password = userInfo.password;
+
             return wx.post({api: 'loginMember', data: postData})
                 .then(suc => {
-                    that.handleLoginResult(suc)
-                    return suc.success === 0 ? true : Promise.reject(false)
+                    if(!userInfo.useSelfCallback){
+                      that.handleLoginResult(suc)
+                      return suc.success === 0 ? true : Promise.reject(false)
+                    }else{
+                        return suc
+                    }
                 })
         })
 
@@ -142,22 +154,26 @@ class Auth {
         let currentPageOptions = currentPage.options
 
         let currentPageOptionsStringify = utils.queryStringify(currentPageOptions)
-        let url = currentPageRoute + currentPageOptionsStringify
+        let url = encodeURIComponent(currentPageRoute + currentPageOptionsStringify)
 
         switch (suc.success) {
             case 0:
                 app.globalData.uid = suc.uid
-                app.globalData.userInfo = suc
+                // app.globalData.userInfo = suc
                 wx.setStorageSync(USER_INFO, suc)
                 break;
             case 1:
+                wx.setStorageSync(URL, url)
                 wx.redirectTo({
-                    url: `/pages/mine/register/index?url=${encodeURIComponent(url)}`
+                    // url: `/pages/mine/register/index?url=${encodeURIComponent(url)}`
+                    url: `/pages/mine/register/index`
                 })
                 break;
             case 2:
+                wx.setStorageSync(URL, url)
                 wx.redirectTo({
-                    url: `/pages/mine/password/index?url=${encodeURIComponent(url)}`
+                    // url: `/pages/mine/password/index?url=${encodeURIComponent(url)}`
+                    url: `/pages/mine/password/index`
                 })
                 break;
         }
@@ -180,6 +196,29 @@ class Auth {
         return Promise.resolve(globalData)
     }
 
+    /***
+     * 重新登陆
+     * ***/
+    reLogin(options){
+      let that = this
+      let wxUserInfo = wx.getStorageSync(WX_USER_INFO) || {}
+      wxUserInfo.useSelfCallback = true
+
+      if (!!wxUserInfo) {
+        wxUserInfo = Object.assign({}, wxUserInfo, options)
+        return that.loginWithUserInfo(wxUserInfo)
+      }
+      //校验是否授权
+      return that.checkAuthorizeVerified().then(() => {
+        if (wx.canIUse && wx.canIUse('getUserInfo')) {
+          return wx.getUserInfo().then(res => {
+            wx.setStorageSync(WX_USER_INFO, res.userInfo)
+            wxUserInfo = Object.assign({}, res.userInfo, wxUserInfo, options)
+            return that.loginWithUserInfo(wxUserInfo)
+          })
+        }
+      })
+    }
 }
 
 export default new Auth()

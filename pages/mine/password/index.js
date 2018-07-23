@@ -1,5 +1,8 @@
 // pages/mine/password/index.js
 import {passwordErr,agreementErr} from '../../../common/errMsg';
+import auth from '../../../common/auth';
+import {URL} from "../../../common/constants";
+import {hex_md5} from '../../../plugins/md5';
 
 Page({
 
@@ -16,7 +19,14 @@ Page({
      */
     onLoad: function (options) {
         let that = this
-        that.data.url = decodeURIComponent(options.url)
+        // that.data.url = decodeURIComponent(options.url)
+        if(options.mobile) that.data.mobile = options.mobile
+    },
+
+    onUnload(){
+      try{
+        wx.removeStorageSync(URL)
+      }catch (e) {}
     },
 
     checkboxChange(e) {
@@ -26,7 +36,6 @@ Page({
 
     //登录
     login(e) {
-        console.log(e)
         let that = this
         let {password} = e.detail.value
         let agreementChecked = that.data.agreementChecked
@@ -43,9 +52,19 @@ Page({
             })
         }
 
-        // wx.post({
-        //     api: 'loginMember'
-        // })
+        auth.reLogin({
+          password: hex_md5(password),
+          mobile: that.data.mobile
+        }).then(res => {
+            if(res.success === 0){
+              let url = decodeURIComponent(wx.getStorageSync(URL))
+              wx.reLaunch({
+                url: `/${url}`
+              })
+            }else{
+                if(wx.isDev) console.error(JSON.stringify(res))
+            }
+        })
 
     },
 

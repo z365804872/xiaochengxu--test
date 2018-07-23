@@ -1,6 +1,7 @@
 // pages/mine/register/index.js
 import {phoneRegExp} from '../../../utils/regExp';
 import {phoneErrorMsg, smsCodeErr} from '../../../common/errMsg';
+import {URL} from "../../../common/constants";
 import utils from '../../../utils/util';
 import auth from  '../../../common/auth';
 
@@ -23,7 +24,7 @@ Page({
      */
     onLoad: function (options) {
         let that = this
-        that.data.url = decodeURIComponent(options.url)
+        // that.data.url = decodeURIComponent(options.url)
     },
 
 
@@ -32,6 +33,9 @@ Page({
      */
     onUnload: function () {
         if (timer !== null) clearInterval(timer);
+      try{
+        wx.removeStorageSync(URL)
+      }catch (e) {}
     },
 
     //发送验证码
@@ -87,22 +91,41 @@ Page({
             return wx.showToast({title: smsCodeErr.none})
         }
 
-        // wx.post({
-        //     api: 'sms',
-        //     data: {
-        //         type: 3, // 1 注册发送验证码  2忘记密码  3验证验证码是否正确
-        //         mobile: phone,
-        //         vaCode: smsCode
-        //     }
-        // }).then(res => {
-        //     auth.login().then(res => {
-        //         let url = that.data.url
-        //         wx.reLaunch({
-        //             url: `/${url}`
-        //         })
-        //     })
-        //
-        // });
+        wx.post({
+            api: 'sms',
+            data: {
+                type: 3, // 1 注册发送验证码  2忘记密码  3验证验证码是否正确
+                mobile: phone,
+                vaCode: smsCode
+            }
+        }).then(res => {
+            auth.reLogin({mobile: phone}).then(res => {
+                // let url = that.data.url
+                if(res.success === 0){
+                    let url = decodeURIComponent(wx.getStorageSync(URL))
+                     wx.reLaunch({
+                        url: `/${url}`
+                      })
+                }else if(res.success === 2){
+                    wx.redirectTo({
+                      url: `/pages/mine/password/index?mobile=${res.mobile}`
+                    })
+                }else if(res.success === 1){
+
+                }else{
+                    if(wx.isDev){
+                        wx.showToast({
+                          title: JSON.stringify(suc)
+                        })
+                    }
+                    console.error(JSON.stringify(suc))
+                }
+
+
+
+            })
+
+        });
 
     },
 
