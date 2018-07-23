@@ -78,12 +78,12 @@ class Auth {
     /***
      * 登陆
      * ***/
-    login(userInfo) {
+    login(wxUserInfo) {
         let that = this
-        userInfo = userInfo || wx.getStorageSync(WX_USER_INFO)
+        wxUserInfo = wxUserInfo || wx.getStorageSync(WX_USER_INFO)
 
-        if (!!userInfo) {
-            return that.loginWithUserInfo(userInfo)
+        if (!!wxUserInfo) {
+            return that.loginWithUserInfo(wxUserInfo)
         }
         //校验是否授权
         return that.checkAuthorizeVerified().then(() => {

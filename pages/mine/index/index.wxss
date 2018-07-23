@@ -27,6 +27,7 @@ page{
 .my-avatar .avatar{
     width: 112rpx;
     height: 112rpx;
+    background-color: #f1f1f1;
 }
 
 .my-avatar .iconfont{
@@ -41,5 +42,9 @@ page{
 
 .my-order>view:first-child{
     border-right: 2rpx solid #f7f7f7;
+}
+
+.my-avatar .icon-nan{
+    color: #19A79A;
 }
 
