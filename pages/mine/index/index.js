@@ -18,7 +18,8 @@ Page({
         this.setData({
             headPhoto: user_info.headPhoto || wx_user_info.avatarUrl || 'http://0',
             sex: wx_user_info.gender, //1男 2女
-
+            mobile: user_info.mobile,
+            nickName: user_info.nickName || wx_user_info.nickName
         })
     },
 
@@ -69,5 +70,14 @@ Page({
      */
     onShareAppMessage: function () {
 
+    },
+
+    quit(){
+        wx.clearStorageSync()
+        let app = getApp()
+        let globalData = app.globalData
+        Object.keys(globalData).forEach(data => globalData[data] = undefined)
+
+        wx.reLaunch({url: '/pages/index/index/index'})
     }
 })
