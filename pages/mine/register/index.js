@@ -33,9 +33,6 @@ Page({
      */
     onUnload: function () {
         if (timer !== null) clearInterval(timer);
-      try{
-        wx.removeStorageSync(URL)
-      }catch (e) {}
     },
 
     //发送验证码
@@ -103,9 +100,12 @@ Page({
                 // let url = that.data.url
                 if(res.success === 0){
                     let url = decodeURIComponent(wx.getStorageSync(URL))
-                     wx.reLaunch({
+                     wx.redirectTo({
                         url: `/${url}`
-                      })
+                     })
+                    try{
+                      wx.removeStorageSync(URL)
+                    }catch (e) {}
                 }else if(res.success === 2){
                     wx.redirectTo({
                       url: `/pages/mine/password/index?mobile=${res.mobile}`

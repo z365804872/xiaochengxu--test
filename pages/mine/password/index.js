@@ -23,12 +23,6 @@ Page({
         if(options.mobile) that.data.mobile = options.mobile
     },
 
-    onUnload(){
-      try{
-        wx.removeStorageSync(URL)
-      }catch (e) {}
-    },
-
     checkboxChange(e) {
         let value = e.detail.value
         this.data.agreementChecked = !!value.length
@@ -58,9 +52,12 @@ Page({
         }).then(res => {
             if(res.success === 0){
               let url = decodeURIComponent(wx.getStorageSync(URL))
-              wx.reLaunch({
+              wx.redirectTo({
                 url: `/${url}`
               })
+              try{
+                wx.removeStorageSync(URL)
+              }catch (e) {}
             }else{
                 if(wx.isDev) console.error(JSON.stringify(res))
             }

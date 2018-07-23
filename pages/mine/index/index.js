@@ -1,5 +1,6 @@
 // pages/mine/account/index.js
 import {USER_INFO, WX_USER_INFO} from '../../../common/constants';
+import auth from '../../../common/auth';
 
 Page({
 
@@ -12,14 +13,20 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        let user_info = wx.getStorageSync(USER_INFO)
-        let wx_user_info = wx.getStorageSync(WX_USER_INFO)
+        let that = this
+        auth.checkLogin()
+          .then(res => {
+              that.init()
+          })
 
-        this.setData({
-            headPhoto: user_info.headPhoto || wx_user_info.avatarUrl,
-            sex: wx_user_info.gender || 0, //0保密 1男 2女
-
-        })
+        // let user_info = wx.getStorageSync(USER_INFO)
+        // let wx_user_info = wx.getStorageSync(WX_USER_INFO)
+        //
+        // this.setData({
+        //     headPhoto: user_info.headPhoto || wx_user_info.avatarUrl,
+        //     sex: wx_user_info.gender || 0, //0保密 1男 2女
+        //
+        // })
     },
 
     /**
@@ -44,6 +51,10 @@ Page({
     onPullDownRefresh: function () {
 
     },
+
+    init(){
+        console.log('mine init')
+    }
 
 
 })

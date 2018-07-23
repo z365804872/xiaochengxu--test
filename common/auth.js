@@ -37,8 +37,11 @@ class Auth {
      *校验是否登陆
      * ***/
     checkLogin() {
+        let that = this
         return this.getAppGlobalData().then(globalData => {
-            return !!globalData.uid ? Promise.resolve(true) : Promise.reject(false)
+            return !!globalData.uid
+              ? Promise.resolve(true)
+              : that.login()
         })
     }
 
@@ -60,19 +63,20 @@ class Auth {
         if (!!e && e.type === "getuserinfo" && !!e.detail.userInfo) {
             wx.showLoading({title: '授权中'})
             wx.setStorageSync(WX_USER_INFO, e.detail.userInfo)
+            wx.hideLoading()
+            return Promise.resolve(true)
 
             // let app = getApp()
             // if(!!app.globalData.uid) return true
-            return that.getAppGlobalData().then(globalData => {
-                if(!!globalData.uid) return true
-                //根据用户信息，发起登陆请求
-                return that.login().then(res => {
-                    return true
-                }).finally(() => {
-                    wx.hideLoading()
-                })
-            })
-
+            // return that.getAppGlobalData().then(globalData => {
+            //     if(!!globalData.uid) return true
+            //     //根据用户信息，发起登陆请求
+            //     return that.login().then(res => {
+            //         return true
+            //     }).finally(() => {
+            //         wx.hideLoading()
+            //     })
+            // })
 
         } else {
             return Promise.reject(false)
