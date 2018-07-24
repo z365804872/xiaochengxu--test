@@ -1,0 +1,33 @@
+// pages/mine/add_address/index.js
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        showPicker: false,
+        region: []
+    },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+        let that = this
+
+    },
+
+    selectRegion() {
+        this.setData({
+            showPicker: true
+        })
+    },
+
+    bindRegionChange(e) {
+        console.log(e)
+        let region = e.detail.value
+        this.setData({
+            region
+        })
+    }
+})

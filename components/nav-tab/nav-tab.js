@@ -28,7 +28,6 @@ Component({
     },
 
     switchTab(e) {
-      console.log(e)
       let type = e.currentTarget.dataset.type
       let {onHome, onEvaluate, onMine} = this.data
       if( (type === 'index' && onHome) || (type === 'store' && onEvaluate) || (type === 'console' && onMine) ) return

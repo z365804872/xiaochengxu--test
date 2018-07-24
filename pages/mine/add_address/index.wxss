@@ -1,0 +1,19 @@
+/* pages/mine/add_address/index.wxss */
+.placeholder{
+    font-family: PingFangSC-Regular;
+    font-size: 36rpx;
+    color: #000;
+    opacity: 0.3;
+    font-weight: 300;
+}
+
+.add-address input{
+    font-size: 36rpx;
+    color: #000000;
+    opacity: 0.7;
+    flex: 1;
+}
+
+.btn-group{
+    box-shadow: 0 0 8rpx 0 rgba(0,0,0,0.20);
+}

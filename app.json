@@ -6,11 +6,19 @@
     "pages/evaluate/index/index",
     "pages/mine/index/index",
     "pages/mine/register/index",
-    "pages/mine/password/index"
+    "pages/mine/password/index",
+    "pages/mine/wallet/index",
+    "pages/mine/trade_list/index",
+    "pages/mine/coupon/index",
+    "pages/mine/coupon_exchange/index",
+    "pages/mine/preference/index",
+    "pages/mine/address/index",
+    "pages/mine/add_address/index",
+    "pages/mine/order_list/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#fafafa",
     "navigationBarTitleText": "SNCN",
     "navigationBarTextStyle":"black",
     "enablePullDownRefresh": true

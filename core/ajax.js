@@ -134,6 +134,8 @@ let request = function (obj) {
             showCancel: false
           })
 
+          reject(suc.statusCode)
+
           //本地环境打印日志，方便调试
           if (isDev) console.error(suc.statusCode, suc.errMsg)
         }

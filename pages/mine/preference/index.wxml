@@ -1,0 +1,44 @@
+<!--pages/mine/preference/index.wxml-->
+<view class="padding-lr30">
+    <view class="padding-tb60 font-regular font-32 lheight-45 color-000">
+        您常穿的尺码是多少
+    </view>
+    <scroll-view scroll-x="true" style="display: flex; height: 140rpx; white-space: nowrap">
+        <view >39</view>
+        <view >39</view>
+        <view >39</view>
+        <view >39</view>
+        <view >39</view>
+        <view >39</view>
+        <view >39</view>
+        <view >39</view>
+        <view >39</view>
+        <view >39</view>
+        <view >39</view>
+        <view >39</view>
+    </scroll-view>
+    <view class="margin-t60 font-regular font-32 lheight-45 color-000">您感兴趣的品牌(选填)</view>
+
+    <view class="flex-row-between margin-t60 font-regular font-36 lheight-50 color-000">
+        <view class="opacity5">Adidas</view>
+        <checkbox checked="true"></checkbox>
+    </view>
+    <view class="flex-row-between margin-t60 font-regular font-36 lheight-50 color-000">
+        <view class="opacity5">Air Jordan</view>
+        <checkbox checked="true"></checkbox>
+    </view>
+    <view class="flex-row-between margin-t60 font-regular font-36 lheight-50 color-000">
+        <view class="opacity5">Vans</view>
+        <checkbox checked="true"></checkbox>
+    </view>
+    <view class="flex-row-between margin-t60 font-regular font-36 lheight-50 color-000">
+        <view class="opacity5">Converse</view>
+        <checkbox checked="true"></checkbox>
+    </view>
+
+    <view class="flex-row-end margin-t40 font-24 font-light lheight-33 color-000">
+        <text>更多品牌</text><text class="iconfont icon-jiaobiao margin-l12 margin-r18"></text>
+    </view>
+
+
+</view>

@@ -1,1 +1,1 @@
-wx.isDev = false
+wx.isDev = true

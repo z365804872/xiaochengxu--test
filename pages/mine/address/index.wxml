@@ -1,0 +1,26 @@
+<!--pages/mine/address/index.wxml-->
+<view class="flex-row">
+    <view class="flex1 height-220 font-light padding-lr30 border-b2 flex-column-center">
+        <view class="flex-row-between font-28 font-light color-000 lheight-40">
+            <view class="flex-row_center"><text>马跃峰</text><text class="lheight-30 bgc-000 lheight-30 font-16 font-semibold color-fff margin-l30 padding-lr4">默认地址</text></view>
+            <view>186 6289 0960</view>
+        </view>
+        <view class="margin-t20">江苏省 海门市 长江新城608幢208室</view>
+    </view>
+    <view hidden class="width-120 flex-center bgc-ff4 color-fff font-semibold font-32">删除</view>
+    <view hidden class="width-120 flex-center bgc-d1c color-fff font-semibold font-32">编辑</view>
+</view>
+
+<view class="flex-row" style="margin-left: -200rpx;">
+    <view class="flex1 height-220 font-light padding-lr30 border-b2 flex-column-center">
+        <view class="flex-row-between font-28 font-light color-000 lheight-40">
+            <view class="flex-row_center"><text>马跃峰</text><text class="lheight-30 bgc-000 lheight-30 font-16 font-semibold color-fff margin-l30 padding-lr4">默认地址</text></view>
+            <view>186 6289 0960</view>
+        </view>
+        <view class="margin-t20">江苏省 海门市 长江新城608幢208室</view>
+    </view>
+    <view  class="width-120 flex-center bgc-ff4 color-fff font-semibold font-32">删除</view>
+    <view class="width-120 flex-center bgc-d1c color-fff font-semibold font-32">编辑</view>
+</view>
+
+<button class="height-120 font-regular font-32 flex-center color-000 pos-fixed bottom0 width100 bgc-fff add-address-btn">新增地址</button>

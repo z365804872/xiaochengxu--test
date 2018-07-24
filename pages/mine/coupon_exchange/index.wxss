@@ -1,0 +1,9 @@
+/* pages/mine/coupon_exchange/index.wxss */
+.placeholder{
+    opacity: 0.5;
+    font-family: PingFangSC-Light;
+    font-size: 32rpx;
+    color: #000000;
+    letter-spacing: 0;
+    font-weight: 300;
+}

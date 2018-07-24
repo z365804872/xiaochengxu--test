@@ -10,6 +10,22 @@ Page{
   color: #000000;
 }
 
+page .iconfont{
+  color: #000000;
+}
+
+page .icon-jiaobiao{
+  font-size: 20rpx!important;
+}
+
+page .icon-up{
+  color: #FF484A;
+}
+
+page .icon-down{
+  color: #47C99D;
+}
+
 .layout{
   padding: 0 30rpx;
 }
@@ -17,3 +33,4 @@ Page{
 .match-iphone-x{
   padding-bottom: 56rpx;
 }
+
