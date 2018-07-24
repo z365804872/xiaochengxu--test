@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<scroll-view scroll-y class="container">
+<view class="container">
 	    	<!-- 详情轮播图 -->
 	<view class="section section-swiper">
 		<swiper class="slide" indicator-dots="{{indicator_dots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
@@ -32,9 +32,10 @@
 	</view>
 
 	<!-- 曲线图 -->
-	<view class="calendar">
+<!--	<view class="calendar">
 		
 	</view>
+-->
 
 	<!-- 尺码选择 -->
 	<view class="sizeList">
@@ -42,7 +43,7 @@
 			尺码选择
 		</view>	
 		<view class="sizeList-box">
-			<view  wx:for="{{detailData.sizeList}}" wx:key="{{index}}"  class="sizeList-item {{detailData.defaultSize==item.shoesSize?'size-choode':''}}" data-index="{{item.shoesSize}}" bindtap="changeSize">
+			<view  wx:for="{{detailData.sizeList}}" wx:key="{{index}}"  class="sizeList-item {{detailData.defaultSize==item.shoesSize?'size-choode':''}}" data-index="{{item.shoesSize}}" data-price="{{item.sellMoney}}" bindtap="changeSize">
 				<view class="sizeList-size">
 					{{item.shoesSize}}码
 				</view>
@@ -56,34 +57,58 @@
 	<!-- 尺码选择 -->
 	<view class="sellList">
 		<view class="sellList-tab">
-			<view class="sellList-tab-cj">
+			<view class="sellList-tab-cj {{chooseTab==1?'sellList-tab-active':''}}" bindtap="clickTba1">
 				成交记录
 			</view>	
-			<view class="sellList-tab-cs">
+			<view class="sellList-tab-cs {{chooseTab==2?'sellList-tab-active':''}}" bindtap="clickTba2">
 				出售列表
 			</view>	
-			<view class="sellList-tab-qg">
+			<view class="sellList-tab-qg {{chooseTab==3?'sellList-tab-active':''}}" bindtap="clickTba3">
 				求购列表
 			</view>	
 		</view>	
-		<view class="sellList-num">
-			成交总量 12双
+		<view class="sellList-num" wx:if="{{tabDataList.length>0}}">
+			总成交量: {{tabData.sellNum}}双
 		</view>
-		<view class="sellList-box">
-			<view class="box-cj-item">
+		<view class="sellList-box" wx:if="{{tabDataList.length>0}}">
+			<view class="box-cj-item"  wx:for="{{tabDataList}}" wx:key="{{index}}">
 				<view class="cj-item-size">
-					41码
+					{{item.shoesSize}}码
 				</view>
 				<view class="cj-item-date">
-					2017/8/22
-				</view>
-				<view class="cj-item-price">
-					￥1128.00
+					{{item.createTime}}
 				</view>
 				<view class="cj-item-info">
-					成交价
+					{{chooseTab==1?"成交":chooseTab==2?"出售":"求购"}}价
 				</view>
+				<view class="cj-item-price">
+					￥{{item.money}}
+				</view>
+
 			</view>
-		</view>			
+			<view class="addmore-btn" bindtap="addmoreData"  wx:if="{{tabDataList.length>=3&&!addDlag}}">
+				加载更多
+			</view>
+		</view>
+		<view class="sellList-box-no" wx:else>
+			<view>暂无{{chooseTab==1?"成交":chooseTab==2?"出售":"求购"}}商品</view>
+		</view>		
 	</view>
-</scroll-view>
+
+	<!-- 底部 -->
+	<view class="detail-buttom">
+			<view class="detail-buttom-price" wx:if="{{choosePrice!='￥0'}}">
+				{{choosePrice}}
+			</view>
+			<text class="detail-buttom-info" wx:else>
+				暂无该码球鞋在售\n点击求购立即求购
+			</text>
+			<view class="detail-buttom-buy">
+				购买
+			</view>
+			<view class="detail-buttom-sell">
+				出售
+			</view>
+	</view>	
+
+</view>

@@ -1,0 +1,22 @@
+<!--index.wxml-->
+<view class="container">
+	<view class="brand-tab">
+		<view wx:for="{{brandData}}" :key="{{index}}" bindtap="selectTab" data-tabnum="{{index}}" class="brand-tab-item {{selecttab==index?'select-tab':''}}" >
+			{{item.sortName}}
+		</view>
+	</view>
+
+	<view class="brand-content">
+		<view class="brand-content-title">
+		   <view class="icon-left" style="background:url('../../../images/b-left.png'); background-size:160rpx 2rpx;background-repeat:no-repeat;background-position:0;"></view> 热门{{brandData[selecttab].sortName}} <view class="icon-right" style="background:url('../../../images/b-right.png'); background-size:160rpx 2rpx;background-repeat:no-repeat;background-position:0;"></view>
+		</view>
+
+		<view class="brand-content-list">
+			<view class="brand-content-item" wx:for="{{brandData[selecttab].list}}" wx:key="{{index}}">
+				<view class="brand-item-image" style="background:url('{{item.photo}}');background-size:170rpx 170rpx;background-repeat:no-repeat;">
+				</view>
+				<text>{{item.detailName}}</text>
+			</view>
+		</view>
+	</view>
+</view>

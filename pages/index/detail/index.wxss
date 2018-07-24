@@ -1,6 +1,7 @@
 /**index.wxss**/
 .container{
   background: #fff;
+  padding-bottom: 150rpx;
 }
 .section-swiper .slide{
   width: 100%;
@@ -157,4 +158,148 @@
 }
 .sellList-tab-qg{
   margin-left: 40rpx;
+}
+
+.sellList-tab .sellList-tab-active{
+  background: #082359;
+  color:#fff;
+}
+.sellList-num{
+  margin-left: 30rpx;
+  margin-bottom: 30rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #333333;
+}
+
+.box-cj-item{
+  background: #FFFFFF;
+  box-shadow: 0 2rpx 12rpx 0 rgba(0,0,0,0.10);
+  border-radius: 8rpx;
+  width: 690rpx;
+  height: 120rpx;
+  margin-left: 30rpx;
+}
+
+.cj-item-size{
+  float: left;
+  font-family: PingFangSC-Semibold;
+  font-size: 28rpx;
+  color: #333333;
+  line-height: 120rpx;
+  width: 120rpx;
+  text-align: center;
+  height: 120rpx;
+  margin-left:8rpx;
+}
+.cj-item-date{
+  float: left;
+  opacity: 0.6;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #333333;
+  line-height: 120rpx;
+  height: 120rpx;
+}
+.cj-item-price{
+  float: right;
+  line-height: 120rpx;
+  height: 120rpx;
+}
+.cj-item-info{
+  float: right;
+  margin-right: 30rpx;
+  margin-left: 20rpx;
+  width: 112rpx;
+  height: 42rpx;
+  line-height: 42rpx;
+  background: #47C99D;
+  border-radius: 200rpx;
+  color: #fff;
+  font-family: PingFangSC-Semibold;
+  font-size: 24rpx;
+  text-align: center;
+  color: #FFFFFF;
+  margin-top: 40rpx;
+}
+
+.addmore-btn{
+  background: #FFFFFF;
+  box-shadow: 0 2rpx 12rpx 0 rgba(0,0,0,0.10);
+  border-radius: 8rpx;
+  margin-left: 30rpx;
+  width: 690rpx;
+  height: 100rpx;
+  margin-top: 30rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-family: PingFangSC-Semibold;
+  font-size: 28rpx;
+  color: #333333;
+}
+
+.detail-buttom{
+  width: 750rpx;
+  height: 120rpx;
+  background: #FFFFFF;
+  box-shadow: 0 0 8rpx 0 rgba(0,0,0,0.20);
+  position: fixed;
+  bottom:0;
+}
+.detail-buttom-price{
+  font-family: PingFangSC-Semibold;
+  font-size: 44rpx;
+  color: #000000;
+  line-height: 120rpx;
+  margin-left: 30rpx;
+  float: left;
+}
+.detail-buttom-sell{
+  float: right;
+  width:160rpx;
+  height: 80rpx;
+  background: #47C99D;
+  line-height: 80rpx;
+  text-align: center;
+  font-family: PingFangSC-Semibold;
+  font-size: 32rpx;
+  color: #FFFFFF;
+  margin-top: 20rpx;
+  margin-right: 20rpx;
+}
+.detail-buttom-buy{
+  float: right;
+  width:160rpx;
+  height: 80rpx;
+  background: #FF484A;
+  line-height: 80rpx;
+  text-align: center;
+  font-family: PingFangSC-Semibold;
+  font-size: 32rpx;
+  color: #FFFFFF;
+  margin-top: 20rpx;
+  margin-right: 30rpx;
+}
+.sellList-box-no{
+  width: 750rpx;
+  height: 670rpx;
+  overflow: hidden;
+}
+.sellList-box-no view{
+  width: 750rpx;
+  margin-top: 320rpx;
+  text-align: center;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #333333;
+}
+.detail-buttom-info{
+  margin-left: 30rpx;
+  float: left;
+  opacity: 0.4;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #000000;
+  display: block;
+  margin-top:-10px;
 }

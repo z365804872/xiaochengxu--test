@@ -21,7 +21,11 @@ export default {
     path: '/wxsns'
   },
   "shoesSort": {
-    title: '鞋子',
+    title: '鞋子分类',
     path: '/shoesSort'   
+  },
+  "shoesDetailRecord": {
+    title: '鞋子详情下部列表',
+    path: '/shoesDetailRecord'   
   }
 }

@@ -32,7 +32,7 @@
 			</navigator>
 		</view>
 		<view class="section nav-list-more">
-			<navigator url="" hover-class="none">
+			<navigator url="/pages/index/brand/index" hover-class="none">
 				<view class="nav-item-more" style="background:url('../../../images/more.png'); background-size:41rpx 28rpx;background-repeat:no-repeat;background-position:30rpx 48rpx;">
 					<text class="item-text"></text>
 				</view>
