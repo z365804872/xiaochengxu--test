@@ -15,3 +15,9 @@ export let passwordErr = {
 export let agreementErr = {
     notAgree: '请先同意SneakerCN用户协议，才能进行下一步操作'
 }
+
+
+export let  preferenceErr = {
+    sizeNone: '请选择鞋子尺码',
+    brandNone: '请选择喜欢的鞋品牌'
+}

@@ -211,6 +211,9 @@
   padding: 30rpx 0;
 }
 
+.padding-b100{
+    padding-bottom: 100rpx;
+}
 
 /**********************margin******************************************************/
 .margin-lr30{
@@ -408,6 +411,9 @@
   background-color: #FE9B48;
 }
 
+.bgc-7F7F7F{
+    background-color: #7F7F7F;
+}
 /**********************button******************************************************/
 button{
   border-radius: 0;

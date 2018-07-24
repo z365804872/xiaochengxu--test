@@ -43,13 +43,18 @@ export default {
         needUid
     },
     "defaultSizeAndBrand": {
-      title: '加载偏好设置',
-      path: '/defaultSizeAndBrand',
-      needUid
+        title: '加载偏好设置',
+        path: '/defaultSizeAndBrand',
+        needUid
     },
-  "addUpdateSizeAndBrand": {
-    title: '修改或新增偏好设置',
-    path: '/addUpdateSizeAndBrand',
-    needUid
-  }
+    "addUpdateSizeAndBrand": {
+        title: '修改或新增偏好设置',
+        path: '/addUpdateSizeAndBrand',
+        needUid
+    },
+    "searchAddress": {
+        title: '我的收货地址列表',
+        path: '/searchAddress',
+        needUid
+    }
 }
