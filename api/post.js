@@ -1,4 +1,4 @@
-const needUid = true
+const uid = true
 export default {
     'hotShoes': {
         title: '首页热门商品',
@@ -21,8 +21,12 @@ export default {
         path: '/wxsns'
     },
     "shoesSort": {
-        title: '鞋子',
+        title: '鞋子分类',
         path: '/shoesSort'
+    },
+    "shoesDetailRecord": {
+        title: '鞋子详情下部列表',
+        path: '/shoesDetailRecord'
     },
     "city": {
         title: '省市区选择',

@@ -167,8 +167,7 @@
   border-radius:10rpx;
   overflow:hidden;
   position: relative;
-  border: 1px solid #ddd;
-  box-shadow: 1rpx 1rpx 3rpx #ddd,1rpx -1rpx 3rpx #ddd,-1rpx 1rpx 3rpx #ddd,-1rpx -1rpx 3rpx #ddd;
+  box-shadow: 0 2rpx 12rpx 0 rgba(0,0,0,0.10);
 }
 .list-content-list:nth-child(2n){
   float: left;
