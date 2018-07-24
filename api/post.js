@@ -36,5 +36,10 @@ export default {
         title: '我的页面',
         path: '/myMember',
         needUid
+    },
+    "memberOrder": {
+        title: '我的求购、出售(列表)',
+        path: '/order/memberOrder',
+        needUid
     }
 }
