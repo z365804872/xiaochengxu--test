@@ -33,14 +33,16 @@
             </view>
             <view><text class="iconfont icon-jiaobiao"></text></view>
         </view>
-        <view class="flex-row-between flex-row_center height-96 border-b2">
+        <view  catchtap="preference"
+                class="flex-row-between flex-row_center height-96 border-b2">
             <view class="flex-row-start flex-row_center">
                 <text class="iconfont icon-pianhaoshoucang"></text>
                 <text class="margin-l20 font-20 font-regular color-333">偏好设置</text>
             </view>
             <view><text class="iconfont icon-jiaobiao"></text></view>
         </view>
-        <view class="flex-row-between flex-row_center height-96 border-b2">
+        <view  catchtap="address"
+                class="flex-row-between flex-row_center height-96 border-b2">
             <view class="flex-row-start flex-row_center">
                 <text class="iconfont icon-dizhi1"></text>
                 <text class="margin-l20 font-20 font-regular color-333">收货地址</text>

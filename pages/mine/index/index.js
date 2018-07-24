@@ -20,30 +20,12 @@ Page({
           .then(res => {
               that.init()
           })
-
-        // let user_info = wx.getStorageSync(USER_INFO)
-        // let wx_user_info = wx.getStorageSync(WX_USER_INFO)
-        //
-        // this.setData({
-        //     headPhoto: user_info.headPhoto || wx_user_info.avatarUrl,
-        //     sex: wx_user_info.gender || 0, //0保密 1男 2女
-        //
-        // })
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
-    },
-
-
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
 
     },
 
@@ -67,6 +49,7 @@ Page({
             that.data.money = res.money || 0
             that.data.forzenMoney = res.forzenMoney || 0
             that.data.totalMoney = calc.accAdd(res.money || 0, res.forzenMoney || 0)
+            that.data.preference = res.preference || null
 
             that.setData({
                 headPhoto: res.headPhoto || '',
@@ -94,7 +77,20 @@ Page({
         wx.navigateTo({
             url: `/pages/mine/wallet/index?totalMoney=${totalMoney}&money=${money}&forzenMoney=${forzenMoney}`
         })
-    }
+    },
 
+    //偏好设置
+    preference(){
+      wx.navigateTo({
+        url: `/pages/mine/preference/index?preference=${this.data.preference}`
+      })
+    },
+
+    //收获地址
+    address(){
+      wx.navigateTo({
+        url: '/pages/mine/address/index'
+      })
+    }
 
 })

@@ -41,5 +41,15 @@ export default {
         title: '我的求购、出售(列表)',
         path: '/order/memberOrder',
         needUid
-    }
+    },
+    "defaultSizeAndBrand": {
+      title: '加载偏好设置',
+      path: '/defaultSizeAndBrand',
+      needUid
+    },
+  "addUpdateSizeAndBrand": {
+    title: '修改或新增偏好设置',
+    path: '/addUpdateSizeAndBrand',
+    needUid
+  }
 }
