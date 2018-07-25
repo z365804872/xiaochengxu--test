@@ -15,17 +15,14 @@ Page({
      */
     onLoad: function (options) {
         let that = this
-        let preference = options.preference
-        console.log(preference)
+        // let preference = options.preference
+        // console.log(preference)
         that.init()
     },
 
     //页面初始化
     init() {
         let that = this
-        // console.log(wx.post({
-        //     api: 'defaultSizeAndBrand'
-        // }))
         wx.post({
             api: 'defaultSizeAndBrand'
         }).then(res => {
@@ -69,8 +66,9 @@ Page({
         let {sizeList, brandList} = that.data
 
         let selectedSize = sizeList.filter(size => size.check)
-        let oftenSizeId = selectedSize.length === 1 && selectedSize[0].sizeId
-        if(!oftenSizeId){
+        // let oftenSizeId = selectedSize.length === 1 && selectedSize[0].sizeId
+        let size = selectedSize.length === 1 && selectedSize[0].defaultSize
+        if(!size){
             return wx.showToast({
                 title: preferenceErr.sizeNone
             })
@@ -89,7 +87,7 @@ Page({
         wx.post({
             api: 'addUpdateSizeAndBrand',
             data: {
-                oftenSizeId,
+                oftenSizeId: size,
                 interestBrandId
             }
         }).then(res => {

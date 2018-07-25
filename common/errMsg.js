@@ -21,3 +21,15 @@ export let  preferenceErr = {
     sizeNone: '请选择鞋子尺码',
     brandNone: '请选择喜欢的鞋品牌'
 }
+
+export let nameErr = {
+    none: '请输入姓名'
+}
+
+export let detailAddressErr = {
+  none: '请输入详细的街道地址'
+}
+
+export let addressErr = {
+    none: '请选择省市区'
+}
