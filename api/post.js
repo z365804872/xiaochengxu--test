@@ -60,5 +60,15 @@ export default {
         title: '我的收货地址列表',
         path: '/searchAddress',
         needUid
-    }
+    },
+  "address": {
+    title: '新增收货地址',
+    path: '/address',
+    needUid
+  },
+  "delAddress": {
+    title: '删除收货地址',
+    path: '/delAddress',
+    needUid
+  }
 }

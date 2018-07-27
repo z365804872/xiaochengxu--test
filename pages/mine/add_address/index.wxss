@@ -10,8 +10,9 @@
 .add-address input{
     font-size: 36rpx;
     color: #000000;
-    opacity: 0.7;
+    opacity: 0.5;
     flex: 1;
+    font-family: PingFangSC-Regular;
 }
 
 .btn-group{
