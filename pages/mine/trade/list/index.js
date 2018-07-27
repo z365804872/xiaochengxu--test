@@ -31,8 +31,13 @@ Page({
             }
         }).then(res => {
             let list = !!res && Array.isArray(res) && res || []
+            list.forEach(item => {
+                item.detail = item.detail.slice(19)
+                let index = item.createdTime.lastIndexOf(':')
+                item.createdTime = item.createdTime.slice(0, index)
+            })
 
-            hasMore = tradeList.length > 0
+            hasMore = list.length > 0
             tradeList = tradeList.concat(list)
 
             that.data.pageNum = pageNum
@@ -45,6 +50,5 @@ Page({
         let that = this
         let {hasMore, tradeList, pageNum} = that.data
         if(hasMore) that._getTradeList(++pageNum)
-    },
-
+    }
 })

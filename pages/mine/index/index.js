@@ -91,6 +91,19 @@ Page({
       wx.navigateTo({
         url: '/pages/mine/address/index'
       })
-    }
+    },
 
+    //我的求购
+    myBuyOrder(){
+        wx.navigateTo({
+            url: '/pages/mine/order/list/index?type=1'
+        })
+    },
+
+    //我的出售
+    mySellOrder(){
+        wx.navigateTo({
+            url: '/pages/mine/order/list/index?type=2'
+        })
+    }
 })

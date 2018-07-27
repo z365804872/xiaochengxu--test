@@ -445,11 +445,11 @@
     background-color: #D1CFD1;
 }
 
-.bgc-fe9,.bgc-FE9B48{
+.bgc-fe9,.bgc-FE9B48, .bgc-orange{
   background-color: #FE9B48;
 }
 
-.bgc-7F7F7F{
+.bgc-7F7F7F, .bgc-grey{
     background-color: #7F7F7F;
 }
 /**********************button******************************************************/
@@ -652,6 +652,9 @@ button::after{
     color: #47C99D;
 }
 
+.color-ccc{
+    color: #cccccc;
+}
 
 /**********************border******************************************************/
 .no-border{

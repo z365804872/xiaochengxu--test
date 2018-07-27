@@ -14,7 +14,6 @@
     "pages/mine/preference/index",
     "pages/mine/address/index",
     "pages/mine/add_address/index",
-    "pages/mine/order_list/index",
     "pages/mine/order/list/index",
     "pages/mine/order/detail/index"
   ],

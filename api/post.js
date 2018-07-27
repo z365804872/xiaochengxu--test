@@ -75,5 +75,10 @@ export default {
         title: '用户交易明细',
         path: '/searchMemberCash',
         needUid
+    },
+    "memberOrder": {
+        title: '我的购买求购(列表)',
+        path: '/order/memberOrder',
+        needUid
     }
 }

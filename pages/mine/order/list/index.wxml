@@ -6,13 +6,15 @@
               wx:key="{{item}}"
               wx:for-index="index"
               wx:for="{{tabList}}"
+              data-state="{{item.state}}"
+              catchtap="switchState"
         class=" padding-tb20 lheight-40 {{index > 0 ? 'margin-l60' : ''}} {{item.selected ? 'selected' : 'opacity5'}}">{{item.text}}</view>
     </view>
     <view class="">
         <view class="margin-lr30 height-80 flex-row-between flex-row_center lheight-33 border-b2">
             <view class="flex-row_center">
                 <view class="font-regular font-24 color-000">订单号：KD110990087</view>
-                <view class="font-semibold font-16 color-fff height-30 lheight-30 padding-lr12 bgc-fe9 bdra-200 margin-l12">未付款</view>
+                <view class="font-semibold font-16 color-fff height-30 lheight-30 padding-lr12 bgc-orange bdra-200 margin-l12">未付款</view>
             </view>
             <view class="font-light font-24 color-000 opacity5">2017/9/12</view>
         </view>
@@ -42,7 +44,7 @@
         <view class="margin-lr30 height-80 flex-row-between flex-row_center lheight-33 border-b2">
             <view class="flex-row_center">
                 <view class="font-regular font-24 color-000">订单号：KD110990087</view>
-                <view class="font-semibold font-16 color-fff height-30 lheight-30 padding-lr12 bgc-fe9 bdra-200 margin-l12">未付款</view>
+                <view class="font-semibold font-16 color-fff height-30 lheight-30 padding-lr12 bgc-blue bdra-200 margin-l12">未付款</view>
             </view>
             <view class="font-light font-24 color-000 opacity5">2017/9/12</view>
         </view>
@@ -72,7 +74,7 @@
         <view class="margin-lr30 height-80 flex-row-between flex-row_center lheight-33 border-b2">
             <view class="flex-row_center">
                 <view class="font-regular font-24 color-000">订单号：KD110990087</view>
-                <view class="font-semibold font-16 color-fff height-30 lheight-30 padding-lr12 bgc-fe9 bdra-200 margin-l12">未付款</view>
+                <view class="font-semibold font-16 color-fff height-30 lheight-30 padding-lr12 bgc-green bdra-200 margin-l12">未付款</view>
             </view>
             <view class="font-light font-24 color-000 opacity5">2017/9/12</view>
         </view>
