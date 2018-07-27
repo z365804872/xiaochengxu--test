@@ -6,3 +6,7 @@
 .fixed-btn{
     box-shadow: 0 0 8rpx 0 rgba(0,0,0,0.20);
 }
+
+page text.icon-jinggaox{
+    color: #ffffff;
+}
