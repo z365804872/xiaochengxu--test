@@ -1,4 +1,4 @@
-<!--pages/mine/trade_list/index.wxml-->
+<!--pages/mine/trade/list/index.wxml-->
 <view class="padding-lr30">
     <view wx:if="{{tradeList.length}}">
         <block wx:for="{{tradeList}}"

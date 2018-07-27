@@ -176,7 +176,8 @@
 }
 
 .padding-lr30{
-  padding: 0 30rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
 }
 
 .padding-lr20{
@@ -188,11 +189,13 @@
 }
 
 .padding-lr4{
-    padding: 0 4rpx;
+    padding-top: 4rpx;
+    padding-bottom: 4rpx;
 }
 
 .padding-lr12{
-  padding: 0 12rpx;
+    padding-left:12rpx;
+    padding-right: 12rpx;
 }
 
 .padding-l32{
@@ -207,14 +210,37 @@
   padding: 20rpx 0;
 }
 
+.padding-tb18{
+    padding-top: 18rpx;
+    padding-bottom: 18rpx;
+}
+
 .padding-tb30{
   padding: 30rpx 0;
+}
+
+.padding-tb4{
+    padding-top: 4rpx;
+    padding-bottom: 4rpx;
 }
 
 .padding-b100{
     padding-bottom: 100rpx;
 }
 
+.padding-tb12{
+    padding-top: 12rpx;
+    padding-bottom: 12rpx;
+}
+
+.padding-lr16{
+    padding-left: 16rpx;
+    padding-right: 16rpx;
+}
+
+.padding-r30{
+    padding-right: 30rpx;
+}
 /**********************margin******************************************************/
 .margin-lr30{
   margin: 0 30rpx;
@@ -246,6 +272,14 @@
 
 .margin-l12{
     margin-left: 12rpx;
+}
+
+.margin-l10{
+    margin-left: 10rpx;
+}
+
+.margin-l100{
+    margin-left: 100rpx;
 }
 
 .margin-t60{
@@ -288,6 +322,10 @@
 
 .margin-r18{
     margin-right: 18rpx;
+}
+
+.margin-b30{
+    margin-bottom: 30rpx;
 }
 
 /**********************width*******************************************************/
@@ -407,7 +445,7 @@
     background-color: #D1CFD1;
 }
 
-.bgc-fe9{
+.bgc-fe9,.bgc-FE9B48{
   background-color: #FE9B48;
 }
 
@@ -574,6 +612,9 @@ button::after{
     line-height: 28rpx;
 }
 
+.lheight-22{
+    line-height: 22rpx;
+}
 /**********************color*******************************************************/
 .color-blue{
   color: #5DBCFF;
@@ -607,6 +648,10 @@ button::after{
     color: #FF5B5A;
 }
 
+.color-47C99D{
+    color: #47C99D;
+}
+
 
 /**********************border******************************************************/
 .no-border{
@@ -620,7 +665,7 @@ button::after{
   content: ' ';
   height: 200%;
   width: 200%;
-  border: 1rpx solid #000000;
+  border: 1rpx solid #33333;
   -webkit-transform-origin: 0 0;
   transform-origin: 0 0;
   -webkit-transform: scale(0.5, 0.5);
@@ -691,6 +736,9 @@ button::after{
     border-bottom-color: rgba(0,0,0, 0.05);
 }
 
+.border1{
+    border: 1rpx solid #ccc;
+}
 /**********************border-radius***********************************************/
 .border-circle, .bdra-circle{
   border-radius: 50%;
@@ -779,6 +827,9 @@ button::after{
 }
 
 
+.bottom-120{
+    bottom: 120rpx
+}
 
 
 

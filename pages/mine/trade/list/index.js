@@ -1,4 +1,4 @@
-// pages/mine/trade_list/index.js
+// pages/mine/trade/list/index.js
 Page({
 
     /**

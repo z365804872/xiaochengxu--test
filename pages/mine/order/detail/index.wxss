@@ -1,0 +1,8 @@
+/* pages/mine/order/detail/index.wxss */
+.icon-down{
+    font-size: 22rpx;
+}
+
+.fixed-btn{
+    box-shadow: 0 0 8rpx 0 rgba(0,0,0,0.20);
+}

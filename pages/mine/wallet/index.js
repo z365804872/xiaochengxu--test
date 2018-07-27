@@ -22,7 +22,7 @@ Page({
     //跳转到交易明细
     toTradeList(){
         wx.navigateTo({
-            url: '/pages/mine/trade_list/index'
+            url: '/pages/mine/trade/list/index'
         })
     }
 
