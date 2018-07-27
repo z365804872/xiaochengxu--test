@@ -1,66 +1,50 @@
 // pages/mine/trade_list/index.js
 Page({
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-  
-  },
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        pageSize: 10,
+        tradeList: []
+    },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
-  },
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+        this._getTradeList()
+    },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
+    _getTradeList(pageNum) {
+        pageNum = pageNum || 1
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
+        let that = this
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
+        let {tradeList, hasMore} = that.data
+        wx.post({
+            api: 'searchMemberCash',
+            data: {
+                type: 0,
+                pageNum: pageNum,
+                pageSize: that.data.pageSize
+            }
+        }).then(res => {
+            let list = !!res && Array.isArray(res) && res || []
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
+            hasMore = tradeList.length > 0
+            tradeList = tradeList.concat(list)
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
+            that.data.pageNum = pageNum
+            that.setData({hasMore, tradeList})
+        })
+    },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
+    onReachBottom: function () {
+        let that = this
+        let {hasMore, tradeList, pageNum} = that.data
+        if(hasMore) that._getTradeList(++pageNum)
+    },
+
 })

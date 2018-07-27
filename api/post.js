@@ -61,14 +61,19 @@ export default {
         path: '/searchAddress',
         needUid
     },
-  "address": {
-    title: '新增收货地址',
-    path: '/address',
-    needUid
-  },
-  "delAddress": {
-    title: '删除收货地址',
-    path: '/delAddress',
-    needUid
-  }
+    "address": {
+        title: '新增收货地址',
+        path: '/address',
+        needUid
+    },
+    "delAddress": {
+        title: '删除收货地址',
+        path: '/delAddress',
+        needUid
+    },
+    "searchMemberCash": {
+        title: '用户交易明细',
+        path: '/searchMemberCash',
+        needUid
+    }
 }

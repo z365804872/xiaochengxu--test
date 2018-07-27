@@ -19,5 +19,12 @@ Page({
         this.setData({..._options})
     },
 
+    //跳转到交易明细
+    toTradeList(){
+        wx.navigateTo({
+            url: '/pages/mine/trade_list/index'
+        })
+    }
+
 
 })

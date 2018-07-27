@@ -24,7 +24,7 @@
             <view><text class="iconfont icon-jiaobiao"></text></view>
         </view>
 
-        <view class="flex-row_center flex-row-between height-160 border-b2">
+        <view catchtap="toTradeList" class="flex-row_center flex-row-between height-160 border-b2">
             <view class="flex-row_center">
                 <text class="iconfont icon-jiaoyimingxi"></text>
                 <text class="margin-l16 font-regular font-28">交易明细</text>
