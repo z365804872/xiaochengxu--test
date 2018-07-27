@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "SNCN",
+  "onReachBottomDistance": 200,
+  "enablePullDownRefresh": true
+}

@@ -12,6 +12,10 @@ export default {
         title: '首页banner',
         path: '/home/newHome'
     },
+    'queryShoes': {
+        title: '搜索',
+        path: '/queryShoes'
+    },
     'loginMember': {
         title: '第三方登陆',
         path: '/loginMember'
