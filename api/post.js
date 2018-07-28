@@ -85,5 +85,10 @@ export default {
         title: '查看礼券',
         path: '/searchCoupon',
         needUid
+    },
+    "addCoupon": {
+        title: '礼券绑定',
+        path: '/addCoupon',
+        needUid
     }
 }

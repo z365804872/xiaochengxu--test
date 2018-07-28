@@ -1,11 +1,14 @@
 <!--pages/mine/coupon_exchange/index.wxml-->
 <view class="padding-lr30">
-    <view class="height-124 flex-row_center border-b2">
-        <input class="lheight-33  flex1 font-32"
-               placeholder="请输入礼券的兑换码"
-               placeholder-class="placeholder"
-               maxlength="20"
-               type="text"/>
-    </view>
-    <button class="bgc-blue height-100 color-fff font-semibold font-32 flex-center margin-t40">兑换</button>
+    <form bindsubmit="exchangeCoupon">
+        <view class="height-124 flex-row_center border-b2">
+            <input class="lheight-33  flex1 font-32"
+                   placeholder="请输入礼券的兑换码"
+                   placeholder-class="placeholder"
+                   maxlength="20"
+                   name="couponid"
+                   type="text"/>
+        </view>
+        <button form-type="submit" class="bgc-blue height-100 color-fff font-semibold font-32 flex-center margin-t40">兑换</button>
+    </form>
 </view>

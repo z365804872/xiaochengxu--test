@@ -23,7 +23,9 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-
+        let that = this
+        let {hasMore, pageNum} = that.data
+        if(hasMore) that._getCoupon(++pageNum)
     },
 
     _getCoupon(pageNum){
@@ -38,14 +40,26 @@ Page({
         }).then(res => {
             let list = !!res && Array.isArray(res) && res || []
 
+            list.forEach(item => {
+                item.formatedBeginAt = new Date(Number(item.beginAt)).format('yyyy/MM/dd')
+                item.formatedEndAt = new Date(Number(item.endAt)).format('yyyy/MM/dd')
+            })
+
             hasMore = list.length > 0
-            console.log(res)
             couponList = couponList.concat(list)
 
             that.setData({
                 hasMore,
-                couponList
+                couponList,
+                pageNum
             })
+        })
+    },
+
+    //兑换领券
+    exchangeCoupon(){
+        wx.navigateTo({
+            url: '/pages/mine/coupon/exchange/index'
         })
     }
 

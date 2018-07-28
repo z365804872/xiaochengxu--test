@@ -356,6 +356,10 @@
 }
 
 
+.height-232{
+    height: 232rpx;
+}
+
 .height-220{
     height: 220rpx;
 }

@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "我的礼券"
+  "navigationBarTitleText": "我的礼券",
+  "onReachBottomDistance": 200
 }

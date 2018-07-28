@@ -32,7 +32,7 @@ Page({
         }).then(res => {
             let list = !!res && Array.isArray(res) && res || []
             list.forEach(item => {
-                item.detail = item.detail.slice(19)
+                // item.detail = item.detail.slice(19)
                 let index = item.createdTime.lastIndexOf(':')
                 item.createdTime = item.createdTime.slice(0, index)
             })
