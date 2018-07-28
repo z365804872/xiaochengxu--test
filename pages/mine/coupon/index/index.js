@@ -7,7 +7,8 @@ Page({
     data: {
         pageSize: 7,
         pageNum: 1,
-        type: 3
+        type: 3,
+        couponList: []
     },
 
     /**
@@ -29,13 +30,22 @@ Page({
         pageNum = pageNum || 1
 
         let that = this
-        let {pageSize, hasMore, type} = that.data
+        let {pageSize, hasMore, couponList, type} = that.data
 
         wx.post({
             api: 'searchCoupon',
             data: {pageNum, pageSize, type}
         }).then(res => {
+            let list = !!res && Array.isArray(res) && res || []
+
+            hasMore = list.length > 0
             console.log(res)
+            couponList = couponList.concat(list)
+
+            that.setData({
+                hasMore,
+                couponList
+            })
         })
     }
 

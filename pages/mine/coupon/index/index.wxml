@@ -5,6 +5,12 @@
         <view><text class="iconfont icon-jiaobiao"></text></view>
     </view>
 
+    <block wx:for="{{couponList}}"
+           wx:for-item="item"
+           wx:key="{{item.}}"
+            wx:if="{{couponList.length}}">
+
+    </block>
     <view class="margin-t30 coupon-item bdra-8 bg-image" style="background-image: url('../../../../images/coupon_bg_pink.png')">
         <view class="height-164 coupon-item-up flex-column-center pos-rel">
             <view class="flex-row_center">
@@ -20,5 +26,9 @@
             有效期：2018/3/1至2018/12/31
         </view>
     </view>
+</view>
+
+<view wx:if="{{hasMore === false && !!couponList.length}}">
+    <view class="flex-center lheight-124 color-ccc">没有更多了</view>
 </view>
 <button class="pos-fixed flex-center font-semibold font-32 color-fff height-120 bgc-blue width100 bottom0 coupon-btn">兑换礼券</button>
