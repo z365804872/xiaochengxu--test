@@ -12,11 +12,11 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.init()
+        // this.init()
     },
 
     onShow(){
-      // this.init()
+      this.init()
     },
 
     init(){
@@ -33,7 +33,7 @@ Page({
     //新增地址
     addAddress(){
         wx.navigateTo({
-            url: '/pages/mine/add_address/index?type=add'
+            url: '/pages/mine/address/add/index?type=add'
         })
     },
 
@@ -47,7 +47,7 @@ Page({
 
         wx.setStorageSync('address', encodeURIComponent(JSON.stringify(currentAddress)))
         wx.navigateTo({
-          url: `/pages/mine/add_address/index?type=change&addressId=${currentAddress.addressId}`
+          url: `/pages/mine/address/add/index?type=change&addressId=${currentAddress.addressId}`
         })
     },
 

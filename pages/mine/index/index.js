@@ -89,7 +89,7 @@ Page({
     //收获地址
     address(){
       wx.navigateTo({
-        url: '/pages/mine/address/index'
+        url: '/pages/mine/address/index/index'
       })
     },
 

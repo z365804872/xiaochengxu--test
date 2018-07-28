@@ -80,5 +80,10 @@ export default {
         title: '我的购买求购(列表)',
         path: '/order/memberOrder',
         needUid
+    },
+    "searchCoupon": {
+        title: '查看礼券',
+        path: '/searchCoupon',
+        needUid
     }
 }

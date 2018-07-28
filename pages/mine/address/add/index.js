@@ -1,6 +1,6 @@
 // pages/mine/add_address/index.js
-import {phoneErrorMsg, nameErr, detailAddressErr, addressErr} from '../../../common/errMsg';
-import {phoneRegExp} from '../../../utils/regExp';
+import {phoneErrorMsg, nameErr, detailAddressErr, addressErr} from '../../../../common/errMsg';
+import {phoneRegExp} from '../../../../utils/regExp';
 
 Page({
 

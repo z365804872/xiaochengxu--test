@@ -16,7 +16,7 @@
             </view>
         </block>
     </view>
-    <view wx:if="{{hasMore === false}}">
+    <view wx:if="{{hasMore === false && !!tradeList.length}}">
         <view class="flex-center lheight-124 color-ccc">没有更多了</view>
     </view>
 </view>

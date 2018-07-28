@@ -5,7 +5,7 @@
         <view><text class="iconfont icon-jiaobiao"></text></view>
     </view>
 
-    <view class="margin-t30 coupon-item bdra-8">
+    <view class="margin-t30 coupon-item bdra-8 bg-image" style="background-image: url('../../../../images/coupon_bg_pink.png')">
         <view class="height-164 coupon-item-up flex-column-center pos-rel">
             <view class="flex-row_center">
                 <view class="width-240 text-right font-semibold font-48 lheight-68 color-ff5">￥5.00</view>

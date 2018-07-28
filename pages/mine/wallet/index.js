@@ -24,6 +24,13 @@ Page({
         wx.navigateTo({
             url: '/pages/mine/trade/list/index'
         })
+    },
+
+    //跳转到礼券
+    toCoupon(){
+        wx.navigateTo({
+            url: '/pages/mine/coupon/index/index'
+        })
     }
 
 
