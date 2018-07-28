@@ -5,24 +5,28 @@ Page({
    * 页面的初始数据
    */
   data: {
-    seachList:[]
+    seachList:[],
+    listFlag:true,
+    page:1,
+    keyValue:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-    wx.post({api:'queryShoes', data:{keyword:"nike",pageNum:1,pageSize:10}}).then(res => {
-      console.log(res)
-      this.setData({
-        seachList:res
-      })
-    })
+    // wx.post({api:'queryShoes', data:{keyword:"nike",pageNum:1,pageSize:10}}).then(res => {
+    //   console.log(res)
+    //   this.setData({
+    //     seachList:res
+    //   })
+    // })
   },
   bindKeyInput: function(e){
     var value = e.detail.value
-    console.log(value)
-
+    this.setData({
+      keyValue:value
+    })
     wx.post({api:'queryShoes', data:{keyword:value,pageNum:1,pageSize:10}}).then(res => {
       console.log(res)
       this.setData({
@@ -70,6 +74,28 @@ Page({
    */
   onReachBottom: function () {
 
+    if(!this.data.listFlag) {
+      wx.showToast({
+        title: '没有更多商品~'
+      })
+      return false
+    }
+    
+
+    this.setData({
+      page: this.data.page + 1
+    })
+    wx.post({api:'queryShoes', data:{keyword:this.data.value,pageNum:this.data.page,pageSize:10}}).then(res => {
+      console.log(res)
+      if(res.length == 0){
+        this.setData({
+          listFlag: false
+        })
+      }
+      this.setData({
+        seachList:[...this.data.seachList,...res]
+      })
+    })
   },
 
   /**
