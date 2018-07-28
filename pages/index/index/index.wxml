@@ -71,7 +71,7 @@
 		<view class = "list-content">
 			<view  class = "list-content-list" wx:for="{{listData}}"  wx:key="{{index}}">
 				<navigator url="/pages/index/detail/index?shoesId={{item.shoesId}}" hover-class="none">
-					<view class = "list-item-image"  style="background:url('{{item.photo}}');background-size:346rpx 186rpx;background-repeat:no-repeat;">
+					<view class = "list-item-image"  style="background:url('{{item.shoesNewPath}}');background-size:346rpx 186rpx;background-repeat:no-repeat;">
 					</view>
 					<view class = "list-item-name">
 						{{item.shoesName}} 
