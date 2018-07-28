@@ -101,7 +101,6 @@
   float: left;
   width: 346rpx;
   height: 160rpx;
-  background: gray;
   margin-left: 20rpx;
   margin-top: 20rpx;
 }
@@ -109,7 +108,6 @@
   float: right;
   width: 346rpx;
   height: 160rpx;
-  background: gray;
   margin-right: 20rpx;
   margin-top: 20rpx;
 }
@@ -118,14 +116,20 @@
   text-align: center;
   display: block;
   margin-top: 90rpx;
+  width: 346rpx;
+  position: absolute;
   font-size: 24rpx;
+  z-index: 1;
 }
 .enter-text-right{
   color: #fff;
   text-align: center;
   display: block;
   margin-top: 90rpx;
+  width: 346rpx;
+  position: absolute;
   font-size: 24rpx;
+  z-index: 1;
 }
 
 /**列表**/
