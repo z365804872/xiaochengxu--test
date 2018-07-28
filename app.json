@@ -14,7 +14,8 @@
     "pages/mine/preference/index",
     "pages/mine/address/index",
     "pages/mine/add_address/index",
-    "pages/mine/order_list/index"
+    "pages/mine/order_list/index",
+    "pages/index/seach/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

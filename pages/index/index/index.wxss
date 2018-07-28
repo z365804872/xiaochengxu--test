@@ -16,8 +16,9 @@
   display: inline-block;
   width: 710rpx;
   height: 64rpx;
-  margin-top: 26rpx;
+  margin-top: 19rpx;
   background: #ccc;
+  position: relative;
 }
 .searchBar .searBar-box input{
   height: 64rpx;
@@ -30,16 +31,15 @@
 .search-plac{
   text-align: left;
   font-size: 11pt;
-
-  margin-top: 4rpx;
+  opacity: 1;
   color: #fff;
   background: #ccc;
   font-size: 28rpx;
 }
 .searBar-box .search-icon{
   position: absolute;
-  left: 45rpx;
-  top: 45rpx;
+  left: 20rpx;
+  top: 19rpx;
   width: 30rpx;
   height: 30rpx;
   z-index: 1000;
