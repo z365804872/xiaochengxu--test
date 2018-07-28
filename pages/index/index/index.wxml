@@ -35,7 +35,8 @@
 		</view>
 		<view class="section nav-list-more">
 			<navigator url="/pages/index/brand/index" hover-class="none">
-				<view class="nav-item-more" style="background:url('../../../images/more.png'); background-size:41rpx 28rpx;background-repeat:no-repeat;background-position:30rpx 48rpx;">
+				<view class="nav-item-more" style="  position: relative;">
+					<image src="../../../images/more.png"  style="  position: absolute; width:41rpx; height:28rpx;left:30rpx;top:48rpx;" />
 					<text class="item-text"></text>
 				</view>
 			</navigator>
@@ -45,14 +46,16 @@
 	<!-- 活动入口 -->
 	<view class="index-enter">
 		<navigator url="" hover-class="none">
-			<view  class="index-enter-left" style="background:url('../../../images/Group 5.png'); background-size:346rpx 160rpx;background-repeat:no-repeat; position: relative;">
-				<view class="enter-left-icon" style="background:url('../../../images/431523877111_.pic.png');width:154rpx;height:46rpx; background-size:154rpx 46rpx;background-repeat:no-repeat;position: absolute;left:96rpx;top:40rpx;"></view>
+			<view  class="index-enter-left" style="position: relative;">
+				<image src="../../../images/Group5.png"  style="  position: absolute; width:346rpx; height:160rpx;left:0;top:0;z-index:0" />
+				<image src="../../../images/431523877111_.pic.png"  style="  position: absolute; width:154rpx; height:46rpx;left:100rpx;top:40rpx;z-index:1" />
 				<text class="enter-text-left">SNCN活动</text> 
 			</view>
 		</navigator>
 		<navigator url="" hover-class="none">
-			<view  class="index-enter-right" style="background:url('../../../images/Group 6.png'); background-size:346rpx 160rpx;background-repeat:no-repeat; position: relative;">
-				<view class="enter-right-icon" style="background:url('../../../images/zd@2x.svg'); width:42rpx;height:42rpx;background-size:42rpx 42rpx;background-repeat:no-repeat;position: absolute;left:150rpx;top:42rpx;"></view>
+			<view  class="index-enter-right" style="position: relative;">
+				<image src="../../../images/Group6.png"  style="  position: absolute; width:346rpx; height:160rpx;left:0;top:0;z-index:0" />
+				<image src="../../../images/zd@2x.svg"  style="  position: absolute; width:154rpx; height:46rpx;left:94rpx;top:40rpx;z-index:1" />
 				<text class="enter-text-right">球鞋鉴定</text> 
 			</view>
 		</navigator>
