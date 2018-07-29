@@ -22,7 +22,8 @@ Page({
             selected: false,
             state: 4
         }],
-        pageSize: 5
+        pageSize: 5,
+        orderList: []
     },
 
     /**
@@ -56,13 +57,18 @@ Page({
 
         pageNum = pageNum || 1;
         state = state || 1;
-        let {type, pageSize} = that.data
+        let {type, pageSize, orderList} = that.data
 
         wx.post({
             api: 'memberOrder',
             data: {type, state, pageNum, pageSize}
         }).then(res =>  {
             console.log(res)
+            let list = !!res && Array.isArray(res) && res || []
+
+            orderList = orderList.concat(list)
+
+            that.setData({orderList})
         })
 
 
@@ -75,5 +81,6 @@ Page({
         let {state} = that.data
         if(state === _state) return
         console.log(_state)
+        that._getMemberOrder(1, _state)
     }
 })
