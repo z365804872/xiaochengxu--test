@@ -78,8 +78,12 @@ Page({
         let _state = e.currentTarget.dataset.state
         let that = this
 
-        let {state} = that.data
+        let {state, tabList} = that.data
         if(state === _state) return
+
+        tabList.forEach(tab => tab.state === _state ? tab.selected = true : tab.selected = false)
+        that.setData({tabList})
+
         console.log(_state)
         that._getMemberOrder(1, _state)
     }
