@@ -1,0 +1,135 @@
+<!--pages/mine/order/express/index.wxml-->
+<view class="padding-lr30">
+    <view class="padding-tb30 height-200 flex-row border-b2">
+        <view class="width-275 height100 bgc-f7 bg-image" style="background-image: url('{{url}}');"></view>
+        <view class="flex1 height100 margin-l30 flex-column-between">
+            <view class="font-regular font-28 color-000 lheight-40">
+                <view>Kobe A.D.EKobe A.D.E</view>
+                <view> Kobe A.D.E</view>
+            </view>
+            <view>
+                <view class="flex-row_center font-semibold">
+                    <view class=" color-000 lheight-50 font-36">￥1000</view>
+                    <view class="color-fff font-16 bgc-000 lheight-22 tag margin-l10">购买价</view>
+                </view>
+                <view class="font-light font-24 lheight-30 opacity5 margin-t10">42码</view>
+            </view>
+        </view>
+    </view>
+    <view class="padding-tb30 border-b2 font-regular font-28 lheight-40 color-000">
+        <view class="">快递公司：顺丰快递</view>
+        <view class="margin-t30 flex-row-between ">
+            <view>快递单号：233445545455454</view>
+            <view catchtap="setClipboardData"><text class="iconfont icon-chushoudingdan margin-r10"></text>复制单号</view>
+        </view>
+    </view>
+    <view class="express-flow">
+        <view class="latest">
+            <view class="flex-row">
+                <view class="line-flow flex-center">
+                    <view class="bdra-circle circle"></view>
+                </view>
+                <view class="flex1 margin-l8 font-regular font-28 lheight-40 color-000 express-station">快递已到达【杭州中转站】</view>
+            </view>
+            <view class="padding-t10 express-con">
+                <view class="font-light lheight-33 font-24 opacity5 color-000">2017/9/13 08:30</view>
+
+            </view>
+
+        </view>
+
+        <view>
+            <view class="flex-row">
+                <view class="line-flow flex-center">
+                    <view class="bdra-circle circle"></view>
+                </view>
+                <view class="flex1 margin-l8 font-regular font-28 lheight-40 color-000">快递已到达【杭州中转站】</view>
+            </view>
+            <view class="padding-t10 express-con">
+                <view class="font-light lheight-33 font-24 opacity5 color-000">2017/9/13 08:30</view>
+                <view class="comment font-regular font-28 lheight-40">
+                    <view class="margin-t20">鞋底部位有做工瑕疵</view>
+                    <view class="margin-t20">
+                        <scroll-view scroll-x="{{true}}" class="">
+                            <view class="scroll-view-item bg-image margin-l20" style="background-image: url('https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIDGfobYyDyU8M8vAAlCvJDxR03YibvToibsMBTLuicWXVC4p7lx4xTLLJbqfD6eEvFky5fDMCsGftFA/132');"></view>
+                            <view class="scroll-view-item bg-image margin-l20" style="background-image: url('https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIDGfobYyDyU8M8vAAlCvJDxR03YibvToibsMBTLuicWXVC4p7lx4xTLLJbqfD6eEvFky5fDMCsGftFA/132');"></view>
+                            <view class="scroll-view-item bg-image margin-l20" style="background-image: url('https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIDGfobYyDyU8M8vAAlCvJDxR03YibvToibsMBTLuicWXVC4p7lx4xTLLJbqfD6eEvFky5fDMCsGftFA/132');"></view>
+                            <view class="scroll-view-item bg-image margin-l20" style="background-image: url('https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIDGfobYyDyU8M8vAAlCvJDxR03YibvToibsMBTLuicWXVC4p7lx4xTLLJbqfD6eEvFky5fDMCsGftFA/132');"></view>
+                            <view class="scroll-view-item bg-image margin-l20" style="background-image: url('https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIDGfobYyDyU8M8vAAlCvJDxR03YibvToibsMBTLuicWXVC4p7lx4xTLLJbqfD6eEvFky5fDMCsGftFA/132');"></view>
+                            <view class="scroll-view-item bg-image margin-l20" style="background-image: url('https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIDGfobYyDyU8M8vAAlCvJDxR03YibvToibsMBTLuicWXVC4p7lx4xTLLJbqfD6eEvFky5fDMCsGftFA/132');"></view>
+                            <view class="scroll-view-item bg-image margin-l20" style="background-image: url('https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIDGfobYyDyU8M8vAAlCvJDxR03YibvToibsMBTLuicWXVC4p7lx4xTLLJbqfD6eEvFky5fDMCsGftFA/132');"></view>
+                            <view class="scroll-view-item bg-image margin-l20" style="background-image: url('https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIDGfobYyDyU8M8vAAlCvJDxR03YibvToibsMBTLuicWXVC4p7lx4xTLLJbqfD6eEvFky5fDMCsGftFA/132');"></view>
+                            <view class="scroll-view-item bg-image margin-l20" style="background-image: url('https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIDGfobYyDyU8M8vAAlCvJDxR03YibvToibsMBTLuicWXVC4p7lx4xTLLJbqfD6eEvFky5fDMCsGftFA/132');"></view>
+                            <view class="scroll-view-item bg-image margin-l20" style="background-image: url('https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIDGfobYyDyU8M8vAAlCvJDxR03YibvToibsMBTLuicWXVC4p7lx4xTLLJbqfD6eEvFky5fDMCsGftFA/132');"></view>
+                            <view class="scroll-view-item bg-image margin-l20" style="background-image: url('https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIDGfobYyDyU8M8vAAlCvJDxR03YibvToibsMBTLuicWXVC4p7lx4xTLLJbqfD6eEvFky5fDMCsGftFA/132');"></view>
+                        </scroll-view>
+                    </view>
+                    <view class="comment-desc margin-t20">买家接受，发货</view>
+                </view>
+            </view>
+
+        </view>
+
+        <view>
+            <view class="flex-row">
+                <view class="line-flow flex-center">
+                    <view class="bdra-circle circle"></view>
+                </view>
+                <view class="flex1 margin-l8 font-regular font-28 lheight-40 color-000">快递已到达【杭州中转站】</view>
+            </view>
+            <view class="padding-t10 express-con">
+                <view class="font-light lheight-33 font-24 opacity5 color-000">2017/9/13 08:30</view>
+                <view class="comment font-regular font-28 lheight-40">
+                    <view class="margin-t20">鞋底部位有做工瑕疵</view>
+                    <view class="margin-t20">
+                        <scroll-view scroll-x="{{true}}" class="">
+                            <view class="scroll-view-item bg-image margin-l20" style="background-image: url('https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIDGfobYyDyU8M8vAAlCvJDxR03YibvToibsMBTLuicWXVC4p7lx4xTLLJbqfD6eEvFky5fDMCsGftFA/132');"></view>
+                            <view class="scroll-view-item bg-image margin-l20" style="background-image: url('https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIDGfobYyDyU8M8vAAlCvJDxR03YibvToibsMBTLuicWXVC4p7lx4xTLLJbqfD6eEvFky5fDMCsGftFA/132');"></view>
+                            <view class="scroll-view-item bg-image margin-l20" style="background-image: url('https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIDGfobYyDyU8M8vAAlCvJDxR03YibvToibsMBTLuicWXVC4p7lx4xTLLJbqfD6eEvFky5fDMCsGftFA/132');"></view>
+                            <view class="scroll-view-item bg-image margin-l20" style="background-image: url('https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIDGfobYyDyU8M8vAAlCvJDxR03YibvToibsMBTLuicWXVC4p7lx4xTLLJbqfD6eEvFky5fDMCsGftFA/132');"></view>
+                            <view class="scroll-view-item bg-image margin-l20" style="background-image: url('https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIDGfobYyDyU8M8vAAlCvJDxR03YibvToibsMBTLuicWXVC4p7lx4xTLLJbqfD6eEvFky5fDMCsGftFA/132');"></view>
+                            <view class="scroll-view-item bg-image margin-l20" style="background-image: url('https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIDGfobYyDyU8M8vAAlCvJDxR03YibvToibsMBTLuicWXVC4p7lx4xTLLJbqfD6eEvFky5fDMCsGftFA/132');"></view>
+                            <view class="scroll-view-item bg-image margin-l20" style="background-image: url('https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIDGfobYyDyU8M8vAAlCvJDxR03YibvToibsMBTLuicWXVC4p7lx4xTLLJbqfD6eEvFky5fDMCsGftFA/132');"></view>
+                            <view class="scroll-view-item bg-image margin-l20" style="background-image: url('https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIDGfobYyDyU8M8vAAlCvJDxR03YibvToibsMBTLuicWXVC4p7lx4xTLLJbqfD6eEvFky5fDMCsGftFA/132');"></view>
+                            <view class="scroll-view-item bg-image margin-l20" style="background-image: url('https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIDGfobYyDyU8M8vAAlCvJDxR03YibvToibsMBTLuicWXVC4p7lx4xTLLJbqfD6eEvFky5fDMCsGftFA/132');"></view>
+                            <view class="scroll-view-item bg-image margin-l20" style="background-image: url('https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIDGfobYyDyU8M8vAAlCvJDxR03YibvToibsMBTLuicWXVC4p7lx4xTLLJbqfD6eEvFky5fDMCsGftFA/132');"></view>
+                            <view class="scroll-view-item bg-image margin-l20" style="background-image: url('https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIDGfobYyDyU8M8vAAlCvJDxR03YibvToibsMBTLuicWXVC4p7lx4xTLLJbqfD6eEvFky5fDMCsGftFA/132');"></view>
+                        </scroll-view>
+                    </view>
+                    <view class="comment-desc margin-t20">买家接受，发货</view>
+                </view>
+            </view>
+
+        </view>
+
+        <view>
+            <view class="flex-row">
+                <view class="line-flow flex-center">
+                    <view class="bdra-circle circle"></view>
+                </view>
+                <view class="flex1 margin-l8 font-regular font-28 lheight-40 color-000">快递已到达【杭州中转站】</view>
+            </view>
+            <view class="padding-t10 express-con">
+                <view class="font-light lheight-33 font-24 opacity5 color-000">2017/9/13 08:30</view>
+
+            </view>
+
+        </view>
+
+        <view>
+            <view class="flex-row">
+                <view class="line-flow flex-center">
+                    <view class="bdra-circle circle"></view>
+                </view>
+                <view class="flex1 margin-l8 font-regular font-28 lheight-40 color-000">快递已到达【杭州中转站】</view>
+            </view>
+            <view class="padding-t10 express-con">
+                <view class="font-light lheight-33 font-24 opacity5 color-000">2017/9/13 08:30</view>
+
+            </view>
+
+        </view>
+
+
+    </view>
+</view>

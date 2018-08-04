@@ -241,6 +241,10 @@
 .padding-r30{
     padding-right: 30rpx;
 }
+.padding-t10{
+    padding-top: 10rpx;
+}
+
 /**********************margin******************************************************/
 .margin-lr30{
   margin: 0 30rpx;
@@ -324,6 +328,11 @@
     margin-right: 18rpx;
 }
 
+.margin-r10{
+    margin-right: 10rpx;
+}
+
+
 .margin-b30{
     margin-bottom: 30rpx;
 }
@@ -331,6 +340,10 @@
 /**********************width*******************************************************/
 .width100{
   width: 100%;
+}
+
+.width-275{
+    width: 275rpx;
 }
 
 .width-240{
@@ -368,6 +381,9 @@
     height: 216rpx;
 }
 
+.height-200{
+    height: 200rpx;
+}
 
 .height-164{
     height: 164rpx;
