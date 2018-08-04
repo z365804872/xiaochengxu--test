@@ -78,7 +78,7 @@ let ajax = function (method, params, needLoading) {
 
   if (method.toUpperCase() === 'POST' && apiObj[apiKey].needUid) {
     let app = getApp()
-    let uid = app.globalData.uid
+    let uid = 177 || app.globalData.uid
     if(!uid){
       auth.login().then(()=>{
         postData.uid = uid
