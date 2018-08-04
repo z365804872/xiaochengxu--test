@@ -11,11 +11,11 @@
         </view>
     </view>
     <view class="margin-t10 flex-row bgc-fff my-order">
-        <view class="flex1 height100 flex-column-center-center">
+        <view catchtap="myBuyOrder" class="flex1 height100 flex-column-center-center">
             <text class="iconfont icon-goumaidingdan"></text>
             <view class="font-regular font-20 lheight-28 color-333 opacity6 margin-t8">购买订单</view>
         </view>
-        <view class="flex1 height100 flex-column-center-center">
+        <view catchtap="mySellOrder" class="flex1 height100 flex-column-center-center">
             <text class="iconfont icon-chushoudingdan"></text>
             <view class="font-regular font-20 lheight-28 color-333 opacity6 margin-t8">出售订单</view>
         </view>

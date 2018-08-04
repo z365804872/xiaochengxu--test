@@ -1,4 +1,4 @@
-// pages/mine/coupon/index.js
+// pages/mine/order/detail/index.js
 Page({
 
   /**

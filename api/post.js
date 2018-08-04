@@ -65,14 +65,34 @@ export default {
         path: '/searchAddress',
         needUid
     },
-  "address": {
-    title: '新增收货地址',
-    path: '/address',
-    needUid
-  },
-  "delAddress": {
-    title: '删除收货地址',
-    path: '/delAddress',
-    needUid
-  }
+    "address": {
+        title: '新增收货地址',
+        path: '/address',
+        needUid
+    },
+    "delAddress": {
+        title: '删除收货地址',
+        path: '/delAddress',
+        needUid
+    },
+    "searchMemberCash": {
+        title: '用户交易明细',
+        path: '/searchMemberCash',
+        needUid
+    },
+    "memberOrder": {
+        title: '我的购买求购(列表)',
+        path: '/order/memberOrder',
+        needUid
+    },
+    "searchCoupon": {
+        title: '查看礼券',
+        path: '/searchCoupon',
+        needUid
+    },
+    "addCoupon": {
+        title: '礼券绑定',
+        path: '/addCoupon',
+        needUid
+    }
 }

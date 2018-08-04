@@ -1,0 +1,36 @@
+<!--pages/mine/coupon/index.wxml-->
+<view class="padding-lr30">
+    <view class="bgc-fa height-80 flex-row-between flex-row_center padding-lr20 margin-t14 lheight-80">
+        <view class="font-28 font-regular opacity4"><text class="iconfont icon-jianding1"></text><text class="margin-l20">说明</text></view>
+        <view><text class="iconfont icon-jiaobiao"></text></view>
+    </view>
+
+    <block wx:for="{{couponList}}"
+           wx:for-item="item"
+           wx:key="{{item.couponId}}"
+           wx:if="{{couponList.length}}">
+        <view class="margin-t30 coupon-item pos-rel height-232" >
+            <image class="height-232 width100 pos-abs " src="../../../../images/coupon_bg_pink.png"></image>
+            <view class="height-164 coupon-item-up flex-column-center pos-rel">
+                <view class="flex-row_center">
+                    <view class="width-240 text-right font-semibold font-48 lheight-68 color-ff5">￥{{item.couponMoney}}</view>
+                    <view class="margin-l64 font-regular font-24 color-333 opacity6">{{item.couponName}}</view>
+                </view>
+                <view class="flex-row_center font-regular font-24 lheight-33 color-333">
+                    <view class="width-240 text-right ">{{item.couponDetail}}</view>
+                    <view class="margin-l64 opacity6">{{item.couponSource}}</view>
+                </view>
+            </view>
+            <view class="padding-l32 lheight-68 font-regular font-24 color-333 opacity6 ">
+                有效期：{{item.formatedBeginAt}}至{{item.formatedEndAt}}
+            </view>
+        </view>
+
+    </block>
+
+</view>
+
+<view wx:if="{{hasMore === false && !!couponList.length}}">
+    <view class="flex-center lheight-124 color-ccc">没有更多了</view>
+</view>
+<button catchtap="exchangeCoupon" class="pos-fixed flex-center font-semibold font-32 color-fff height-120 bgc-blue width100 bottom0 coupon-btn">兑换礼券</button>

@@ -1,0 +1,4 @@
+/* pages/mine/coupon/index.wxss */
+page{
+    padding-bottom: 124rpx;
+}

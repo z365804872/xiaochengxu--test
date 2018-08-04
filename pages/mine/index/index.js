@@ -89,8 +89,21 @@ Page({
     //收获地址
     address(){
       wx.navigateTo({
-        url: '/pages/mine/address/index'
+        url: '/pages/mine/address/index/index'
       })
-    }
+    },
 
+    //我的求购
+    myBuyOrder(){
+        wx.navigateTo({
+            url: '/pages/mine/order/list/index?type=1'
+        })
+    },
+
+    //我的出售
+    mySellOrder(){
+        wx.navigateTo({
+            url: '/pages/mine/order/list/index?type=2'
+        })
+    }
 })

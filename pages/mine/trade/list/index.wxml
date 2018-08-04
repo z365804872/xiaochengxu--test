@@ -1,0 +1,22 @@
+<!--pages/mine/trade/list/index.wxml-->
+<view class="padding-lr30">
+    <view wx:if="{{tradeList.length}}">
+        <block wx:for="{{tradeList}}"
+               wx:key="{{item.createdTime}}"
+               wx:for-item="item">
+            <view class="flex-column-center height-216 border-b2">
+                <view class="flex-row-between">
+                    <view class="font-regular font-28 lheight-40 ">{{item.state === 0 ? '收入' : '支出'}}</view>
+                    <view class="font-semibold font-32">{{item.state === 0 ? '+' : '-'}}￥{{item.money}}</view>
+                </view>
+                <view class="flex-row-between margin-t16">
+                    <view class="font-light font-24 lheight-33 flex1">{{item.detail}}</view>
+                    <view class="font-light font-24 opacity5 width-240 text-right">{{item.createdTime}}</view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <view wx:if="{{hasMore === false && !!tradeList.length}}">
+        <view class="flex-center lheight-124 color-ccc">没有更多了</view>
+    </view>
+</view>

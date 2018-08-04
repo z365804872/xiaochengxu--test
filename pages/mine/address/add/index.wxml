@@ -5,6 +5,7 @@
         <input type="text"
                maxlength="20"
                name="name"
+               value="{{name}}"
                placeholder-class="placeholder"
                placeholder="姓名" />
     </view>
@@ -12,6 +13,7 @@
         <input type="number"
                maxlength="11"
                name="mobile"
+               value="{{mobile}}"
                placeholder-class="placeholder"
                placeholder="手机号码" />
     </view>
@@ -30,11 +32,12 @@
                maxlength="60"
                placeholder-class="placeholder"
                name="detailAddress"
+               value="{{detailAddress}}"
                placeholder="地址（街道、小区、门牌号）" />
     </view>
     <view class="height-160 border-b2 flex-row-between flex-row_center color-000 font-regular font-32">
         <view>设为默认收货地址</view>
-        <view><switch bindchange="switchChange"></switch></view>
+        <view><switch checked="{{defaultAddress}}" bindchange="switchChange"></switch></view>
     </view>
 </view>
 
