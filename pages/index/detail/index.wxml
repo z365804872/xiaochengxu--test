@@ -103,7 +103,7 @@
 			<text class="detail-buttom-info" wx:else>
 				暂无该码球鞋在售\n点击求购立即求购
 			</text>
-			<view class="detail-buttom-buy">
+			<view class="detail-buttom-buy" bindtap="toOrder">
 				购买
 			</view>
 			<view class="detail-buttom-sell">

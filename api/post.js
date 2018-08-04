@@ -94,5 +94,20 @@ export default {
         title: '礼券绑定',
         path: '/addCoupon',
         needUid
+    },
+    "appraisalList": {
+        title: '鉴定列表',
+        path: '/appraisalList',
+        needUid
+    },
+    "appraisalSort": {
+        title: '鉴定品牌',
+        path: '/appraisalSort',
+        needUid
+    },
+    "searchAppraisal": {
+        title: '鉴定详情',
+        path: '/searchAppraisal',
+        needUid
     }
 }
