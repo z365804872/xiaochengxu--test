@@ -1,5 +1,56 @@
 <!--pages/evaluate/index/index.wxml-->
-<scroll-view scroll-y class="container">
-    
-</scroll-view>
+<view scroll-y class="container">
+   <view class="container-header">
+        <view class="evaluate-header-left" style="background:url('../../../images/jdbg.png');background-size:344rpx 320rpx;width:344rpx;height:320rpx; background-repeat:no-repeat; position:relative">
+           <view style="position: absolute;bottom:0;height:75rpx;width327rpx;line-height:75rpx;color: #FFFFFF;font-size:28rpx;margin-left:17rpx;">
+               Yeezy 500 真假对比!
+           </view>
+        </view>
+        <view class="evaluate-header-right" >
+            <view class="header-right-top" style="background:url('../../../images/jdbg-left(1).png');background-size:344rpx 150rpx;width:344rpx;height:150rpx; background-repeat:no-repeat;">
+                鉴定规则
+            </view>
+            <view class="header-right-bottom" style="background:url('../../../images/jdbg-left(2).png');background-size:344rpx 150rpx;width:344rpx;height:150rpx; background-repeat:no-repeat;">
+                新手指南
+            </view>
+        </view>
+   </view>
+   <view class="container-content">
+       <view class="container-content-tab">
+           <view  class="content-tab-jd {{tabtype==1?'select':''}}" bindtap="tabType" data-type="1">
+               球鞋鉴定
+           </view>
+           <view  class="content-tab-wd {{tabtype==2?'select':''}}" bindtap="tabType" data-type="2">
+               我的鉴定
+           </view>
+       </view>
+       <view class="container-content-box">
+            <view class="container-content-item" wx:for="{{dataList}}" wx:key="{{index}}" bindtap="toDetail" data-id="{{item.appraisalId}}">
+                <view class="item-left">
+                    <view class = "list-item-image"  style="background:url('{{item.photo1}}');background-size:246rpx 246rpx;width:246rpx;height:246rpx; background-repeat:no-repeat;">
+					</view>
+                </view>
+                <view class="item-right">
+                    <view class="item-right-name">
+                        {{item.content}}
+                    </view>
+                    <view class="item-right-gray">
+                        <view class="right-gray-from">
+                            来自：{{item.nickName}}
+                        </view>   
+                        <view class="right-gray-data">
+                                {{item.createdAt}}
+                        </view>                  
+                    </view>
+                    <view class="item-right-status" style="background:url({{item.type == 0?'../../../images/jdz.png':item.type == 1?'../../../images/zd.png':item.type == 2?'../../../images/jd.png':'../../../images/wfjd.png'}});background-size:464rpx 98rpx;width:464rpx;height:98rpx; background-repeat:no-repeat;">
+                    
+                    </view>
+                </view>
+            </view>
+       </view>
+       <view class="container-content-btn" bindtap="toCheck">
+            发起鉴定
+       </view>
+   </view>
+</view>
 <nav-tab tabName="evaluate"></nav-tab>

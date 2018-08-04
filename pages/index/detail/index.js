@@ -186,7 +186,15 @@ Page({
       this.setData({
         tabDataList: res.list
       })
-  })
+    })
+  },
+    /**
+   * 跳转提交订单
+   */
+  toOrder: function () {
+    wx.navigateTo({
+      url:"/pages/index/order/index"
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

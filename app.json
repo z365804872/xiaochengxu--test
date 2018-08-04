@@ -3,6 +3,7 @@
     "pages/index/index/index",
     "pages/index/detail/index",
     "pages/index/brand/index",
+    "pages/index/order/index",
     "pages/evaluate/index/index",
     "pages/mine/index/index",
     "pages/mine/register/index",
@@ -15,7 +16,11 @@
     "pages/mine/address/index",
     "pages/mine/add_address/index",
     "pages/mine/order_list/index",
-    "pages/index/seach/index"
+    "pages/index/seach/index",
+    "pages/evaluate/appraisal/index",
+    "pages/evaluate/appraisalNext/index",
+    "pages/evaluate/appraisalDetail/index"
+    
   ],
   "window":{
     "backgroundTextStyle":"light",

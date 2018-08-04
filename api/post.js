@@ -65,14 +65,31 @@ export default {
         path: '/searchAddress',
         needUid
     },
-  "address": {
-    title: '新增收货地址',
-    path: '/address',
-    needUid
-  },
-  "delAddress": {
-    title: '删除收货地址',
-    path: '/delAddress',
-    needUid
-  }
+    "address": {
+        title: '新增收货地址',
+        path: '/address',
+        needUid
+    },
+    "delAddress": {
+        title: '删除收货地址',
+        path: '/delAddress',
+        needUid
+    },
+    "appraisalList": {
+        title: '鉴定列表',
+        path: '/appraisalList',
+        needUid
+    },
+    "appraisalSort": {
+        title: '鉴定品牌',
+        path: '/appraisalSort',
+        needUid
+    },
+    "searchAppraisal": {
+        title: '鉴定详情',
+        path: '/searchAppraisal',
+        needUid
+    }
+
+    
 }
