@@ -33,7 +33,7 @@ Component({
       if( (type === 'index' && onHome) || (type === 'store' && onEvaluate) || (type === 'console' && onMine) ) return
 
       //我的授权拦截
-      if(type === 'mine'){
+      if(type === 'mine' || type === 'evaluate'){
         auth.authorizedVerify(e).then(res => {
           wx.reLaunch({
             url: `/pages/${type}/index/index`
