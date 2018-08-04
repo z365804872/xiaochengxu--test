@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": ""
+  "navigationBarTitleText": "",
+  "onReachBottomDistance": 200
 }

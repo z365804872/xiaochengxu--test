@@ -66,6 +66,7 @@ Page({
             console.log(res)
             let list = !!res && Array.isArray(res) && res || []
 
+            that._formatData(list)
             orderList = orderList.concat(list)
 
             that.setData({orderList})
@@ -86,5 +87,15 @@ Page({
 
         console.log(_state)
         that._getMemberOrder(1, _state)
+    },
+
+    //格式化数据
+    _formatData(data){
+        if(Array.isArray(data)){
+            data.forEach(item => {
+                item.convertedCreateTime = new Date(Number(item.createTime) || 0).format('yyyy/MM/dd')
+                item.sign = Number(item.percent) > 0 ? '+' : '-'
+            })
+        }
     }
 })
