@@ -48,6 +48,11 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
+        let that = this
+        let {hasMore, pageNum, state} = that.data
+        if(!hasMore) return
+
+        that._getMemberOrder(++pageNum, state)
 
     },
 
@@ -57,19 +62,26 @@ Page({
 
         pageNum = pageNum || 1;
         state = state || 1;
-        let {type, pageSize, orderList} = that.data
+        let {type, pageSize, orderList, hasMore} = that.data
 
         wx.post({
             api: 'memberOrder',
             data: {type, state, pageNum, pageSize}
         }).then(res =>  {
-            console.log(res)
             let list = !!res && Array.isArray(res) && res || []
+
+            hasMore = list.length > 0  && list.length === pageSize
 
             that._formatData(list)
             orderList = orderList.concat(list)
+            that.data.pageNum = pageNum
+            that.data.state = state
 
-            that.setData({orderList})
+            that.setData({
+                orderList, 
+                orderType: state,
+                hasMore
+            })
         })
 
 
@@ -83,9 +95,8 @@ Page({
         if(state === _state) return
 
         tabList.forEach(tab => tab.state === _state ? tab.selected = true : tab.selected = false)
-        that.setData({tabList})
+        that.setData({tabList, orderList: []})
 
-        console.log(_state)
         that._getMemberOrder(1, _state)
     },
 
@@ -95,6 +106,7 @@ Page({
             data.forEach(item => {
                 item.convertedCreateTime = new Date(Number(item.createTime) || 0).format('yyyy/MM/dd')
                 item.sign = Number(item.percent) > 0 ? '+' : '-'
+                
             })
         }
     }
