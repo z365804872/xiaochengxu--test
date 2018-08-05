@@ -40,6 +40,7 @@ Page({
             wx.setNavigationBarTitle({title: '我的求购'})
         }else  if(type == 2){
             wx.setNavigationBarTitle({title: '我的出售'})
+            this.setData({'tabList[0].text': '出售中'})
         }
     },
 
@@ -109,5 +110,24 @@ Page({
                 
             })
         }
+    },
+
+    action(){
+
+    },
+
+    toOrderDetail(e){
+
+        let index = e.currentTarget.dataset.index
+        let {type, orderType, orderList} = this.data
+
+        let currentOrder = orderList[index]
+        let {shoesId, paySnNo} = currentOrder
+
+        let url = type == 1 
+            ? `/pages/mine/order/buyDetail/index?type=${orderType}&shoesId=${shoesId}&orderId=${paySnNo}` 
+            : '/pages/mine/order/sellDetail/index?type=6'
+
+        wx.navigateTo({url: url})
     }
 })

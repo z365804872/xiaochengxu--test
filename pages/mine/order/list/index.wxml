@@ -13,9 +13,10 @@
 
     <block wx:for="{{orderList}}"
            wx:for-item="item"
+           wx:for-index="index"
            wx:key="{{item.createTime}}"
             wx:if="{{orderList.length}}">
-        <view class="">
+        <view catch:tap="toOrderDetail" data-index="{{index}}">
             <view class="margin-lr30 height-80 flex-row-between flex-row_center lheight-33 border-b2">
                 <view class="flex-row_center">
                     <view class="font-regular font-24 color-000">订单号：{{item.paySnNo}}</view>
@@ -36,17 +37,24 @@
                             <view class="flex-row-start flex-row_center">
                                 <view class="font-light font-28 opacity5 color-000 lheight-40">{{item.shoesSize}}码</view>
                                 <view class="font-semibold font-28 color-000 lheight-40 margin-l20">￥{{item.money}}</view>
-                                <view class="font-semibold font-16 color-fff lheight-30 height-30 padding-lr12 bgc-000 margin-l8">求购价</view>
+                                <view class="font-semibold font-16 color-fff lheight-30 height-30 padding-lr12 bgc-000 margin-l8">
+                                    <view wx:if="{{orderType === 2 && item.state === 1}}">成交价</view>
+                                    <view wx:else>求购价</view>
+                                </view>
                             </view>
                             <view class="flex-row_center"><text class="font-regular font-28 lheight-40 height-40 {{item.sign === '+' ? 'color-red' : 'color-green'}}">{{item.percent}}%</text><text class="iconfont {{item.sign === '+' ? 'icon-up' : 'icon-down'}}"></text></view>
                         </view>
                     </view>
                 </view>
-                <view class="margin-t30 flex-row-between flex-row_center">
+                <view class="margin-t30 flex-row-between flex-row_center" catchtap="action">
                     <view class="font-light font-24 color-000 lheight-33">{{item.stateInfo}}</view>
                     <view wx:if="{{orderType === 1}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn">{{item.state === 0 ? '支付定金' : '取消订单'}}</view>
-                    <view wx:if="{{orderType === 2}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn">{{item.state === 0 ? '支付定金' : '取消订单'}}</view>
-                    <view wx:if="{{orderType === 3}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn">查看物流</view>
+                    <view wx:if="{{orderType === 2}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn">
+                        {{item.state === 0 ? '支付全款' : ''}}
+                        {{item.state === 1 ? '取消订单' : ''}}
+                        <!-- {{item.state === 6 ? '查看物流' : ''}} -->
+                    </view>
+                    <view wx:if="{{orderType === 3 && item.state !== 2}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn">查看物流</view>
                     <view wx:if="{{orderType === 4}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn">继续求购</view>
                 </view>
             </view>
@@ -116,5 +124,8 @@
 
     <view wx:if="{{hasMore === false && !!orderList.length}}">
         <view class="flex-center lheight-124 color-ccc">没有更多了</view>
+    </view>
+    <view class="flex-center font-regular font-28 color-333 empty" wx:if="{{hasMore === false && orderList.length === 0}}">
+        暂无订单
     </view>
 </view>

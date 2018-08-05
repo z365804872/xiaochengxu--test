@@ -109,5 +109,10 @@ export default {
         title: '鉴定详情',
         path: '/searchAppraisal',
         needUid
+    },
+    "orderDetail":{
+        title: '出售和购买(鞋子详情)',
+        path: '/order/orderDetail',
+        needUid
     }
 }

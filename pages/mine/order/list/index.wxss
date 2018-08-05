@@ -23,3 +23,7 @@ page .icon-up, page .icon-down{
   vertical-align: middle;
   margin-left: 10rpx;
 }
+
+.empty{
+  padding-top: 25vh;
+}
