@@ -122,10 +122,18 @@ Page({
         let {type, orderType, orderList} = this.data
 
         let currentOrder = orderList[index]
-        let {shoesId, paySnNo} = currentOrder
+        let {shoesId, paySnNo, orderId, buySellId, state} = currentOrder
+
+        let id ;
+        if(state === 1 || state === 5 || state === 6){
+            id = buySellId
+        }
+        if(state === 2 || state === 3 || state === 4){
+            id = orderId
+        }
 
         let url = type == 1 
-            ? `/pages/mine/order/buyDetail/index?type=${orderType}&shoesId=${shoesId}&orderId=${paySnNo}` 
+            ? `/pages/mine/order/buyDetail/index?type=${orderType}&shoesId=${shoesId}&id=${id}` 
             : '/pages/mine/order/sellDetail/index?type=6'
 
         wx.navigateTo({url: url})

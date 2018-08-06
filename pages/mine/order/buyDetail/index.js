@@ -14,14 +14,10 @@ Page({
   onLoad: function (options) {
     console.log(options)
 
-    let { shoesId, orderId, type} = options
-    wx.get({
+    let { shoesId, id, type} = options
+    wx.post({
       api: 'orderDetail',
-      data: {
-        shoesId,
-        id: orderId,
-        type
-      }
+      data: {shoesId, id, type}
     }).then(res => {
       console.log(res)
     })
