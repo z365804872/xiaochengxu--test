@@ -105,7 +105,7 @@ Page({
     _formatData(data){
         if(Array.isArray(data)){
             data.forEach(item => {
-                item.convertedCreateTime = new Date(Number(item.createTime) || 0).format('yyyy/MM/dd')
+                item.convertedCreateTime = new Date(Number(item.createTime) * 1000 || 0).format('yyyy/MM/dd')
                 item.sign = Number(item.percent) > 0 ? '+' : '-'
                 
             })
