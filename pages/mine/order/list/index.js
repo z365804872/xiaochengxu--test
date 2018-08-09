@@ -33,6 +33,8 @@ Page({
         let type = options.type
         if(!!type) this.data.type = options.type
 
+        this.setData({type: type})
+
         this._getMemberOrder()
 
         //设置标题 1：我的求购  2：我的出售
