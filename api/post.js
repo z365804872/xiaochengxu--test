@@ -134,5 +134,10 @@ export default {
         title: '继续求购',
         path: '/order/generatingOrder',
         needUid
+    },
+    "express": {
+        title: '录入快递单号',
+        path: '/order/express',
+        needUid
     }
 }
