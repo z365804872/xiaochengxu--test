@@ -13,7 +13,7 @@ Page({
    */
   onLoad: function (options) {
     let that = this
-    let { shoesId, id, type, orderState } = options
+    let { shoesId, id, type, orderState, orderStateCopy } = options
     wx.post({
       api: 'orderDetail',
       data: { shoesId, id, type: orderState }
@@ -30,7 +30,7 @@ Page({
       if (res.buyOrSellCreateTime) (res.startTime = new Date(res.buyOrSellCreateTime * 1000 || 0).format('yyyy/MM/dd'));
       if (res.buyOrSellEndTime) (res.endTime = new Date(res.buyOrSellEndTime * 1000 || 0).format('yyyy/MM/dd'));
 
-      if (options.type == 6) options.type = 2;
+      if (options.orderState == 6) options.orderState = orderStateCopy;
       if (options.orderState == 4 || options.orderState == 5) options.orderState = 4
       that.setData({
         ...res,

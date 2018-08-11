@@ -119,6 +119,7 @@ Page({
 
         let index = e.currentTarget.dataset.index
         let { type, orderState, orderList } = this.data
+        let orderStateCopy = orderState
 
         let currentOrder = orderList[index]
         let { shoesId, paySnNo, orderId, buySellId, state } = currentOrder
@@ -140,7 +141,7 @@ Page({
         //     ? `/pages/mine/order/buyDetail/index?orderState=${orderState}&shoesId=${shoesId}&id=${id}` 
         //     : '/pages/mine/order/sellDetail/index?orderState=6'
 
-        let url = `/pages/mine/order/detail/index?orderState=${orderState}&type=${type}&shoesId=${shoesId}&id=${id}`
+        let url = `/pages/mine/order/detail/index?orderState=${orderState}&type=${type}&shoesId=${shoesId}&id=${id}&orderStateCopy=${orderStateCopy}`
 
         wx.navigateTo({ url: url })
     },
@@ -217,12 +218,6 @@ Page({
         }).then(res => {
 
         })
-
-    },
-
-    //下架商品
-    offlineGoods(e) {
-        console.log('下架商品', e)
 
     },
 
