@@ -114,5 +114,25 @@ export default {
         title: '出售和购买(鞋子详情)',
         path: '/order/orderDetail',
         needUid
+    },
+    "cancellOfOrder": {
+        title: '取消订单',
+        path: '/order/cancellOfOrder',
+        needUid
+    },
+    "comfirmOrder": {
+        title: '确认收货',
+        path: '/order/comfirmOrder',
+        needUid
+    },
+    "lookExpress": {
+        title: '查看物流',
+        path: '/order/lookExpress',
+        needUid
+    },
+    "generatingOrder":{
+        title: '继续求购',
+        path: '/order/generatingOrder',
+        needUid
     }
 }

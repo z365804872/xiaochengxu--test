@@ -22,7 +22,7 @@ function _trim(data) {
 /***
  * 打印日志
  * ***/
-function log({res, startTime, apiKey, data}) {
+function log({ res, startTime, apiKey, data }) {
   if (!res) return console.error('params res(wx.request\'s return data) is absent ')
 
   let endTime = Date.now()
@@ -55,21 +55,26 @@ let ajax = function (method, params, needLoading) {
 
   let postData = params.data || {};
   let apiKey = params.api;
-
-  //判断方法是否一致
-  if (method.toUpperCase() !== apiObj[apiKey].method) {
-    return wx.showToast({
-      title: `接口${apiKey}调用方法不正确`
-    })
-  }
+  let toastTesult = params.toastTesult || false
 
   //apiKey不存在
   if (!apiKey) {
-    return wx.showModal({
-      title: '',
-      content: '缺少api参数',
-      showCancel: false
+     wx.showToast({ title: '缺少api参数'})
+     return Promise.reject(false)
+  }
+
+  //接口路径不存在
+  if(!apiObj[apiKey]){
+     wx.showToast({title: 'api路径不存在'})
+     return Promise.reject(false)
+  }
+
+  //判断方法是否一致
+  if (method.toUpperCase() !== apiObj[apiKey].method) {
+     wx.showToast({
+      title: `接口${apiKey}调用方法不正确`
     })
+    return Promise.reject(false)
   }
 
   //去除两端空格
@@ -79,17 +84,17 @@ let ajax = function (method, params, needLoading) {
   if (method.toUpperCase() === 'POST' && apiObj[apiKey].needUid) {
     let app = getApp()
     let uid = 177 || app.globalData.uid
-    if(!uid){
-      auth.login().then(()=>{
+    if (!uid) {
+      auth.login().then(() => {
         postData.uid = uid
-        return request({method, postData, needLoading, apiKey})
+        return request({ method, postData, needLoading, apiKey, toastTesult })
       })
-    }else{
+    } else {
       postData.uid = uid
-      return request({method, postData, needLoading, apiKey})
+      return request({ method, postData, needLoading, apiKey, toastTesult })
     }
-  }else{
-   return request({method, postData, needLoading, apiKey})
+  } else {
+    return request({ method, postData, needLoading, apiKey, toastTesult })
   }
 
 }
@@ -98,7 +103,7 @@ let ajax = function (method, params, needLoading) {
  * 发送请求
  * ***/
 let request = function (obj) {
- let {method, postData, needLoading, apiKey} = obj
+  let { method, postData, needLoading, apiKey, toastTesult } = obj
 
   let startTime = Date.now();
   if (needLoading) wx.showLoading()
@@ -118,16 +123,16 @@ let request = function (obj) {
           let data = suc.data || {};
 
           if (data.code === 100000) {
-            resolve(data.result)
+            toastTesult ? resolve(data.msg || '操作成功') : resolve(data.result)
           } else {
             wx.showToast({
-              title: data.msg
+              title: String(data.msg)
             })
             reject(data.result)
           }
 
           //本地环境打印日志，方便调试
-          if (isDev) log({data: postData, startTime: startTime, apiKey: apiKey, res: suc.data});
+          if (isDev) log({ data: postData, startTime: startTime, apiKey: apiKey, res: suc.data });
         } else {//返回失败
           wx.showModal({
             content: suc.statusCode + '',
