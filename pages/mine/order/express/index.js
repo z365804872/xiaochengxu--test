@@ -1,77 +1,46 @@
 // pages/mine/order/express/index.js
 Page({
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-  
-  },
+    /**
+     * 页面的初始数据
+     */
+    data: {},
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
-  },
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+        console.log(options)
+        let that = this
+        let {express, type, buySellId} = options
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }, 
+        wx.post({
+            api: 'lookExpress',
+            data: {express, type, buySellId}
+        }).then(res => {
+            that.setData({...res, orderType: type})
+        })
 
 
-  //复制单号
-  setClipboardData(){
-    wx.setClipboardData({
-      data: 'data',
-      success: function(res) {
-        
-      }
-    })
-  }
+        that._showShoesDetail()
+    },
+
+    //复制单号
+    setClipboardData() {
+        let number = this.data.number
+        wx.setClipboardData({
+            data: number,//快递单号
+            success: function (res) {
+
+            }
+        })
+    },
+
+    //展示鞋的具体信息
+    _showShoesDetail(){
+        try {
+            let shoeInfo = wx.getStorageSync('shoeInfo')
+            if(shoeInfo) this.setData({shoeInfo: shoeInfo})
+        }catch (e){}
+    }
 })

@@ -15,30 +15,30 @@ Page({
         // this.init()
     },
 
-    onShow(){
-      this.init()
+    onShow() {
+        this.init()
     },
 
-    init(){
+    init() {
         let that = this
         wx.post({
             api: 'searchAddress'
         }).then(res => {
             let addressList = Array.isArray(res) && res || []
-                addressList.forEach(address => address.changeAndDel = false)
-            that.setData({addressList})
+            addressList.forEach(address => address.changeAndDel = false)
+            that.setData({ addressList })
         })
     },
 
     //新增地址
-    addAddress(){
+    addAddress() {
         wx.navigateTo({
             url: '/pages/mine/address/add/index?type=add'
         })
     },
 
     //修改地址
-    changeAddress(e){
+    changeAddress(e) {
         let index = e.currentTarget.dataset.index
 
         let that = this
@@ -47,17 +47,17 @@ Page({
 
         wx.setStorageSync('address', encodeURIComponent(JSON.stringify(currentAddress)))
         wx.navigateTo({
-          url: `/pages/mine/address/add/index?type=change&addressId=${currentAddress.addressId}`
+            url: `/pages/mine/address/add/index?type=change&addressId=${currentAddress.addressId}`
         })
     },
 
-      handleTouchStart(e){
+    handleTouchStart(e) {
         let touch = e.touches[0]
         console.log(touch)
         this.data.startDot = touch.pageX
-      },
+    },
 
-      handleTouchMove(e){
+    handleTouchMove(e) {
         let that = this
         let index = e.currentTarget.dataset.index
         let addressList = that.data.addressList
@@ -68,35 +68,76 @@ Page({
 
         let gap = pageX - that.data.startDot
 
-        if(gap < -40 && !currentAddress.changeAndDel){
+        if (gap < -40 && !currentAddress.changeAndDel) {
             that.data.addressList[index].changeAndDel = !that.data.addressList[index].changeAndDel
-            that.setData({addressList})
+            that.setData({ addressList })
+            that._animation()
             // that.setData({'currentAddress.changeAndDel': !currentAddress.changeAndDel})
         }
 
-        if(gap > 40 && currentAddress.changeAndDel){
-          that.data.addressList[index].changeAndDel = !that.data.addressList[index].changeAndDel
-          that.setData({addressList})
-          // that.setData({'currentAddress.changeAndDel': !currentAddress.changeAndDel})
+        if (gap > 40 && currentAddress.changeAndDel) {
+            that.data.addressList[index].changeAndDel = !that.data.addressList[index].changeAndDel
+            that.setData({ addressList })
+            that._recovery()
+            // that.setData({'currentAddress.changeAndDel': !currentAddress.changeAndDel})
         }
-      },
+    },
 
-        //删除地址
-      deleteAddress(e){
-            let that = this
-            let addressId = e.currentTarget.dataset.addressid
-            wx.post({
-              api: 'delAddress',
-              data: {addressId}
-            }).then(res => {
-                console.log(res)
-                wx.showToast({title: '地址删除成功'})
-                setTimeout(()=>that.init(), 1500)
-            })
-      },
+    //删除地址
+    deleteAddress(e) {
+        let that = this
+        let addressId = e.currentTarget.dataset.addressid
+        wx.post({
+            api: 'delAddress',
+            data: { addressId }
+        }).then(res => {
+            console.log(res)
+            wx.showToast({ title: '地址删除成功' })
+            setTimeout(() => that.init(), 1500)
+        })
+    },
 
-      handleTouchEnd(e){
+    handleTouchEnd(e) {
 
-      }
+    },
+
+    _animation() {
+        let animation1 = wx.createAnimation({
+            duration: 100,
+            timingFunction: 'ease'
+        })
+        let animation2 = wx.createAnimation({
+            duration: 50,
+            timingFunction: 'ease'
+        })
+
+        animation1.width(60).step()
+        animation2.width(500).step().left(-120).step()
+
+        this.setData({
+            animation1: animation1.export(),
+            animation2: animation2.export()
+        })
+
+    },
+
+    _recovery(){
+        let animation1 = wx.createAnimation({
+            duration: 100,
+            timingFunction: 'ease'
+        })
+        let animation2 = wx.createAnimation({
+            duration: 100,
+            timingFunction: 'ease'
+        })
+
+        animation1.width(0).step()
+        animation2.width(375).step().left(0).step()
+
+        this.setData({
+            animation1: animation1.export(),
+            animation2: animation2.export()
+        })
+    }
 
 })

@@ -1,0 +1,87 @@
+<!--pages/mine/order/detail/index.wxml-->
+<view class="padding-lr30">
+    <view class="border-b2">
+        <view class="flex-row-between flex-row_center padding-tb30 border-b2">
+            <view class="flex-row_center">
+                <text class="iconfont icon-chushoudingdan"></text>
+                <view class="font-regular font-32 lheight-45 color-000 margin-l10">订单编号  KD110990087</view>
+                <view class="margin-l10 padding-tb4 padding-lr12 bgc-fe9 bdra-200 font-semibold font-16 lheight-22 color-fff">未付款</view>
+            </view>
+            <view class="font-light font-24 color-000 opacity5 lheight-33">2017/9/12</view>
+        </view>
+        <view class="padding-tb30 flex-row height-100">
+            <view class="height100 width-140 bgc-f7"></view>
+            <view class="height100 flex1 margin-l20 flex-column-between">
+                <view class="font-regular font-24 lheight-33 color-000">Kobe A.D.EKobe A.D.EKobe A.D.E</view>
+                <view class="flex-row-around font-light font-24 lheight-33">
+                    <view class="flex1 text-left color-000 opacity5">852427-107</view>
+                    <view class="flex1 text-center color-000 opacity5">2017/9/12</view>
+                    <view class="flex1 text-right font-regular font-28 color-47C99D lheight-40">12.87% <text class="iconfont icon-down margin-l10"></text></view>
+                </view>
+            </view>
+        </view>
+        <view class="padding-20 bgc-fa flex-row-between flex-row_center font-semibold font-28 color-333 lheight-40 margin-b30">
+            <view>42码</view>
+            <view>求购价：￥1000.00</view>
+        </view>
+    </view>
+    <view class="margin-t60">
+        <view class="flex-row_center">
+            <text class="iconfont icon-qiugoushijian"></text>
+            <view class="margin-l10 font-regular font-32 lheight-40 color-000">出售时间</view>
+        </view>
+        <view class="margin-t20 bgc-fa padding-20 lheight-40 font-light color-000 font-28 flex-row-between">
+            <view>2017/8/12~15</view>
+            <view>售出时间：2017/9/25</view>
+        </view>
+    </view>
+
+    <view class="margin-t60">
+        <view class="flex-row_center">
+            <text class="iconfont icon-qiugoushijian"></text>
+            <view class="margin-l10 font-regular font-32 lheight-40 color-000">人气指数</view>
+        </view>
+        <view class="margin-t20 bgc-fa padding-20 lheight-40 font-light color-000 font-28 ">
+           目前有20人在关注该款产品
+        </view>
+    </view>
+
+    <view class="margin-t60">
+        <view class="flex-row_center"><text class="iconfont icon-shouyimingxi"></text><view class="margin-l10 font-regular font-32 lheight-40 color-000">收益明细</view></view>
+        <view class="margin-t20 bgc-fa padding-20 lheight-40 font-light color-000 font-28">
+            <view class="flex-row-between">
+                <view>服务费：</view>
+                <view>￥20.00</view>
+            </view>
+            <view class="flex-row-between margin-t20">
+                <view>最终收益：</view>
+                <view>￥20.00</view>
+            </view>
+        </view>
+    </view>
+    <view class="margin-t60">
+        <view class="flex-row_center"><text class="iconfont icon-dizhi1"></text><view class="margin-l10 font-regular font-32 lheight-40 color-000">寄货地址</view></view>
+        <view class="margin-t20 bgc-fa padding-20 lheight-40 font-light color-000 font-28">
+            <view class="flex-row">
+                <view>收货方：施佳峰</view>
+            </view>
+            <view class="flex-row-between margin-t20">
+                <view>地   址：江苏省 海门市 长江新城608幢208室</view>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- <view class="pos-fixed bottom-120 width100 padding-tb18 padding-lr30 bgc-FE9B48 font-regular font-24 lheight-33 color-fff flex-row_center">
+    <text class="iconfont icon-jinggaox margin-r18"></text>20分钟后订单失效！
+</view> -->
+<form bind:submit="saveOrderNo">
+<view class="pos-fixed bottom0 bgc-fff width100 height-120 fixed-btn flex-row flex-row_center border-box font-light font-28 lheight-40 color-333 bottom-btn">
+    <input 
+    class="flex1" 
+    type="text" 
+    name="orderno"
+    placeholder-class="placeholder"
+    placeholder="请输入您的快递单号" />
+    <button form-type="submit" class="bgc-47C99D margin-l30 font-semibold color-fff font-32 flex-center">保存</button>
+</view>
+</form>

@@ -34,8 +34,3 @@ page text.icon-jinggaox{
     letter-spacing: 0;
     margin-left: 30rpx;
 }
-
-.action-btn{
-    min-width: 144rpx;
-    text-align: center;
-}

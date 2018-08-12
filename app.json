@@ -16,6 +16,8 @@
     "pages/mine/address/index/index",
     "pages/mine/address/add/index",
     "pages/mine/order/list/index",
+    "pages/mine/order/buyDetail/index",
+    "pages/mine/order/sellDetail/index",
     "pages/mine/order/detail/index",
     "pages/mine/order/express/index",
     "pages/index/seach/index",
