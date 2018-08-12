@@ -16,6 +16,9 @@
   border: 1rpx solid #333333;
   background-color: #fff;
   padding: 12rpx 16rpx;
+  min-width: 144rpx;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 page .icon-up, page .icon-down{

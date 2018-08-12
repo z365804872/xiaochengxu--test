@@ -41,8 +41,9 @@
 
                     <!--我的出售start-->
                     <view wx:if="{{orderState == 1 && type == 2}}"
-                          class="font-semibold font-16 color-fff height-30 lheight-30 padding-lr12 bdra-200 margin-l12 bgc-blue">
-                        {{type == 2 ? '出售中' : ''}}
+                          class="font-semibold font-16 color-fff height-30 lheight-30 padding-lr12 bdra-200 margin-l12 {{item.state == 3 ? 'bgc-orange' : ''}} {{item.state == 0 ? 'bgc-blue' : ''}}">
+                        {{item.state == 3 ? '未付款' : ''}}
+                        {{item.state == 0 ? '出售中' : ''}}
                     </view>
                     <view wx:if="{{orderState == 2 && type == 2}}"
                           class="font-semibold font-16 color-fff height-30 lheight-30 padding-lr12 bdra-200 margin-l12 bgc-blue">
@@ -87,7 +88,8 @@
                     <view wx:if="{{type == 1 && orderState === 3 }}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn" catch:tap="{{item.state === 2 ? 'queryExpress' : 'reBuy'}}">{{ item.state === 2 ? '查看物流' : '继续求购'}}</view>
                     <view wx:if="{{type == 1 && orderState === 4 && item.state == 5}}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn" catch:tap="reBuy">继续求购</view>
 
-                    <view wx:if="{{type == 2 && orderState === 1}}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn" catch:tap="cancelOrder">下架商品</view>
+                    <view wx:if="{{type == 2 && orderState === 1 && item.state == 3}}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn" catch:tap="cancelOrder">支付</view>
+                    <view wx:if="{{type == 2 && orderState === 1 && item.state == 0}}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn" catch:tap="cancelOrder">下架商品</view>
                     <view wx:if="{{type == 2 && orderState === 2}}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn"></view>
                     <view wx:if="{{type == 2 && orderState === 3}}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn" catch:tap="queryExpress">查看物流</view>
                     <view wx:if="{{type == 2 && orderState === 4}}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn" catch:tap="reSell">继续出售</view>

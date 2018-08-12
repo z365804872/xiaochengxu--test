@@ -6,7 +6,7 @@ if (wx) {
     Object.defineProperty(wx, 'showLoading', {
         get: function () {
             return function (obj) {
-                obj = obj || {title: ''};
+                obj = obj || {title: '', mask: true};
                 oLoading.call(wx, obj)
             }
         }
