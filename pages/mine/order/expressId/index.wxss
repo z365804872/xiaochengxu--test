@@ -1,0 +1,27 @@
+/* pages/mine/order/expressId/index.wxss */
+.expressId-con .iconfont{
+    font-size: 30rpx;
+}
+
+.expressId-con .icon-jinggaox{
+    color: #FF484A;
+}
+
+
+.submit-btn{
+    min-width: 160rpx;
+}
+
+.submit-input{
+    height: 80rpx;
+    box-shadow: inset 0 0 4rpx 0 rgba(195,195,195,0.50);
+    padding-left: 30rpx;
+}
+
+.submit-input-placeholder-style{
+    opacity: 0.5;
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #000000;
+    letter-spacing: 0;
+}

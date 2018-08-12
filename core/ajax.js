@@ -85,8 +85,8 @@ let ajax = function (method, params, needLoading) {
     let app = getApp()
     let uid = 177 || app.globalData.uid
     if (!uid) {
-      auth.login().then(() => {
-        postData.uid = uid
+      return auth.login().then(() => {
+        postData.uid = getApp().globalData.uid
         return request({ method, postData, needLoading, apiKey, toastTesult })
       })
     } else {
@@ -162,7 +162,7 @@ let request = function (obj) {
         return reject(err)
       },
       complete: function () {
-        wx.hideLoading()
+        // wx.hideLoading()
       }
     })
   })
