@@ -150,7 +150,7 @@
     text-align: center;
     background: #656AAA;
     border-radius: 100rpx;
-    position: absolute;
+    position: fixed;
     bottom: 117rpx;
     right: 20rpx;
     color: #fff;

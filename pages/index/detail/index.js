@@ -192,6 +192,10 @@ Page({
    * 跳转提交订单
    */
   toOrder: function () {
+    wx.setStorage({
+      key:"detailData",
+      data:this.data.detailData
+    })
     wx.navigateTo({
       url:"/pages/index/order/index"
     })

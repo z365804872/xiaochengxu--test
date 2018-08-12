@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<scroll-view scroll-y class="container">
+<view scroll-y class="container">
 	<!-- 顶部搜索栏 -->
 	<view class="section searchBar">
 		<view class="section searBar-box">
@@ -88,7 +88,7 @@
 
 	</view>
 
-</scroll-view>
+</view>
 
 
 <nav-tab tabName="index"></nav-tab>

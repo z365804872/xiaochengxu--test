@@ -1,4 +1,112 @@
 <!--index.wxml-->
 <view class="container">
-	aa
+	<view class="order-header">
+		<view class="order-image">
+			<view style="width:275rpx;height:200rpx;margin-top:30rpx;  background: url('{{detailData.photoList[0]}}'); background-size:275rpx 200rpx;background-repeat:no-repeat;">
+				
+			</view>
+		</view>
+		<view class="order-info">
+			<view class="info-name">
+				{{detailData.shoesName}}
+			</view>
+			<view class="info-time">
+				{{detailData.shoesArticleNumber}} {{detailData.sellDate}}
+			</view>
+			<view class="info-price">
+				<view class="price-num">
+					￥{{detailData.sellMoney}}
+				</view>
+				<view class="price-type">
+					发售价
+				</view>
+			</view>
+		</view>		
+	</view>
+	<view class="order-content">
+		<view class="content-tab">
+			<view class="tab-like" bindtap="changeTab1">
+				<view class="{{baytab==0?'active':''}}">
+					立刻购买
+				</view> 
+			</view>
+			<view class="tab-qiugou" bindtap="changeTab2">
+				<view class="{{baytab==1?'active':''}}">
+					我要求购
+				</view>
+			</view>
+		</view>
+		<view class="content-selectSize" bindtap="showModal">
+				{{detailData.defaultSize}}码 <view id="triangle-down"></view>
+		</view>
+		<view class="content-price">
+				{{defaultPrise}}
+		</view>
+		<view class="content-reference" wx:if="{{baytab==1}}">
+			参考价：￥{{detailData.referencePrice}}
+		</view>
+	</view>
+	<view class="order-bottom">
+		<view class="order-liquan">
+			<view class="order-liquan-title">
+			   	<text class="iconfont icon-wodeliquan"></text>	礼券选择
+			</view>
+			<view class="order-liquan-content">
+				<view class="order-liquan-none">
+					<text class="none-left">礼券：(可添加）</text><text class="none-right">通用礼券</text>
+				</view>
+				<text class="iconfont icon-jiaobiao iconjiaobiao2"></text>
+			</view>
+		</view>
+		<view class="order-address">
+			<view class="order-address-title">
+			   	<text class="iconfont icon-dizhi1"></text>	收货地址
+			</view>
+			<view class="order-address-content">
+				<view class="order-address-has">
+					<view  class="order-address-top">
+						<text class="address-left">收货人：施佳峰</text><text class="address-right">手机号：18662890960</text>
+					</view>
+					<view class="order-address-bottom">
+						<text>江苏省 海门市 长江新城608幢208室</text>
+					</view>
+				</view>				
+				<text class="iconfont icon-jiaobiao iconjiaobiao"></text>
+			</view>
+		</view>
+		<view class="order-illustrate">
+			<text class="iconfont icon-jianding1"></text> 交易说明<text class="iconfont icon-jiaobiao iconjiaobiao1"></text>
+		</view>
+	</view>
+
+	<!--屏幕背景变暗的背景 -->
+	<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+	<!--弹出框 -->
+	<view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+		<!-- 尺码选择 -->
+		<view class="sizeList">
+			<view class="sizeList-title">
+				尺码选择
+			</view>	
+			<view class="sizeList-box">
+				<view  wx:for="{{detailData.sizeList}}" wx:key="{{index}}"  class="sizeList-item {{detailData.defaultSize==item.shoesSize?'size-choode':''}}" data-index="{{item.shoesSize}}" data-price="{{item.sellMoney}}" bindtap="changeSize">
+					<view class="sizeList-size">
+						{{item.shoesSize}}码
+					</view>
+					<view class="sizeList-price">
+						{{item.sellMoney}}
+					</view>
+				</view>	
+			</view>			
+		</view>
+	</view>
+
+	<view class="bottom-btn-box">
+		<view  class="bottom-btn">
+			去付款(￥120.2)
+		</view>
+	</view>
+
+
+
 </view>
