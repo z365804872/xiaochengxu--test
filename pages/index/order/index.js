@@ -14,7 +14,8 @@ Page({
     couponName:"未选择（0）",
     couponId:"",
     addressList:"",
-    addressId:""
+    addressId:"",
+    orderType:""
   },
 
   /**
@@ -22,12 +23,12 @@ Page({
    */
   onLoad: function (options) {
     let _this=this;
-    if(options.couponName){
-      this.setData({
-        couponName: options.couponName,
-        couponId: options.couponId
-      })
-    }
+    // if(options.couponName){
+    //   this.setData({
+    //     couponName: options.couponName,
+    //     couponId: options.couponId
+    //   })
+    // }
 
     wx.getStorage({
       key: 'couponId',
@@ -39,6 +40,17 @@ Page({
         }
       } 
     })
+
+    wx.getStorage({
+      key: 'orderType',
+      success: function(res) {
+        _this.setData({
+          orderType: res.data
+        })
+      } 
+    })
+
+
     wx.getStorage({
       key: 'couponName',
       success: function(res) {

@@ -23,7 +23,7 @@
 			</view>
 		</view>		
 	</view>
-	<view class="order-content">
+	<view class="order-content" wx:if="{{orderType==1}}">
 		<view class="content-tab">
 			<view class="tab-like" bindtap="changeTab1">
 				<view class="{{baytab==0?'active':''}}">
@@ -46,6 +46,47 @@
 			参考价：￥{{detailData.referencePrice}}
 		</view>
 	</view>
+
+	<view class="order-content" wx:if="{{orderType==2}}">
+		<view class="content-tab">
+			<view class="tab-like" bindtap="changeTab1">
+				<view class="{{baytab==0?'active':''}}">
+					我要出售
+				</view> 
+			</view>
+			<view class="tab-qiugou" bindtap="changeTab2">
+				<view class="{{baytab==1?'active':''}}">
+					快速出售
+				</view>
+			</view>
+		</view>
+		<view class="content-selectSize" bindtap="showModal" wx:if="{{baytab==0}}">
+				{{detailData.defaultSize}}码 <view id="triangle-down"></view>
+		</view>
+		<view class="content-price" wx:if="{{baytab==0}}">
+				{{defaultPrise}}
+		</view>
+		<view class="content-reference" wx:if="{{baytab==0}}">
+			参考价：￥{{detailData.referencePrice}}
+		</view>
+		<view  class="content-sellmoney"  wx:if="{{baytab==1}}">
+			<view class="sellmoney-left">
+				{{detailData.defaultSize}}
+			</view>
+			<view class="sellmoney-right">
+				<view class="sellmoney-money">
+					<view  class="sellmoney-money2">买家出价</view><view  class="sellmoney-money1">￥120.00</view>
+				</view>
+				<view class="sellmoney-time">
+					2017/8/22 10:39:09
+				</view>
+			</view>
+
+		</view>
+	</view>	
+
+
+
 	<view class="order-bottom">
 		<view class="order-liquan" wx:if="{{baytab==0}}">
 			<view class="order-liquan-title">
