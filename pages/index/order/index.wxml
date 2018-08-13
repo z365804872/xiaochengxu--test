@@ -47,29 +47,63 @@
 		</view>
 	</view>
 	<view class="order-bottom">
-		<view class="order-liquan">
+		<view class="order-liquan" wx:if="{{baytab==0}}">
 			<view class="order-liquan-title">
 			   	<text class="iconfont icon-wodeliquan"></text>	礼券选择
 			</view>
-			<view class="order-liquan-content">
+			<view class="order-liquan-content"  bindtap="toCoupon">
 				<view class="order-liquan-none">
-					<text class="none-left">礼券：(可添加）</text><text class="none-right">通用礼券</text>
+					<text class="none-left">礼券:</text><text class="none-right">{{couponName}}</text>
 				</view>
 				<text class="iconfont icon-jiaobiao iconjiaobiao2"></text>
 			</view>
 		</view>
+
+		<view class="order-qiugouTime" wx:if="{{baytab==1}}">
+			<view class="order-liquan-title">
+			   	<text class="iconfont icon-wodeliquan"></text>	求购时间
+			</view>
+			<view class="order-liquan-content">
+				<view class="order-liquan-none">
+					<view class="tab-long"  bindtap="changeTime" data-index="0">
+						<view class="{{selectDay==0?'actives':''}}">
+							长期
+						</view> 
+					</view>
+					<view class="tab-three" bindtap="changeTime" data-index="1">
+						<view class="{{selectDay==1?'actives':''}}">
+							3天
+						</view>
+					</view>
+					<view class="tab-seven" bindtap="changeTime" data-index="2">
+						<view class="{{selectDay==2?'actives':''}}">
+							7天
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+
+
 		<view class="order-address">
 			<view class="order-address-title">
 			   	<text class="iconfont icon-dizhi1"></text>	收货地址
 			</view>
-			<view class="order-address-content">
+			<view class="order-address-content" wx:if="{{addressList}}" bindtap="toAddress">
 				<view class="order-address-has">
 					<view  class="order-address-top">
-						<text class="address-left">收货人：施佳峰</text><text class="address-right">手机号：18662890960</text>
+						<text class="address-left">收货人：{{addressList.name}}发士大夫敢死队岁的法国</text><text class="address-right">手机号：{{addressList.mobile}}4234523452352</text>
 					</view>
 					<view class="order-address-bottom">
-						<text>江苏省 海门市 长江新城608幢208室</text>
+						<text>{{addressList.address}}安达市发生干涉啊十大高手给</text>
 					</view>
+				</view>				
+				<text class="iconfont icon-jiaobiao iconjiaobiao"></text>
+			</view>
+
+			<view class="order-address-content" wx:else  bindtap="toAddress">
+				<view class="order-address-has" style="line-height:140rpx;margin-left:20rpx;">
+					新增地址
 				</view>				
 				<text class="iconfont icon-jiaobiao iconjiaobiao"></text>
 			</view>

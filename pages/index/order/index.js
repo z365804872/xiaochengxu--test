@@ -10,6 +10,11 @@ Page({
     defaultPrise:"",
     animationData:{},
     showModalStatus:false,
+    selectDay:0,
+    couponName:"未选择（0）",
+    couponId:"",
+    addressList:"",
+    addressId:""
   },
 
   /**
@@ -17,6 +22,65 @@ Page({
    */
   onLoad: function (options) {
     let _this=this;
+    if(options.couponName){
+      this.setData({
+        couponName: options.couponName,
+        couponId: options.couponId
+      })
+    }
+
+    wx.getStorage({
+      key: 'couponId',
+      success: function(res) {
+        if(res.data){
+          _this.setData({
+            couponId: res.data
+          })
+        }
+      } 
+    })
+    wx.getStorage({
+      key: 'couponName',
+      success: function(res) {
+        if(res.data){
+          _this.setData({
+            couponName: res.data
+          })
+        }
+      } 
+    })
+
+    wx.getStorage({
+      key: 'addressId',
+      success: function(res) {
+        if(res.data){
+          _this.setData({
+            addressId: res.data
+          })
+        }
+      } 
+    })
+
+    wx.post({
+        api: 'searchAddress'
+    }).then(res => {
+        let addressList = Array.isArray(res) && res || []
+        addressList.forEach(address => {
+            if(_this.data.addressId&&address.addressId==_this.data.addressId){
+              _this.setData({ 
+                addressList: address
+              })
+            }else{
+              if(address.defaultAddress){
+                _this.setData({ 
+                  addressList: address
+                })
+              }
+            }
+          }
+        )
+    })
+
     wx.getStorage({
       key: 'detailData',
       success: function(res) {
@@ -51,7 +115,18 @@ Page({
       baytab: 1
     })
   },
-   /**
+  
+    /**
+   * 选择tab
+   */
+  changeTime: function(e){
+    console.log(e.currentTarget.dataset.index)
+    this.setData({
+      selectDay: e.currentTarget.dataset.index
+    })
+  },
+
+  /**
    * 尺寸选择
    */
   changeSize: function(e){
@@ -63,8 +138,16 @@ Page({
       defaultPrise: e.currentTarget.dataset.price=="--"?"￥0":e.currentTarget.dataset.price
     })
   },
-
-
+  toCoupon: function () {
+    wx.navigateTo({
+      url:"/pages/mine/coupon/index/index?id=1"
+    })
+  },
+  toAddress: function () {
+    wx.navigateTo({
+      url:"/pages/mine/address/index/index?id=1"
+    })
+  },
     /**
    * 加载更多
    */

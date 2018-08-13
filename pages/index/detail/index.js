@@ -191,7 +191,20 @@ Page({
     /**
    * 跳转提交订单
    */
-  toOrder: function () {
+  toOrder: function (e) {
+
+    
+    wx.post({api:'confirm',data:{
+      shoesId:this.data.shoesId,
+      shoesSize:this.data.detailData.defaultSize,
+      type:e.currentTarget.dataset.index
+
+    }}).then(res=>{
+      console.log(res)
+    })
+    return
+
+
     wx.setStorage({
       key:"detailData",
       data:this.data.detailData

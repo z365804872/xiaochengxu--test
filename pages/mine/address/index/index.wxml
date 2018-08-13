@@ -8,8 +8,10 @@
         <view bindtouchstart="handleTouchStart"
               bindtouchmove="handleTouchMove"
               bindtouchend="handleTouchEnd"
+              bindtap="toOrder"
               style="{{item.changeAndDel ? 'margin-left: -200rpx;' : ''}}"
               data-index="{{index}}"
+              data-addressid="{{item.addressId}}"
               class="flex-row">
             <view class="flex1 height-220 font-light padding-lr30 border-b2 flex-column-center">
                 <view class="flex-row-between font-28 font-light color-000 lheight-40">

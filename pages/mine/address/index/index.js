@@ -5,7 +5,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        addressList: []
+        addressList: [],
+        comeData:0  //页面跳转来源
     },
 
     /**
@@ -13,6 +14,9 @@ Page({
      */
     onLoad: function (options) {
         // this.init()
+        this.setData({
+            comeData:options.id
+        })
     },
 
     onShow() {
@@ -96,7 +100,18 @@ Page({
             setTimeout(() => that.init(), 1500)
         })
     },
-
+    toOrder: function(e){
+        
+        if(this.data.comeData==1){
+            wx.setStorage({
+                key:"addressId",
+                data:e.currentTarget.dataset.addressid
+              })
+            wx.navigateTo({
+                url:`/pages/index/order/index`
+            })
+        }
+    },
     handleTouchEnd(e) {
 
     },

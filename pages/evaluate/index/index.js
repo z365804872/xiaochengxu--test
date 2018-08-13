@@ -18,8 +18,8 @@ Page({
    */
   onLoad: function (options) {
     let that = this
-    auth.checkLogin()
-      .then(res => {
+    // auth.checkLogin()
+    //   .then(res => {
         wx.post({
           api: 'appraisalList',
           data: {
@@ -33,7 +33,7 @@ Page({
             dataList: res
           })
         })
-      })
+      // })
 
   },
   tabType: function (e) {

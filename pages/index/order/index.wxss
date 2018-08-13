@@ -126,7 +126,7 @@
   width: 690rpx;
   margin: 0 30rpx;
 }
-.order-address,.order-liquan{
+.order-address,.order-liquan,.order-qiugouTime{
   width: 690rpx;
   margin-top: 40rpx;
 }
@@ -201,7 +201,6 @@
 .none-right{
   line-height: 76rpx;
   float: right;
-  color: #999;
   margin-right: 70rpx;
   font-family: PingFangSC-Light;
   font-size: 28rpx;
@@ -216,17 +215,54 @@
   float: left;
   line-height: 55rpx;
   margin-left: 20rpx;
+  width: 260rpx;
+  height: 55rpx;
+  line-height: 55rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 .order-address-top .address-right{
   float: right;
   line-height: 55rpx;
   margin-right: 70rpx;
+  width:315rpx;
+  height: 55rpx;
+  line-height: 55rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 .order-address-bottom{
   height: 55rpx;
   line-height: 55rpx;
-    margin-left: 20rpx;
+  margin-left: 20rpx;
+  width:620rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
+.tab-long,.tab-three,.tab-seven{
+  width: 230rpx;
+  float: left;
+  height: 80rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx; 
+  color: #666;
+  line-height: 80rpx;
+  text-align: center;
+}
+.actives{
+  margin: 0 auto;
+  width: 60rpx;
+  text-align: center;
+  height: 79rpx;
+  border-bottom: 1rpx solid #000;
+  color: #000;
+  font-size: 600;
+}
+
+
 
 
 

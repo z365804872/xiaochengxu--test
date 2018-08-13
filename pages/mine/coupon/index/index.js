@@ -8,14 +8,19 @@ Page({
         pageSize: 7,
         pageNum: 1,
         type: 3,
-        couponList: []
+        couponList: [],
+        comeData:0  //页面跳转来源
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this._getCoupon()
+        this._getCoupon();
+        console.log(options.id);
+        this.setData({
+            comeData:options.id
+        })
     },
 
 
@@ -55,7 +60,22 @@ Page({
             })
         })
     },
-
+    toOrder: function(e){
+        
+        if(this.data.comeData==1){
+            wx.setStorage({
+                key:"couponName",
+                data:e.currentTarget.dataset.couponname
+            })
+            wx.setStorage({
+                key:"couponId",
+                data:e.currentTarget.dataset.couponId
+            })
+            wx.navigateTo({
+                url:"/pages/index/order/index"
+            })
+        }
+    },
     //兑换领券
     exchangeCoupon(){
         wx.navigateTo({

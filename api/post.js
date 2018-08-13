@@ -139,5 +139,10 @@ export default {
         title: '录入快递单号',
         path: '/order/express',
         needUid
+    },
+    "confirm": {
+        title: '商品详情点击购买',
+        path: '/order/confirm',
+        needUid
     }
 }
