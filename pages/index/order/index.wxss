@@ -110,6 +110,18 @@
   color: #7F7F7F;
   margin-top: 35rpx;
 }
+.content-price label{
+  float: left;
+  margin-left: 280rpx;
+}
+.content-price input{
+  float: left;
+  text-align:left;
+  width:160rpx;
+  margin-top: 2rpx;
+}
+
+
 .content-reference{
   width: 215rpx;
   height: 40rpx;
@@ -184,6 +196,17 @@
   background: #FF484A;
   margin-left: 30rpx;
 }
+.bottom-btn2,.bottom-btn3{
+  width: 690rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color: #fff;
+  background: #47C99D;
+  margin-left: 30rpx;
+}
+
+
 .bottom-btn-box{
   width: 750rpx;
   height: 110rpx;
@@ -233,6 +256,20 @@
   text-overflow:ellipsis;
   white-space: nowrap;
 }
+.shouyi-right{
+  float: right;
+  line-height: 55rpx;
+  margin-right: 20rpx;
+  text-align: right;
+  width:315rpx;
+  height: 55rpx;
+  line-height: 55rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+
 .order-address-bottom{
   height: 55rpx;
   line-height: 55rpx;

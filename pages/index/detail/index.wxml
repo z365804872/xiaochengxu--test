@@ -71,7 +71,7 @@
 			总成交量: {{tabData.sellNum}}双
 		</view>
 		<view class="sellList-box" wx:if="{{tabDataList.length>0}}">
-			<view class="box-cj-item"  wx:for="{{tabDataList}}" wx:key="{{index}}">
+			<view class="box-cj-item"  wx:for="{{tabDataList}}" wx:key="{{index}}"  data-index="{{chooseTab==1?'0':chooseTab==2?'2':'1'}}" bindtap="toOrder">
 				<view class="cj-item-size">
 					{{item.shoesSize}}码
 				</view>
@@ -103,10 +103,10 @@
 			<text class="detail-buttom-info" wx:else>
 				暂无该码球鞋在售\n点击求购立即求购
 			</text>
-			<view class="detail-buttom-buy" data-index="1" bindtap="toOrder">
+			<view class="detail-buttom-buy" data-index="2" bindtap="toOrder">
 				购买
 			</view>
-			<view class="detail-buttom-sell"  data-index="2" bindtap="toOrder">
+			<view class="detail-buttom-sell"  data-index="1" bindtap="toOrder">
 				出售
 			</view>
 	</view>	

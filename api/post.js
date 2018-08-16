@@ -144,5 +144,20 @@ export default {
         title: '商品详情点击购买',
         path: '/order/confirm',
         needUid
+    },
+    "calcServiceFee": {
+        title: '服务费',
+        path: '/order/calcServiceFee',
+        needUid
+    },
+    "generatingOrder": {
+        title: '生成订单',
+        path: '/order/generatingOrder',
+        needUid
+    },
+    "payMoney": {
+        title: '支付',
+        path: '/order/payMoney',
+        needUid
     }
 }

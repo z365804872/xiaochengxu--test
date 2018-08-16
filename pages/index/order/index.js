@@ -8,6 +8,7 @@ Page({
     detailData:{},
     baytab:0,
     defaultPrise:"",
+    defaultPrise1:"0",
     animationData:{},
     showModalStatus:false,
     selectDay:0,
@@ -15,7 +16,10 @@ Page({
     couponId:"",
     addressList:"",
     addressId:"",
-    orderType:""
+    orderType:"",
+    orderData:{},
+    serviceFee:"0.00",
+    finalIncome:"0.00"
   },
 
   /**
@@ -41,11 +45,33 @@ Page({
       } 
     })
 
+
     wx.getStorage({
-      key: 'orderType',
+      key: 'orderData',
       success: function(res) {
         _this.setData({
-          orderType: res.data
+          orderData: res.data
+        })
+        wx.getStorage({
+          key: 'orderType',
+          success: function(res) {
+            _this.setData({
+              orderType: res.data
+            })
+            if(_this.data.orderType==2){
+              if(!_this.data.orderData.fastBuy){
+                _this.setData({
+                  baytab: 1
+                })
+              }
+            }else if(_this.data.orderType==1){
+              if(_this.data.orderData.fastSell){
+                _this.setData({
+                  baytab: 1
+                })
+              }
+            }
+          } 
         })
       } 
     })
@@ -104,17 +130,32 @@ Page({
             _this.setData({
               defaultPrise: res.data.sizeList[i].sellMoney
             })
+            // if(_this.data.defaultPrise=="--"&&_this.data.orderType==2){
+            //   _this.setData({
+            //     baytab: 1
+            //   })
+            // }
           }
         }        
         console.log(_this.data.detailData)
       } 
     })
+    this.calcServiceFee();
 
   },
   /**
    * 选择tab
    */
   changeTab1: function(){
+    console.log(this.data.orderData.fastBuy)
+    console.log(this.data.orderType)
+    if(!this.data.orderData.fastBuy&&this.data.orderType==2){
+      wx.showToast({
+        title: '鞋客：无法立刻购买~'
+      })
+      return false
+    }
+    
     this.setData({
       baytab: 0
     })
@@ -123,6 +164,13 @@ Page({
    * 选择tab
    */
   changeTab2: function(){
+    console.log(this.data.orderData)
+    if(!this.data.orderData.fastSell&&this.data.orderType==1){
+      wx.showToast({
+        title: '鞋客：无法快速出售~'
+      })
+      return false
+    }
     this.setData({
       baytab: 1
     })
@@ -149,6 +197,7 @@ Page({
     this.setData({
       defaultPrise: e.currentTarget.dataset.price=="--"?"￥0":e.currentTarget.dataset.price
     })
+    this.calcServiceFee();
   },
   toCoupon: function () {
     wx.navigateTo({
@@ -160,11 +209,77 @@ Page({
       url:"/pages/mine/address/index/index?id=1"
     })
   },
-    /**
-   * 加载更多
+  /**
+   * 服务费
    */
-  addmoreData:function(){
-   
+  calcServiceFee: function () {
+    let money="";
+
+    if((this.data.orderType==2&&this.data.baytab==1)||(this.data.orderType==1&&this.data.baytab==0)){
+      money=this.data.defaultPrise1
+    }else{
+      money=this.data.defaultPrise
+    }
+    console.log(money)
+    if(money.replace(/[￥-]/g,"")>0&&this.data.orderType==1){
+      wx.post({api:'calcServiceFee',data:{
+        sellMoney:money.replace(/[￥-]/g,""),
+        couponId:this.data.couponId
+      }}).then(res=>{
+        this.setData({
+          serviceFee: res.serviceFee.toFixed(2),
+          finalIncome: res.finalIncome.toFixed(2)
+        })
+        
+      })
+    }
+
+  },
+
+  bindKeyInput: function(e) {
+    this.setData({
+      defaultPrise1: e.detail.value
+    })
+    this.calcServiceFee()
+  },
+
+  toPay:function(e){
+    let param={
+      sellerUid:this.data.orderData.fastBuy.sellUid,
+      orderType:e.currentTarget.dataset.index,
+      buySellId:this.data.orderData.fastBuy.sellId||this.data.orderData.fastSell.buyId,
+      addressId:this.data.addressId,
+      couponId:this.data.couponId,
+      buyerUid:"177"
+    }
+
+    wx.post({api:'generatingOrder',data:param}).then(res=>{
+      console.log(res)
+      let paramData = {
+        paySnNo:res.paySnId,
+        payType:"1",
+        payMoney:res.payMoney,
+        orderType:res.orderType,
+        buySellId:res.buySellId,
+      }
+      wx.post({api:'payMoney',data:paramData}).then(res=>{
+        console.log(res)
+        wx.requestPayment({
+          'timeStamp': res.timestamp,
+          'nonceStr': res.noncestr,
+          'package': res.package,
+          'signType': res.signType,
+          'paySign': res.paySign,
+          'success':function(res){
+            console.log(res)
+            },
+            'fail':function(res){
+              console.log(res)
+            }
+       })
+        
+      })
+    })
   },
 
   getTabData: function(){

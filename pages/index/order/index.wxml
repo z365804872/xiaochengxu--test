@@ -23,7 +23,7 @@
 			</view>
 		</view>		
 	</view>
-	<view class="order-content" wx:if="{{orderType==1}}">
+	<view class="order-content" wx:if="{{orderType==2}}">
 		<view class="content-tab">
 			<view class="tab-like" bindtap="changeTab1">
 				<view class="{{baytab==0?'active':''}}">
@@ -39,15 +39,18 @@
 		<view class="content-selectSize" bindtap="showModal">
 				{{detailData.defaultSize}}码 <view id="triangle-down"></view>
 		</view>
-		<view class="content-price">
+		<view class="content-price"  wx:if="{{baytab==0}}">
 				{{defaultPrise}}
+		</view>
+		<view class="content-price" wx:if="{{baytab==1}}">
+			<label for="input2">￥</label><input name="input2" bindinput="bindKeyInput" type="digit" placeholder="0.00"/>
 		</view>
 		<view class="content-reference" wx:if="{{baytab==1}}">
 			参考价：￥{{detailData.referencePrice}}
 		</view>
 	</view>
 
-	<view class="order-content" wx:if="{{orderType==2}}">
+	<view class="order-content" wx:if="{{orderType==1}}">
 		<view class="content-tab">
 			<view class="tab-like" bindtap="changeTab1">
 				<view class="{{baytab==0?'active':''}}">
@@ -64,7 +67,7 @@
 				{{detailData.defaultSize}}码 <view id="triangle-down"></view>
 		</view>
 		<view class="content-price" wx:if="{{baytab==0}}">
-				{{defaultPrise}}
+				<label for="input2">￥</label><input name="input2" bindinput="bindKeyInput" type="digit" placeholder="0.00"/>
 		</view>
 		<view class="content-reference" wx:if="{{baytab==0}}">
 			参考价：￥{{detailData.referencePrice}}
@@ -87,7 +90,7 @@
 
 
 
-	<view class="order-bottom">
+	<view class="order-bottom" wx:if="{{orderType==2}}">
 		<view class="order-liquan" wx:if="{{baytab==0}}">
 			<view class="order-liquan-title">
 			   	<text class="iconfont icon-wodeliquan"></text>	礼券选择
@@ -108,23 +111,22 @@
 				<view class="order-liquan-none">
 					<view class="tab-long"  bindtap="changeTime" data-index="0">
 						<view class="{{selectDay==0?'actives':''}}">
-							长期
+							{{orderData.sellDateList[0]}}
 						</view> 
 					</view>
 					<view class="tab-three" bindtap="changeTime" data-index="1">
 						<view class="{{selectDay==1?'actives':''}}">
-							3天
+							{{orderData.sellDateList[1]}}
 						</view>
 					</view>
 					<view class="tab-seven" bindtap="changeTime" data-index="2">
 						<view class="{{selectDay==2?'actives':''}}">
-							7天
+							{{orderData.sellDateList[2]}}
 						</view>
 					</view>
 				</view>
 			</view>
 		</view>
-
 
 		<view class="order-address">
 			<view class="order-address-title">
@@ -133,10 +135,10 @@
 			<view class="order-address-content" wx:if="{{addressList}}" bindtap="toAddress">
 				<view class="order-address-has">
 					<view  class="order-address-top">
-						<text class="address-left">收货人：{{addressList.name}}发士大夫敢死队岁的法国</text><text class="address-right">手机号：{{addressList.mobile}}4234523452352</text>
+						<text class="address-left">收货人：{{addressList.name}}</text><text class="address-right">手机号：{{addressList.mobile}}</text>
 					</view>
 					<view class="order-address-bottom">
-						<text>{{addressList.address}}安达市发生干涉啊十大高手给</text>
+						<text>{{addressList.address}}</text>
 					</view>
 				</view>				
 				<text class="iconfont icon-jiaobiao iconjiaobiao"></text>
@@ -147,6 +149,68 @@
 					新增地址
 				</view>				
 				<text class="iconfont icon-jiaobiao iconjiaobiao"></text>
+			</view>
+		</view>
+		<view class="order-illustrate">
+			<text class="iconfont icon-jianding1"></text> 交易说明<text class="iconfont icon-jiaobiao iconjiaobiao1"></text>
+		</view>
+	</view>
+
+
+	<view class="order-bottom" wx:if="{{orderType==1}}">
+		<view class="order-qiugouTime" wx:if="{{baytab==0}}">
+			<view class="order-liquan-title">
+			   	<text class="iconfont icon-wodeliquan"></text>	出售时间
+			</view>
+			<view class="order-liquan-content">
+				<view class="order-liquan-none">
+					<view class="tab-long"  bindtap="changeTime" data-index="0">
+						<view class="{{selectDay==0?'actives':''}}">
+							{{orderData.sellDateList[0]}}
+						</view> 
+					</view>
+					<view class="tab-three" bindtap="changeTime" data-index="1">
+						<view class="{{selectDay==1?'actives':''}}">
+							{{orderData.sellDateList[1]}}
+						</view>
+					</view>
+					<view class="tab-seven" bindtap="changeTime" data-index="2">
+						<view class="{{selectDay==2?'actives':''}}">
+							{{orderData.sellDateList[2]}}
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+
+
+		<view class="order-liquan" wx:if="{{baytab==0}}">
+			<view class="order-liquan-title">
+			   	<text class="iconfont icon-wodeliquan"></text>	礼券选择
+			</view>
+			<view class="order-liquan-content"  bindtap="toCoupon">
+				<view class="order-liquan-none">
+					<text class="none-left">礼券:</text><text class="none-right">{{couponName}}</text>
+				</view>
+				<text class="iconfont icon-jiaobiao iconjiaobiao2"></text>
+			</view>
+		</view>
+
+
+
+		<view class="order-address">
+			<view class="order-address-title">
+			   	<text class="iconfont icon-dizhi1"></text>	收益明细
+			</view>
+			<view class="order-address-content" wx:if="{{addressList}}" bindtap="toAddress">
+				<view class="order-address-has">
+					<view  class="order-address-top">
+						<text class="address-left">服务费：</text><text class="shouyi-right">￥{{serviceFee}}</text>
+					</view>
+					<view  class="order-address-top">
+						<text class="address-left">最终收益：</text><text class="shouyi-right">￥{{finalIncome}}</text>
+					</view>
+				</view>
 			</view>
 		</view>
 		<view class="order-illustrate">
@@ -177,9 +241,18 @@
 	</view>
 
 	<view class="bottom-btn-box">
-		<view  class="bottom-btn">
-			去付款(￥120.2)
+		<view  class="bottom-btn"  wx:if="{{orderType==2&&baytab==0}}"  data-index="3" bindtap="toPay">
+			去付款({{defaultPrise}})
 		</view>
+		<view  class="bottom-btn"  wx:if="{{orderType==2&&baytab==1}}"  data-index="4" bindtap="toPay">
+			去付款(￥{{defaultPrise1||0}})
+		</view>
+		<view  class="bottom-btn2"  wx:if="{{orderType==1&&baytab==0}}"  data-index="1">
+			去上架
+		</view>
+		<view  class="bottom-btn3"  wx:if="{{orderType==1&&baytab==1}}"  data-index="2">
+			出售
+		</view>		
 	</view>
 
 

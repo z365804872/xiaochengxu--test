@@ -69,7 +69,7 @@ Page({
             })
             wx.setStorage({
                 key:"couponId",
-                data:e.currentTarget.dataset.couponId
+                data:e.currentTarget.dataset.couponid
             })
             wx.navigateTo({
                 url:"/pages/index/order/index"

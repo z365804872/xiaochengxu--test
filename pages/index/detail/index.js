@@ -26,6 +26,18 @@ Page({
     this.setData({
       shoesId:options.shoesId
     })
+
+    wx.removeStorage({
+      key: 'couponId'
+    })
+    wx.removeStorage({
+      key: 'couponName'
+    })
+    wx.removeStorage({
+      key: 'addressId'
+    })
+
+
     wx.post({api:'shoesDetail', data:{shoesId:options.shoesId,uid:null}}).then(res => {
       console.log(res)
       res.defaultSize = Number(res.defaultSize)
@@ -192,31 +204,42 @@ Page({
    * 跳转提交订单
    */
   toOrder: function (e) {
-
+    if(e.currentTarget.dataset.index==0){
+      return
+    }
     
-    // wx.post({api:'confirm',data:{
-    //   shoesId:this.data.shoesId,
-    //   shoesSize:this.data.detailData.defaultSize,
-    //   type:e.currentTarget.dataset.index
+    wx.post({api:'confirm',data:{
+      shoesId:this.data.shoesId,
+      shoesSize:this.data.detailData.defaultSize,
+      type:e.currentTarget.dataset.index
 
-    // }}).then(res=>{
-    //   console.log(res)
-    // })
-    // return
+    }}).then(res=>{
+      console.log(res)
+      if(res){
+        wx.setStorage({
+          key:"orderData",
+          data:res
+        })
+        wx.setStorage({
+          key:"detailData",
+          data:this.data.detailData
+        })
+        wx.setStorage({
+          key:"orderType",
+          data:e.currentTarget.dataset.index
+        })
+        
+        wx.navigateTo({
+          url:"/pages/index/order/index"
+        })
+      }else{
+        wx.showToast({
+          title: '接口异常'
+        })
+      }
+    })
 
 
-    wx.setStorage({
-      key:"detailData",
-      data:this.data.detailData
-    })
-    wx.setStorage({
-      key:"orderType",
-      data:e.currentTarget.dataset.index
-    })
-    
-    wx.navigateTo({
-      url:"/pages/index/order/index"
-    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
