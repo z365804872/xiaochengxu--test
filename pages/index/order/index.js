@@ -274,10 +274,13 @@ Page({
           'paySign': res.paySign,
           'success':function(res){
             console.log(res)
-            },
-            'fail':function(res){
-              console.log(res)
-            }
+            wx.navigateTo({
+              url: `/pages/mine/order/list/index?type=1`
+            });
+          },
+          'fail':function(res){
+            console.log(res)
+          }
        })
         
       })
