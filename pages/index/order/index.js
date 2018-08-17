@@ -250,8 +250,10 @@ Page({
       buySellId:this.data.orderData.fastBuy.sellId||this.data.orderData.fastSell.buyId,
       addressId:this.data.addressId,
       couponId:this.data.couponId,
-      buyerUid:"177"
+      buyerUid: getApp().globalData.uid
     }
+
+    console.log('param', JSON.stringify(param))
 
     wx.post({api:'generatingOrder',data:param}).then(res=>{
       console.log(res)
@@ -265,8 +267,8 @@ Page({
       wx.post({api:'payMoney',data:paramData}).then(res=>{
         console.log(res)
         wx.requestPayment({
-          'timeStamp': res.timestamp,
-          'nonceStr': res.noncestr,
+          'timeStamp': res.timeStamp,
+          'nonceStr': res.nonceStr,
           'package': res.package,
           'signType': res.signType,
           'paySign': res.paySign,
