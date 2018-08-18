@@ -84,14 +84,15 @@
                 <view class="margin-t30 flex-row-between flex-row_center">
                     <view class="font-light font-24 color-000 lheight-33">{{item.stateInfo}}</view>
                     <view wx:if="{{type == 1 && orderState === 1}}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn" catch:tap="{{item.state === 0 ? 'payDeposit' : 'cancelOrder'}}">{{item.state === 0 ? '支付定金' : '取消订单'}}</view>
-                    <view wx:if="{{type == 1 && orderState === 2}}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn" catch:tap="{{orderState == 2 && item.state === 0 ? 'payAll' : 'queryExpress'}}">{{ orderState == 2 && item.state === 0 ? '支付全款' : '查看物流'}}</view>
-                    <view wx:if="{{type == 1 && orderState === 3 }}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn" catch:tap="{{item.state === 2 ? 'queryExpress' : 'reBuy'}}">{{ item.state === 2 ? '查看物流' : '继续求购'}}</view>
+                    <view wx:if="{{type == 1 && orderState === 2}}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn" catch:tap="{{orderState == 2 && item.state === 0 ? 'payAll' : 'queryExpress'}}">{{ orderState == 2 && item.state === 0 ? '支付全款' : !!item.express ? '查看物流' : ''}}</view>
+                    <view wx:if="{{type == 1 && orderState === 3 }}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn" catch:tap="{{item.state === 2 ? 'queryExpress' : 'reBuy'}}">{{ item.state === 2 && !!item.express ? '查看物流' : '继续求购'}}</view>
                     <view wx:if="{{type == 1 && orderState === 4 && item.state == 5}}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn" catch:tap="reBuy">继续求购</view>
 
-                    <view wx:if="{{type == 2 && orderState === 1 && item.state == 3}}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn" catch:tap="cancelOrder">支付</view>
-                    <view wx:if="{{type == 2 && orderState === 1 && item.state == 0}}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn" catch:tap="cancelOrder">下架商品</view>
-                    <view wx:if="{{type == 2 && orderState === 2}}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn"></view>
-                    <view wx:if="{{type == 2 && orderState === 3}}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn" catch:tap="queryExpress">查看物流</view>
+                    <view wx:if="{{type == 2 && orderState === 1 && item.state == 3}}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn" catch:tap="">支付定金</view>
+                    <view wx:if="{{type == 2 && orderState === 1 && item.state == 0}}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn" catch:tap="offGoods">下架商品</view>
+                    <view wx:if="{{type == 2 && orderState === 2 && item.state == 1}}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn" catchtap="addExpress">录入单号</view>
+                    <view wx:if="{{type == 2 && orderState === 2 && item.state == 4}}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn">取消订单</view>
+                    <view wx:if="{{type == 2 && orderState === 3 && !!item.express}}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn" catch:tap="queryExpress">查看物流</view>
                     <view wx:if="{{type == 2 && orderState === 4}}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn" catch:tap="reSell">继续出售</view>
                 </view>
             </view>

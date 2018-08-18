@@ -159,5 +159,9 @@ export default {
         title: '支付',
         path: '/order/payMoney',
         needUid
+    },
+    "uploadAliYun": {
+        title: '上传图片',
+        path: '/uploadAliYun'
     }
 }

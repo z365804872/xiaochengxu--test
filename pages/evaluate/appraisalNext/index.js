@@ -1,4 +1,7 @@
 // pages/evaluate/index/index.js
+import Config from '../../../config/config';
+import Api from '../../../api/api';
+
 Page({
 
   /**
@@ -33,7 +36,27 @@ Page({
       success: function (res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths
-        console.log(tempFilePaths)
+
+        //图片上传
+        wx.uploadFile({
+          url: Config.host + Api.uploadAliYun.path,
+          filePath: tempFilePaths[0],
+          name: 'file',
+          muFile: 'file',
+          header: { 
+            "Content-Type": "multipart/form-data" ,
+            "sign": "rxcl"
+          },
+          formData: {
+
+          },
+          success: (res)=>{
+            console.log('suc', res)
+          },
+          fail: (err)=>{
+            console.log('err', err)
+          }
+        });
       }
     })
   },

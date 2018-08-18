@@ -5,8 +5,11 @@
         <view class="color-red font-semibold font-24 lheight-33"><text class="iconfont icon-jinggaox color-red margin-r10"></text>请将商品寄到该地址，请认证核对</view>
     </view>
     <view class="padding-20 bgc-fa font-light font-28 lheight-40">
-        <view>收货方：锐新潮传播有限公司</view>
-        <view class="margin-t20">地   址：江苏省 海门市 长江新城608幢208室</view>
+        <view class="flex-row">
+            <view>收货方：鞋客APP</view>
+            <view class="margin-l30">手机号：19941240131</view>
+        </view>
+        <view class="margin-t20">地   址：浙江省 杭州市 江干区白杨街道新加坡科技园16-207室</view>
     </view>
 </view>
 
