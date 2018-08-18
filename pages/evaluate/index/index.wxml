@@ -45,8 +45,8 @@
                                 {{item.createdAt}}
                         </view>                  
                     </view>
-                    <view class="item-right-status" style="background:url({{item.type == 0?'../../../images/jdz.png':item.type == 1?'../../../images/zd.png':item.type == 2?'../../../images/jd.png':'../../../images/wfjd.png'}});background-size:464rpx 98rpx;width:464rpx;height:98rpx; background-repeat:no-repeat;">
-                    
+                    <view class="item-right-status" style="position: relative;">
+                        <image src="{{item.type == 0?'../../../images/jdz.png':item.type == 1?'../../../images/zd.png':item.type == 2?'../../../images/jd.png':'../../../images/wfjd.png'}}"  style="  position: absolute; width:464rpx; height:98rpx;left:0;top:0;" />
                     </view>
                 </view>
             </view>

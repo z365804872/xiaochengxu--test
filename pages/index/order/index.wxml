@@ -43,7 +43,7 @@
 				￥{{defaultPrise}}
 		</view>
 		<view class="content-price" wx:if="{{baytab==1}}">
-			<label for="input2">￥</label><input name="input2" bindinput="bindKeyInput" onkeyup="value=value.replace(/[^/d]/g,'') " type="number" maxlength="7" placeholder="0.00"/>
+			<label for="input2">￥</label><input name="input2" bindinput="bindKeyInput" onkeyup="value=value.replace(/[^/d]/g,'') " type="number" maxlength="6" placeholder="0.00"/>
 		</view>
 		<view class="content-reference" wx:if="{{baytab==1}}">
 			参考价：￥{{detailData.referencePrice}}
@@ -152,7 +152,9 @@
 			</view>
 		</view>
 		<view class="order-illustrate">
-			<text class="iconfont icon-jianding1"></text> 交易说明<text class="iconfont icon-jiaobiao iconjiaobiao1"></text>
+			<navigator url="/pages/outer/index?viewId=1" hover-class="none">
+				<text class="iconfont icon-jianding1"></text> 交易说明<text class="iconfont icon-jiaobiao iconjiaobiao1"></text>
+			</navigator>
 		</view>
 	</view>
 
@@ -214,7 +216,9 @@
 			</view>
 		</view>
 		<view class="order-illustrate">
-			<text class="iconfont icon-jianding1"></text> 交易说明<text class="iconfont icon-jiaobiao iconjiaobiao1"></text>
+			<navigator url="/pages/outer/index?viewId=2" hover-class="none">
+				<text class="iconfont icon-jianding1"></text> 交易说明<text class="iconfont icon-jiaobiao iconjiaobiao1"></text>
+			</navigator>
 		</view>
 	</view>
 
@@ -242,7 +246,7 @@
 
 	<view class="bottom-btn-box">
 		<view  class="bottom-btn"  wx:if="{{orderType==2&&baytab==0}}"  data-index="3" bindtap="toPay">
-			去付款({{defaultPrise}})
+			去付款(￥{{defaultPrise}})
 		</view>
 		<view  class="bottom-btn"  wx:if="{{orderType==2&&baytab==1}}"  data-index="4" bindtap="toPay">
 			去付款(￥{{defaultPrise1||0}})
@@ -254,7 +258,6 @@
 			出售
 		</view>		
 	</view>
-
 
 
 </view>

@@ -86,13 +86,15 @@
 				</view>
 
 			</view>
-			<view class="addmore-btn" bindtap="addmoreData"  wx:if="{{tabDataList.length>=3&&!addDlag}}">
+			<view class="addmore-btn" bindtap="addmoreData"  wx:if="{{tabDataList.length<tabData.orderNum&&!addFlag}}">
 				加载更多
 			</view>
 		</view>
-		<view class="sellList-box-no" wx:else>
-			<view>暂无{{chooseTab==1?"成交":chooseTab==2?"出售":"求购"}}商品</view>
-		</view>		
+		<!--  
+			<view class="sellList-box-no" wx:else>
+				<view>暂无{{chooseTab==1?"成交":chooseTab==2?"出售":"求购"}}商品</view>
+			</view>	
+		-->	
 	</view>
 
 	<!-- 底部 -->

@@ -14,7 +14,7 @@
 			<view class="search-item-left">
 				<view class="search-item-left-image" style="background:url('{{item.photo}}');background-size:187rpx 117rpx;background-repeat:no-repeat;"></view>
 				<view class="search-item-left-per {{item.percent<0?'colorGreen':''}}">
-					{{item.percent}}% <view class="search-left-per-icon" wx:if="{{item.percent<0}}" style="background:url('../../../images/down.svg');background-size:12rpx 23rpx;background-repeat:no-repeat;}}"></view><view class="search-left-per-icon" wx:else style="background:url('../../../images/up.png');background-size:12rpx 23rpx;background-repeat:no-repeat;}}"></view>
+					{{item.percent}}% <view class="search-left-per-icon" wx:if="{{item.percent<0}}" style="background:url('../../../images/down.png');background-size:12rpx 23rpx;background-repeat:no-repeat;}}"></view><view class="search-left-per-icon" wx:else style="background:url('../../../images/up.png');background-size:12rpx 23rpx;background-repeat:no-repeat;}}"></view>
 				</view>
 			</view>
 			<view class="search-item-right">

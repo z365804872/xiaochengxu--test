@@ -16,7 +16,7 @@ Page({
     tabData:{},
     tabDataList:[],
     addNum:1,
-    addDlag:false
+    addFlag:false  //加载更多flag
   },
 
   /**
@@ -83,7 +83,7 @@ Page({
    * 尺寸选择
    */
   changeSize: function(e){
-    this.data.addDlag=false;
+    this.data.addFlag=false;
     this.setData({
       ['detailData.defaultSize']: e.currentTarget.dataset.index
     })
@@ -119,7 +119,7 @@ Page({
    * 加载更多
    */
   addmoreData:function(){
-    if(this.data.addDlag){
+    if(this.data.addFlag){
       wx.showToast({
         title: '没有更多了~'
       })
@@ -142,14 +142,16 @@ Page({
       this.setData({
         tabData: res
       })
+      console.log(this.data.tabDataList)
       if(res.list.length>0){
         this.setData({
-          tabDataList: [this.data.tabDataList,...res.list]
+          tabDataList: [...this.data.tabDataList,...res.list]
         })
       }
+      console.log(this.data.tabDataList)
       if(res.list.length<3){
         this.setData({
-          addDlag: true
+          addFlag: true
         })
       }
 
@@ -160,25 +162,31 @@ Page({
    */
   clickTba1: function(){
     this.setData({
-      chooseTab: 1
+      chooseTab: 1,
+      addFlag: false,
+      addNum:1
     })
     this.getTabData()
   },
   clickTba2: function(){
     this.setData({
-      chooseTab: 2
+      chooseTab: 2,
+      addFlag: false,
+      addNum:1
     })
     this.getTabData()
   },
   clickTba3: function(){
     this.setData({
-      chooseTab: 3
+      chooseTab: 3,
+      addFlag: false,
+      addNum:1
     })
     this.getTabData()
   },
 
   getTabData: function(){
-    this.data.addDlag=false;
+    this.data.addFlag=false;
     wx.post({api:'shoesDetailRecord',data:{
       shoesId:this.data.shoesId,
       shoesSize:this.data.detailData.defaultSize,

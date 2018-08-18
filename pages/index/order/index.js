@@ -123,7 +123,8 @@ Page({
             }else{
               if(address.defaultAddress){
                 _this.setData({ 
-                  addressList: address
+                  addressList: address,
+                  addressId: address.addressId
                 })
               }
             }
@@ -131,7 +132,8 @@ Page({
         )
         if(!_this.data.addressList&&addressList.length>0){
           _this.setData({ 
-            addressList: addressList[0]
+            addressList: addressList[0],
+            addressId: addressList[0].addressId
           })
         }
     })
@@ -254,7 +256,10 @@ Page({
       wx.showToast({
         title: '地址不能为空'
       })
+      return
     }
+    console.log(this.data.addressId)
+
     let param = {};
     if(this.data.orderType==2){
         if(this.data.baytab==0){
