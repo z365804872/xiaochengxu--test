@@ -18,7 +18,6 @@
 .header-right-top{
     width: 344rpx;
     height: 150rpx;
-    background: blue;
     line-height: 150rpx;
     text-align: center;
     font-size: 32rpx;
@@ -27,7 +26,6 @@
 .header-right-bottom{
     width: 344rpx;
     height: 150rpx;
-    background: red;
     margin-top: 20rpx;
     line-height: 150rpx;
     text-align: center;
