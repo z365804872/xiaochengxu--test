@@ -55,7 +55,7 @@ let ajax = function (method, params, needLoading) {
 
   let postData = params.data || {};
   let apiKey = params.api;
-  let toastTesult = params.toastTesult || false
+  let toastResult = params.toastResult || false
 
   //apiKey不存在
   if (!apiKey) {
@@ -87,14 +87,14 @@ let ajax = function (method, params, needLoading) {
     if (!uid) {
       return auth.login().then(() => {
         postData.uid = getApp().globalData.uid
-        return request({ method, postData, needLoading, apiKey, toastTesult })
+        return request({ method, postData, needLoading, apiKey, toastResult })
       })
     } else {
       postData.uid = uid
-      return request({ method, postData, needLoading, apiKey, toastTesult })
+      return request({ method, postData, needLoading, apiKey, toastResult })
     }
   } else {
-    return request({ method, postData, needLoading, apiKey, toastTesult })
+    return request({ method, postData, needLoading, apiKey, toastResult })
   }
 
 }
@@ -103,7 +103,7 @@ let ajax = function (method, params, needLoading) {
  * 发送请求
  * ***/
 let request = function (obj) {
-  let { method, postData, needLoading, apiKey, toastTesult } = obj
+  let { method, postData, needLoading, apiKey, toastResult } = obj
 
   let startTime = Date.now();
   if (needLoading) wx.showLoading()
@@ -123,7 +123,7 @@ let request = function (obj) {
           let data = suc.data || {};
 
           if (data.code === 100000) {
-            toastTesult ? resolve(data.msg || '操作成功') : resolve(data.result)
+            toastResult ? resolve(data.msg || '操作成功') : resolve(data.result)
           } else {
             wx.showToast({
               title: String(data.msg)

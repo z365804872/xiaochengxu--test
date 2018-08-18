@@ -34,7 +34,7 @@ Page({
         wx.post({
             api: 'addCoupon',
             data: {couponId},
-            toastTesult: true
+            toastResult: true
         }).then(res => {
             wx.showToast({
                 title: String(res)

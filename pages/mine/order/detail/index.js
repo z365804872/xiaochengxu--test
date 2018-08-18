@@ -50,7 +50,7 @@ Page({
                     wx.post({
                         api: 'cancellOfOrder',
                         data: {type, buyOrSellId},
-                        toastTesult: true
+                        toastResult: true
                     }).then(res => {
                         wx.showToast({title: String(res)})
                         setTimeout(() => {
@@ -61,6 +61,35 @@ Page({
                 }
             }
         })
+
+    },
+
+    cancelOrder1(e){
+        let that = this
+        let {type, orderState, state, orderId} = that.data
+
+        if(type == 1 && orderState == 2 && state == 0){
+            wx.showModal({
+                content: '是否取消订单？',
+                confirmText: '确认',
+                success: (res) => {
+                    if (res.confirm) {
+                        wx.post({
+                            api: 'cancellOfOrder',
+                            data: {type: 3, orderId},
+                            toastResult: true
+                        }).then(res => {
+                            wx.showToast({title: String(res)})
+                            setTimeout(() => {
+                                wx.navigateBack()
+                            }, 1000)
+                        })
+
+                    }
+                }
+            })
+        }
+
 
     },
 
@@ -77,6 +106,8 @@ Page({
     //支付定金
     payDeposit(e) {
         console.log('支付定金', e)
+
+
     },
 
     //支付全款

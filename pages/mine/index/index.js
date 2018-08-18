@@ -105,5 +105,13 @@ Page({
         wx.navigateTo({
             url: '/pages/mine/order/list/index?type=2'
         })
-    }
+    },
+
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function () {
+        this.init()
+        wx.stopPullDownRefresh()
+    },
 })

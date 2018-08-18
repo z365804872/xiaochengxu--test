@@ -1,7 +1,7 @@
 /***
  * 用于登陆，获取用户的信息
  * ***/
-import {WX_USER_INFO, OPEN_ID, USER_INFO, URL} from './constants';
+import {WX_USER_INFO, OPEN_ID, USER_INFO, URL, UNION_ID} from './constants';
 import utils from '../utils/util';
 
 class Auth {
@@ -28,7 +28,9 @@ class Auth {
             needLoading: false
         }).then(suc => {
             let openid = suc.openid
+            let unionId = suc.unionid
             if (openid) wx.setStorageSync(OPEN_ID, openid)
+            if (unionId) wx.setStorageSync(UNION_ID, unionId)
             return !!openid ? openid : Promise.reject('get openId failed')
         })
     }
@@ -114,6 +116,7 @@ class Auth {
     loginWithUserInfo(userInfo) {
         let that = this
         let openId = wx.getStorageSync(OPEN_ID)
+        let unionId = wx.getStorageSync(UNION_ID);
 
         let openIdPromise
         if (!!openId) {
@@ -131,6 +134,7 @@ class Auth {
 
             if(userInfo.mobile) postData.mobile = userInfo.mobile;
             if(userInfo.password) postData.password = userInfo.password;
+            if(UNION_ID) postData.unionId = unionId
 
             return wx.post({api: 'loginMember', data: postData})
                 .then(suc => {

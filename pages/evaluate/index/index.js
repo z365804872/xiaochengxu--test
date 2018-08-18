@@ -17,25 +17,44 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let that = this
+    // let that = this
     // auth.checkLogin()
     //   .then(res => {
-        wx.post({
-          api: 'appraisalList',
-          data: {
-            type: that.data.tabtype,
-            pageNum: 1,
-            pageSize: 10
-          }
-        }).then(res => {
-          res = that.parseTime(res);
-          that.setData({
-            dataList: res
-          })
-        })
+    //     wx.post({
+    //       api: 'appraisalList',
+    //       data: {
+    //         type: that.data.tabtype,
+    //         pageNum: 1,
+    //         pageSize: 10
+    //       }
+    //     }).then(res => {
+    //       res = that.parseTime(res);
+    //       that.setData({
+    //         dataList: res
+    //       })
+    //     })
       // })
 
+      this.init()
+
   },
+    init(){
+        let that = this
+        wx.post({
+            api: 'appraisalList',
+            data: {
+                type: that.data.tabtype,
+                pageNum: 1,
+                pageSize: 10
+            }
+        }).then(res => {
+            res = that.parseTime(res);
+            that.setData({
+                dataList: res
+            })
+        })
+    },
+
   tabType: function (e) {
     this.data.listFlag = true;
     this.data.page = 1;
@@ -114,7 +133,8 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.init()
+      wx.stopPullDownRefresh()
   },
 
   /**

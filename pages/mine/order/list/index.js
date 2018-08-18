@@ -13,7 +13,7 @@ Page({
             text: '交易中',
             selected: false,
             orderState: 2
-        },  {
+        }, {
             text: '已过期',
             selected: false,
             orderState: 4
@@ -45,7 +45,7 @@ Page({
         }
     },
 
-    onShow(){
+    onShow() {
         let orderState = this.data.orderState
         !!orderState ? this._getMemberOrder('', orderState) : this._getMemberOrder()
     },
@@ -169,7 +169,7 @@ Page({
                     wx.post({
                         api: 'cancellOfOrder',
                         data: { type, buyOrSellId: buySellId },
-                        toastTesult: true
+                        toastResult: true
                     }).then(res => {
                         wx.showToast({ title: String(res) })
                         setTimeout(() => that._getMemberOrder(1, orderState), 1500)
@@ -189,6 +189,12 @@ Page({
         let currentOrder = orderList[index]
         let { buySellId, express } = currentOrder
 
+        if(!express){
+            return wx.showToast({
+                title: '暂未发货'
+            });
+        }
+
         wx.setStorageSync('shoeInfo', currentOrder)
 
         wx.navigateTo({
@@ -199,13 +205,95 @@ Page({
 
     //支付定金
     payDeposit(e) {
-        console.log('支付定金', e)
+        let that = this
+        let index = e.currentTarget.dataset.index
+        let { orderList } = that.data
+
+        let { buySellId, paySnNo, serviceFee } = orderList[index]
+
+        let type = this.data.type
+        let orderType = type == 1 ? 4 : type == 2 ? 1 : ''
+        let payType = 1  //  1.微信 2.支付宝 3.银联 4.余额
+
+        wx.post({
+            api: 'payMoney',
+            data: {
+                paySnNo,
+                payType,
+                payMoney: serviceFee,
+                orderType,
+                buySellId
+            }
+        }).then(res => {
+            console.log(res)
+            if(!res.signType) return
+            wx.requestPayment({
+                'timeStamp': res.timeStamp,
+                'nonceStr': res.nonceStr,
+                'package': res.package,
+                'signType': res.signType,
+                'paySign': res.paySign,
+                success: res => {
+
+                },
+                fail: (err) => { 
+                    console.log(err)
+                }
+            });
+        })
+
     },
 
     //支付全款
     payAll(e) {
         console.log('支付全款', e)
+        let that = this
+        let index = e.currentTarget.dataset.index
+        let { orderList } = that.data
 
+        let { buySellId, paySnNo, shopMoney, state, orderType } = orderList[index]
+
+        // let {type, orderState} = this.data
+        // let orderType;
+        // if(type == 1 && orderState == 1){
+        //     orderType = 4
+        // }
+        // if(type == 1 && orderState == 2 && (state == 0 || state == 7)){
+        //     orderType = 3
+        // }
+        // if(type == 2 ){
+        //     orderType = 1
+        // }
+
+
+        let payType = 1  //  1.微信 2.支付宝 3.银联 4.余额
+
+        wx.post({
+            api: 'payMoney',
+            data: {
+                paySnNo,
+                payType,
+                payMoney: shopMoney,
+                orderType,
+                buySellId
+            }
+        }).then(res => {
+            console.log(res)
+            if(!res.signType) return
+            wx.requestPayment({
+                'timeStamp': res.timeStamp,
+                'nonceStr': res.nonceStr,
+                'package': res.package,
+                'signType': res.signType,
+                'paySign': res.paySign,
+                success: res => {
+
+                },
+                fail: (err) => { 
+                    console.log(err)
+                }
+            });
+        })
     },
 
     //继续求购
@@ -218,7 +306,7 @@ Page({
 
         let { buySellId, shoesSize, shoesCost, days, addressId } = orderList[index]
 
-        
+
 
     },
 
@@ -232,13 +320,13 @@ Page({
 
         let buySellId = orderList[index].buySellId
 
-        
+
     },
 
     //录入单号
     addExpress(e) {
         let index = e.currentTarget.dataset.index
-        let {orderList} = this.data
+        let { orderList } = this.data
         let orderId = orderList[index].orderId
 
         wx.navigateTo({
@@ -247,7 +335,7 @@ Page({
     },
 
     //下架商品
-    offGoods(e){
+    offGoods(e) {
         let that = this
         let { type, orderList, orderState } = that.data
 
@@ -263,7 +351,7 @@ Page({
                     wx.post({
                         api: 'cancellOfOrder',
                         data: { type, buyOrSellId: buySellId },
-                        toastTesult: true
+                        toastResult: true
                     }).then(res => {
                         wx.showToast({ title: '商品下架成功' || String(res) })
                         setTimeout(() => that._getMemberOrder(1, orderState), 1500)

@@ -25,7 +25,7 @@ Page({
         wx.post({
             api: 'express',
             data: {express, orderId},
-            toastTesult: true
+            toastResult: true
         }).then(res => {
             wx.showToast({title: String(res)})
             setTimeout(() => {
