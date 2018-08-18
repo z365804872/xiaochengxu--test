@@ -50,6 +50,11 @@ Page({
         !!orderState ? this._getMemberOrder('', orderState) : this._getMemberOrder()
     },
 
+    onPullDownRefresh: function () {
+        let orderState = this.data.orderState
+        !!orderState ? this._getMemberOrder('', orderState) : this._getMemberOrder()
+        setTimeout(()=> wx.stopPullDownRefresh())
+      },
 
     /**
      * 页面上拉触底事件的处理函数
@@ -221,7 +226,7 @@ Page({
             _orderType = 3
         }
         if(type == 2 ){
-            _orderType = 1
+            _orderType = orderType
         }
 
 

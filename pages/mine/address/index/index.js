@@ -14,19 +14,18 @@ Page({
      */
     onLoad: function (options) {
         // this.init()
-        this.setData({
-            comeData:options.id
-        })
+        if(options.id) this.setData({comeData:options.id})
     },
 
     onShow() {
         this.init()
     },
 
-    init() {
+    init(params) {
         let that = this
         wx.post({
-            api: 'searchAddress'
+            api: 'searchAddress',
+            ...params
         }).then(res => {
             let addressList = Array.isArray(res) && res || []
             addressList.forEach(address => address.changeAndDel = false)
@@ -97,7 +96,7 @@ Page({
         }).then(res => {
             console.log(res)
             wx.showToast({ title: '地址删除成功' })
-            setTimeout(() => that.init(), 1500)
+            setTimeout(() => that.init({needLoading: false}), 500)
         })
     },
     toOrder: function(e){

@@ -16,12 +16,18 @@ Page({
         this._getTradeList()
     },
 
+    onPullDownRefresh(){
+        this._getTradeList()
+    },
+
     _getTradeList(pageNum) {
         pageNum = pageNum || 1
 
         let that = this
 
         let {tradeList, hasMore} = that.data
+        if(pageNum == 1) tradeList = []
+
         wx.post({
             api: 'searchMemberCash',
             data: {

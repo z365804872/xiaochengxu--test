@@ -50,7 +50,8 @@ let ajax = function (method, params, needLoading) {
   }
 
   method = method || params.method;
-  needLoading = needLoading || params.needLoading || true;
+  needLoading = needLoading || params.needLoading;
+  needLoading = needLoading == undefined && true
 
 
   let postData = params.data || {};
