@@ -112,7 +112,7 @@
 }
 .content-price label{
   float: left;
-  margin-left: 280rpx;
+  margin-left: 275rpx;
 }
 .content-price input{
   float: left;

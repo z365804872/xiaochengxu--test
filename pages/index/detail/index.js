@@ -207,12 +207,23 @@ Page({
     if(e.currentTarget.dataset.index==0){
       return
     }
+    let wantBuyId= "",
+        sellId = "";
+    if(e.currentTarget.dataset.buyorsellid){
+      if(e.currentTarget.dataset.index==2){
+        sellId = e.currentTarget.dataset.buyorsellid;
+        
+      }else if(e.currentTarget.dataset.index==1){
+        wantBuyId = e.currentTarget.dataset.buyorsellid;
+      }
+    }
     
     wx.post({api:'confirm',data:{
       shoesId:this.data.shoesId,
       shoesSize:this.data.detailData.defaultSize,
-      type:e.currentTarget.dataset.index
-
+      type:e.currentTarget.dataset.index,
+      wantBuyId,
+      sellId
     }}).then(res=>{
       console.log(res)
       if(res){
