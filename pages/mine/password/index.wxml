@@ -9,7 +9,7 @@
             <text class="iconfont icon-mima"></text>
             <input type="{{type}}"
                    name="password"
-                   maxlength="6"
+                   maxlength="18"
                    placeholder-class="input-placeholder"
                    placeholder="请输入密码"/>
             <text catchtap="showPwd" class="iconfont {{type === 'text' ? 'icon-xianshi' : 'icon-yincang'}}"></text>

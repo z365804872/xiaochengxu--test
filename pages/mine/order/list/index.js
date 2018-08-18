@@ -13,14 +13,15 @@ Page({
             text: '交易中',
             selected: false,
             orderState: 2
-        }, {
-            text: '已结束',
-            selected: false,
-            orderState: 3
-        }, {
+        },  {
             text: '已过期',
             selected: false,
             orderState: 4
+        },
+        {
+            text: '已完成',
+            selected: false,
+            orderState: 3
         }],
         pageSize: 5,
         orderList: []
@@ -35,10 +36,6 @@ Page({
 
         this.setData({ type: type })
 
-        this.setData({type: type})
-
-        this._getMemberOrder()
-
         //设置标题 1：我的求购  2：我的出售
         if (type == 1) {
             wx.setNavigationBarTitle({ title: '我的求购' })
@@ -46,6 +43,11 @@ Page({
             wx.setNavigationBarTitle({ title: '我的出售' })
             this.setData({ 'tabList[0].text': '出售中' })
         }
+    },
+
+    onShow(){
+        let orderState = this.data.orderState
+        !!orderState ? this._getMemberOrder('', orderState) : this._getMemberOrder()
     },
 
 
@@ -86,7 +88,8 @@ Page({
             that.setData({
                 orderList,
                 orderState,
-                hasMore
+                hasMore,
+                orderState
             })
         })
 
@@ -117,6 +120,7 @@ Page({
         }
     },
 
+    //订单详情
     toOrderDetail(e) {
 
         let index = e.currentTarget.dataset.index
@@ -214,12 +218,7 @@ Page({
 
         let { buySellId, shoesSize, shoesCost, days, addressId } = orderList[index]
 
-        wx.post({
-            api: 'generatingOrder',
-            data: { buySellId, shoesSize, shoesCost, days, addressId, orderType: 6 }
-        }).then(res => {
-
-        })
+        
 
     },
 
@@ -233,11 +232,44 @@ Page({
 
         let buySellId = orderList[index].buySellId
 
-        wx.post({
-            api: 'generatingOrder',
-            data: { buySellId }
-        }).then(res => {
+        
+    },
 
+    //录入单号
+    addExpress(e) {
+        let index = e.currentTarget.dataset.index
+        let {orderList} = this.data
+        let orderId = orderList[index].orderId
+
+        wx.navigateTo({
+            url: `/pages/mine/order/expressId/index?orderId=${orderId}`
+        })
+    },
+
+    //下架商品
+    offGoods(e){
+        let that = this
+        let { type, orderList, orderState } = that.data
+
+        let index = e.currentTarget.dataset.index
+        let currentOrder = orderList[index]
+        let { buySellId } = currentOrder
+
+        wx.showModal({
+            content: '是否下架商品？',
+            confirmText: '下架',
+            success: (res) => {
+                if (res.confirm) {
+                    wx.post({
+                        api: 'cancellOfOrder',
+                        data: { type, buyOrSellId: buySellId },
+                        toastTesult: true
+                    }).then(res => {
+                        wx.showToast({ title: '商品下架成功' || String(res) })
+                        setTimeout(() => that._getMemberOrder(1, orderState), 1500)
+                    })
+                }
+            }
         })
     }
 

@@ -25,13 +25,23 @@ Page({
     exchangeCoupon(e) {
         let couponId = e.detail.value.couponid
 
+        if(!couponId){
+            return wx.showToast({
+                title: '请输入礼券兑换码'
+            });
+        }
+
         wx.post({
             api: 'addCoupon',
-            data: {couponId}
+            data: {couponId},
+            toastTesult: true
         }).then(res => {
             wx.showToast({
-                title: '礼券兑换成功'
+                title: String(res)
             })
+            setTimeout(()=>{
+                wx.navigateBack({})
+            }, 1500)
         })
     }
 })

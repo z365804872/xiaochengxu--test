@@ -37,7 +37,7 @@ Page({
                 item.createdTime = item.createdTime.slice(0, index)
             })
 
-            hasMore = list.length > 0
+            hasMore = list.length > 0 && list.length == that.data.pageSize
             tradeList = tradeList.concat(list)
 
             that.data.pageNum = pageNum
