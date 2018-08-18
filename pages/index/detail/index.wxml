@@ -68,10 +68,10 @@
 			</view>	
 		</view>	
 		<view class="sellList-num" wx:if="{{tabDataList.length>0}}">
-			总成交量: {{tabData.sellNum}}双
+			总成交量: {{chooseTab==1?tabData.orderNum:chooseTab==2?tabData.sellNum:tabData.wantBuyNum}}双
 		</view>
 		<view class="sellList-box" wx:if="{{tabDataList.length>0}}">
-			<view class="box-cj-item"  wx:for="{{tabDataList}}" wx:key="{{index}}"  data-index="{{chooseTab==1?'0':chooseTab==2?'2':'1'}}" bindtap="toOrder">
+			<view class="box-cj-item"  wx:for="{{tabDataList}}" wx:key="{{index}}"  data-index="{{chooseTab==1?'0':chooseTab==2?'2':'1'}}" data-buyorsellid="{{item.buyOrSellId}}" bindtap="toOrder">
 				<view class="cj-item-size">
 					{{item.shoesSize}}码
 				</view>
@@ -86,13 +86,15 @@
 				</view>
 
 			</view>
-			<view class="addmore-btn" bindtap="addmoreData"  wx:if="{{tabDataList.length>=3&&!addDlag}}">
+			<view class="addmore-btn" bindtap="addmoreData"  wx:if="{{tabDataList.length<tabData.orderNum&&!addFlag}}">
 				加载更多
 			</view>
 		</view>
-		<view class="sellList-box-no" wx:else>
-			<view>暂无{{chooseTab==1?"成交":chooseTab==2?"出售":"求购"}}商品</view>
-		</view>		
+		<!--  
+			<view class="sellList-box-no" wx:else>
+				<view>暂无{{chooseTab==1?"成交":chooseTab==2?"出售":"求购"}}商品</view>
+			</view>	
+		-->	
 	</view>
 
 	<!-- 底部 -->

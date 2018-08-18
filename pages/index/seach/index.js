@@ -8,19 +8,26 @@ Page({
     seachList:[],
     listFlag:true,
     page:1,
-    keyValue:""
+    keyValue:"",
+    fromFlag:true,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
-    // wx.post({api:'queryShoes', data:{keyword:"nike",pageNum:1,pageSize:10}}).then(res => {
-    //   console.log(res)
-    //   this.setData({
-    //     seachList:res
-    //   })
-    // })
+  onLoad: function (options) {
+      if(options.seachname){
+        this.setData({
+          keyValue:options.seachname,
+          fromFlag:false
+        })
+        wx.post({api:'queryShoes', data:{keyword:options.seachname,pageNum:1,pageSize:10}}).then(res => {
+          console.log(res)
+          this.setData({
+            seachList:res
+          })
+        })
+      }
   },
   bindKeyInput: function(e){
     var value = e.detail.value

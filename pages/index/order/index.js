@@ -6,7 +6,7 @@ Page({
    */
   data: {
     detailData:{},
-    baytab:0,
+    baytab:0, //0左1右
     defaultPrise:"",
     defaultPrise1:"0",
     animationData:{},
@@ -16,7 +16,7 @@ Page({
     couponId:"",
     addressList:"",
     addressId:"",
-    orderType:"",
+    orderType:"",  //1出售2购买
     orderData:{},
     serviceFee:"0.00",
     finalIncome:"0.00"
@@ -48,29 +48,41 @@ Page({
 
     wx.getStorage({
       key: 'orderData',
-      success: function(res) {
+      success: function(res1) {
         _this.setData({
-          orderData: res.data
+          orderData: res1.data
         })
         wx.getStorage({
           key: 'orderType',
           success: function(res) {
+            console.log(res.data)
             _this.setData({
               orderType: res.data
             })
+
             if(_this.data.orderType==2){
               if(!_this.data.orderData.fastBuy){
                 _this.setData({
                   baytab: 1
                 })
+              }else{
+                _this.setData({
+                  defaultPrise: _this.data.orderData.fastBuy.sellMoney.toFixed(2)
+                })
               }
+
             }else if(_this.data.orderType==1){
               if(_this.data.orderData.fastSell){
                 _this.setData({
                   baytab: 1
                 })
+              }else{
+                _this.setData({
+                  defaultPrise: _this.data.orderData.fastSell.sellMoney.toFixed(2)
+                })
               }
             }
+            _this.calcServiceFee();
           } 
         })
       } 
@@ -111,12 +123,19 @@ Page({
             }else{
               if(address.defaultAddress){
                 _this.setData({ 
-                  addressList: address
+                  addressList: address,
+                  addressId: address.addressId
                 })
               }
             }
           }
         )
+        if(!_this.data.addressList&&addressList.length>0){
+          _this.setData({ 
+            addressList: addressList[0],
+            addressId: addressList[0].addressId
+          })
+        }
     })
 
     wx.getStorage({
@@ -124,31 +143,15 @@ Page({
       success: function(res) {
         _this.setData({
           detailData: res.data
-        })
-        for(let i in res.data.sizeList){
-          if(res.data.sizeList[i].shoesSize == res.data.defaultSize){
-            _this.setData({
-              defaultPrise: res.data.sizeList[i].sellMoney
-            })
-            // if(_this.data.defaultPrise=="--"&&_this.data.orderType==2){
-            //   _this.setData({
-            //     baytab: 1
-            //   })
-            // }
-          }
-        }        
-        console.log(_this.data.detailData)
+        })       
       } 
     })
-    this.calcServiceFee();
-
+ 
   },
   /**
    * 选择tab
    */
   changeTab1: function(){
-    console.log(this.data.orderData.fastBuy)
-    console.log(this.data.orderType)
     if(!this.data.orderData.fastBuy&&this.data.orderType==2){
       wx.showToast({
         title: '鞋客：无法立刻购买~'
@@ -195,7 +198,7 @@ Page({
       ['detailData.defaultSize']: e.currentTarget.dataset.index
     })
     this.setData({
-      defaultPrise: e.currentTarget.dataset.price=="--"?"￥0":e.currentTarget.dataset.price
+      defaultPrise: e.currentTarget.dataset.price=="--"?"0":e.currentTarget.dataset.price.substr(1)
     })
     this.calcServiceFee();
   },
@@ -214,9 +217,10 @@ Page({
    */
   calcServiceFee: function () {
     let money="";
-
     if((this.data.orderType==2&&this.data.baytab==1)||(this.data.orderType==1&&this.data.baytab==0)){
       money=this.data.defaultPrise1
+    }else if(this.data.orderType==1&&this.data.baytab==1){
+      money="￥"+this.data.orderData.fastSell.wantBuyMoney
     }else{
       money=this.data.defaultPrise
     }
@@ -237,23 +241,72 @@ Page({
   },
 
   bindKeyInput: function(e) {
+    var value = e.detail.value;
     this.setData({
       defaultPrise1: e.detail.value
     })
     this.calcServiceFee()
+    return {
+      value: value.replace(/\./g,''),
+    }
   },
 
   toPay:function(e){
-    let param={
-      sellerUid:this.data.orderData.fastBuy.sellUid,
-      orderType:e.currentTarget.dataset.index,
-      buySellId:this.data.orderData.fastBuy.sellId||this.data.orderData.fastSell.buyId,
-      addressId:this.data.addressId,
-      couponId:this.data.couponId,
-      buyerUid: getApp().globalData.uid
+    if(!this.data.addressId){
+      wx.showToast({
+        title: '地址不能为空'
+      })
+      return
+    }
+    console.log(this.data.addressId)
+
+    let param = {};
+    if(this.data.orderType==2){
+        if(this.data.baytab==0){
+          param={
+            sellerUid:this.data.orderData.fastBuy.sellUid,
+            orderType:e.currentTarget.dataset.index,
+            buySellId:this.data.orderData.fastBuy.sellId||this.data.orderData.fastSell.buyId,
+            addressId:this.data.addressId,
+            couponId:this.data.couponId,
+            buyerUid: getApp().globalData.uid
+          }
+        }else{
+          param={
+            shoesId:this.data.orderData.shoesId,
+            shoesSize:this.data.detailData.defaultSize,
+            shoesCost:this.data.defaultPrise1,
+            days: this.data.selectDay,
+            orderType:e.currentTarget.dataset.index,
+            buyerUid: getApp().globalData.uid,
+            addressId:this.data.addressId
+          }
+        }
+    }else{
+        if(this.data.baytab==0){
+          param={
+            shoesId:this.data.orderData.shoesId,
+            shoesSize:this.data.detailData.defaultSize,
+            shoesCost:this.data.defaultPrise1,
+            sellerUid: getApp().globalData.uid,
+            days: this.data.selectDay,
+            orderType:e.currentTarget.dataset.index,
+            couponId:this.data.couponId
+          }
+        }else{
+          param={
+            shoesId:this.data.orderData.shoesId,
+            shoesSize:this.data.detailData.defaultSize,
+            shoesCost:this.data.orderData.fastSell.wantBuyMoney,
+            sellerUid:getApp().globalData.uid,
+            orderType:e.currentTarget.dataset.index,
+            buyerUid:this.data.orderData.fastSell.wantBuyUid,
+            buySellId:this.data.orderData.fastSell.wantBuyId,
+            couponId:this.data.couponId
+          }
+        }
     }
 
-    console.log('param', JSON.stringify(param))
 
     wx.post({api:'generatingOrder',data:param}).then(res=>{
       console.log(res)
@@ -265,7 +318,6 @@ Page({
         buySellId:res.buySellId,
       }
       wx.post({api:'payMoney',data:paramData}).then(res=>{
-        console.log(res)
         wx.requestPayment({
           'timeStamp': res.timeStamp,
           'nonceStr': res.nonceStr,
@@ -274,9 +326,15 @@ Page({
           'paySign': res.paySign,
           'success':function(res){
             console.log(res)
-            wx.navigateTo({
-              url: `/pages/mine/order/list/index?type=1`
-            });
+            if(this.data.orderType==2){
+              wx.navigateTo({
+                url: `/pages/mine/order/list/index?type=1`
+              });
+            }else{
+              wx.navigateTo({
+                url: `/pages/mine/order/list/index?type=2`
+              });
+            }
           },
           'fail':function(res){
             console.log(res)

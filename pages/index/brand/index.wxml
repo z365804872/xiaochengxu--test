@@ -12,11 +12,15 @@
 		</view>
 
 		<view class="brand-content-list">
+
 			<view class="brand-content-item" wx:for="{{brandData[selecttab].list}}" wx:key="{{index}}">
-				<view class="brand-item-image" style="background:url('{{item.photo}}');background-size:170rpx 170rpx;background-repeat:no-repeat;">
-				</view>
-				<text>{{item.detailName}}</text>
+				<navigator url="/pages/index/seach/index?seachname={{item.detailName}}" hover-class="none">
+					<view class="brand-item-image" style="background:url('{{item.photo}}');background-size:170rpx 170rpx;background-repeat:no-repeat;">
+					</view>
+					<text>{{item.detailName}}</text>
+				</navigator>
 			</view>
+
 		</view>
 	</view>
 </view>

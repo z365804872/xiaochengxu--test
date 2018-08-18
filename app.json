@@ -24,7 +24,8 @@
     "pages/index/seach/index",
     "pages/evaluate/appraisal/index",
     "pages/evaluate/appraisalNext/index",
-    "pages/evaluate/appraisalDetail/index"
+    "pages/evaluate/appraisalDetail/index",
+    "pages/outer/index" 
   ],
   "window":{
     "backgroundTextStyle":"light",

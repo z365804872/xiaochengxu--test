@@ -179,6 +179,8 @@
   width: 690rpx;
   height: 120rpx;
   margin-left: 30rpx;
+  margin-bottom:30rpx;
+
 }
 
 .cj-item-size{

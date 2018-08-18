@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="container">
 	<!-- 顶部搜索栏 -->
-	<view class="section searchBar">
+	<view class="section searchBar" wx:if="{{fromFlag}}">
 		<view class="section searBar-box">
 				<image src="../../../images/seach.svg" mode="aspectFill" class="search-icon" />
 				<input type="text" name="searchBar" placeholder="搜索您想要的商品"  placeholder-class="place-holder" bindconfirm="bindKeyInput" />

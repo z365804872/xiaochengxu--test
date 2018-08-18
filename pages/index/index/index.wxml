@@ -27,7 +27,7 @@
 	<!-- 品牌分类 -->
 	<view class="section navBar">
 		<view class="section nav-list" wx:for="{{brandHome}}" wx:key="{{index}}" wx:if="{{index<3}}">
-			<navigator url="{{item.nav_urls}}" hover-class="none">
+			<navigator url="/pages/index/seach/index?seachname={{item.brandName}}" hover-class="none">
 				<view class="nav-item" style="background:url('{{item.photo}}'); background-size:80rpx 80rpx;background-repeat:no-repeat;background-position:68rpx 10rpx;">
 					<text class="item-text">{{item.brandName}}</text>
 				</view>
