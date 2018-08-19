@@ -11,8 +11,12 @@ Page({
      */
     onLoad: function (options) {
         let that = this
-        let {shoesId, id, type, orderState, orderStateCopy, order_type} = options
-        if(type == 2)  that.data.orderType = order_type
+        let {shoesId, id, type, orderState, orderStateCopy, order_type, pay_money} = options
+        if(type == 2)  {
+            that.data.orderType = order_type
+        }
+        that.data.payMoney = pay_money
+        
         wx.post({
             api: 'orderDetail',
             data: {shoesId, id, type: orderState}
@@ -114,7 +118,7 @@ Page({
     payDeposit(e) {
         console.log('支付定金', e)
         let that = this
-        let { buyOrSellId, paySnNo, serviceFee, orderType, state } = that.data
+        let { buyOrSellId, paySnNo, payMoney, orderType, state } = that.data
 
        
         let {type, orderState} = that.data
@@ -136,7 +140,7 @@ Page({
             data: {
                 paySnNo,
                 payType,
-                payMoney: serviceFee,
+                payMoney: payMoney,
                 orderType: _orderType,
                 buySellId: buyOrSellId
             }

@@ -133,7 +133,7 @@ Page({
         let orderStateCopy = orderState
 
         let currentOrder = orderList[index]
-        let { shoesId, paySnNo, orderId, buySellId, state, orderType } = currentOrder
+        let { shoesId, paySnNo, orderId, buySellId, state, orderType, payMoney } = currentOrder
 
         let id = orderId;
         if (type == 2) {
@@ -152,7 +152,7 @@ Page({
         //     ? `/pages/mine/order/buyDetail/index?orderState=${orderState}&shoesId=${shoesId}&id=${id}` 
         //     : '/pages/mine/order/sellDetail/index?orderState=6'
 
-        let url = `/pages/mine/order/detail/index?orderState=${orderState}&type=${type}&shoesId=${shoesId}&id=${id}&orderStateCopy=${orderStateCopy}&order_type=${orderType}`
+        let url = `/pages/mine/order/detail/index?orderState=${orderState}&type=${type}&shoesId=${shoesId}&id=${id}&orderStateCopy=${orderStateCopy}&order_type=${orderType}&pay_money=${payMoney}`
 
         wx.navigateTo({ url: url })
     },
@@ -214,7 +214,7 @@ Page({
         let index = e.currentTarget.dataset.index
         let { orderList } = that.data
 
-        let { buySellId, paySnNo, serviceFee, orderType, state } = orderList[index]
+        let { buySellId, paySnNo, payMoney, orderType, state } = orderList[index]
 
 
         let { type, orderState } = this.data
@@ -239,7 +239,7 @@ Page({
             data: {
                 paySnNo,
                 payType,
-                payMoney: serviceFee,
+                payMoney: payMoney,
                 orderType: _orderType,
                 buySellId
             }
