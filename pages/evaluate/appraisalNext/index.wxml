@@ -5,56 +5,26 @@
             上传图片
         </view>
         <view class="appra-one-box">
-            <view class="nav-item {{0==choose?'select':''}}" bindtap="changeTab" data-index="0">
+            <view wx:for="{{saveImg}}" wx:key="{{index}}" class="nav-item" bindtap="changeTab" data-index="{{index}}">
                 <view class="nav-item-box">
-                    <image src="../../../images/jd_wg.svg"  style="  position: absolute; width:60rpx; height:28.6rpx;left:78rpx;top:94rpx;z-index:0" />
-                    <text class="item-text">外观</text>
+                    <image wx:if="{{item.selectImg.length==0}}" src="../../../images/{{item.mrbg}}.png"  style="width:100%; height:100%;" />
+                    <image wx:else src="{{item.selectImg}}" style="width:100%; height:100%;" />
                 </view>
             </view>
-            <view class="nav-item {{1==choose?'select':''}}" bindtap="changeTab" data-index="1">
-                <view class="nav-item-box" >
-                    <image src="../../../images/jd_cb.svg"  style="  position: absolute; width:48rpx; height:40rpx;left:74rpx;top:88rpx;z-index:0" />
-                    <text class="item-text">鞋盒侧标</text>
-                </view>
-            </view>
-            <view class="nav-item {{2==choose?'select':''}}" bindtap="changeTab" data-index="2">
-                <view class="nav-item-box" >
-                    <image src="../../../images/jd_gy.svg"  style="  position: absolute; width:50rpx; height:42rpx;left:83rpx;top:87rpx;z-index:0" />
-                    <text class="item-text">鞋盒钢印</text>
-                </view>
-            </view>
-            <view class="nav-item {{3==choose?'select':''}}" bindtap="changeTab" data-index="3">
-                <view class="nav-item-box" >
-                    <image src="../../../images/jd_xb.svg"  style="  position: absolute; width:44rpx; height:44rpx;left:86rpx;top:86rpx;z-index:0" />
-                    <text class="item-text">鞋盒鞋标</text>
-                </view>
-            </view>
-            <view class="nav-item {{4==choose?'select':''}}" bindtap="changeTab" data-index="4">
+
+            <view class="nav-item" bindtap="addMore" wx:if="{{saveImg.length<9}}">
                 <view class="nav-item-box">
-                    <image src="../../../images/jd_bm.svg"  style="  position: absolute; width:24rpx; height:61rpx;left:96rpx;top:78.5rpx;z-index:0" />
-                    <text class="item-text">鞋垫背面</text>
-                </view>
-            </view>
-            <view class="nav-item {{5==choose?'select':''}}" bindtap="changeTab" data-index="5">
-                <view class="nav-item-box">
-                    <image src="../../../images/jd_zd.svg"  style="  position: absolute; width:24rpx; height:60rpx;left:96rpx;top:78rpx;z-index:0" />
-                    <text class="item-text">中底</text>
-                </view>
-            </view>
-            <view class="nav-item {{6==choose?'select':''}}" bindtap="changeTab" data-index="6">
-                <view class="nav-item-box">
-                    <image src="../../../images/jd_bc.png"  style="  position: absolute; width:46rpx; height:46rpx;left:85rpx;top:85rpx;z-index:0" />
-                    <text class="item-text">补充</text>
+                    <image src="../../../images/bc.png" style="width:100%; height:100%;" />
                 </view>
             </view>            
         </view>
 
         
         <view class="input-box">
-            <input placeholder="输入你的备注信息 如：货号/尺码/颜色…" placeholder-class="place-holder" type="text"/>
+            <input placeholder="输入你的备注信息 如：货号/尺码/颜色…" placeholder-class="place-holder"  bindinput="getValue" type="text"/>
         </view>
 
-        <view class="next-btn">
+        <view class="next-btn"  bindtap="uploadImg">
             发布(2/2)
         </view>
     </view>

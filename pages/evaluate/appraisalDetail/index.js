@@ -27,6 +27,9 @@ Page({
       })
     })
   },
+  toNext:function(){
+    
+  },
   tabType:function(e){
     
   },  

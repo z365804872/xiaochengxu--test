@@ -1,10 +1,11 @@
 <!--pages/mine/coupon/index.wxml-->
 <view class="padding-lr30">
-    <view class="bgc-fa height-80 flex-row-between flex-row_center padding-lr20 margin-t14 lheight-80">
-        <view class="font-28 font-regular opacity4"><text class="iconfont icon-jianding1"></text><text class="margin-l20">说明</text></view>
-        <view><text class="iconfont icon-jiaobiao"></text></view>
-    </view>
-
+    <navigator url="/pages/outer/index?viewId=5" hover-class="none">
+        <view class="bgc-fa height-80 flex-row-between flex-row_center padding-lr20 margin-t14 lheight-80">
+                <view class="font-28 font-regular opacity4"><text class="iconfont icon-jianding1"></text><text class="margin-l20">说明</text></view>
+                <view><text class="iconfont icon-jiaobiao"></text></view>
+        </view>
+    </navigator>
     <block wx:for="{{couponList}}"
            wx:for-item="item"
            wx:key="{{item.couponId}}"

@@ -23,6 +23,9 @@ Page({
       this.setData({
         dataList: res
       })
+      this.setData({
+        brandid: res[0].brandId
+      })
     })
   },
   changeTab:function (e) {

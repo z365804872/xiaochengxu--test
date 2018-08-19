@@ -163,5 +163,11 @@ export default {
     "uploadAliYun": {
         title: '上传图片',
         path: '/uploadAliYun'
-    }
+    },
+    "appraisal": {
+        title: '上传鉴定',
+        path: '/appraisal',
+        needUid
+    },
+
 }
