@@ -18,7 +18,7 @@ Page({
     },
 
     onShow() {
-        this.init()
+        this.init({needLoading: false})
     },
 
     init(params) {

@@ -253,10 +253,13 @@ Page({
                 'signType': res.signType,
                 'paySign': res.paySign,
                 success: res => {
-
+                    that.onShow()
                 },
                 fail: (err) => { 
                     console.log(err)
+                    wx.showToast({
+                        title: '支付失败'
+                    })
                 }
             });
         })
@@ -305,10 +308,13 @@ Page({
                 'signType': res.signType,
                 'paySign': res.paySign,
                 success: res => {
-
+                    that.onShow()
                 },
                 fail: (err) => { 
                     console.log(err)
+                    wx.showToast({
+                        title: '支付失败'
+                    })
                 }
             });
         })
@@ -318,12 +324,14 @@ Page({
     reBuy(e) {
         console.log('继续求购', e)
 
-        let that = this
         let index = e.currentTarget.dataset.index
-        let { orderList } = that.data
+        let { orderList } = this.data
 
         let { buySellId, shoesSize, shoesCost, days, addressId } = orderList[index]
 
+        wx.navigateTo({
+            url: `/pages/index/order/index?orderType=6&buySellId=${buySellId}&shoesSize=${shoesSize}&shoesCost=${shoesCost}&days=${days}&addressId=${addressId}`
+        })
 
 
     },
@@ -332,11 +340,14 @@ Page({
     reSell(e) {
         console.log('继续出售', e)
 
-        let that = this
         let index = e.currentTarget.dataset.index
-        let { orderList } = that.data
+        let { orderList } = this.data
 
-        let buySellId = orderList[index].buySellId
+        let { buySellId, shoesSize, shoesCost, days } = orderList[index]
+
+        wx.navigateTo({
+            url: `/pages/index/order/index?orderType=5&buySellId=${buySellId}&shoesSize=${shoesSize}&shoesCost=${shoesCost}&days=${days}`
+        })
 
 
     },
