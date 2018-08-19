@@ -50,6 +50,11 @@ Page({
         !!orderState ? this._getMemberOrder('', orderState) : this._getMemberOrder()
     },
 
+    onPullDownRefresh: function () {
+        let orderState = this.data.orderState
+        !!orderState ? this._getMemberOrder('', orderState) : this._getMemberOrder()
+        setTimeout(()=> wx.stopPullDownRefresh())
+      },
 
     /**
      * 页面上拉触底事件的处理函数
@@ -209,10 +214,24 @@ Page({
         let index = e.currentTarget.dataset.index
         let { orderList } = that.data
 
-        let { buySellId, paySnNo, serviceFee } = orderList[index]
+        let { buySellId, paySnNo, serviceFee, orderType, state } = orderList[index]
 
-        let type = this.data.type
-        let orderType = type == 1 ? 4 : type == 2 ? 1 : ''
+       
+        let {type, orderState} = this.data
+        let _orderType;
+        if(type == 1 && orderState == 1 && state == 0){
+            _orderType = 4
+        }
+        if(type == 1 && orderState == 2 && (state == 0 || state == 7)){
+            _orderType = 3
+        }
+        if(type == 2 ){
+            _orderType = orderType
+        }
+
+
+
+
         let payType = 1  //  1.微信 2.支付宝 3.银联 4.余额
 
         wx.post({
@@ -221,7 +240,7 @@ Page({
                 paySnNo,
                 payType,
                 payMoney: serviceFee,
-                orderType,
+                orderType: _orderType,
                 buySellId
             }
         }).then(res => {
@@ -253,18 +272,17 @@ Page({
 
         let { buySellId, paySnNo, shopMoney, state, orderType } = orderList[index]
 
-        // let {type, orderState} = this.data
-        // let orderType;
-        // if(type == 1 && orderState == 1){
-        //     orderType = 4
-        // }
-        // if(type == 1 && orderState == 2 && (state == 0 || state == 7)){
-        //     orderType = 3
-        // }
-        // if(type == 2 ){
-        //     orderType = 1
-        // }
-
+        let {type, orderState} = this.data
+        let _orderType;
+        if(type == 1 && orderState == 1 && state == 0){
+            _orderType = 1
+        }
+        if(type == 1 && orderState == 2 && (state == 0 || state == 7)){
+            _orderType = 3
+        }
+        if(type == 2 ){
+            _orderType = orderType
+        }
 
         let payType = 1  //  1.微信 2.支付宝 3.银联 4.余额
 
@@ -274,7 +292,7 @@ Page({
                 paySnNo,
                 payType,
                 payMoney: shopMoney,
-                orderType,
+                orderType: _orderType,
                 buySellId
             }
         }).then(res => {
