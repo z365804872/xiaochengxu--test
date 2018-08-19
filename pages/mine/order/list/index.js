@@ -133,7 +133,7 @@ Page({
         let orderStateCopy = orderState
 
         let currentOrder = orderList[index]
-        let { shoesId, paySnNo, orderId, buySellId, state } = currentOrder
+        let { shoesId, paySnNo, orderId, buySellId, state, orderType } = currentOrder
 
         let id = orderId;
         if (type == 2) {
@@ -152,7 +152,7 @@ Page({
         //     ? `/pages/mine/order/buyDetail/index?orderState=${orderState}&shoesId=${shoesId}&id=${id}` 
         //     : '/pages/mine/order/sellDetail/index?orderState=6'
 
-        let url = `/pages/mine/order/detail/index?orderState=${orderState}&type=${type}&shoesId=${shoesId}&id=${id}&orderStateCopy=${orderStateCopy}`
+        let url = `/pages/mine/order/detail/index?orderState=${orderState}&type=${type}&shoesId=${shoesId}&id=${id}&orderStateCopy=${orderStateCopy}&order_type=${orderType}`
 
         wx.navigateTo({ url: url })
     },

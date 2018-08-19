@@ -11,7 +11,8 @@ Page({
      */
     onLoad: function (options) {
         let that = this
-        let {shoesId, id, type, orderState, orderStateCopy} = options
+        let {shoesId, id, type, orderState, orderStateCopy, order_type} = options
+        if(type == 2)  that.data.orderType = order_type
         wx.post({
             api: 'orderDetail',
             data: {shoesId, id, type: orderState}
