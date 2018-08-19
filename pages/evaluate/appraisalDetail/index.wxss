@@ -206,3 +206,16 @@ page{
     margin: 0 auto;
     width:fit-content;
 }
+.addMore{
+    margin: 40rpx auto;
+    width: 144rpx;
+    height: 64rpx;
+    line-height: 64rpx;
+    text-align: center;
+    font-family: PingFangSC-Light;
+    font-size: 28rpx;
+    color: #333333;
+    background: #FFFFFF;
+    border: 1px solid #333333;
+    border-radius: 200rpx;
+}

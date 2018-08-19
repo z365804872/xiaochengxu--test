@@ -25,6 +25,7 @@
     "pages/evaluate/appraisal/index",
     "pages/evaluate/appraisalNext/index",
     "pages/evaluate/appraisalDetail/index",
+    "pages/evaluate/success/index",
     "pages/outer/index" 
   ],
   "window":{
