@@ -345,6 +345,7 @@ Page({
   },
 
   toPay: function (e) {
+    let that = this
     if (!this.data.addressId) {
       wx.showToast({
         title: '地址不能为空'
@@ -456,7 +457,7 @@ Page({
           'signType': res.signType,
           'paySign': res.paySign,
           'success': function (res) {
-            console.log(res)
+
             if (this.data.orderType == 2) {
               wx.navigateTo({
                 url: `/pages/mine/order/list/index?type=1`
@@ -466,6 +467,7 @@ Page({
                 url: `/pages/mine/order/list/index?type=2`
               });
             }
+            that.delStorage()
           },
           'fail': function (res) {
             console.log(res)
@@ -484,7 +486,15 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
+    this.delStorage()
+  },
 
+  delStorage(){
+    try{
+      wx.removeStorageSync('orderData')
+      wx.removeStorageSync('detailData')
+      wx.removeStorageSync('orderType')
+    }catch(e){}
   },
 
   //显示对话框
