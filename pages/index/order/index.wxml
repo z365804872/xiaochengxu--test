@@ -109,19 +109,19 @@
 			</view>
 			<view class="order-liquan-content">
 				<view class="order-liquan-none">
-					<view class="tab-long"  bindtap="changeTime" data-index="0">
-						<view class="{{selectDay==0?'actives':''}}">
-							{{orderData.sellDateList[0]}}
+					<view class="tab-long"  bindtap="changeTime" data-index="1000">
+						<view class="{{selectDay==1000?'actives':''}}">
+							长期
 						</view> 
 					</view>
-					<view class="tab-three" bindtap="changeTime" data-index="1">
-						<view class="{{selectDay==1?'actives':''}}">
-							{{orderData.sellDateList[1]}}
+					<view class="tab-three" bindtap="changeTime" data-index="3">
+						<view class="{{selectDay==3?'actives':''}}">
+							3天
 						</view>
 					</view>
-					<view class="tab-seven" bindtap="changeTime" data-index="2">
-						<view class="{{selectDay==2?'actives':''}}">
-							{{orderData.sellDateList[2]}}
+					<view class="tab-seven" bindtap="changeTime" data-index="7">
+						<view class="{{selectDay==7?'actives':''}}">
+							7天
 						</view>
 					</view>
 				</view>
@@ -166,19 +166,19 @@
 			</view>
 			<view class="order-liquan-content">
 				<view class="order-liquan-none">
-					<view class="tab-long"  bindtap="changeTime" data-index="0">
-						<view class="{{selectDay==0?'actives':''}}">
-							{{orderData.sellDateList[0]}}
+					<view class="tab-long"  bindtap="changeTime" data-index="1000">
+						<view class="{{selectDay==1000?'actives':''}}">
+							长期
 						</view> 
 					</view>
-					<view class="tab-three" bindtap="changeTime" data-index="1">
-						<view class="{{selectDay==1?'actives':''}}">
-							{{orderData.sellDateList[1]}}
+					<view class="tab-three" bindtap="changeTime" data-index="3">
+						<view class="{{selectDay==3?'actives':''}}">
+							3天
 						</view>
 					</view>
-					<view class="tab-seven" bindtap="changeTime" data-index="2">
-						<view class="{{selectDay==2?'actives':''}}">
-							{{orderData.sellDateList[2]}}
+					<view class="tab-seven" bindtap="changeTime" data-index="7">
+						<view class="{{selectDay==7?'actives':''}}">
+							7天
 						</view>
 					</view>
 				</view>
