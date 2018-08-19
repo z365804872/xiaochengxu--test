@@ -105,12 +105,27 @@
 			<text class="detail-buttom-info" wx:else>
 				暂无该码球鞋在售\n点击求购立即求购
 			</text>
-			<view class="detail-buttom-buy" data-index="2" bindtap="toOrder">
+			<!-- <view class="detail-buttom-buy" data-index="2" bindtap="toOrder">
 				购买
 			</view>
 			<view class="detail-buttom-sell"  data-index="1" bindtap="toOrder">
 				出售
-			</view>
+			</view> -->
+			<button
+				data-index="2"
+				class="detail-buttom-buy"
+				open-type="getUserInfo"
+				lang="zh_CN"
+				bindgetuserinfo="toOrder"
+			>购买
+			</button>
+
+			<button 
+				data-index="1"
+				open-type="getUserInfo"
+				lang="zh_CN"
+				bindgetuserinfo="toOrder"
+				class="detail-buttom-sell">出售</button>
 	</view>	
 
 </view>

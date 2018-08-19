@@ -43,7 +43,7 @@
 				￥{{defaultPrise}}
 		</view>
 		<view class="content-price" wx:if="{{baytab==1}}">
-			<label for="input2">￥</label><input name="input2" bindinput="bindKeyInput" onkeyup="value=value.replace(/[^/d]/g,'') " type="number" maxlength="6" placeholder="0.00"/>
+			<label for="input2">￥</label><input value="{{options.shoesCost ? options.shoesCost : ''}}" name="input2" bindinput="bindKeyInput" onkeyup="value=value.replace(/[^/d]/g,'') " type="number" maxlength="6" placeholder="0.00"/>
 		</view>
 		<view class="content-reference" wx:if="{{baytab==1}}">
 			参考价：￥{{detailData.referencePrice}}
@@ -67,7 +67,7 @@
 				{{detailData.defaultSize}}码 <view id="triangle-down"></view>
 		</view>
 		<view class="content-price" wx:if="{{baytab==0}}">
-				<label for="input2">￥</label><input name="input2" bindinput="bindKeyInput" type="digit" placeholder="0.00"/>
+				<label for="input2">￥</label><input value="{{options.shoesCost ? options.shoesCost : ''}}" name="input2" bindinput="bindKeyInput" type="digit" placeholder="0.00"/>
 		</view>
 		<view class="content-reference" wx:if="{{baytab==0}}">
 			参考价：￥{{detailData.referencePrice}}
@@ -248,8 +248,10 @@
 		<view  class="bottom-btn"  wx:if="{{orderType==2&&baytab==0}}"  data-index="3" bindtap="toPay">
 			去付款(￥{{defaultPrise}})
 		</view>
-		<view  class="bottom-btn"  wx:if="{{orderType==2&&baytab==1}}"  data-index="4" bindtap="toPay">
-			去付款(￥{{defaultPrise1||0}})
+		<view  class="bottom-btn "
+			   style="{{options.shoesCost ? 'background-color: #5DBCFF' : ''}}"
+			   wx:if="{{orderType==2&&baytab==1}}"  data-index="4" bindtap="toPay">
+			{{options.shoesCost ? '立即求购' : '去付款(￥' + (defaultPrise1 || 0) + ')'}}
 		</view>
 		<view  class="bottom-btn2"  wx:if="{{orderType==1&&baytab==0}}"  data-index="1" bindtap="toPay">
 			去上架

@@ -53,8 +53,8 @@ Page({
     onPullDownRefresh: function () {
         let orderState = this.data.orderState
         !!orderState ? this._getMemberOrder('', orderState) : this._getMemberOrder()
-        setTimeout(()=> wx.stopPullDownRefresh())
-      },
+        setTimeout(() => wx.stopPullDownRefresh())
+    },
 
     /**
      * 页面上拉触底事件的处理函数
@@ -194,7 +194,7 @@ Page({
         let currentOrder = orderList[index]
         let { buySellId, express } = currentOrder
 
-        if(!express){
+        if (!express) {
             return wx.showToast({
                 title: '暂未发货'
             });
@@ -216,16 +216,16 @@ Page({
 
         let { buySellId, paySnNo, serviceFee, orderType, state } = orderList[index]
 
-       
-        let {type, orderState} = this.data
+
+        let { type, orderState } = this.data
         let _orderType;
-        if(type == 1 && orderState == 1 && state == 0){
+        if (type == 1 && orderState == 1 && state == 0) {
             _orderType = 4
         }
-        if(type == 1 && orderState == 2 && (state == 0 || state == 7)){
+        if (type == 1 && orderState == 2 && (state == 0 || state == 7)) {
             _orderType = 3
         }
-        if(type == 2 ){
+        if (type == 2) {
             _orderType = orderType
         }
 
@@ -245,7 +245,7 @@ Page({
             }
         }).then(res => {
             console.log(res)
-            if(!res.signType) return
+            if (!res.signType) return
             wx.requestPayment({
                 'timeStamp': res.timeStamp,
                 'nonceStr': res.nonceStr,
@@ -255,7 +255,7 @@ Page({
                 success: res => {
                     that.onShow()
                 },
-                fail: (err) => { 
+                fail: (err) => {
                     console.log(err)
                     wx.showToast({
                         title: '支付失败'
@@ -275,15 +275,15 @@ Page({
 
         let { buySellId, paySnNo, shopMoney, state, orderType } = orderList[index]
 
-        let {type, orderState} = this.data
+        let { type, orderState } = this.data
         let _orderType;
-        if(type == 1 && orderState == 1 && state == 0){
+        if (type == 1 && orderState == 1 && state == 0) {
             _orderType = 1
         }
-        if(type == 1 && orderState == 2 && (state == 0 || state == 7)){
+        if (type == 1 && orderState == 2 && (state == 0 || state == 7)) {
             _orderType = 3
         }
-        if(type == 2 ){
+        if (type == 2) {
             _orderType = orderType
         }
 
@@ -300,7 +300,7 @@ Page({
             }
         }).then(res => {
             console.log(res)
-            if(!res.signType) return
+            if (!res.signType) return
             wx.requestPayment({
                 'timeStamp': res.timeStamp,
                 'nonceStr': res.nonceStr,
@@ -310,7 +310,7 @@ Page({
                 success: res => {
                     that.onShow()
                 },
-                fail: (err) => { 
+                fail: (err) => {
                     console.log(err)
                     wx.showToast({
                         title: '支付失败'
@@ -327,11 +327,62 @@ Page({
         let index = e.currentTarget.dataset.index
         let { orderList } = this.data
 
-        let { buySellId, shoesSize, shoesCost, days, addressId } = orderList[index]
+        let { buySellId, shoesSize, shoesId, shoesCost, days, addressId, money } = orderList[index]
 
-        wx.navigateTo({
-            url: `/pages/index/order/index?orderType=6&buySellId=${buySellId}&shoesSize=${shoesSize}&shoesCost=${shoesCost}&days=${days}&addressId=${addressId}`
+
+        wx.post({
+            api: 'shoesDetail',
+            data: { shoesId: shoesId }
+        }).then(res => {
+            console.log(res)
+            res.defaultSize = Number(res.defaultSize)
+            for (let i in res.sizeList) {
+                if (res.sizeList[i].sellMoney > 0) {
+                    res.sizeList[i].sellMoney = "￥" + res.sizeList[i].sellMoney.toFixed(2);
+                } else {
+                    res.sizeList[i].sellMoney = "--"
+                }
+                if (res.defaultSize == res.sizeList[i].shoesSize) {
+                    this.setData({
+                        choosePrice: res.sizeList[i].sellMoney == "--" ? "￥0" : res.sizeList[i].sellMoney
+                    })
+                }
+            }
+            try {
+                wx.setStorageSync("detailData", res)
+            } catch (e) { console.log(e) }
+
+            return wx.post({
+                api: 'confirm',
+                data: {
+                    shoesId: shoesId,
+                    shoesSize: shoesSize,
+                    type: 4,
+                    wantBuyId: buySellId
+                }
+            })
+
+        }).then(res => {
+            if (res) {
+                try {
+                    wx.setStorageSync("orderData", res)
+                } catch (e) { console.log(e) }
+
+                try {
+                    wx.setStorageSync("orderType", 2)
+                } catch (e) { console.log(e) }
+
+                wx.navigateTo({
+                    url: `/pages/index/order/index?type=6&shoesCost=${money}&buySellId=${buySellId}&shoesSize=${shoesSize}`
+                })
+            } else {
+                wx.showToast({
+                    title: '接口异常'
+                })
+            }
         })
+
+
 
 
     },
@@ -343,11 +394,63 @@ Page({
         let index = e.currentTarget.dataset.index
         let { orderList } = this.data
 
-        let { buySellId, shoesSize, shoesCost, days } = orderList[index]
+        let { buySellId, shoesSize, shoesCost, days, shoesId, money } = orderList[index]
 
-        wx.navigateTo({
-            url: `/pages/index/order/index?orderType=5&buySellId=${buySellId}&shoesSize=${shoesSize}&shoesCost=${shoesCost}&days=${days}`
+        wx.post({
+            api: 'shoesDetail',
+            data: { shoesId: shoesId }
+        }).then(res => {
+            console.log(res)
+            res.defaultSize = Number(res.defaultSize)
+            for (let i in res.sizeList) {
+                if (res.sizeList[i].sellMoney > 0) {
+                    res.sizeList[i].sellMoney = "￥" + res.sizeList[i].sellMoney.toFixed(2);
+                } else {
+                    res.sizeList[i].sellMoney = "--"
+                }
+                if (res.defaultSize == res.sizeList[i].shoesSize) {
+                    this.setData({
+                        choosePrice: res.sizeList[i].sellMoney == "--" ? "￥0" : res.sizeList[i].sellMoney
+                    })
+                }
+            }
+            try {
+                wx.setStorageSync("detailData", res)
+            } catch (e) { console.log(e) }
+
+            return wx.post({
+                api: 'confirm',
+                data: {
+                    shoesId: shoesId,
+                    shoesSize: shoesSize,
+                    type: 3,
+                    sellId: buySellId
+                }
+            })
+
+        }).then(res => {
+            if (res) {
+                try {
+                    wx.setStorageSync("orderData", res)
+                } catch (e) { console.log(e) }
+
+                try {
+                    wx.setStorageSync("orderType", 1)
+                } catch (e) { console.log(e) }
+
+                wx.navigateTo({
+                    url: `/pages/index/order/index?type=5&shoesCost=${money}&buySellId=${buySellId}&shoesSize=${shoesSize}`
+                })
+            } else {
+                wx.showToast({
+                    title: '接口异常'
+                })
+            }
         })
+
+        // wx.navigateTo({
+        //     url: `/pages/index/order/index?orderType=5&buySellId=${buySellId}&shoesSize=${shoesSize}&shoesCost=${shoesCost}&days=${days}`
+        // })
 
 
     },

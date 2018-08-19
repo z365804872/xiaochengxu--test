@@ -106,9 +106,10 @@ Page({
                 key:"addressId",
                 data:e.currentTarget.dataset.addressid
               })
-            wx.navigateTo({
-                url:`/pages/index/order/index`
-            })
+            // wx.navigateTo({
+            //     url:`/pages/index/order/index`
+            // })
+            wx.navigateBack()
         }
     },
     handleTouchEnd(e) {

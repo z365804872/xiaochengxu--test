@@ -72,9 +72,10 @@ Page({
                 key:"couponId",
                 data:e.currentTarget.dataset.couponid
             })
-            wx.navigateTo({
-                url:"/pages/index/order/index"
-            })
+            // wx.navigateTo({
+            //     url:"/pages/index/order/index"
+            // })
+            wx.navigateBack()
         }
     },
     //兑换领券

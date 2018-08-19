@@ -113,7 +113,7 @@ Page({
     payDeposit(e) {
         console.log('支付定金', e)
         let that = this
-        let { buySellId, paySnNo, serviceFee, orderType, state } = that.data
+        let { buyOrSellId, paySnNo, serviceFee, orderType, state } = that.data
 
        
         let {type, orderState} = that.data
@@ -137,7 +137,7 @@ Page({
                 payType,
                 payMoney: serviceFee,
                 orderType: _orderType,
-                buySellId
+                buySellId: buyOrSellId
             }
         }).then(res => {
             if(!res.signType) return
@@ -166,7 +166,7 @@ Page({
         console.log('支付全款', e)
         let that = this
     
-        let { buySellId, paySnNo, shopMoney, state, orderType } = that.data
+        let { buyOrSellId, paySnNo, shopMoney, state, orderType } = that.data
 
         let {type, orderState} = that.data
         let _orderType;
@@ -189,7 +189,7 @@ Page({
                 payType,
                 payMoney: shopMoney,
                 orderType: _orderType,
-                buySellId
+                buySellId: buyOrSellId
             }
         }).then(res => {
             console.log(res)
@@ -219,11 +219,62 @@ Page({
         console.log('继续求购', e)
 
         let that = this
-        let index = e.currentTarget.dataset.index
-        let {orderList} = that.data
 
-        let {buySellId, shoesSize, shoesCost, days, addressId} = orderList[index]
+        let {buyOrSellId, shoesSize, shoesCost, days, addressId, shoesId, buyOrSellMoney} = that.data
 
+        wx.post({
+            api: 'shoesDetail',
+            data: { shoesId: shoesId }
+        }).then(res => {
+            res.defaultSize = Number(res.defaultSize)
+            for (let i in res.sizeList) {
+                if (res.sizeList[i].sellMoney > 0) {
+                    res.sizeList[i].sellMoney = "￥" + res.sizeList[i].sellMoney.toFixed(2);
+                } else {
+                    res.sizeList[i].sellMoney = "--"
+                }
+                if (res.defaultSize == res.sizeList[i].shoesSize) {
+                    this.setData({
+                        choosePrice: res.sizeList[i].sellMoney == "--" ? "￥0" : res.sizeList[i].sellMoney
+                    })
+                }
+            }
+            try {
+                wx.setStorageSync("detailData", res)
+            } catch (e) { console.log(e) }
+
+            return wx.post({
+                api: 'confirm',
+                data: {
+                    shoesId: shoesId,
+                    shoesSize: shoesSize,
+                    type: 4,
+                    wantBuyId: buyOrSellId
+                }
+            })
+
+        }).then(res => {
+            if (res) {
+                try {
+                    wx.setStorageSync("orderData", res)
+                } catch (e) { console.log(e) }
+
+                try {
+                    wx.setStorageSync("orderType", 2)
+                } catch (e) { console.log(e) }
+
+                wx.navigateTo({
+                    url: `/pages/index/order/index?type=6&shoesCost=${buyOrSellMoney}&buySellId=${buyOrSellId}&shoesSize=${shoesSize}`
+                })
+            } else {
+                wx.showToast({
+                    title: '接口异常'
+                })
+            }
+        })
+      
+
+    
        
 
     },
@@ -232,7 +283,7 @@ Page({
     offlineGoods(e) {
         console.log('下架商品', e)
         let that = this
-        let { type, orderList, orderState, buySellId } = that.data
+        let { type, orderList, orderState, buyOrSellId } = that.data
 
         wx.showModal({
             content: '是否下架商品？',
@@ -241,7 +292,7 @@ Page({
                 if (res.confirm) {
                     wx.post({
                         api: 'cancellOfOrder',
-                        data: { type, buyOrSellId: buySellId },
+                        data: { type, buyOrSellId: buyOrSellId },
                         toastResult: true
                     }).then(res => {
                         wx.showToast({ title: '商品下架成功' || String(res) })
@@ -256,13 +307,59 @@ Page({
     //继续出售
     reSell(e) {
         console.log('继续出售', e)
+        let { buyOrSellId, shoesSize, shoesCost, days, shoesId, buyOrSellMoney } = this.data
 
-        let that = this
-        let index = e.currentTarget.dataset.index
-        let {orderList} = that.data
+        wx.post({
+            api: 'shoesDetail',
+            data: { shoesId: shoesId }
+        }).then(res => {
+            console.log(res)
+            res.defaultSize = Number(res.defaultSize)
+            for (let i in res.sizeList) {
+                if (res.sizeList[i].sellMoney > 0) {
+                    res.sizeList[i].sellMoney = "￥" + res.sizeList[i].sellMoney.toFixed(2);
+                } else {
+                    res.sizeList[i].sellMoney = "--"
+                }
+                if (res.defaultSize == res.sizeList[i].shoesSize) {
+                    this.setData({
+                        choosePrice: res.sizeList[i].sellMoney == "--" ? "￥0" : res.sizeList[i].sellMoney
+                    })
+                }
+            }
+            try {
+                wx.setStorageSync("detailData", res)
+            } catch (e) { console.log(e) }
 
-        let buySellId = orderList[index].buySellId
+            return wx.post({
+                api: 'confirm',
+                data: {
+                    shoesId: shoesId,
+                    shoesSize: shoesSize,
+                    type: 3,
+                    sellId: buyOrSellId
+                }
+            })
 
+        }).then(res => {
+            if (res) {
+                try {
+                    wx.setStorageSync("orderData", res)
+                } catch (e) { console.log(e) }
+
+                try {
+                    wx.setStorageSync("orderType", 1)
+                } catch (e) { console.log(e) }
+
+                wx.navigateTo({
+                    url: `/pages/index/order/index?type=5&shoesCost=${buyOrSellMoney}&buySellId=${buyOrSellId}&shoesSize=${shoesSize}`
+                })
+            } else {
+                wx.showToast({
+                    title: '接口异常'
+                })
+            }
+        })
         
     },
 

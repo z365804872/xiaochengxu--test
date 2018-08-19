@@ -60,7 +60,7 @@
         </view>
         <view class="padding-20 bgc-fa flex-row-between flex-row_center font-semibold font-28 color-333 lheight-40 margin-b30">
             <view>{{shoesSize}}码</view>
-            <view>求购价：￥{{buyOrSellMoney}}</view>
+            <view>{{type == 1 ? '求购价' : '出售价'}}：￥{{buyOrSellMoney}}</view>
         </view>
     </view>
     <view class="margin-t60">
