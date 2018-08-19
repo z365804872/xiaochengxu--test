@@ -11,7 +11,7 @@ Page({
     defaultPrise1:"0",
     animationData:{},
     showModalStatus:false,
-    selectDay:0,
+    selectDay:'1000',
     couponName:"未选择（0）",
     couponId:"",
     addressList:"",
@@ -272,6 +272,12 @@ Page({
             buyerUid: getApp().globalData.uid
           }
         }else{
+          if(this.data.defaultPrise1<49){
+            wx.showToast({
+              title:'求购价格不能小于49'
+            })
+            return
+          }
           param={
             shoesId:this.data.orderData.shoesId,
             shoesSize:this.data.detailData.defaultSize,
@@ -284,6 +290,12 @@ Page({
         }
     }else{
         if(this.data.baytab==0){
+          if(this.data.defaultPrise1<49){
+            wx.showToast({
+              title:'出售价格不能小于49'
+            })
+            return
+          }
           param={
             shoesId:this.data.orderData.shoesId,
             shoesSize:this.data.detailData.defaultSize,
