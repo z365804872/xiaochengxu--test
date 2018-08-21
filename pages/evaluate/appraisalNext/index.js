@@ -13,6 +13,7 @@ Page({
     brandid:"",
     savebrandid:"",
     inputValue:"",
+    addNum:8,//增加图片id
     arrData:['外观','鞋盒侧标','鞋盒钢印','鞋标','鞋垫背面','中底'],
     saveImg:[
       {
@@ -53,9 +54,84 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      brandid: options.brandid
-    })
+    let _this=this;
+    if(options.brandid){
+      this.setData({
+        brandid: options.brandid
+      })
+    }else{
+      wx.getStorage({
+        key: 'appraisalData',
+        success: function(res) {
+          if(res.data){
+            _this.setData({
+              brandid: res.data.brandId,
+              inputValue: res.data.content,
+              saveImg:[
+                  {
+                    'mrbg':"wg",
+                    'selectImg':res.data.photo1,
+                    index: 1
+                  },
+                  {
+                    'mrbg':"xhcb",
+                    'selectImg':res.data.photo2,
+                    index: 2
+                  },
+                  {
+                    'mrbg':"xhgy",
+                    'selectImg':res.data.photo3,
+                    index: 3
+                  },
+                  {
+                    'mrbg':"xhxb",
+                    'selectImg':res.data.photo4,
+                    index: 4
+                  },
+                  {
+                    'mrbg':"xhbm",
+                    'selectImg':res.data.photo5,
+                    index: 5
+                  },
+                  {
+                    'mrbg':"xhzd",
+                    'selectImg':res.data.photo6,
+                    index: 6
+                  }
+                ]
+            })
+            if(res.data.photo7){
+              _this.setData({
+                saveImg:[..._this.data.saveImg,...[{
+                  'mrbg':"",
+                  'selectImg':res.data.photo7,
+                  index: 7
+                }]]
+              })
+            }
+            if(res.data.photo8){
+              _this.setData({
+                saveImg:[..._this.data.saveImg,...[{
+                  'mrbg':"",
+                  'selectImg':res.data.photo8,
+                  index: 8
+                }]]
+              })
+            }
+            if(res.data.photo9){
+              _this.setData({
+                saveImg:[..._this.data.saveImg,...[{
+                  'mrbg':"",
+                  'selectImg':res.data.photo9,
+                  index: 9
+                }]]
+              })
+            }
+          }
+        } 
+      })
+    }
+
     console.log(options.brandid)
   },
   changeTab:function (e) {
@@ -74,28 +150,6 @@ Page({
         _this.setData({
           [desn]:tempFilePaths[0]
         })
-
-        return
-        //图片上传
-        wx.uploadFile({
-          url: Config.host + Api.uploadAliYun.path,
-          filePath: tempFilePaths[0],
-          name: 'file',
-          muFile: 'file',
-          header: { 
-            "Content-Type": "multipart/form-data" ,
-            "sign": "rxcl"
-          },
-          formData: {
-
-          },
-          success: (res)=>{
-            console.log('suc', res)
-          },
-          fail: (err)=>{
-            console.log('err', err)
-          }
-        });
       }
     })
   },
@@ -111,9 +165,12 @@ Page({
         var tempFilePaths = res.tempFilePaths
         let desn = [{
           'mrbg':"",
-          'selectImg':tempFilePaths[0]
+          'selectImg':tempFilePaths[0],
+          'index':_this.data.addNum,
         }];
-        console.log(desn)
+        _this.setData({
+          addNum:_this.data.addNum++
+        })
         _this.setData({
           saveImg:[..._this.data.saveImg,...desn]
         })
@@ -132,38 +189,43 @@ Page({
         return
       }
     }
-    // if(_this.data.inputValue==""){
-    //   wx.showToast({
-    //     title: `备注信息不能为空`
-    //   })
-    //   return
-    // }
 
     let imgList = saveImg.filter(img => !!img.selectImg)
-
+    let imgListOk = [];
     let indexList = imgList.map(img => {
-      return img.index
+      console.log(img)
+      if(img.selectImg.indexOf("https://sneakercn") == -1){
+        imgListOk.push(img)
+
+        return img.index
+      }
     })
 
     console.log(indexList)
-
-    let list = imgList.map(img => {
+    console.log(imgListOk)
+    // return
+    let list = imgListOk.map(img => {
       return _this.promisefiy(img.selectImg)
     })
 
+
     Promise.all(list).then( function(res){
-      let prama = {
-        photo1:JSON.parse(res[0].data).result.photoUrlName,
-        photo2:JSON.parse(res[1].data).result.photoUrlName,
-        photo3:JSON.parse(res[2].data).result.photoUrlName,
-        photo4:JSON.parse(res[3].data).result.photoUrlName,
-        photo5:JSON.parse(res[4].data).result.photoUrlName,
-        photo6:JSON.parse(res[5].data).result.photoUrlName,
-        photo7: res[6]?JSON.parse(res[6].data).result.photoUrlName:"",
-        photo8:res[7]?JSON.parse(res[7].data).result.photoUrlName:"",
-        photo9:res[8]?JSON.parse(res[8].data).result.photoUrlName:"",
+      let prama ={        
         content:_this.data.inputValue,
         brandId:_this.data.brandid
+      }
+      let j = 0;
+      for(let i=0; i<indexList.length;i++){
+        if(indexList[i]==undefined){
+          console.log(indexList[i])
+          console.log('a')
+          prama['photo'+(i+1)]=imgList[i].selectImg
+        }else{
+          console.log(indexList[i])
+          console.log('b')
+          prama['photo'+(i+1)]=JSON.parse(res[j].data).result.photoUrlName;
+          j++
+        }
       }
       wx.post({api:'appraisal',data:prama}).then(res=>{
           wx.navigateTo({

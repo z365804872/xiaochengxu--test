@@ -87,7 +87,7 @@
 }
 .active{
   margin: 0 auto;
-  width: 112rpx;
+  width: 118rpx;
   height: 79rpx;
   border-bottom: 1rpx solid #000;
   color: #000;
@@ -109,21 +109,25 @@
   font-size: 44rpx;
   color: #7F7F7F;
   margin-top: 35rpx;
+  height: 100rpx;
 }
 .content-price label{
-  float: left;
-  margin-left: 275rpx;
+  vertical-align:middle;
+  display: inline;
 }
 .content-price input{
-  float: left;
-  text-align:left;
-  width:160rpx;
-  margin-top: 2rpx;
+  display: inline-block;
+  text-align: left;
+  outline:none;
+  border:none;
+  vertical-align:middle;
+  width: 100rpx;
+
 }
 
 
 .content-reference{
-  width: 215rpx;
+  width: 245rpx;
   height: 40rpx;
   text-align: right;
   position: absolute;
@@ -291,7 +295,7 @@
 }
 .actives{
   margin: 0 auto;
-  width: 60rpx;
+  width: 62rpx;
   text-align: center;
   height: 79rpx;
   border-bottom: 1rpx solid #000;

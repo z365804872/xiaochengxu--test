@@ -21,7 +21,7 @@
 
         
         <view class="input-box">
-            <input placeholder="输入你的备注信息 如：货号/尺码/颜色…" placeholder-class="place-holder"  bindinput="getValue" type="text"/>
+            <input placeholder="输入你的备注信息 如：货号/尺码/颜色…" placeholder-class="place-holder" value="{{inputValue}}"  bindinput="getValue" type="text"/>
         </view>
 
         <view class="next-btn"  bindtap="uploadImg">

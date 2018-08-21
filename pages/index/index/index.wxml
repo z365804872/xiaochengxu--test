@@ -53,7 +53,7 @@
 			</view>
 		</navigator>
 		<navigator url="" hover-class="none">
-			<view  class="index-enter-right" style="position: relative;">
+			<view  class="index-enter-right" style="position: relative;"  bindtap="toEvaluate">
 				<image src="../../../images/Group6.png"  style="  position: absolute; width:346rpx; height:160rpx;left:0;top:0;z-index:0" />
 				<image src="../../../images/zd@2x.svg"  style="  position: absolute; width:154rpx; height:46rpx;left:94rpx;top:40rpx;z-index:1" />
 				<text class="enter-text-right">球鞋鉴定</text> 

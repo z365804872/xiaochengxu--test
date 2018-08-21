@@ -19,7 +19,7 @@
 }
 .detail-header-name{
   height: 254rpx;
-  width: 465rpx;
+  width: 455rpx;
   float: left
 }
 .header-name{
@@ -45,7 +45,7 @@
 
 .detail-header-price{
   height: 254rpx;
-  width: 254rpx;
+  width: 264rpx;
   float: right;
   text-align: right;
   padding-right: 30rpx;

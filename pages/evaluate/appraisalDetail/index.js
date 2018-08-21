@@ -28,7 +28,13 @@ Page({
     })
   },
   toNext:function(){
-    
+    wx.setStorage({
+      key:"appraisalData",
+      data:this.data.dataList
+    })
+    wx.navigateTo({
+      url: "/pages/evaluate/appraisalNext/index"
+    })
   },
   tabType:function(e){
     

@@ -100,7 +100,11 @@ Page({
       })
     })
   },
-
+  toEvaluate: function(){
+    wx.navigateTo({
+      url:"/pages/evaluate/index/index"
+    })
+  }
 
 
 })
