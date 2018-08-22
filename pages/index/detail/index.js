@@ -222,10 +222,11 @@ Page({
  * 跳转提交订单
  */
   toOrder: function (e) {
+    if (e.currentTarget.dataset.index == 0) {
+      return
+    }
     auth.authorizedVerify(e).then(res => {
-      if (e.currentTarget.dataset.index == 0) {
-        return
-      }
+      
       let wantBuyId = "",
         sellId = "";
       if (e.currentTarget.dataset.buyorsellid) {
