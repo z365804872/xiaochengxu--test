@@ -64,7 +64,6 @@
 .order-content{
   width: 690rpx;
   margin: 0 30rpx;
-  height: 340rpx;
   overflow: hidden;
   border-bottom: 1rpx solid #ccc;
   position: relative;
@@ -127,12 +126,7 @@
 
 
 .content-reference{
-  width: 245rpx;
-  height: 40rpx;
   text-align: right;
-  position: absolute;
-  bottom: 30rpx;
-  right: 0;
   font-family: PingFangSC-Light;
   font-size: 24rpx;
   color: #666;
@@ -152,6 +146,12 @@
   line-height: 60rpx;
   text-align: left;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+text.iconfont {
+  margin-right: 16rpx;
 }
 .order-address-content{
   width: 690rpx;
@@ -452,4 +452,9 @@
   color: #fff;
   border: 1rpx solid #5DBCFF;
 
+}
+.input-class{
+  max-width: 180rpx;
+  min-width: 44rpx;
+  font-size: 44rpx;
 }

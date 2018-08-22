@@ -42,12 +42,23 @@
 		<view class="content-price"  wx:if="{{baytab==0}}">
 				￥{{defaultPrise}}
 		</view>
-		<view class="content-price" wx:if="{{baytab==1}}">
+		<view class="margin-t60 margin-b40 flex-row-end flex-row_center pos-rel" wx:if="{{baytab==1}}">
+			<view class="flex1 flex-center">
+				<text class="font-semibold font-44 color-000 opacity5 ">￥</text><input value="{{options.shoesCost ? options.shoesCost : ''}}" 
+				name="input2" bindinput="bindKeyInput" onkeyup="value=value.replace(/[^/d]/g,'') " 
+				class="input-class"
+				type="number" maxlength="6" placeholder="0.00"/>
+			</view>
+			<view class="content-reference pos-abs right0" wx:if="{{baytab==1}}">
+				参考价：￥{{detailData.referencePrice}}
+			</view>
+		</view>
+		<!-- <view class="content-price" wx:if="{{baytab==1}}">
 			<label for="input2">￥</label><input value="{{options.shoesCost ? options.shoesCost : ''}}" name="input2" bindinput="bindKeyInput" onkeyup="value=value.replace(/[^/d]/g,'') " type="number" maxlength="6" placeholder="0.00"/>
 		</view>
 		<view class="content-reference" wx:if="{{baytab==1}}">
 			参考价：￥{{detailData.referencePrice}}
-		</view>
+		</view> -->
 	</view>
 
 	<view class="order-content" wx:if="{{orderType==1}}">
@@ -66,12 +77,34 @@
 		<view class="content-selectSize" bindtap="showModal" wx:if="{{baytab==0}}">
 				{{detailData.defaultSize}}码 <view id="triangle-down"></view>
 		</view>
-		<view class="content-price" wx:if="{{baytab==0}}">
+
+		<view class="margin-t60 margin-b40 flex-row-end flex-row_center pos-rel" wx:if="{{baytab==0}}">
+			<view class="flex1 flex-center">
+				<text class="font-semibold font-44 color-000 opacity5 ">￥</text>
+				<!-- <input value="{{options.shoesCost ? options.shoesCost : ''}}" 
+				name="input2" bindinput="bindKeyInput" onkeyup="value=value.replace(/[^/d]/g,'') " 
+				class="input-class"
+				type="number" maxlength="6" placeholder="0.00"/> -->
+				<input class="input-class" maxlength="6" value="{{options.shoesCost ? options.shoesCost : ''}}" name="input2" bindinput="bindKeyInput" type="digit" placeholder="0.00"/>
+			</view>
+			<view class="content-reference pos-abs right0" >
+				参考价：￥{{detailData.referencePrice}}
+			</view>
+			<!-- <view class="content-price" wx:if="{{baytab==1}}">
+				<label for="input2">￥</label><input value="{{options.shoesCost ? options.shoesCost : ''}}" name="input2" bindinput="bindKeyInput" onkeyup="value=value.replace(/[^/d]/g,'') " type="number" maxlength="6" placeholder="0.00"/>
+			</view>
+			<view class="content-reference" wx:if="{{baytab==1}}">
+				参考价：￥{{detailData.referencePrice}}
+			</view> -->
+		</view>
+
+
+		<!-- <view class="content-price" wx:if="{{baytab==0}}">
 				<label for="input2">￥</label><input value="{{options.shoesCost ? options.shoesCost : ''}}" name="input2" bindinput="bindKeyInput" type="digit" placeholder="0.00"/>
 		</view>
 		<view class="content-reference" wx:if="{{baytab==0}}">
 			参考价：￥{{detailData.referencePrice}}
-		</view>
+		</view> -->
 		<view  class="content-sellmoney"  wx:if="{{baytab==1}}">
 			<view class="sellmoney-left">
 				{{detailData.defaultSize}}
@@ -105,7 +138,7 @@
 
 		<view class="order-qiugouTime" wx:if="{{baytab==1}}">
 			<view class="order-liquan-title">
-			   	<text class="iconfont icon-wodeliquan"></text>	求购时间
+			   	<text class="iconfont icon-chushoushijian"></text>	求购时间
 			</view>
 			<view class="order-liquan-content">
 				<view class="order-liquan-none">

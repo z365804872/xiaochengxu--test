@@ -71,21 +71,36 @@
 			总{{chooseTab==1?'成交':chooseTab==2?'出售':'求购'}}量: {{chooseTab==1?tabData.orderNum:chooseTab==2?tabData.sellNum:tabData.wantBuyNum}}双
 		</view>
 		<view class="sellList-box" wx:if="{{tabDataList.length>0}}">
-			<view class="box-cj-item"  wx:for="{{tabDataList}}" wx:key="{{index}}"  data-index="{{chooseTab==1?'0':chooseTab==2?'2':'1'}}" data-buyorsellid="{{item.buyOrSellId}}" bindtap="toOrder">
-				<view class="cj-item-size">
-					{{item.shoesSize}}码
-				</view>
-				<view class="cj-item-date">
-					{{item.createTime}}
-				</view>
-				<view class="cj-item-info">
-					{{chooseTab==1?"成交":chooseTab==2?"出售":"求购"}}价
-				</view>
-				<view class="cj-item-price">
-					￥{{item.money}}
-				</view>
-
-			</view>
+			<block wx:for="{{tabDataList}}" wx:key="{{index}}">
+				<button class="list-btn"
+				hover-class="none"
+				data-index="{{chooseTab==1?'0':chooseTab==2?'2':'1'}}" 
+				data-buyorsellid="{{item.buyOrSellId}}"
+				open-type="getUserInfo"
+				lang="zh_CN"
+				bindgetuserinfo="toOrder">
+					<view class="box-cj-item"  >
+							<view class="flex-row_center">
+								<view class="font-28 color-333 font-semibold">
+									{{item.shoesSize}}码
+								</view>
+								<view class="font-regular font-24 color-333 opacity5 margin-l30">
+									{{item.createTime}}
+								</view>
+							</view>
+							<view class="flex-row_center">
+								<view class="font-28 color-333 font-semibold">
+									￥{{item.money}}
+								</view>
+								<view class="cj-item-price font-24 color-fff font-semibold margin-l30 bgc-green lheight-33">
+									{{chooseTab==1?"成交":chooseTab==2?"出售":"求购"}}价
+								</view>
+							</view>
+						</view>
+				</button>
+				
+			</block>
+			
 			<view class="addmore-btn" bindtap="addmoreData"  wx:if="{{tabDataList.length<(chooseTab==1?tabData.orderNum:chooseTab==2?tabData.sellNum:tabData.wantBuyNum)&&!addFlag}}">
 				加载更多
 			</view>

@@ -176,11 +176,12 @@
   background: #FFFFFF;
   box-shadow: 0 2rpx 12rpx 0 rgba(0,0,0,0.10);
   border-radius: 8rpx;
-  width: 690rpx;
+  padding: 0 30rpx;
+  margin: 0 30rpx 30rpx;
   height: 120rpx;
-  margin-left: 30rpx;
-  margin-bottom:30rpx;
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .cj-item-size{
@@ -204,9 +205,11 @@
   height: 120rpx;
 }
 .cj-item-price{
-  float: right;
-  line-height: 120rpx;
-  height: 120rpx;
+  width: 112rpx;
+  height: 42rpx;
+  border-radius: 200rpx;
+  text-align: center;
+  line-height: 42rpx;
 }
 .cj-item-info{
   float: right;
@@ -232,7 +235,6 @@
   margin-left: 30rpx;
   width: 690rpx;
   height: 100rpx;
-  margin-top: 30rpx;
   line-height: 100rpx;
   text-align: center;
   font-family: PingFangSC-Semibold;
@@ -304,4 +306,17 @@
   color: #000000;
   display: block;
   margin-top:-10px;
+}
+
+.list-btn{
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+  /* box-shadow: 0 2rpx 12rpx 0 rgba(0,0,0,0.10); */
+}
+
+.list-btn::after{
+  border: 0;
 }

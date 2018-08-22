@@ -1,7 +1,7 @@
 /***
  * 用于登陆，获取用户的信息
  * ***/
-import {WX_USER_INFO, OPEN_ID, USER_INFO, URL, UNION_ID} from './constants';
+import {WX_USER_INFO, OPEN_ID, USER_INFO, URL, UNION_ID, WX_ENCRYPTED_INFO} from './constants';
 import utils from '../utils/util';
 
 class Auth {
@@ -61,10 +61,16 @@ class Auth {
      * 按钮授权
      * **/
     authorizedVerify(e) {
+        console.log(e)
         let that = this
         if (!!e && e.type === "getuserinfo" && !!e.detail.userInfo) {
             wx.showLoading({title: '授权中'})
-            wx.setStorageSync(WX_USER_INFO, e.detail.userInfo)
+            try{
+                wx.setStorageSync(WX_USER_INFO, e.detail.userInfo)
+                wx.setStorageSync(WX_ENCRYPTED_INFO, e.detail)
+            }catch(e){}
+           
+
             wx.hideLoading()
             return Promise.resolve(true)
 
@@ -117,6 +123,7 @@ class Auth {
         let that = this
         let openId = wx.getStorageSync(OPEN_ID)
         let unionId = wx.getStorageSync(UNION_ID);
+        let encryptedInfo = wx.getStorageSync(WX_ENCRYPTED_INFO)
 
         let openIdPromise
         if (!!openId) {
@@ -131,6 +138,8 @@ class Auth {
             postData.nickName = userInfo.nickName
             postData.sex = userInfo.gender
             postData.openId = openId
+            postData.encryptedData = encryptedInfo.encryptedData
+            postData.iv = encryptedInfo.iv
 
             if(userInfo.mobile) postData.mobile = userInfo.mobile;
             if(userInfo.password) postData.password = userInfo.password;
