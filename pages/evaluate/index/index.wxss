@@ -91,7 +91,7 @@
     border-radius: 8rpx;
     overflow: hidden;
     background: #FFFFFF;
-    box-shadow: 0 2px 12px 0;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.10);
 }
 
 .item-left{
@@ -143,9 +143,9 @@
 }
 
 .container-content-btn{
-    width: 128rpx;
-    height: 48rpx;
-    line-height: 47rpx;
+    width: 256rpx;
+    height: 96rpx;
+    line-height: 96rpx;
     text-align: center;
     background: #656AAA;
     border-radius: 100rpx;
@@ -153,5 +153,8 @@
     bottom: 117rpx;
     right: 20rpx;
     color: #fff;
-    font-size: 24rpx;  
+    font-size: 32rpx;
+    font-weight: 600;
+    font-family: PingFangSC-Semibold;
+    letter-spacing: 4rpx;
 }

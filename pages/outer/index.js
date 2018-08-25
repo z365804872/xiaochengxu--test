@@ -5,8 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    viewId:''  //1- *[买家交易说明](明](http://www.sneakercn.com/trade/sell/want.html)2[卖家交易说明](明](http://www.sneakercn.com/trade/sell/sell.html)3[鉴定新手教程](程](http://www.sneakercn.com/appraisal/new/appraisalNews.html)4[鉴定规则h5](5](http://www.sneakercn.com/appraisal/rule/rules.html)*
-  },          //5 优惠券说明
+    viewId:'',  //1- *[买家交易说明](明](http://www.sneakercn.com/trade/sell/want.html)2[卖家交易说明](明](http://www.sneakercn.com/trade/sell/sell.html)3[鉴定新手教程](程](http://www.sneakercn.com/appraisal/new/appraisalNews.html)4[鉴定规则h5](5](http://www.sneakercn.com/appraisal/rule/rules.html) //5 优惠券说明*
+  },         
+
 
   /**
    * 生命周期函数--监听页面加载

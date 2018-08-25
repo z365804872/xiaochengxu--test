@@ -209,12 +209,10 @@ Page({
 
         if(!address) address = addressList.filter(address => address.defaultAddress)
         if(!address) address = addressList[0]
-
-        _this.setData({addressList: address})
+        _this.setData({addressList: address[0]})
       }else{
         _this.setData({addressList: addressList[0], addressId: addressList[0].addressId || ''})
       }
-
       // addressList.forEach(address => {
       //   if (_this.data.addressId && address.addressId == _this.data.addressId) {
       //     _this.setData({

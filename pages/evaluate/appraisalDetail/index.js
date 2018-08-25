@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dataList:{}
+    dataList:{},
+    imgArr:[]
   },
 
   /**
@@ -20,11 +21,22 @@ Page({
         appraisalId:options.id,
       }
     }).then(res => {
-      res.appraisalTime = res.appraisalTime.substr(0,10);
-      res.createdAt = res.createdAt.substr(0,10);
+      res.appraisalTime = res.appraisalTime;
+      res.createdAt = res.createdAt;
+      let imgArr = [];
+      let pat = new RegExp('photo')
+      for(let i in res){
+        if(pat.test(i)&&res[i]){
+          imgArr.push(res[i])
+        }
+      }
+      console.log(imgArr)
       this.setData({
-        dataList: res
+        dataList: res,
+        imgArr
       })
+
+
     })
   },
   toNext:function(){
@@ -38,7 +50,19 @@ Page({
   },
   tabType:function(e){
     
-  },  
+  },
+  previewImg:function(e){
+    console.log(e.currentTarget.dataset.index);
+    var index = e.currentTarget.dataset.index;
+    var imgArr = this.data.imgArr;
+    wx.previewImage({
+      current: imgArr[index],     //当前图片地址
+      urls: imgArr,               //所有要预览的图片的地址集合 数组形式
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
