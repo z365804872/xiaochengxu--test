@@ -42,9 +42,10 @@
 		<view class="content-price"  wx:if="{{baytab==0}}">
 				￥{{defaultPrise}}
 		</view>
-		<view class="margin-t60 margin-b40 flex-row-end flex-row_center pos-rel" wx:if="{{baytab==1}}">
+		<view class="padding-t60 padding-b40 flex-row-end flex-row_center pos-rel" wx:if="{{baytab==1}}">
 			<view class="flex1 flex-center">
-				<text class="font-semibold font-44 color-000 opacity5 ">￥</text><input value="{{options.shoesCost ? options.shoesCost : ''}}" 
+				<text class="font-semibold font-44 color-000 opacity5 ">￥</text>
+				<input value="{{options.shoesCost ? options.shoesCost : ''}}" 
 				name="input2" bindinput="bindKeyInput" onkeyup="value=value.replace(/[^/d]/g,'') " 
 				class="input-class"
 				type="number" maxlength="6" placeholder="0.00"/>

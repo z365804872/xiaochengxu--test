@@ -457,4 +457,6 @@ text.iconfont {
   max-width: 180rpx;
   min-width: 44rpx;
   font-size: 44rpx;
+  line-height: 44rpx;
+  height: 44rpx;
 }
