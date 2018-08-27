@@ -284,7 +284,7 @@
 		<view  class="bottom-btn "
 			   style="{{options.shoesCost ? 'background-color: #5DBCFF' : ''}}"
 			   wx:if="{{orderType==2&&baytab==1}}"  data-index="4" bindtap="toPay">
-			{{options.shoesCost ? '立即求购' : '去付款(￥' + (defaultPrise1 || 0) + ')'}}
+			{{options.shoesCost ? '立即求购' : '保证金(￥' + (defaultPrise1 || 0) + ')'}}
 		</view>
 		<view  class="bottom-btn2"  wx:if="{{orderType==1&&baytab==0}}"  data-index="1" bindtap="toPay">
 			去上架

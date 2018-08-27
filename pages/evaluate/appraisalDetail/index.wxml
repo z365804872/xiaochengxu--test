@@ -28,7 +28,7 @@
             </view>
             
         </view>
-        <view class="header-bottom">
+        <view class="header-bottom" wx:if="{{dataList.type!=0}}">
             <view class="bottom-from">
                 来自：SneakerCN
             </view>
@@ -53,15 +53,8 @@
             {{dataList.content}}
         </view>
         <view class="photo-box">
-            <view class="photo-item" wx:if="{{dataList.photo1}}" style="width:216rpx; height:216rpx;background:url('{{dataList.photo1}}');background-size:216rpx 216rpx; background-repeat:no-repeat;"></view>
-            <view class="photo-item" wx:if="{{dataList.photo2}}" style="width:216rpx; height:216rpx;background:url('{{dataList.photo2}}');background-size:216rpx 216rpx; background-repeat:no-repeat;"></view>
-            <view class="photo-item" wx:if="{{dataList.photo3}}" style="width:216rpx; height:216rpx;background:url('{{dataList.photo3}}');background-size:216rpx 216rpx; background-repeat:no-repeat;"></view>
-            <view class="photo-item" wx:if="{{dataList.photo4}}" style="width:216rpx; height:216rpx;background:url('{{dataList.photo4}}');background-size:216rpx 216rpx; background-repeat:no-repeat;"></view>
-            <view class="photo-item" wx:if="{{dataList.photo5}}" style="width:216rpx; height:216rpx;background:url('{{dataList.photo5}}');background-size:216rpx 216rpx; background-repeat:no-repeat;"></view>
-            <view class="photo-item" wx:if="{{dataList.photo6}}" style="width:216rpx; height:216rpx;background:url('{{dataList.photo6}}');background-size:216rpx 216rpx; background-repeat:no-repeat;"></view>
-            <view class="photo-item" wx:if="{{dataList.photo7}}" style="width:216rpx; height:216rpx;background:url('{{dataList.photo7}}');background-size:216rpx 216rpx; background-repeat:no-repeat;"></view>
-            <view class="photo-item" wx:if="{{dataList.photo8}}" style="width:216rpx; height:216rpx;background:url('{{dataList.photo8}}');background-size:216rpx 216rpx; background-repeat:no-repeat;"></view>
-            <view class="photo-item" wx:if="{{dataList.photo9}}" style="width:216rpx; height:216rpx;background:url('{{dataList.photo9}}');background-size:216rpx 216rpx; background-repeat:no-repeat;"></view>
+            <view class="photo-item" wx:for='{{imgArr}}' wx:key="{{index}}" data-index='{{index}}' bindtap='previewImg' style="width:216rpx; height:216rpx;background:url('{{item}}');background-size:216rpx 216rpx; background-repeat:no-repeat;"></view>
+            
         </view>
         <view class="content-bottom">
             <view class="bottom-from">

@@ -3,3 +3,4 @@
 <web-view wx:if="{{viewId==3}}" src="http://www.sneakercn.com/appraisal/new/appraisalNews.html"></web-view>
 <web-view wx:if="{{viewId==4}}" src="http://www.sneakercn.com/appraisal/rule/rules.html"></web-view>
 <web-view wx:if="{{viewId==5}}" src="http://www.sneakercn.com/coupon/index.html"></web-view>
+<web-view wx:else src="{{viewId}}"></web-view>

@@ -11,6 +11,12 @@
   justify-content: center;
   height: 100rpx;
   background: #b8b8b8;
+  position: fixed;
+  top: 0;
+  z-index:500;
+}
+.section-swiper{
+  margin-top: 100rpx;
 }
 .searchBar .searBar-box{
   display: inline-block;
