@@ -104,6 +104,7 @@
     float: right;
     height:246rpx;
     width: 465rpx;
+    position: relative;
 }
 .item-right-name{
     font-family: PingFangSC-Semibold;
