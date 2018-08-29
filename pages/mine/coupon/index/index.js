@@ -38,7 +38,8 @@ Page({
         pageNum = pageNum || 1
 
         let that = this
-        let {pageSize, hasMore, couponList, type} = that.data
+        let {pageSize, hasMore, couponList, type} = that.data;
+        if(pageNum == 1) couponList = [];
 
         wx.post({
             api: 'searchCoupon',
