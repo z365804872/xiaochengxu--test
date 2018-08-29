@@ -1,11 +1,11 @@
 <!--pages/evaluate/index/index.wxml-->
 <view scroll-y class="container">
-    <view class="detail-header" style='{{dataList.type==3?"height:401rpx;":""}}'>
+    <view class="detail-header" style='{{dataList.type==3||dataList.type==4?"height:401rpx;":""}}'>
         <image src="../../../images/jdxq_z.svg" wx:if="{{dataList.type==1}}" style="position: absolute; width:148rpx; height:178rpx;right:0;top:0;z-index:0" />
         <image src="../../../images/jdxq_j.png" wx:if="{{dataList.type==2}}" style="position: absolute; width:164rpx; height:164rpx;right:0;top:0;z-index:0" />
         <image src="../../../images/register_logo.png"  style="position: absolute; width:86rpx; height:26rpx;left:328rpx;top:106rpx;z-index:0" />
         <view class="header-status">
-            <image src="../../../images/jdxq_weixian.svg"  wx:if="{{dataList.type==3}}" style=" width:50rpx; height:50rpx;vertical-align:middle;" />
+            <image src="../../../images/jdxq_weixian.svg"  wx:if="{{dataList.type==3||dataList.type==4}}" style=" width:50rpx; height:50rpx;vertical-align:middle;" />
             <image src="../../../images/jdxq_time.svg"  wx:if="{{dataList.type==0}}" style=" width:50rpx; height:50rpx;vertical-align:middle;" />
             <text style="vertical-align:middle;"> {{dataList.type==0?"正在鉴定中…":dataList.type==1?"鉴定为真":dataList.type==2?"鉴定为赝品":"无法鉴定..."}}</text>
         </view>
@@ -15,7 +15,7 @@
         <text class="header-info"  wx:if="{{dataList.type==0}}" style="margin-top:20rpx;">
             大约需要1~3个工作日\n请耐心等待鉴定结果
         </text>
-        <text class="header-info"  wx:if="{{dataList.type==3}}" style="margin-top:20rpx;">
+        <text class="header-info"  wx:if="{{dataList.type==3||dataList.type==4}}" style="margin-top:20rpx;">
             无法鉴定，请尽可能提供更\n多信息申请鉴定！
         </text>
         <view  wx:if="{{dataList.type==3}}" class="addMore" bindtap="toNext">
