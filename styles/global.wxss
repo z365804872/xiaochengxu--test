@@ -206,6 +206,14 @@
     padding: 60rpx 0;
 }
 
+.padding-t60{
+    padding-top: 60rpx;
+}
+
+.padding-b40{
+    padding-bottom: 40rpx;
+}
+
 .padding-tb20{
   padding: 20rpx 0;
 }

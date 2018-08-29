@@ -9,6 +9,7 @@ Page({
    */
   data: {
     dataList:[],
+    isUploading: false,
     choose:0,
     brandid:"",
     savebrandid:"",
@@ -178,9 +179,12 @@ Page({
     })
   },
   uploadImg:function(){
-
     let _this = this
-    let {saveImg}  = _this.data
+    let {saveImg, isUploading}  = _this.data
+    if(isUploading) return
+
+    _this.setData({isUploading:!isUploading});
+
     for(let i=0;i<saveImg.length;i++){
       if(saveImg[i].selectImg==''){
         wx.showToast({
@@ -209,7 +213,12 @@ Page({
     })
 
 
+    wx.showLoading({
+      title: '正在上传',
+      mask: true,
+    });
     Promise.all(list).then( function(res){
+      
       let prama ={        
         content:_this.data.inputValue,
         brandId:_this.data.brandid
@@ -227,7 +236,11 @@ Page({
           j++
         }
       }
+      try{
+        wx.hideLoading();
+      }catch(e){}
       wx.post({api:'appraisal',data:prama}).then(res=>{
+        _this.setData({isUploading: !isUploading})
           wx.navigateTo({
             url:"/pages/evaluate/success/index"
           })

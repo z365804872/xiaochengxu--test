@@ -92,3 +92,7 @@ page{
     line-height: 120rpx;
     padding-left: 30rpx;
 }
+
+.disabled{
+    background-color: #cccccc;
+}

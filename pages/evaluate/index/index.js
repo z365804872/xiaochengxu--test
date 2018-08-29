@@ -58,6 +58,7 @@ Page({
   tabType: function (e) {
     this.data.listFlag = true;
     this.data.page = 1;
+    this.data.dataList = [];
     this.setData({
       tabtype: e.currentTarget.dataset.type
     })

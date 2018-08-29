@@ -107,7 +107,7 @@ let request = function (obj) {
   let { method, postData, needLoading, apiKey, toastResult } = obj
 
   let startTime = Date.now();
-  if (needLoading) wx.showLoading()
+  if (needLoading) wx.showLoading({mask: true})
   return new Promise(function (resolve, reject) {
     wx.request({
       url: `${config.host}${config.prefix}${apiObj[apiKey].path}`,
