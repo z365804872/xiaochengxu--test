@@ -26,7 +26,8 @@
     "pages/evaluate/appraisalNext/index",
     "pages/evaluate/appraisalDetail/index",
     "pages/evaluate/success/index",
-    "pages/outer/index" 
+    "pages/outer/index",
+    "pages/index/activity/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

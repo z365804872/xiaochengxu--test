@@ -144,7 +144,7 @@ Page({
   onReachBottom: function () {
     if (!this.data.listFlag) {
       wx.showToast({
-        title: '没有更多商品~'
+        title: '没有更多内容啦~'
       })
       return false
     }

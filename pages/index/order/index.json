@@ -1,5 +1,5 @@
 {
   "navigationBarTitleText": "提交订单",
   "onReachBottomDistance": 200,
-  "enablePullDownRefresh": true
+  "enablePullDownRefresh": false
 }
