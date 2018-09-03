@@ -22,22 +22,8 @@ Page({
           })
     },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
     //初始化
-    init(){
+    init(callback){
         let that = this
         wx.post({
             api: 'myMember'
@@ -57,6 +43,8 @@ Page({
                 memberInfo: res.memberInfo || '',
                 nickName: res.nickName || '',
                 encryptedMobile
+            }, () => {
+               if(typeof callback === 'function') callback();
             })
         })
     },
@@ -111,7 +99,6 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-        this.init()
-        wx.stopPullDownRefresh()
+        this.init(wx.stopPullDownRefresh);
     },
 })

@@ -375,6 +375,14 @@ Page({
         wx.navigateTo({
             url: `/pages/mine/order/expressId/index?orderId=${orderId}`
         })
+    },
+
+    //到鞋子详情
+    toShoesDetail(){
+        let shoesId = this.data.shoesId
+        wx.navigateTo({
+            url: `/pages/index/detail/index?shoesId=${shoesId}`
+        })
     }
 
 })

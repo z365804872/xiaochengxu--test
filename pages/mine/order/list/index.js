@@ -52,8 +52,8 @@ Page({
 
     onPullDownRefresh: function () {
         let orderState = this.data.orderState
-        !!orderState ? this._getMemberOrder('', orderState) : this._getMemberOrder()
-        setTimeout(() => wx.stopPullDownRefresh())
+        !!orderState ? this._getMemberOrder('', orderState, wx.stopPullDownRefresh) : this._getMemberOrder(undefined, undefined, wx.stopPullDownRefresh)
+        // setTimeout(() => wx.stopPullDownRefresh())
     },
 
     /**
@@ -69,7 +69,7 @@ Page({
     },
 
     //加载列表
-    _getMemberOrder(pageNum, orderState) {
+    _getMemberOrder(pageNum, orderState, callback) {
         let that = this
 
         pageNum = pageNum || 1;
@@ -78,7 +78,7 @@ Page({
 
         if (pageNum === 1) orderList = []
 
-        wx.post({
+        return wx.post({
             api: 'memberOrder',
             data: { type, state: orderState, pageNum, pageSize }
         }).then(res => {
@@ -95,6 +95,8 @@ Page({
                 orderState,
                 hasMore,
                 orderState
+            }, ()=>{
+                if(typeof callback == 'function') callback();
             })
         })
 
