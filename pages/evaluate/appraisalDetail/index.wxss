@@ -132,7 +132,7 @@ page{
 .detail-bottom{
     margin-top: 10rpx;
     width: 750rpx;
-    height: 230rpx;
+    height: 116rpx;
     border-top: 1rpx solid #ddd;
     overflow: hidden; 
     background: #fff;
