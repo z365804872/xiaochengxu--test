@@ -130,6 +130,8 @@
     margin-left: 20rpx;
     margin-top: 20rpx;
     margin-bottom:16rpx;
+    position:absolute;
+    top:70rpx;
 }
 .right-gray-from{
     float: left;

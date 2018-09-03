@@ -1,0 +1,21 @@
+<!--index.wxml-->
+<view class="container">
+	<view wx:for="{{actData}}" wx:key="{{index}}"  style="background:#fff">
+		<navigator url="/pages/outer/index?viewId={{item.href}}">
+			<view class = "list-item-image"  style="background:url('{{item.photo}}');background-size:750rpx 240rpx;width:750rpx;height:240rpx; background-repeat:no-repeat;">
+			</view>
+			<view style="height:130rpx;">
+				<view class="ac-content">
+					{{item.title}}
+				</view>
+				<view class="ac-time">
+					{{item.content}}
+				</view>
+			</view>			
+		</navigator>
+
+	</view>
+	<view class="nomore">
+		没有更多了
+	</view>
+</view>

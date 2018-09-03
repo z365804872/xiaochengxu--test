@@ -169,5 +169,10 @@ export default {
         path: '/appraisal',
         needUid
     },
+    "activity": {
+        title: '活动',
+        path: '/activity',
+        needUid
+    },
 
 }
