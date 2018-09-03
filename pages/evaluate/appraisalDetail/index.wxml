@@ -9,25 +9,28 @@
             <image src="../../../images/jdxq_time.svg"  wx:if="{{dataList.type==0}}" style=" width:50rpx; height:50rpx;vertical-align:middle;" />
             <text style="vertical-align:middle;"> {{dataList.type==0?"正在鉴定中…":dataList.type==1?"鉴定为真":dataList.type==2?"鉴定为赝品":"无法鉴定..."}}</text>
         </view>
-        <view class="header-info"  wx:if="{{dataList.type==1||dataList.type==2}}">
+        <view class="header-info"  wx:if="{{dataList.type==1}}">
             鉴别结果由SNCN专家鉴定得出
+        </view>
+        <view class="header-info"  wx:if="{{dataList.type==2||dataList.type==4||dataList.type==3}}">
+            {{dataList.appraisalContent?'('+dataList.appraisalContent+')':""}}
         </view>
         <text class="header-info"  wx:if="{{dataList.type==0}}" style="margin-top:20rpx;">
             大约需要1~3个工作日\n请耐心等待鉴定结果
         </text>
-        <text class="header-info"  wx:if="{{dataList.type==3||dataList.type==4}}" style="margin-top:20rpx;">
+        <!--<text class="header-info"  wx:if="{{dataList.type==3}}" style="margin-top:20rpx;">
             无法鉴定，请尽可能提供更\n多信息申请鉴定！
-        </text>
+        </text>-->
         <view  wx:if="{{dataList.type==3}}" class="addMore" bindtap="toNext">
             补充细节
         </view>
 
-        <view wx:if="{{dataList.appraisalContent}}" class="appraisalContent">
+        <!--<view wx:if="{{dataList.appraisalContent}}" class="appraisalContent">
             <view>
                 {{dataList.appraisalContent}}
             </view>
             
-        </view>
+        </view>-->
         <view class="header-bottom" wx:if="{{dataList.type!=0}}">
             <view class="bottom-from">
                 来自：SneakerCN
