@@ -49,13 +49,13 @@
             </view>
             <view><text class="iconfont icon-jiaobiao"></text></view>
         </view>
-        <view class="flex-row-between flex-row_center height-96 ">
+        <!-- <view class="flex-row-between flex-row_center height-96 ">
             <view class="flex-row-start flex-row_center">
                 <text class="iconfont icon-kefu"></text>
                 <text class="margin-l20 font-20 font-regular color-333">联系客服</text>
             </view>
             <view><text class="iconfont icon-jiaobiao"></text></view>
-        </view>
+        </view> -->
     </view>
     <!-- <view catchtap="quit"
             class='flex-center height-80 bgc-fff font-24 font-medium color-333 margin-t10 login-out'>
