@@ -47,7 +47,7 @@
             </view>
             <view class="font-light font-24 color-000 opacity5 lheight-33">{{convertedOrderTime}}</view>
         </view>
-        <view class="padding-tb30 flex-row height-100">
+        <view class="padding-tb30 flex-row height-100" catch:tap="toShoesDetail">
             <view class="height100 width-140 bg-image" style="background-image:url('{{shoesDetail.photo}}')"></view>
             <view class="height100 flex1 margin-l20 flex-column-between">
                 <view class="font-regular font-24 lheight-33 color-000">{{shoesDetail.shoesName}}</view>
