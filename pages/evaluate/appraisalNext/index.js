@@ -181,9 +181,7 @@ Page({
   uploadImg:function(){
     let _this = this
     let {saveImg, isUploading}  = _this.data
-    if(isUploading) return
-
-    _this.setData({isUploading:!isUploading});
+   
 
     for(let i=0;i<saveImg.length;i++){
       if(saveImg[i].selectImg==''){
@@ -213,6 +211,9 @@ Page({
     })
 
 
+    if(isUploading) return
+    _this.setData({isUploading:!isUploading});
+
     wx.showLoading({
       title: '正在上传',
       mask: true,
@@ -241,7 +242,7 @@ Page({
       }catch(e){}
       wx.post({api:'appraisal',data:prama}).then(res=>{
         _this.setData({isUploading: !isUploading})
-          wx.navigateTo({
+          wx.reLaunch({
             url:"/pages/evaluate/success/index"
           })
       })
