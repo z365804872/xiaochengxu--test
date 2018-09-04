@@ -9,7 +9,9 @@ Page({
     /**
      * 页面的初始数据
      */
-    data: {},
+    data: {
+        isIphoneX: wx.isIphoneX
+    },
 
     /**
      * 生命周期函数--监听页面加载
@@ -101,4 +103,20 @@ Page({
     onPullDownRefresh: function () {
         this.init(wx.stopPullDownRefresh);
     },
+
+    toHome(){
+        wx.reLaunch({
+            url: `/pages/index/index/index`
+        })
+    },
+
+    switchTab(e) {
+        let type = e.currentTarget.dataset.type;
+        auth.authorizedVerify(e).then(res => {
+            wx.reLaunch({
+                url: `/pages/${type}/index/index`
+            })
+        })
+
+    }
 })
