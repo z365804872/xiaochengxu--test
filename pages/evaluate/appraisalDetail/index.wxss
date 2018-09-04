@@ -16,6 +16,7 @@ page{
     position: relative;
     background: #fff;
     overflow: hidden;
+    position: relative;
 }
 .header-status{
     font-family: PingFangSC-Semibold;
@@ -29,14 +30,15 @@ page{
 .header-info{
     display: block;
     text-align: center;
-    width: 750rpx;
+    width: 350rpx;
+    margin: 0 auto;
     margin-top: 50rpx;
     height: 35rx;
     line-height: 35rpx;
-    width: 750rpx;
     font-family: PingFangSC-Regular;
     font-size: 24rpx;
     color: #333333;
+    
 }
 .header-bottom{
     position: absolute;
@@ -132,7 +134,7 @@ page{
 .detail-bottom{
     margin-top: 10rpx;
     width: 750rpx;
-    height: 230rpx;
+    height: 116rpx;
     border-top: 1rpx solid #ddd;
     overflow: hidden; 
     background: #fff;
@@ -207,9 +209,11 @@ page{
     width:fit-content;
 }
 .addMore{
-    margin: 40rpx auto;
+    position: absolute;
     width: 144rpx;
     height: 64rpx;
+    bottom: 96rpx;
+    left: 303rpx;
     line-height: 64rpx;
     text-align: center;
     font-family: PingFangSC-Light;

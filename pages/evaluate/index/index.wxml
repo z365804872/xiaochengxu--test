@@ -56,7 +56,7 @@
             </view>
        </view>
        <view class="container-content-btn" bindtap="toCheck">
-            发起鉴定
+            <image src="../../../images/jdbtn.png"  style="  position: absolute; width:256rpx; height:96rpx;left:0;top:0;z-index:-1;" />
        </view>
    </view>
 </view>
