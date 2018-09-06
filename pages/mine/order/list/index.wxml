@@ -90,7 +90,7 @@
 
                     <view wx:if="{{type == 2 && orderState === 1 && item.state == 3}}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn" catch:tap="payDeposit">支付定金</view>
                     <view wx:if="{{type == 2 && orderState === 1 && item.state == 0}}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn" catch:tap="offGoods">下架商品</view>
-                    <view wx:if="{{type == 2 && orderState === 2 && item.state == 1}}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn" catchtap="addExpress">录入单号</view>
+                    <view wx:if="{{type == 2 && orderState === 2 && item.state == 1}}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn" catchtap="{{item.express ? 'queryExpress' : 'addExpress'}}">{{item.express ? '查看物流' : '录入单号'}}</view>
                     <view wx:if="{{type == 2 && orderState === 2 && item.state == 4}}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn">取消订单</view>
                     <view wx:if="{{type == 2 && orderState === 3 && !!item.express}}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn" catch:tap="queryExpress">查看物流</view>
                     <view wx:if="{{type == 2 && orderState === 4}}" data-index="{{index}}" class="bdra-200 font-light font-28 lheight-40 color-333 btn" catch:tap="reSell">继续出售</view>
