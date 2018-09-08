@@ -10,7 +10,8 @@ Page({
     tabtype: 1,
     dataList: [],
     listFlag: true,
-    page: 1
+    page: 1,
+    isIphoneX: wx.isIphoneX
   },
 
   /**
@@ -173,10 +174,19 @@ Page({
     })
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+    toHome(){
+      wx.reLaunch({
+          url: `/pages/index/index/index`
+      })
+    },
 
-  }
+    switchTab(e) {
+        let type = e.currentTarget.dataset.type;
+        auth.authorizedVerify(e).then(res => {
+            wx.reLaunch({
+                url: `/pages/${type}/index/index`
+            })
+        })
+
+    }
 })

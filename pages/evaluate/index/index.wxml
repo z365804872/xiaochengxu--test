@@ -55,9 +55,45 @@
                 </view>
             </view>
        </view>
-       <view class="container-content-btn" bindtap="toCheck">
+       <view class="container-content-btn" bindtap="toCheck" style="{{isIphoneX ? 'bottom: 87px;' : ''}}">
             <image src="../../../images/jdbtn.png"  style="  position: absolute; width:256rpx; height:96rpx;left:0;top:0;z-index:-1;" />
        </view>
    </view>
 </view>
-<nav-tab tabName="evaluate"></nav-tab>
+<!-- <nav-tab tabName="evaluate"></nav-tab> -->
+
+<view class="nav-tab {{isIphoneX ? 'match-iphone-x' : ''}}" >
+  <button class="nav-tab-item" catchtap="toHome" data-type="index" >
+    <view>
+      <view class="nav-tab-item-icon">
+        <image src="../../../images/index.png"></image>
+      </view>
+      <view class="nav-tab-item-title ">首页</view>
+    </view>
+  </button>
+  <button class="nav-tab-item" 
+          open-type="getUserInfo"
+          lang="zh_CN"
+          bindgetuserinfo="switchTab"
+          data-type="evaluate" >
+    <view>
+      <view class="nav-tab-item-icon">
+        <image src="../../../images/evaluate1.png"></image>
+      </view>
+      <view class="nav-tab-item-title nav-tab-item-selected">鉴定</view>
+    </view>
+  </button>
+  <button class="nav-tab-item"
+          open-type="getUserInfo"
+          lang="zh_CN"
+          bindgetuserinfo="switchTab"
+          catchtap="switchTab"
+          data-type="mine">
+    <view>
+      <view class="nav-tab-item-icon">
+        <image src="../../../images/mine.png"></image>
+      </view>
+      <view class="nav-tab-item-title">我的</view>
+    </view>
+  </button>
+</view>

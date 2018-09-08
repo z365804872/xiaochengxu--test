@@ -414,6 +414,8 @@ Page({
 
     let options = this.data.options
     let _param = param
+
+    // 继续出售 5改为1；继续求购 6 改为 4（和刚哥确认 9月6号）
     if(options.shoesCost && options.type == 6){//继续求购
       param = {
           buySellId: options.buySellId,
@@ -421,7 +423,7 @@ Page({
           shoesCost: options.shoesCost,
           days: _param.days,
           addressId: this.data.addressId,
-          orderType: options.type
+          orderType: 4
       }
 
     }
@@ -431,7 +433,7 @@ Page({
             shoesSize: options.shoesSize,
             shoesCost: options.shoesCost,
             days: _param.days,
-            orderType: options.type
+            orderType: 1
         }
 
     }

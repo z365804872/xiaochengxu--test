@@ -94,4 +94,9 @@ if (wx) {
     }
 
 
+    //获取设备信息
+    wx.isIphoneX = (function() {
+        return (/iPhone X/).test(wx.getSystemInfoSync().model)
+    })()
+
 }

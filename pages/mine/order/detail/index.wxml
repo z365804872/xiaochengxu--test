@@ -129,7 +129,7 @@
     <!-- 我的出售 -->
     <view wx:if="{{type == 2 && orderState == 1 && state == 0}}" class="padding-tb12 action-btn bdra-200 margin-l30 border1" catch:tap="cancelOrder">下架商品</view>
     <view wx:if="{{type == 2 && orderState == 1 && state == 3}}" class="padding-tb12 action-btn bdra-200 margin-l30 border1" catch:tap="payDeposit">支付定金</view>
-    <view wx:if="{{type == 2 && orderState == 2 && state == 1}}" class="padding-tb12 action-btn bdra-200 margin-l30 border1" catchtap="addExpress">录入单号</view>
+    <view wx:if="{{type == 2 && orderState == 2 && state == 1}}" class="padding-tb12 action-btn bdra-200 margin-l30 border1" catchtap="{{express ? 'queryExpress' : 'addExpress'}}">{{express ?  '查看物流' : '录入单号'}}</view>
     <view wx:if="{{type == 2 && orderState == 3}}" class="padding-tb12 action-btn bdra-200 margin-l30 border1" catch:tap="queryExpress">查看物流</view>
     <view wx:if="{{type == 2 && orderState == 4}}" class="padding-tb12 action-btn bdra-200 margin-l30 border1" catch:tap="reSell">继续出售</view>
 </view>
