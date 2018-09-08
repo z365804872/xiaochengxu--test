@@ -4,7 +4,7 @@
 	<view class="section searchBar">
 		<view class="section searBar-box">
 			<navigator url="/pages/index/seach/index" hover-class="none">
-				<image src="data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%2230%22%20height%3D%2230%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M30%2027.3L27.3%2030l-5.956-5.955c-2.23%201.67-4.971%202.695-7.974%202.695C5.985%2026.74%200%2020.754%200%2013.37%200%205.985%205.985%200%2013.372%200%2020.755%200%2026.74%205.985%2026.74%2013.37c0%203.001-1.025%205.744-2.694%207.973L30%2027.299zM13.372%203.821a9.548%209.548%200%200%200-9.55%209.55c0%205.273%204.274%209.55%209.55%209.55%205.272%200%209.55-4.277%209.55-9.55a9.55%209.55%200%200%200-9.55-9.55z%22%20fill%3D%22%23fff%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E" mode="aspectFill" class="search-icon" />
+				<text class="iconfont icon-sousuo"></text>
 				<input type="text" name="searchBar" placeholder="搜索您想要的商品" placeholder-class="search-plac" bindtap="toSearch"
 				/>
 			</navigator>

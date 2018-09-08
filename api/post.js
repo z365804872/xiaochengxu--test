@@ -174,5 +174,9 @@ export default {
         path: '/activity',
         needUid
     },
+    "hotQueryShoes": {
+        title: '活动',
+        path: '/hotQueryShoes'
+    },
 
 }
