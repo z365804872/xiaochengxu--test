@@ -4,10 +4,27 @@
 	<view class="section searchBar" wx:if="{{fromFlag}}">
 		<view class="section searBar-box">
 				<image src="../../../images/seach.svg" mode="aspectFill" class="search-icon" />
-				<input type="text" name="searchBar" placeholder="搜索您想要的商品"  placeholder-class="place-holder" bindconfirm="bindKeyInput" />
+				<input type="text" name="searchBar" placeholder="搜索您想要的商品" value="{{keyValue}}" placeholder-class="place-holder" bindconfirm="bindKeyInput" />
 		</view>
 	</view><!-- end-section search searchBar -->
-
+	<view  wx:if="{{seachList.length==0}}">
+		<view class="title">
+			历史搜索
+		</view>
+		<view class="title-box">
+			<view wx:for="{{hotList}}"  wx:key="{{index}}" bindtap="sureHot" data-index="{{item.brandName}}">
+				{{item.brandName}}
+			</view>
+		</view>
+		<view class="title title1">
+			热门搜索
+		</view>
+		<view class="title-box">
+			<view wx:for="{{hotList}}"  wx:key="{{index}}" bindtap="sureHot" data-index="{{item.brandName}}">
+				{{item.brandName}}
+			</view>
+		</view>
+	</view>
 	<!-- 搜索列表 -->
 	<view class="search-list">
 		<view class="search-list-item"  wx:for="{{seachList}}"  wx:key="{{index}}">

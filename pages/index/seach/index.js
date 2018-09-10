@@ -10,6 +10,7 @@ Page({
     page:1,
     keyValue:"",
     fromFlag:true,
+    hotList:[]
   },
 
   /**
@@ -28,6 +29,13 @@ Page({
           })
         })
       }
+      wx.post({api:'hotQueryShoes'}).then(res => {
+        console.log(res)
+        this.setData({
+          hotList:res
+        })
+      })
+      
   },
   bindKeyInput: function(e){
     var value = e.detail.value
@@ -35,7 +43,17 @@ Page({
       keyValue:value
     })
     wx.post({api:'queryShoes', data:{keyword:value,pageNum:1,pageSize:10}}).then(res => {
-      console.log(res)
+      this.setData({
+        seachList:res
+      })
+    })
+  },
+  sureHot: function(e){
+    let hotData=e.currentTarget.dataset.index;
+    this.setData({
+      keyValue:hotData
+    })
+    wx.post({api:'queryShoes', data:{keyword:hotData,pageNum:1,pageSize:10}}).then(res => {
       this.setData({
         seachList:res
       })

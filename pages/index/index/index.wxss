@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
   height: 100rpx;
-  background: #b8b8b8;
+  background: #fff;
   position: fixed;
   top: 0;
   z-index:500;
@@ -23,7 +23,7 @@
   width: 710rpx;
   height: 64rpx;
   margin-top: 19rpx;
-  background: #ccc;
+  background: #f7f7f7;
   position: relative;
 }
 .searchBar .searBar-box input{
@@ -34,12 +34,18 @@
 .searBar-box.tap{
   background: rgba(255,247,231,.9);
 }
+page .icon-sousuo{
+  position: absolute;
+  left:15rpx;
+  top: 15rpx;
+  color: #999999;
+}
 .search-plac{
   text-align: left;
   font-size: 11pt;
   opacity: 1;
-  color: #fff;
-  background: #ccc;
+  color: #999999;
+  background: #f7f7f7;
   font-size: 28rpx;
 }
 .searBar-box .search-icon{
