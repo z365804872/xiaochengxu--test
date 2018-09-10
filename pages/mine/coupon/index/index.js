@@ -18,6 +18,12 @@ Page({
     onLoad: function (options) {
       
         if(options.id) this.setData({ comeData:options.id })
+        if(options.orderType) {
+            this.data.orderType = options.orderType;
+            this.data.type = options.orderType;
+        }
+
+        if(options.defaultPrise != undefined) this.data.defaultPrise = options.defaultPrise;
     },
 
     onShow(){
@@ -63,8 +69,19 @@ Page({
         })
     },
     toOrder: function(e){
-        
+        let index = e.currentTarget.dataset.index;
+
+        let {couponList, defaultPrise} = this.data;
+        let currentCoupon = couponList[index];
+
         if(this.data.comeData==1){
+
+            let {fullAmount} = currentCoupon
+            if(defaultPrise - fullAmount < 0){
+                wx.showToast({title: '未达到满减额度'})
+                return;
+            }
+
             wx.setStorage({
                 key:"couponName",
                 data:e.currentTarget.dataset.couponname
@@ -73,6 +90,12 @@ Page({
                 key:"couponId",
                 data:e.currentTarget.dataset.couponid
             })
+
+            wx.setStorage({
+                key:"coupon",
+                data: JSON.stringify(currentCoupon)
+            })
+
             // wx.navigateTo({
             //     url:"/pages/index/order/index"
             // })
