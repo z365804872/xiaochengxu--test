@@ -8,9 +8,10 @@
     </navigator>
     <block wx:for="{{couponList}}"
            wx:for-item="item"
+           wx:for-index="index"
            wx:key="{{item.couponId}}"
            wx:if="{{couponList.length}}">
-        <view class="margin-t30 coupon-item pos-rel height-232" bindtap="toOrder" data-couponName="{{item.couponName}}"  data-couponId="{{item.couponId}}">
+        <view class="margin-t30 coupon-item pos-rel height-232" data-index="{{index}}" bindtap="toOrder" data-index="{{index}}" data-couponName="{{item.couponName}}"  data-couponId="{{item.couponId}}">
             <image class="height-232 width100 pos-abs " src="../../../../images/coupon_bg_pink.png"></image>
             <view class="height-164 coupon-item-up flex-column-center pos-rel">
                 <view class="flex-row_center">

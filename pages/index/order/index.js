@@ -1,4 +1,6 @@
 // pages/index/home/home.js
+import  calc from '../../../utils/calc';
+
 Page({
 
   /**
@@ -133,6 +135,7 @@ Page({
 
   init(){
     let _this = this
+
     try {
       let couponId = wx.getStorageSync('couponId');
       !!couponId && _this.setData({ couponId: couponId })
@@ -191,7 +194,38 @@ Page({
       !!addressId && _this.setData({ addressId: addressId })
     } catch (e) {console.error(e) }
 
-    _this._filterAddress()
+
+
+    _this._filterAddress();
+    _this._calcPrice();
+  },
+
+  _calcPrice(){
+    try{
+        let coupon = wx.getStorageSync('coupon');
+        coupon = JSON.parse(coupon)
+
+        let {fullAmount, couponMoney} = coupon;
+        let defaultPrise = this.data.defaultPrise;
+
+        if(defaultPrise - fullAmount < 0){
+            wx.showToast({title: '未达到满减额度'})
+            try{
+                wx.removeStorageSync('couponId')
+                wx.removeStorageSync('couponName')
+                wx.removeStorageSync('coupon')
+            }catch (e){}
+            return;
+        }
+
+        defaultPrise = calc.accSub(defaultPrise, couponMoney).toFixed(2);
+        this.setData({
+            defaultPrise
+        })
+
+
+    }catch (e){}
+
   },
 
   _filterAddress(){
@@ -292,8 +326,9 @@ Page({
     this.calcServiceFee();
   },
   toCoupon: function () {
+    let {orderType, defaultPrise} = this.data;
     wx.navigateTo({
-      url: "/pages/mine/coupon/index/index?id=1"
+      url: `/pages/mine/coupon/index/index?id=1&orderType=${orderType}&defaultPrise=${defaultPrise}`
     })
   },
   toAddress: function () {
@@ -494,6 +529,9 @@ Page({
       wx.removeStorageSync('orderData')
       wx.removeStorageSync('detailData')
       wx.removeStorageSync('orderType')
+      wx.removeStorageSync('couponId')
+      wx.removeStorageSync('couponName')
+      wx.removeStorageSync('coupon')
     }catch(e){}
   },
 
