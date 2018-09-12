@@ -14,7 +14,8 @@ export default {
     },
     'queryShoes': {
         title: '搜索',
-        path: '/queryShoes'
+        path: '/queryShoes',
+        needUid
     },
     'loginMember': {
         title: '第三方登陆',
@@ -176,7 +177,8 @@ export default {
     },
     "hotQueryShoes": {
         title: '热门搜索',
-        path: '/hotQueryShoes'
+        path: '/hotQueryShoes',
+        needUid
     },
     "deleteHisContent": {
         title: '清除历史纪录',
