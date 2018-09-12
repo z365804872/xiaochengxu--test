@@ -7,8 +7,11 @@
         <view class="appra-one-box">
             <view wx:for="{{saveImg}}" wx:key="{{index}}" class="nav-item" bindtap="changeTab" data-index="{{index}}">
                 <view class="nav-item-box">
-                    <image wx:if="{{item.selectImg.length==0}}" src="../../../images/{{item.mrbg}}.png"  style="width:100%; height:100%;" />
-                    <image wx:else src="{{item.selectImg}}" style="width:100%; height:100%;" />
+                    <view  wx:if="{{item.selectImg.length==0}}" style="width:216rpx; height:216rpx;background:url('../../../images/{{item.mrbg}}.png');background-size:cover;background-position:center; background-repeat:no-repeat;"></view>
+                    
+                    <view  wx:else style="width:216rpx; height:216rpx;background:url('{{item.selectImg}}');background-size:cover;background-position:center; background-repeat:no-repeat;"></view>
+                    <!--<image wx:if="{{item.selectImg.length==0}}" src="../../../images/{{item.mrbg}}.png"  style="width:100%; height:100%;" />
+                    <image wx:else src="{{item.selectImg}}" style="width:100%; height:100%;" />-->
                 </view>
             </view>
 

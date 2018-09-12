@@ -175,8 +175,15 @@ export default {
         needUid
     },
     "hotQueryShoes": {
-        title: '活动',
+        title: '热门搜索',
         path: '/hotQueryShoes'
     },
+    "deleteHisContent": {
+        title: '清除历史纪录',
+        path: '/deleteHisContent',
+        needUid
+    },
+    
+    
 
 }

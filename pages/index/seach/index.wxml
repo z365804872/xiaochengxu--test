@@ -8,12 +8,15 @@
 		</view>
 	</view><!-- end-section search searchBar -->
 	<view  wx:if="{{seachList.length==0}}">
-		<view class="title">
+		<view class="title" wx:if="{{hisList.length>0}}">
 			历史搜索
 		</view>
-		<view class="title-box">
-			<view wx:for="{{hotList}}"  wx:key="{{index}}" bindtap="sureHot" data-index="{{item.brandName}}">
-				{{item.brandName}}
+		<view class="clearbtn"  bindtap="clearHis" wx:if="{{hisList.length>0}}">
+			清除
+		</view>
+		<view class="title-box" wx:if="{{hisList.length>0}}">
+			<view wx:for="{{hisList}}"  wx:key="{{index}}" bindtap="sureHot" data-index="{{item}}">
+				{{item}}
 			</view>
 		</view>
 		<view class="title title1">

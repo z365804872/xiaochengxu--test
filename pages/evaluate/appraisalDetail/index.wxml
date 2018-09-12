@@ -56,7 +56,7 @@
             {{dataList.content}}
         </view>
         <view class="photo-box">
-            <view class="photo-item" wx:for='{{imgArr}}' wx:key="{{index}}" data-index='{{index}}' bindtap='previewImg' style="width:216rpx; height:216rpx;background:url('{{item}}');background-size:auto;background-position:center; background-repeat:no-repeat;"></view>
+            <view class="photo-item" wx:for='{{imgArr}}' wx:key="{{index}}" data-index='{{index}}' bindtap='previewImg' style="width:216rpx; height:216rpx;background:url('{{item}}');background-size:cover;background-position:center; background-repeat:no-repeat;"></view>
             
         </view>
         <view class="content-bottom">

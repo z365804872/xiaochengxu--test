@@ -101,9 +101,9 @@
 }
 
 .item-right{
-    float: right;
+    float: left;
     height:246rpx;
-    width: 465rpx;
+    width: 463rpx;
     position: relative;
 }
 .item-right-name{

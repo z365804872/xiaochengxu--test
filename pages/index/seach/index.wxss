@@ -163,3 +163,12 @@ page{
   padding: 0 20rpx;
   margin:15rpx 15rpx;
 }
+
+.clearbtn{
+  position: absolute;
+  right: 40rpx;
+  top: 140rpx;
+  z-index: 1001;
+  font-size: 26rpx;
+  color: #666;
+}
