@@ -10,7 +10,8 @@ Page({
     page:1,
     keyValue:"",
     fromFlag:true,
-    hotList:[]
+    hotList:[],
+    hisList:[]
   },
 
   /**
@@ -32,9 +33,11 @@ Page({
       wx.post({api:'hotQueryShoes'}).then(res => {
         console.log(res)
         this.setData({
-          hotList:res
+          hotList:res.brandList,
+          hisList:res.hisList
         })
       })
+      
       
   },
   bindKeyInput: function(e){
@@ -60,10 +63,15 @@ Page({
     })
   },
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   *清除历史纪录
    */
-  onReady: function () {
-    
+  clearHis: function () {
+    wx.post({api:'deleteHisContent'}).then(res => {
+      wx.showToast({
+          title: '清除成功'
+      })
+      return false
+    })
   },
 
   /**
