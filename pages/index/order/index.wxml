@@ -172,7 +172,7 @@
 						<text class="address-left">收货人：{{addressList.name}}</text><text class="address-right">手机号：{{addressList.mobile}}</text>
 					</view>
 					<view class="order-address-bottom">
-						<text>{{addressList.address}}</text>
+						<text>{{addressList.address}} {{addressList.detailAddress}}</text>
 					</view>
 				</view>				
 				<text class="iconfont icon-jiaobiao iconjiaobiao"></text>
