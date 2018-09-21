@@ -41,7 +41,10 @@ Page({
       
   },
   bindKeyInput: function(e){
-    var value = e.detail.value
+    var value = e.detail.value.replace(/^\s+|\s+$/g,"")
+    if(value==""){
+      return
+    }
     this.setData({
       keyValue:value
     })
