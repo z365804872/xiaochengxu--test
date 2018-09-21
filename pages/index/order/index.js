@@ -452,25 +452,28 @@ Page({
 
     // 继续出售 5改为1；继续求购 6 改为 4（和刚哥确认 9月6号）
     if(options.shoesCost && options.type == 6){//继续求购
-      param = {
-          buySellId: options.buySellId,
-          shoesSize: options.shoesSize,
-          shoesCost: options.shoesCost,
-          days: _param.days,
-          addressId: this.data.addressId,
-          orderType: 4
-      }
+      // param = {
+      //     buySellId: options.buySellId,
+      //     shoesSize: options.shoesSize,
+      //     shoesCost: options.shoesCost,
+      //     days: _param.days,
+      //     addressId: this.data.addressId,
+      //     orderType: 4
+      // }
+
+      param.orderType = 4
 
     }
     if(options.shoesCost && options.type == 5){//继续出售
-        param = {
-            buySellId: options.buySellId,
-            shoesSize: options.shoesSize,
-            shoesCost: options.shoesCost,
-            days: _param.days,
-            orderType: 1
-        }
+        // param = {
+        //     buySellId: options.buySellId,
+        //     shoesSize: options.shoesSize,
+        //     shoesCost: options.shoesCost,
+        //     days: _param.days,
+        //     orderType: 1
+        // }
 
+        param.orderType = 1;
     }
 
 

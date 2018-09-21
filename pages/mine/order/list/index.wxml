@@ -73,7 +73,9 @@
                                 <view class="font-light font-28 opacity5 color-000 lheight-40">{{item.shoesSize}}码</view>
                                 <view class="font-semibold font-28 color-000 lheight-40 margin-l20">￥{{item.money}}</view>
                                 <view class="font-semibold font-16 color-fff lheight-30 height-30 padding-lr12 bgc-000 margin-l8">
-                                    <view wx:if="{{orderState === 2 && item.state === 1}}">成交价</view>
+                                    <!--<view wx:if="{{orderState === 2 && item.state === 1}}">成交价</view>-->
+                                    <view wx:if="{{type == 1 && orderState == 1}}">求购价</view>
+                                    <view wx:elif="{{type == 1 && orderState != 1}}">购买价</view>
                                     <view wx:else>出售价</view>
                                 </view>
                             </view>
