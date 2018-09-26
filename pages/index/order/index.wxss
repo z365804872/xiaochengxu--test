@@ -153,6 +153,13 @@
 text.iconfont {
   margin-right: 16rpx;
 }
+.icon-wodeliquan{
+  font-size: 24rpx;
+  margin-left: 8rpx;
+}
+.icon-dizhi1,.icon-jianding1{
+  margin-left: 8rpx;
+}
 .order-address-content{
   width: 690rpx;
   height: 140rpx;
@@ -454,7 +461,7 @@ text.iconfont {
 
 }
 .input-class{
-  max-width: 180rpx;
+  max-width: 130rpx;
   min-width: 44rpx;
   font-size: 44rpx;
   line-height: 44rpx;

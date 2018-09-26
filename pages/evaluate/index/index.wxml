@@ -10,20 +10,20 @@
         <view class="evaluate-header-right" >
             <navigator url="/pages/outer/index?viewId=4" hover-class="none">
                 <view class="header-right-top" style="position:relative">
-                    <image src="../../../images/jdbg-left(1).png"  style="  position: absolute; width:344rpx; height:150rpx;left:0;top:0;z-index:-1;" />
+                    <image src="../../../images/jdbg-left(2).png"  style="  position: absolute; width:344rpx; height:150rpx;left:0;top:0;z-index:-1;" />
                     鉴定规则
                 </view>
 			</navigator>
             <navigator url="/pages/outer/index?viewId=3" hover-class="none">
                 <view class="header-right-bottom" style="position:relative">
-                    <image src="../../../images/jdbg-left(2).png"  style="  position: absolute; width:344rpx; height:150rpx;left:0;top:0;z-index:-1;" />
+                    <image src="../../../images/jdbg-left(1).png"  style="  position: absolute; width:344rpx; height:150rpx;left:0;top:0;z-index:-1;" />
                     新手指南
                 </view>
             </navigator>
         </view>
    </view>
    <view class="container-content">
-       <view class="container-content-tab">
+       <view class='container-content-tab {{typeFixed?"typefixed":""}}'>
            <view  class="content-tab-jd {{tabtype==1?'select':''}}" bindtap="tabType" data-type="1">
                球鞋鉴定
            </view>
@@ -31,7 +31,7 @@
                我的鉴定
            </view>
        </view>
-       <view class="container-content-box">
+       <view class='container-content-box {{typeFixed?"typefixed1":""}}'>
             <view class="container-content-item" wx:for="{{dataList}}" wx:key="{{index}}" bindtap="toDetail" data-id="{{item.appraisalId}}">
                 <view class="item-left">
                     <view class = "list-item-image"  style="background:url('{{item.photo1}}');background-size:246rpx 246rpx;width:246rpx;height:246rpx; background-repeat:no-repeat;">
@@ -50,7 +50,7 @@
                         </view>                  
                     </view>
                     <view class="item-right-status">
-                        <image src="{{item.type == 0?'../../../images/jdz.png':item.type == 1?'../../../images/zd.png':item.type == 2?'../../../images/jd.png':'../../../images/wfjd.png'}}"  style="  position: absolute; width:464rpx; height:98rpx;left:0;bottom:0;" />
+                        <image src="{{item.type == 0?'../../../images/jdz.png':item.type == 1?'../../../images/zd.png':item.type == 2?'../../../images/jd.png':'../../../images/wfjd.png'}}"  style="  position: absolute; width:466rpx; height:98rpx;left:0;bottom:0;" />
                     </view>
                 </view>
             </view>

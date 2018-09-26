@@ -10,6 +10,7 @@ Page({
     detailData: {},
     baytab: 0, //0左1右
     defaultPrise: "",
+    defaultPrises: "",//减去优惠券金额
     defaultPrise1: "0",
     animationData: {},
     showModalStatus: false,
@@ -204,10 +205,8 @@ Page({
     try{
         let coupon = wx.getStorageSync('coupon');
         coupon = JSON.parse(coupon)
-
         let {fullAmount, couponMoney} = coupon;
         let defaultPrise = this.data.defaultPrise;
-
         if(defaultPrise - fullAmount < 0){
             wx.showToast({title: '未达到满减额度'})
             try{
@@ -217,10 +216,10 @@ Page({
             }catch (e){}
             return;
         }
+        let defaultPrises = calc.accSub(defaultPrise, couponMoney).toFixed(2);
 
-        defaultPrise = calc.accSub(defaultPrise, couponMoney).toFixed(2);
         this.setData({
-            defaultPrise
+          defaultPrises
         })
 
 
@@ -354,7 +353,8 @@ Page({
         api: 'calcServiceFee', data: {
           sellMoney: money.replace(/[￥-]/g, ""),
           couponId: this.data.couponId
-        }
+        },
+        needLoading:false
       }).then(res => {
         this.setData({
           serviceFee: res.serviceFee.toFixed(2),

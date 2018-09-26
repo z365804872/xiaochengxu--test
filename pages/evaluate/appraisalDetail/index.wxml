@@ -13,7 +13,7 @@
             鉴别结果由SNCN专家鉴定得出
         </view>
         <view class="header-info"  wx:if="{{dataList.type==2||dataList.type==4||dataList.type==3}}">
-            {{dataList.appraisalContent?'('+dataList.appraisalContent+')':""}}
+            {{dataList.appraisalContent?dataList.appraisalContent:""}}
         </view>
         <text class="header-info"  wx:if="{{dataList.type==0}}" style="margin-top:20rpx;">
             大约需要1~3个工作日\n请耐心等待鉴定结果
@@ -45,7 +45,7 @@
             {{dataList.content}}
         </view>-->
         <view class="user-info">
-            <view class="user-photo"  style="width:80rpx; height:80rpx;background:url('{{dataList.headPhoto}}');background-size:80rpx 80rpx; background-repeat:no-repeat;"></view>
+            <view class="user-photo"  style="width:80rpx; height:80rpx;background:url('{{dataList.headPhoto}}');background-size:80rpx 80rpx; background-repeat:no-repeat;border-radius:50%;"></view>
             <view class="user-nt">
                 <view class="user-name">{{dataList.nickName}}</view>
                 <view class="user-time">{{dataList.createTimeFormat}}</view>             
@@ -53,7 +53,7 @@
 
         </view>
         <view class="user-qustion">
-            {{dataList.content}}
+            Q：{{dataList.content}}
         </view>
         <view class="photo-box">
             <view class="photo-item" wx:for='{{imgArr}}' wx:key="{{index}}" data-index='{{index}}' bindtap='previewImg' style="width:216rpx; height:216rpx;background:url('{{item}}');background-size:cover;background-position:center; background-repeat:no-repeat;"></view>
@@ -68,8 +68,8 @@
             </view>
         </view>
     </view>
-    <view class="detail-bottom">
-        <!--<view class="bottom-fake-real">
+    <!--<view class="detail-bottom">
+        <view class="bottom-fake-real">
             <view class="bottom-fake">
                 <view class="fake">
                     <view  class="fake-name"> 
@@ -90,9 +90,9 @@
                     </view> 
                 </view>               
             </view>            
-        </view>-->
+        </view>
         <view class="bottom-tigong">
             友情提示：投票结果由<text style="color:#F79999">SneakerCN</text>官方APP提供
         </view>
-    </view>
+    </view>-->
 </view>

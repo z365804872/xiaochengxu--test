@@ -39,6 +39,7 @@
     height: 120rpx;
     border-top: 10rpx solid #f7f7f7;
     clear: both;
+    background: #fff;
 }
 .content-tab-jd{
     width: 152rpx;
@@ -103,7 +104,7 @@
 .item-right{
     float: left;
     height:246rpx;
-    width: 463rpx;
+    width: 464rpx;
     position: relative;
 }
 .item-right-name{
@@ -125,7 +126,7 @@
     font-size: 24rpx;
     color: #333333;
     letter-spacing: 0;
-    width: 435rpx;
+    width: 424rpx;
     height: 44rpx;
     margin-left: 20rpx;
     margin-top: 20rpx;
@@ -133,7 +134,12 @@
     position:absolute;
     top:70rpx;
 }
+.item-right-status{
+    width:464rpx; height:98rpx;
+    overflow: hidden;
+}
 .right-gray-from{
+    font-size: 24rpx;
     float: left;
     width: 280rpx;
     display: -webkit-box;
@@ -142,6 +148,7 @@
     overflow: hidden;    
 }
 .right-gray-data{
+    font-size: 24rpx;
     float: right;
 }
 
@@ -160,4 +167,14 @@
     font-weight: 600;
     font-family: PingFangSC-Semibold;
     letter-spacing: 4rpx;
+}
+.typefixed{
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: 3;
+    border-top: none;
+}
+.typefixed1{
+    margin-top:140rpx; 
 }
