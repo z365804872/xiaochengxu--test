@@ -14,13 +14,14 @@
     <view class="margin-t60 font-regular font-32 lheight-45 color-000">您感兴趣的品牌(选填)</view>
 
     <block wx:for="{{brandList}}" wx:for-item="item" wx:key="*this">
-        <view data-brandid="{{item.brandId}}"
+        <view hidden="{{item.hidden}}" data-brandid="{{item.brandId}}"
               catchtap="selectBrand"
                 class="flex-row-between margin-t60 font-regular font-36 lheight-50 color-000">
             <view class="opacity5">{{item.brandName}}</view>
             <checkbox checked="{{item.check}}"></checkbox>
         </view>
     </block>
+    <view catchtap="toggle"  class="flex-row-end font-24 color-333 margin-t40 lheight-33 margin-r18">更多品牌<text animation="{{animation}}" class="iconfont icon-jiaobiao margin-l10"></text></view>
 
     <!--<view class="flex-row-end margin-t40 font-24 font-light lheight-33 color-000">-->
         <!--<text>更多品牌</text><text class="iconfont icon-jiaobiao margin-l12 margin-r18"></text>-->
