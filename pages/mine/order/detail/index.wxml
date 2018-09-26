@@ -8,42 +8,42 @@
 
                 <!--我的求购start-->
                     <view wx:if="{{orderState == 1 && type == 1}}"
-                    class="margin-l10 padding-tb4 padding-lr12 bdra-200 font-semibold font-16 lheight-22 color-fff {{state == 0 ? 'bgc-orange' : 'bgc-blue'}}">
+                    class="margin-l10 padding-tb4 padding-lr12 bdra-200 font-semibold font-16 lheight-15 padding-tb6 color-fff {{state == 0 ? 'bgc-orange' : 'bgc-blue'}}">
                         {{ type == 1 && orderState == 1 && state == 0 ? '未付款' : '求购中'}}
                     </view>
                     <view wx:if="{{orderState == 2 && type == 1}}"
-                          class="margin-l10 padding-tb4 padding-lr12 bdra-200 font-semibold font-16 lheight-22 color-fff bgc-blue">
+                          class="margin-l10 padding-tb4 padding-lr12 bdra-200 font-semibold font-16 lheight-15 padding-tb6 color-fff bgc-blue">
                         交易中
                     </view>
                     <view wx:if="{{orderState == 3 && type == 1}}"
-                          class="margin-l10 padding-tb4 padding-lr12 bdra-200 font-semibold font-16 lheight-22 color-fff {{state == 2 ? 'bgc-green' : ''}}">
+                          class="margin-l10 padding-tb4 padding-lr12 bdra-200 font-semibold font-16 lheight-15 padding-tb6 color-fff {{state == 2 ? 'bgc-green' : ''}}">
                         {{state == 2 ? '已成交' : ''}}
                     </view>
                     <view wx:if="{{orderState == 4 && type == 1}}"
-                          class="margin-l10 padding-tb4 padding-lr12 bdra-200 font-semibold font-16 lheight-22 color-fff {{orderState == 4 ? 'bgc-grey' : ''}}">
+                          class="margin-l10 padding-tb4 padding-lr12 bdra-200 font-semibold font-16 lheight-15 padding-tb6 color-fff {{orderState == 4 ? 'bgc-grey' : ''}}">
                         {{ orderState == 4 ? '已过期' : ''}}
                     </view>
                     <!--我的求购end-->
 
                     <!--我的出售start-->
                     <view wx:if="{{orderState == 1 && type == 2}}"
-                          class="margin-l10 padding-tb4 padding-lr12 bdra-200 font-semibold font-16 lheight-22 color-fff bgc-blue">
+                          class="margin-l10 padding-tb4 padding-lr12 bdra-200 font-semibold font-16 lheight-15 padding-tb6 color-fff bgc-blue">
                         {{type == 2 ? '出售中' : ''}}
                     </view>
                     <view wx:if="{{orderState == 2 && type == 2}}"
-                          class="margin-l10 padding-tb4 padding-lr12 bdra-200 font-semibold font-16 lheight-22 color-fff bgc-blue">
-                        交易中
+                          class="margin-l10 padding-tb4 padding-lr12 bdra-200 font-semibold font-16 lheight-15 padding-tb6 color-fff bgc-blue">
+                        待发货
                     </view>
                     <view wx:if="{{orderState == 3 && type == 2}}"
-                          class="margin-l10 padding-tb4 padding-lr12 bdra-200 font-semibold font-16 lheight-22 color-fff {{state == 2 ? 'bgc-green' : ''}}">
+                          class="margin-l10 padding-tb4 padding-lr12 bdra-200 font-semibold font-16 lheight-15 padding-tb6 color-fff {{state == 2 ? 'bgc-green' : ''}}">
                         {{state == 2 ? '已成交' : ''}}
                     </view>
                     <view wx:if="{{orderState == 4 && type == 2}}"
-                          class="margin-l10 padding-tb4 padding-lr12 bdra-200 font-semibold font-16 lheight-22 color-fff {{orderState == 4 ? 'bgc-grey' : ''}}">
+                          class="margin-l10 padding-tb4 padding-lr12 bdra-200 font-semibold font-16 lheight-15 padding-tb6 color-fff {{orderState == 4 ? 'bgc-grey' : ''}}">
                         {{ orderState == 4 ? '已过期' : ''}}
                     </view>
                     <!--我的出售end-->
-                <!-- <view class="margin-l10 padding-tb4 padding-lr12 bdra-200 font-semibold font-16 lheight-22 color-fff">未付款</view> -->
+                <!-- <view class="margin-l10 padding-tb4 padding-lr12 bdra-200 font-semibold font-16 lheight-15 padding-tb6 color-fff">未付款</view> -->
             </view>
             <view class="font-light font-24 color-000 opacity5 lheight-33">{{convertedOrderTime}}</view>
         </view>
@@ -81,7 +81,7 @@
     </view>
 
     <view wx:if="{{type == 2}}" class="margin-t60">
-        <view class="flex-row_center"><text class="iconfont icon-shouyimingxi"></text><view class="margin-l10 font-regular font-32 lheight-40 color-000">价格明细</view></view>
+        <view class="flex-row_center"><text class="iconfont icon-shouyimingxi"></text><view class="margin-l10 font-regular font-32 lheight-40 color-000">收益明细</view></view>
         <view class="margin-t20 bgc-fa padding-20 lheight-40 font-light color-000 font-28">
             <view class="flex-row-between">
                 <view>服务费：</view>
@@ -95,7 +95,16 @@
     </view>
 
     <view class="margin-t60">
-        <view class="flex-row_center"><text class="iconfont icon-dizhi1"></text><view class="margin-l10 font-regular font-32 lheight-40 color-000">{{type == 1 ? '收货地址' : '寄货地址'}}</view></view>
+        <view class="flex-row-between flex-row_center">
+            <view class="flex-row">
+                <text class="iconfont icon-dizhi1"></text>
+                <view class="margin-l10 font-regular font-32 lheight-40 color-000">{{type == 1 ? '收货地址' : '寄货地址'}}</view>
+            </view>
+            <view wx:if="{{type == 2 && orderState == 2 && state == 1  && !express}}" class="flex-row">
+                <text class="iconfont icon-jinggao" ></text>
+                <view class="margin-l10 color-red font-24 font-semibold">请将商品寄到该地址,运费自理</view>
+            </view>
+        </view>
         <view class="margin-t20 bgc-fa padding-20 lheight-40 font-light color-000 font-28">
             <view class="flex-row">
                 <view>收货人：{{expressName}}</view>
