@@ -11,7 +11,7 @@
 				{{orderData.shoesName}}
 			</view>
 			<view class="info-time">
-				{{orderData.shoesArticleNumber}} {{detailData.sellDate}}
+				{{orderData.shoesArticleNumber}}　{{detailData.sellDate}}
 			</view>
 			<view class="info-price">
 				<view class="price-num">
@@ -50,10 +50,11 @@
 				class="input-class"
 				type="number" maxlength="6" placeholder="0.00"/>
 			</view>
+
+		</view>
 			<view class="content-reference pos-abs right0" wx:if="{{baytab==1}}">
 				参考价：￥{{detailData.referencePrice}}
-			</view>
-		</view>
+			</view>		
 		<!-- <view class="content-price" wx:if="{{baytab==1}}">
 			<label for="input2">￥</label><input value="{{options.shoesCost ? options.shoesCost : ''}}" name="input2" bindinput="bindKeyInput" onkeyup="value=value.replace(/[^/d]/g,'') " type="number" maxlength="6" placeholder="0.00"/>
 		</view>
@@ -280,7 +281,7 @@
 
 	<view class="bottom-btn-box">
 		<view  class="bottom-btn"  wx:if="{{orderType==2&&baytab==0}}"  data-index="3" bindtap="toPay">
-			去付款(￥{{defaultPrise}})
+			去付款(￥{{defaultPrises||defaultPrise}})
 		</view>
 		<view  class="bottom-btn "
 			   style="{{options.shoesCost ? 'background-color: #5DBCFF' : ''}}"

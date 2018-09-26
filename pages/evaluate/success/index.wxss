@@ -25,6 +25,5 @@
     color: #666;
     text-align: center;
     line-height: 120rpx;
-    border-top: 1rpx solid #eee;
-    box-shadow: 0 0 8px 0 ;
+    box-shadow: 0 0 8px 0 #eee;
 }

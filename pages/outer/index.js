@@ -14,7 +14,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(!(options.viewId==5||options.viewId==4||options.viewId==3||options.viewId==2||options.viewId==1))
+    console.log(options.viewId)
+    if(options.viewId==4){
+      wx.setNavigationBarTitle({
+        title: "鉴定规则"//页面标题为路由参数
+      })
+    }
     this.setData({
       viewId: options.viewId,
       flag:!(options.viewId==5||options.viewId==4||options.viewId==3||options.viewId==2||options.viewId==1)

@@ -131,6 +131,9 @@ Page({
           }
         } 
       })
+      wx.setNavigationBarTitle({
+        title: "补充细节"//页面标题为路由参数
+      })
     }
 
     console.log(options.brandid)

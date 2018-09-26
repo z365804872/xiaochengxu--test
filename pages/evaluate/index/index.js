@@ -11,7 +11,8 @@ Page({
     dataList: [],
     listFlag: true,
     page: 1,
-    isIphoneX: wx.isIphoneX
+    isIphoneX: wx.isIphoneX,
+    typeFixed:false
   },
 
   /**
@@ -187,6 +188,21 @@ Page({
                 url: `/pages/${type}/index/index`
             })
         })
+
+    },
+    onPageScroll:function(e){
+   //当滚动位置大于190px并且typeFixed为true时,setData不再执行，可有效避免页面的卡顿，以及吸顶时页面的抖动
+        if (e.scrollTop >= 185 && !this.data.typeFixed){
+            this.setData({
+              typeFixed: true
+            })
+            console.log(e.scrollTop)
+        } else if (e.scrollTop < 185 && this.data.typeFixed){
+          this.setData({
+            typeFixed:false
+          })
+          console.log(e.scrollTop)
+        }
 
     }
 })

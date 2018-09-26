@@ -105,11 +105,11 @@
 				加载更多
 			</view>
 		</view>
-		<!--  
+
 			<view class="sellList-box-no" wx:else>
-				<view>暂无{{chooseTab==1?"成交":chooseTab==2?"出售":"求购"}}商品</view>
+				<view><text class="iconfont icon-xiangq"></text> 暂无{{chooseTab==1?"成交":chooseTab==2?"出售":"求购"}}商品</view>
 			</view>	
-		-->	
+
 	</view>
 
 	<!-- 底部 -->
