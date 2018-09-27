@@ -1,5 +1,5 @@
 <!--pages/mine/order/detail/index.wxml-->
-<view class="padding-lr30">
+<view class="padding-lr30 padding-b100">
     <view class="border-b2">
         <view class="flex-row-between flex-row_center padding-tb30 border-b2">
             <view class="flex-row_center">
@@ -116,7 +116,7 @@
         </view>
     </view>
 </view>
-<view wx:if="{{type == 1 && orderState == 1 && state == 0 || type == 2 && orderState == 1 && state == 3}}" class="margin-t60 width100 padding-tb18 padding-lr30 bgc-FE9B48 font-regular font-24 lheight-33 color-fff flex-row_center">
+<view wx:if="{{type == 1 && orderState == 1 && state == 0 || type == 2 && orderState == 1 && state == 3}}"  class="pos-fixed bottom-120 width100 padding-tb18 padding-lr30 bgc-FE9B48 font-regular font-24 lheight-33 color-fff flex-row_center">
     <text class="iconfont icon-jinggaox margin-r18"></text>20分钟后订单失效！
     <!-- {{stateInfo}} -->
 </view>
