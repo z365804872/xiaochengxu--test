@@ -231,7 +231,7 @@ Page({
             api: 'shoesDetail',
             data: { shoesId: shoesId }
         }).then(res => {
-            res.defaultSize = Number(res.defaultSize)
+            res.defaultSize = Number(shoesSize) || Number(res.defaultSize)
             for (let i in res.sizeList) {
                 if (res.sizeList[i].sellMoney > 0) {
                     res.sizeList[i].sellMoney = "￥" + res.sizeList[i].sellMoney.toFixed(2);
@@ -319,7 +319,7 @@ Page({
             data: { shoesId: shoesId }
         }).then(res => {
             console.log(res)
-            res.defaultSize = Number(res.defaultSize)
+            res.defaultSize = Number(shoesSize) || Number(res.defaultSize)
             for (let i in res.sizeList) {
                 if (res.sizeList[i].sellMoney > 0) {
                     res.sizeList[i].sellMoney = "￥" + res.sizeList[i].sellMoney.toFixed(2);

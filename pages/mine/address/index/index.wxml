@@ -15,7 +15,7 @@
               class="flex-row">
             <view class="flex1 height-220 font-light padding-lr30 border-b2 flex-column-center">
                 <view class="flex-row-between font-28 font-light color-000 lheight-40">
-                    <view class="flex-row_center"><text>{{item.name}}</text><text wx:if="{{item.defaultAddress}}" class="lheight-30 bgc-000 lheight-30 font-16 font-semibold color-fff margin-l30 padding-lr4">默认地址</text></view>
+                    <view class="flex-row_center"><text>{{item.name}}</text><text wx:if="{{item.defaultAddress}}" class=" bgc-000 lheight-15 font-16 padding-tb8 font-semibold color-fff margin-l30 padding-lr12">默认地址</text></view>
                     <view>{{item.mobile}}</view>
                 </view>
                 <view class="margin-t20">{{item.address}} {{item.detailAddress}}</view>

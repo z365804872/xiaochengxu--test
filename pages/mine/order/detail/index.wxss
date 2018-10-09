@@ -43,3 +43,7 @@ page text.icon-jinggaox{
     min-width: 144rpx;
     text-align: center;
 }
+
+.icon-jinggao{
+    color: #FF484A!important;
+}

@@ -8,7 +8,9 @@ Page({
     /**
      * 页面的初始数据
      */
-    data: {},
+    data: {
+        toggle: false
+    },
 
     /**
      * 生命周期函数--监听页面加载
@@ -27,6 +29,13 @@ Page({
             api: 'defaultSizeAndBrand'
         }).then(res => {
             console.log(res)
+
+            if(res && res.brandList){
+                res.brandList.forEach((brand, index) => {
+                    brand.hidden = index > 3
+                })
+            }
+
             that.setData({...res})
         })
     },
@@ -101,6 +110,41 @@ Page({
 
     onUnload(){
         if(timer !== null) clearTimeout(timer)
+    },
+
+    toggle(){
+        !this.data.toggle ? this.rotateUp() : this.rotateDown();
+        this.data.toggle = !this.data.toggle;
+    },
+
+    rotateUp(){
+        let {brandList} = this.data;
+
+        brandList.forEach(brand => {
+            brand.hidden = false;
+        })
+
+        let animation = wx.createAnimation();
+        animation.rotate(-90).step();
+        this.setData({
+            animation: animation.export(),
+            brandList
+        })
+    },
+
+    rotateDown(){
+        let {brandList} = this.data;
+
+        brandList.forEach((brand, index) => {
+            brand.hidden = index > 3;
+        })
+
+        let animation = wx.createAnimation();
+        animation.rotate(90).step();
+        this.setData({
+            animation: animation.export(),
+            brandList
+        })
     }
 
 })

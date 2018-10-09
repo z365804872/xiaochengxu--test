@@ -509,6 +509,19 @@ Page({
           },
           'fail': function (res) {
             console.log(res)
+
+              if(res.errMsg === 'requestPayment:fail cancel'){
+              wx.showLoading({title:res.errMsg})
+                  if (that.data.orderType == 2) {
+                      wx.redirectTo({
+                          url: `/pages/mine/order/list/index?type=1`
+                      });
+                  } else {
+                      wx.redirectTo({
+                          url: `/pages/mine/order/list/index?type=2`
+                      });
+                  }
+              }
           }
         })
 

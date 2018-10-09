@@ -232,6 +232,16 @@
     padding-bottom: 4rpx;
 }
 
+.padding-tb6{
+    padding-top: 6rpx;
+    padding-bottom: 6rpx;
+}
+
+.padding-tb8{
+    padding-top: 8rpx;
+    padding-bottom: 8rpx;
+}
+
 .padding-b100{
     padding-bottom: 100rpx;
 }
@@ -650,6 +660,15 @@ button::after{
 .lheight-22{
     line-height: 22rpx;
 }
+
+.lheight-16{
+    line-height: 16rpx;
+}
+
+.lheight-15{
+    line-height: 15rpx;
+}
+
 /**********************color*******************************************************/
 .color-blue{
   color: #5DBCFF;
