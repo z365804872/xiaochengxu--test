@@ -82,7 +82,7 @@ page{
 .input-box input{
     width: 750rpx;
     height: 120rpx;
-
+    padding-left: 30rpx;
 }
 .place-holder{
     text-align: left;
@@ -90,7 +90,6 @@ page{
     opacity: 1;
     font-size: 28rpx;
     line-height: 120rpx;
-    padding-left: 30rpx;
 }
 
 .disabled{
