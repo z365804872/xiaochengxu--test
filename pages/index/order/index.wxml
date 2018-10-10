@@ -42,12 +42,13 @@
 		<view class="content-price"  wx:if="{{baytab==0}}">
 				￥{{defaultPrise}}
 		</view>
-		<view class="padding-t60 padding-b40 flex-row-end flex-row_center pos-rel" wx:if="{{baytab==1}}">
+		<view class="padding-t35 padding-b40 flex-row-end flex-row_center pos-rel" wx:if="{{baytab==1}}">
 			<view class="flex1 flex-center">
 				<text class="font-semibold font-44 color-000 opacity5 ">￥</text>
 				<input value="{{options.shoesCost ? options.shoesCost : ''}}" 
 				name="input2" bindinput="bindKeyInput" onkeyup="value=value.replace(/[^/d]/g,'') " 
 				class="input-class"
+				placeholder-class="placeholder"
 				type="number" maxlength="6" placeholder="0.00"/>
 			</view>
 
@@ -173,7 +174,7 @@
 						<text class="address-left">收货人：{{addressList.name}}</text><text class="address-right">手机号：{{addressList.mobile}}</text>
 					</view>
 					<view class="order-address-bottom">
-						<text>{{addressList.address}} {{addressList.detailAddress}}</text>
+						<text>地址：{{addressList.address}} {{addressList.detailAddress}}</text>
 					</view>
 				</view>				
 				<text class="iconfont icon-jiaobiao iconjiaobiao"></text>

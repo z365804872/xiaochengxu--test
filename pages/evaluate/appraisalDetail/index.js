@@ -30,7 +30,6 @@ Page({
           imgArr.push(res[i])
         }
       }
-      console.log(imgArr)
       this.setData({
         dataList: res,
         imgArr
@@ -52,7 +51,6 @@ Page({
     
   },
   previewImg:function(e){
-    console.log(e.currentTarget.dataset.index);
     var index = e.currentTarget.dataset.index;
     var imgArr = this.data.imgArr;
     wx.previewImage({

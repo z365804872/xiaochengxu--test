@@ -52,7 +52,7 @@
             </view>
 
         </view>
-        <view class="user-qustion">
+        <view wx:if="{{dataList.content}}" class="user-qustion">
             Q：{{dataList.content}}
         </view>
         <view class="photo-box">

@@ -460,10 +460,20 @@ text.iconfont {
   border: 1rpx solid #5DBCFF;
 
 }
-.input-class{
+.order-content .input-class{
   max-width: 130rpx;
   min-width: 44rpx;
-  font-size: 44rpx;
-  line-height: 44rpx;
+  font-size: 40rpx;
+  line-height: 40rpx;
   height: 44rpx;
+  font-family: PingFangSC-Regular;
+}
+.order-content .placeholder{
+  font-size: 40rpx;
+  line-height: 40rpx;
+  height: 44rpx;
+  font-family: PingFangSC-Regular;
+}
+.padding-t35{
+  padding-top: 35rpx;
 }
