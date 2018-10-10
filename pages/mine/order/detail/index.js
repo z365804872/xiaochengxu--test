@@ -71,7 +71,7 @@ Page({
 
     cancelOrder1(e){
         let that = this
-        let {type, orderState, state, orderId} = that.data
+        let {type, orderState, state, orderId, buyOrSellId} = that.data
 
         if(type == 1 && orderState == 2 && state == 0){
             wx.showModal({
@@ -81,7 +81,7 @@ Page({
                     if (res.confirm) {
                         wx.post({
                             api: 'cancellOfOrder',
-                            data: {type: 3, orderId},
+                            data: {type: 3, buyOrSellId: orderId},
                             toastResult: true
                         }).then(res => {
                             wx.showToast({title: String(res)})
