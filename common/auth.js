@@ -64,7 +64,7 @@ class Auth {
         console.log(e)
         let that = this
         if (!!e && e.type === "getuserinfo" && !!e.detail.userInfo) {
-            wx.showLoading({title: '授权中'})
+            wx.showLoading({title: '加载中'})
             try{
                 wx.setStorageSync(WX_USER_INFO, e.detail.userInfo)
                 wx.setStorageSync(WX_ENCRYPTED_INFO, e.detail)
