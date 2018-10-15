@@ -2,7 +2,7 @@
 <view class="container">
 	<view class="order-header">
 		<view class="order-image">
-			<view style="width:275rpx;height:200rpx;margin-top:30rpx;  background: url('{{orderData.photo}}'); background-size:275rpx 200rpx;background-repeat:no-repeat;">
+			<view style="width:275rpx;height:146rpx;margin-top:57rpx;  background: url('{{orderData.photo}}'); background-size:275rpx 146rpx;background-repeat:no-repeat;">
 				
 			</view>
 		</view>
