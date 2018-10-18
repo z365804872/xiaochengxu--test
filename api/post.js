@@ -185,7 +185,10 @@ export default {
         path: '/deleteHisContent',
         needUid
     },
-    
+    "addFormId": {
+        title: '发布鉴定新增',
+        path: '/addFormId'
+    }
     
 
 }

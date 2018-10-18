@@ -1,5 +1,6 @@
 // pages/evaluate/index/index.js
 import auth from '../../../common/auth';
+import {OPEN_ID} from "../../../common/constants";
 
 Page({
 
@@ -204,5 +205,18 @@ Page({
           console.log(e.scrollTop)
         }
 
+    },
+
+    saveFormId(e){
+      console.log(e)
+        let formId = e.detail.formId;
+        let openId = wx.getStorageSync(OPEN_ID) || '';
+
+        wx.post({
+          api: 'addFormId',
+          data: {formId, openId}
+        }).then(res => {
+              console.log(res)
+            })
     }
 })
