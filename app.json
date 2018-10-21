@@ -27,7 +27,8 @@
     "pages/evaluate/appraisalDetail/index",
     "pages/evaluate/success/index",
     "pages/outer/index",
-    "pages/index/activity/index"
+    "pages/index/activity/index",
+    "pages/cutPrice/index/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
