@@ -1,0 +1,1 @@
+export  let phoneRegExp = /^1\d{10}$/

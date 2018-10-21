@@ -1,0 +1,236 @@
+/**index.wxss**/
+.container{
+  background: #f7f7f7;
+  padding-bottom: 100rpx;
+}
+.section{
+  width: 100%;
+}
+.searchBar{
+  display: flex;
+  justify-content: center;
+  height: 100rpx;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  z-index:500;
+}
+.section-swiper{
+  margin-top: 100rpx;
+}
+.searchBar .searBar-box{
+  display: inline-block;
+  width: 710rpx;
+  height: 64rpx;
+  margin-top: 19rpx;
+  background: #f7f7f7;
+  position: relative;
+}
+.searchBar .searBar-box input{
+  height: 64rpx;
+  padding-left:60rpx;
+  font-size:28rpx;
+}
+.searBar-box.tap{
+  background: rgba(255,247,231,.9);
+}
+page .icon-sousuo{
+  position: absolute;
+  left:15rpx;
+  top: 15rpx;
+  color: #999999;
+}
+.search-plac{
+  text-align: left;
+  font-size: 11pt;
+  opacity: 1;
+  color: #999999;
+  background: #f7f7f7;
+  font-size: 28rpx;
+}
+.searBar-box .search-icon{
+  position: absolute;
+  left: 20rpx;
+  top: 19rpx;
+  width: 30rpx;
+  height: 30rpx;
+  z-index: 1000;
+}
+
+.section-swiper .slide{
+  width: 100%;
+  height: 360rpx;
+}
+.section-swiper .slide-image{
+  width: 100%;
+  height: 360rpx;
+  display: block;
+}
+
+
+.navBar{
+  height: 124rpx;
+  background: #f7f7f7;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+.nav-list{
+  background: #fff;
+  float: left;
+  width: 216rpx;
+  height: 124rpx;
+}
+.nav-list-more{
+  background: #fff;
+  float: right;
+  width: 100rpx;
+  height: 124rpx;
+}
+.nav-item{
+  width: 216rpx;
+  height: 124rpx;
+  text-align:center;
+  line-height:184rpx;
+  font-family: PingFangSC-Semibold;
+  font-size: 24rpx;
+  color: #333333;
+}
+.nav-item-more{
+  width: 100rpx;
+  height: 124rpx;
+  text-align:center;
+  line-height:184rpx;
+  font-family: PingFangSC-Semibold;
+  font-size: 24rpx;
+  color: #333333;
+}
+
+.index-enter{
+  height: 200rpx;
+  background: #fff;
+}
+.index-enter-left{
+  float: left;
+  width: 346rpx;
+  height: 160rpx;
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+}
+.index-enter-right{
+  float: right;
+  width: 346rpx;
+  height: 160rpx;
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+}
+.enter-text-left{
+  color: #fff;
+  text-align: center;
+  display: block;
+  margin-top: 90rpx;
+  width: 346rpx;
+  position: absolute;
+  font-size: 24rpx;
+  z-index: 1;
+}
+.enter-text-right{
+  color: #fff;
+  text-align: center;
+  display: block;
+  margin-top: 90rpx;
+  width: 346rpx;
+  position: absolute;
+  font-size: 24rpx;
+  z-index: 1;
+}
+
+/**列表**/
+.index-list{
+  width: 100%;
+  background: #fff;
+  margin-top: 10rpx;
+}
+.list-title{
+  height: 70rpx;
+  padding-top: 20rpx;
+}
+.list-title .list-text-c{
+  display: block;
+  font-family: PingFangSC-Semibold;
+  font-size: 32rpx;
+  color: #3C407E;
+  text-align: center;
+  font-weight: 600;
+}
+.list-title .list-text-e{
+  display: block;
+  opacity: 0.4;
+  font-size: 32rpx;
+  color: #3C407E;
+  text-align: center;
+  margin-top:-10rpx;
+}
+.list-content{
+  overflow: hidden;
+  background: #fff;
+}
+.list-content-list{
+  width: 346rpx;
+  height: 333rpx;
+  background: #fff;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+  border-radius:10rpx;
+  overflow:hidden;
+  position: relative;
+  box-shadow: 0 2rpx 12rpx 0 rgba(0,0,0,0.10);
+}
+.list-content-list:nth-child(2n){
+  float: left;
+  margin-left: 20rpx;
+}
+.list-content-list:nth-child(2n+1){
+  float: right;
+  margin-right: 20rpx;
+}
+.list-item-image{
+  height: 186rpx;
+  width: 346rpx;
+}
+.list-item-name{
+  width: 306rpx;
+  height: 56rpx;
+  font-size: 24rpx;
+  color: #333333;
+  padding: 12rpx 20rpx;
+  opacity: 0.8;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.list-sale-qiugou{
+  width: 346rpx;
+  height: 67rpx;
+}
+.list-item-price{
+  line-height: 67rpx;
+  text-align: left;
+  font-size: 28rpx;
+  color: #E71418;
+  position: absolute; 
+  bottom: 0;
+  left: 20rpx;
+  opacity: 0.8;
+}
+.list-sale-qiugou{
+  text-align: right;
+  font-size: 16rpx;
+  color: #333333;
+  opacity: 0.4;
+  position: absolute;
+  bottom: 7rpx;
+  right: 20rpx;
+  height:30rpx;
+
+}

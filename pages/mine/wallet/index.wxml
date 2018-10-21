@@ -1,0 +1,41 @@
+<!--pages/mine/account/index.wxml-->
+<view>
+    <view class="flex-column-center-center height-216 border-b2 bgc-fa">
+        <view class="font-semibold font-44 lheight-62 color-000">{{totalMoneyStd}}</view>
+        <view class="font-light font-24 lheight-33 color-000 opacity5">账户总额(元)</view>
+    </view>
+    <view class="padding-lr30">
+        <view class="flex-row_center height-164 border-b2">
+            <view class="flex-column-center-center flex1">
+                <view class="font-semibold font-36 lheight-50 color-000">{{moneyStd}}</view>
+                <view class="font-light font-24 lheight-33 color-000 opacity5">可提现金额(元)</view>
+            </view>
+            <view class="flex-column-center-center flex1">
+                <view class="font-semibold font-36 lheight-50 color-000">{{forzenMoneyStd}}</view>
+                <view class="font-light font-24 lheight-33 color-000 opacity5">已冻结金额(元)</view>
+            </view>
+        </view>
+
+        <view catchtap="toCoupon" class="flex-row_center flex-row-between height-160 border-b2">
+            <view class="flex-row_center">
+                <text class="iconfont icon-wodeliquan"></text>
+                <text class="margin-l16 font-regular font-28">我的礼券</text>
+            </view>
+            <view><text class="iconfont icon-jiaobiao"></text></view>
+        </view>
+
+        <view catchtap="toTradeList" class="flex-row_center flex-row-between height-160 border-b2">
+            <view class="flex-row_center">
+                <text class="iconfont icon-jiaoyimingxi"></text>
+                <text class="margin-l16 font-regular font-28">交易明细</text>
+            </view>
+            <view><text class="iconfont icon-jiaobiao"></text></view>
+        </view>
+
+        <view class="bgc-fa margin-t20 padding-20 lheight-40 font-regular font-28 color-000 opacity4">
+            <view class="lheight-40"><text class="iconfont icon-jianding1"></text><text class="margin-l20" >提现说明</text></view>
+            <view class="margin-t10">提现功能只在SNCN官方APP开放</view>
+            <view>请下载SneakerCN官方APP，体验更多精彩</view>
+        </view>
+    </view>
+</view>

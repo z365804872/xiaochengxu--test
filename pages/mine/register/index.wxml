@@ -1,0 +1,31 @@
+<!--pages/mine/register/index.wxml-->
+<view class="container">
+    <view class="logo">
+        <image src="../../../images/register_logo.png"></image>
+    </view>
+    <form bindsubmit="login">
+        <view class="phone">
+            <text class="iconfont icon-shoujihao1"></text>
+            <input type="number"
+                   name="phone"
+                   maxlength="11"
+                   bindblur="savePhone"
+                   placeholder-class="input-placeholder"
+                   placeholder="请填写手机号"/>
+        </view>
+        <view class="password">
+            <text class="iconfont icon-yanzhengma"></text>
+            <input type="number"
+                   name="smsCode"
+                   maxlength="6"
+                   placeholder-class="input-placeholder"
+                   placeholder="请填写短信验证码"/>
+            <button class="btn btn-sms {{hasSendedSms ? 'send-sms' : ''}}"
+                    catchtap="{{hasSendedSms ? '' : 'sendSms'}}">{{hasSendedSms ? countDownDesc : '发送'}}
+            </button>
+        </view>
+        <button form-type="submit" class="btn btn-submit">登录</button>
+    </form>
+</view>
+
+

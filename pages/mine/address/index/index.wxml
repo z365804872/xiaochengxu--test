@@ -1,0 +1,43 @@
+<!--pages/mine/address/index.wxml-->
+<view wx:if="{{addressList.length}}">
+
+    <block wx:for="{{addressList}}"
+           wx:for-item="item"
+           wx:for-index="index"
+           wx:key="{{item.mobile}}">
+        <view bindtouchstart="handleTouchStart"
+              bindtouchmove="handleTouchMove"
+              bindtouchend="handleTouchEnd"
+              bindtap="toOrder"
+              style="{{item.changeAndDel ? 'margin-left: -200rpx;' : ''}}"
+              data-index="{{index}}"
+              data-addressid="{{item.addressId}}"
+              class="flex-row">
+            <view class="flex1 height-220 font-light padding-lr30 border-b2 flex-column-center">
+                <view class="flex-row-between font-28 font-light color-000 lheight-40">
+                    <view class="flex-row_center"><text>{{item.name}}</text><text wx:if="{{item.defaultAddress}}" class=" bgc-000 lheight-15 font-16 padding-tb8 font-semibold color-fff margin-l30 padding-lr12">默认地址</text></view>
+                    <view>{{item.mobile}}</view>
+                </view>
+                <view class="margin-t20">{{item.address}} {{item.detailAddress}}</view>
+            </view>
+            <view hidden="{{!item.changeAndDel}}" catchtap="deleteAddress" data-addressid="{{item.addressId}}" class="width-120 flex-center bgc-ff4 color-fff font-semibold font-32">删除</view>
+            <view hidden="{{!item.changeAndDel}}" catchtap="changeAddress" data-index="{{index}}" class="width-120 flex-center bgc-d1c color-fff font-semibold font-32">编辑</view>
+        </view>
+
+    </block>
+
+    <!--<view class="flex-row" style="margin-left: -200rpx;">-->
+        <!--<view class="flex1 height-220 font-light padding-lr30 border-b2 flex-column-center">-->
+            <!--<view class="flex-row-between font-28 font-light color-000 lheight-40">-->
+                <!--<view class="flex-row_center"><text>马跃峰</text><text class="lheight-30 bgc-000 lheight-30 font-16 font-semibold color-fff margin-l30 padding-lr4">默认地址</text></view>-->
+                <!--<view>186 6289 0960</view>-->
+            <!--</view>-->
+            <!--<view class="margin-t20">江苏省 海门市 长江新城608幢208室</view>-->
+        <!--</view>-->
+        <!--<view  class="width-120 flex-center bgc-ff4 color-fff font-semibold font-32">删除</view>-->
+        <!--<view class="width-120 flex-center bgc-d1c color-fff font-semibold font-32">编辑</view>-->
+    <!--</view>-->
+</view>
+
+<button catchtap="addAddress"
+        class="height-120 font-regular font-32 flex-center color-000 pos-fixed bottom0 width100 bgc-fff add-address-btn">新增地址</button>

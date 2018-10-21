@@ -1,0 +1,301 @@
+<!--index.wxml-->
+<view class="container">
+	<view class="order-header">
+		<view class="order-image">
+			<view style="width:275rpx;height:146rpx;margin-top:57rpx;  background: url('{{orderData.photo}}'); background-size:275rpx 146rpx;background-repeat:no-repeat;">
+				
+			</view>
+		</view>
+		<view class="order-info">
+			<view class="info-name">
+				{{orderData.shoesName}}
+			</view>
+			<view class="info-time">
+				{{orderData.shoesArticleNumber}}　{{detailData.sellDate}}
+			</view>
+			<view class="info-price">
+				<view class="price-num">
+					￥{{orderData.sellMoney}}
+				</view>
+				<view class="price-type">
+					发售价
+				</view>
+			</view>
+		</view>		
+	</view>
+	<view class="order-content" wx:if="{{orderType==2}}">
+		<view class="content-tab">
+			<view class="tab-like" bindtap="changeTab1">
+				<view class="{{baytab==0?'active':''}}">
+					立刻购买
+				</view> 
+			</view>
+			<view class="tab-qiugou" bindtap="changeTab2">
+				<view class="{{baytab==1?'active':''}}">
+					我要求购
+				</view>
+			</view>
+		</view>
+		<view class="content-selectSize" bindtap="showModal">
+				{{detailData.defaultSize}}码 <view id="triangle-down"></view>
+		</view>
+		<view class="content-price"  wx:if="{{baytab==0}}">
+				￥{{defaultPrise}}
+		</view>
+		<view class="padding-t35 padding-b40 flex-row-end flex-row_center pos-rel" wx:if="{{baytab==1}}">
+			<view class="flex1 flex-center">
+				<text class="font-semibold font-44 color-000 opacity5 ">￥</text>
+				<input value="{{options.shoesCost ? options.shoesCost : ''}}" 
+				name="input2" bindinput="bindKeyInput" onkeyup="value=value.replace(/[^/d]/g,'') " 
+				class="input-class"
+				placeholder-class="placeholder"
+				type="number" maxlength="6" placeholder="0.00"/>
+			</view>
+
+		</view>
+			<view class="content-reference pos-abs right0" wx:if="{{baytab==1}}">
+				参考价：￥{{detailData.referencePrice}}
+			</view>		
+		<!-- <view class="content-price" wx:if="{{baytab==1}}">
+			<label for="input2">￥</label><input value="{{options.shoesCost ? options.shoesCost : ''}}" name="input2" bindinput="bindKeyInput" onkeyup="value=value.replace(/[^/d]/g,'') " type="number" maxlength="6" placeholder="0.00"/>
+		</view>
+		<view class="content-reference" wx:if="{{baytab==1}}">
+			参考价：￥{{detailData.referencePrice}}
+		</view> -->
+	</view>
+
+	<view class="order-content" wx:if="{{orderType==1}}">
+		<view class="content-tab">
+			<view class="tab-like" bindtap="changeTab1">
+				<view class="{{baytab==0?'active':''}}">
+					我要出售
+				</view> 
+			</view>
+			<view class="tab-qiugou" bindtap="changeTab2">
+				<view class="{{baytab==1?'active':''}}">
+					快速出售
+				</view>
+			</view>
+		</view>
+		<view class="content-selectSize" bindtap="showModal" wx:if="{{baytab==0}}">
+				{{detailData.defaultSize}}码 <view id="triangle-down"></view>
+		</view>
+
+		<view class="margin-t60 margin-b40 flex-row-end flex-row_center pos-rel" wx:if="{{baytab==0}}">
+			<view class="flex1 flex-center">
+				<text class="font-semibold font-44 color-000 opacity5 ">￥</text>
+				<!-- <input value="{{options.shoesCost ? options.shoesCost : ''}}" 
+				name="input2" bindinput="bindKeyInput" onkeyup="value=value.replace(/[^/d]/g,'') " 
+				class="input-class"
+				type="number" maxlength="6" placeholder="0.00"/> -->
+				<input class="input-class" maxlength="6" value="{{options.shoesCost ? options.shoesCost : ''}}" name="input2" bindinput="bindKeyInput" type="digit" placeholder="0.00"/>
+			</view>
+			<view class="content-reference pos-abs right0" >
+				参考价：￥{{detailData.referencePrice}}
+			</view>
+			<!-- <view class="content-price" wx:if="{{baytab==1}}">
+				<label for="input2">￥</label><input value="{{options.shoesCost ? options.shoesCost : ''}}" name="input2" bindinput="bindKeyInput" onkeyup="value=value.replace(/[^/d]/g,'') " type="number" maxlength="6" placeholder="0.00"/>
+			</view>
+			<view class="content-reference" wx:if="{{baytab==1}}">
+				参考价：￥{{detailData.referencePrice}}
+			</view> -->
+		</view>
+
+
+		<!-- <view class="content-price" wx:if="{{baytab==0}}">
+				<label for="input2">￥</label><input value="{{options.shoesCost ? options.shoesCost : ''}}" name="input2" bindinput="bindKeyInput" type="digit" placeholder="0.00"/>
+		</view>
+		<view class="content-reference" wx:if="{{baytab==0}}">
+			参考价：￥{{detailData.referencePrice}}
+		</view> -->
+		<view  class="content-sellmoney"  wx:if="{{baytab==1}}">
+			<view class="sellmoney-left">
+				{{detailData.defaultSize}}
+			</view>
+			<view class="sellmoney-right">
+				<view class="sellmoney-money">
+					<view  class="sellmoney-money2">买家出价</view><view  class="sellmoney-money1">￥{{orderData.fastSell.wantBuyMoney}}</view>
+				</view>
+				<view class="sellmoney-time">
+					{{orderData.fastSell.wantBuyDate}}
+				</view>
+			</view>
+
+		</view>
+	</view>	
+
+
+
+	<view class="order-bottom" wx:if="{{orderType==2}}">
+		<view class="order-liquan" wx:if="{{baytab==0}}">
+			<view class="order-liquan-title">
+			   	<text class="iconfont icon-wodeliquan"></text>	礼券选择
+			</view>
+			<view class="order-liquan-content"  bindtap="toCoupon">
+				<view class="order-liquan-none">
+					<text class="none-left">礼券:</text><text class="none-right">{{couponName}}</text>
+				</view>
+				<text class="iconfont icon-jiaobiao iconjiaobiao2"></text>
+			</view>
+		</view>
+
+		<view class="order-qiugouTime" wx:if="{{baytab==1}}">
+			<view class="order-liquan-title">
+			   	<text class="iconfont icon-chushoushijian"></text>	求购时间
+			</view>
+			<view class="order-liquan-content">
+				<view class="order-liquan-none">
+					<view class="tab-long"  bindtap="changeTime" data-index="1000">
+						<view class="{{selectDay==1000?'actives':''}}">
+							长期
+						</view> 
+					</view>
+					<view class="tab-three" bindtap="changeTime" data-index="3">
+						<view class="{{selectDay==3?'actives':''}}">
+							3天
+						</view>
+					</view>
+					<view class="tab-seven" bindtap="changeTime" data-index="7">
+						<view class="{{selectDay==7?'actives':''}}">
+							7天
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+
+		<view class="order-address">
+			<view class="order-address-title">
+			   	<text class="iconfont icon-dizhi1"></text>	收货地址
+			</view>
+			<view class="order-address-content" wx:if="{{addressList}}" bindtap="toAddress">
+				<view class="order-address-has">
+					<view  class="order-address-top">
+						<text class="address-left">收货人：{{addressList.name}}</text><text class="address-right">手机号：{{addressList.mobile}}</text>
+					</view>
+					<view class="order-address-bottom">
+						<text>地址：{{addressList.address}} {{addressList.detailAddress}}</text>
+					</view>
+				</view>				
+				<text class="iconfont icon-jiaobiao iconjiaobiao"></text>
+			</view>
+
+			<view class="order-address-content" wx:else  bindtap="toAddress">
+				<view class="order-address-has" style="line-height:140rpx;margin-left:20rpx;">
+					新增地址
+				</view>				
+				<text class="iconfont icon-jiaobiao iconjiaobiao"></text>
+			</view>
+		</view>
+		<view class="order-illustrate">
+			<navigator url="/pages/outer/index?viewId=1" hover-class="none">
+				<text class="iconfont icon-jianding1"></text> 交易说明<text class="iconfont icon-jiaobiao iconjiaobiao1"></text>
+			</navigator>
+		</view>
+	</view>
+
+
+	<view class="order-bottom" wx:if="{{orderType==1}}">
+		<view class="order-qiugouTime" wx:if="{{baytab==0}}">
+			<view class="order-liquan-title">
+			   	<text class="iconfont icon-wodeliquan"></text>	出售时间
+			</view>
+			<view class="order-liquan-content">
+				<view class="order-liquan-none">
+					<view class="tab-long"  bindtap="changeTime" data-index="1000">
+						<view class="{{selectDay==1000?'actives':''}}">
+							长期
+						</view> 
+					</view>
+					<view class="tab-three" bindtap="changeTime" data-index="3">
+						<view class="{{selectDay==3?'actives':''}}">
+							3天
+						</view>
+					</view>
+					<view class="tab-seven" bindtap="changeTime" data-index="7">
+						<view class="{{selectDay==7?'actives':''}}">
+							7天
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+
+
+		<view class="order-liquan" wx:if="{{baytab==0}}">
+			<view class="order-liquan-title">
+			   	<text class="iconfont icon-wodeliquan"></text>	礼券选择
+			</view>
+			<view class="order-liquan-content"  bindtap="toCoupon">
+				<view class="order-liquan-none">
+					<text class="none-left">礼券:</text><text class="none-right">{{couponName}}</text>
+				</view>
+				<text class="iconfont icon-jiaobiao iconjiaobiao2"></text>
+			</view>
+		</view>
+
+
+
+		<view class="order-address">
+			<view class="order-address-title">
+			   	<text class="iconfont icon-dizhi1"></text>	收益明细
+			</view>
+			<view class="order-address-content" wx:if="{{addressList}}" bindtap="toAddress">
+				<view class="order-address-has">
+					<view  class="order-address-top">
+						<text class="address-left">服务费：</text><text class="shouyi-right">￥{{serviceFee}}</text>
+					</view>
+					<view  class="order-address-top">
+						<text class="address-left">最终收益：</text><text class="shouyi-right">￥{{finalIncome}}</text>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="order-illustrate">
+			<navigator url="/pages/outer/index?viewId=2" hover-class="none">
+				<text class="iconfont icon-jianding1"></text> 交易说明<text class="iconfont icon-jiaobiao iconjiaobiao1"></text>
+			</navigator>
+		</view>
+	</view>
+
+	<!--屏幕背景变暗的背景 -->
+	<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+	<!--弹出框 -->
+	<view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+		<!-- 尺码选择 -->
+		<view class="sizeList">
+			<view class="sizeList-title">
+				尺码选择
+			</view>	
+			<view class="sizeList-box">
+				<view  wx:for="{{detailData.sizeList}}" wx:key="{{index}}"  class="sizeList-item {{detailData.defaultSize==item.shoesSize?'size-choode':''}}" data-index="{{item.shoesSize}}" data-price="{{item.sellMoney}}" bindtap="changeSize">
+					<view class="sizeList-size">
+						{{item.shoesSize}}码
+					</view>
+					<view class="sizeList-price">
+						{{item.sellMoney}}
+					</view>
+				</view>	
+			</view>			
+		</view>
+	</view>
+
+	<view class="bottom-btn-box">
+		<view  class="bottom-btn"  wx:if="{{orderType==2&&baytab==0}}"  data-index="3" bindtap="toPay">
+			去付款(￥{{defaultPrises||defaultPrise}})
+		</view>
+		<view  class="bottom-btn "
+			   style="{{options.shoesCost ? 'background-color: #5DBCFF' : ''}}"
+			   wx:if="{{orderType==2&&baytab==1}}"  data-index="4" bindtap="toPay">
+			{{options.shoesCost ? '立即求购' : '保证金(￥19)'}}
+		</view>
+		<view  class="bottom-btn2"  wx:if="{{orderType==1&&baytab==0}}"  data-index="1" bindtap="toPay">
+			去上架
+		</view>
+		<view  class="bottom-btn3"  wx:if="{{orderType==1&&baytab==1}}"  data-index="2" bindtap="toPay">
+			出售
+		</view>		
+	</view>
+
+
+</view>

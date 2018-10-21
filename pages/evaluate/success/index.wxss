@@ -1,0 +1,29 @@
+.appra-one{
+    margin-top:290rpx;
+    text-align: center;
+    font-family: PingFangSC-Semibold;
+    font-size: 28rpx;
+    color: #333333;
+    font-weight: 600;
+}
+.appra-two{
+    margin:10rpx auto;
+    text-align: center;
+    font-family: PingFangSC-Semibold;
+    font-size: 24rpx;
+    width: 216rpx;
+    height: 66rpx;
+    color: #999;
+}
+.btn{
+    width: 750rpx;
+    height: 120rpx;
+    position: absolute;
+    bottom: 0;
+    font-family: PingFangSC-Semibold;
+    font-size: 32rpx;
+    color: #666;
+    text-align: center;
+    line-height: 120rpx;
+    box-shadow: 0 0 8px 0 #eee;
+}

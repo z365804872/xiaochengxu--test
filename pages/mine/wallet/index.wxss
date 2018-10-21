@@ -1,0 +1,8 @@
+/* pages/mine/account/index.wxss */
+.iconfont{
+    font-size: 30rpx;
+}
+
+.icon-jiaoyimingxi{
+    font-size: 33rpx;
+}

@@ -1,0 +1,32 @@
+/* pages/mine/order_list/index.wxss */
+.selected{
+  border-bottom: 4rpx solid #000000;
+  color: #000000;
+  font-family: PingFangSC-Semibold;
+  opacity: 1;
+  box-sizing: border-box;
+}
+
+.order-image{
+  width: 138rpx;
+  height: 100rpx;
+}
+
+.btn{
+  border: 1rpx solid #333333;
+  background-color: #fff;
+  padding: 12rpx 16rpx;
+  min-width: 144rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+page .icon-up, page .icon-down{
+  font-size: 20rpx;
+  vertical-align: middle;
+  margin-left: 10rpx;
+}
+
+.empty{
+  padding-top: 25vh;
+}

@@ -1,0 +1,100 @@
+<!--pages/mine/index/index.wxml-->
+<view class="container">
+    <view class="flex-column-center-center my-avatar bgc-white">
+        <view class="avatar bg-img bdra-circle" style="background-image: url('{{headPhoto}}')">
+        </view>
+        <view class="margin-t20 font-32 color-333 font-semibold lheight-45">
+            {{nickName}}<text class="iconfont {{sex === 1 ? 'icon-nan' : ''}} {{sex === 2 ? 'icon-nv' : ''}}"></text>
+        </view>
+        <view class="lheight-33 font-24 color-333 font-light opacity6">
+            {{memberInfo}}
+        </view>
+    </view>
+    <view class="margin-t10 flex-row bgc-fff my-order">
+        <view catchtap="myBuyOrder" class="flex1 height100 flex-column-center-center">
+            <text class="iconfont icon-goumaidingdan"></text>
+            <view class="font-regular font-20 lheight-28 color-333 opacity6 margin-t8">购买订单</view>
+        </view>
+        <view catchtap="mySellOrder" class="flex1 height100 flex-column-center-center">
+            <text class="iconfont icon-chushoudingdan"></text>
+            <view class="font-regular font-20 lheight-28 color-333 opacity6 margin-t8">出售订单</view>
+        </view>
+    </view>
+    <view wx:if="{{encryptedMobile}}" class="margin-t10 flex-row-between  flex-row_center height-80 bgc-fff phone-num">
+        <view class="flex-row-start flex-row_center"><text class="iconfont icon-shoujihao"></text><text class="margin-l24 font-regular font-20 color-333">手机号</text></view>
+        <view class="font-18 color-000 font-light opacity5">{{encryptedMobile}}</view>
+    </view>
+    <view class='bgc-fff margin-t10 my-info'>
+        <view catchtap="myWallet"
+                class="flex-row-between flex-row_center height-96 border-b2">
+            <view class="flex-row-start flex-row_center">
+                <text class="iconfont icon-wodeqianbao"></text>
+                <text class="margin-l20 font-20 font-regular color-333">我的钱包</text>
+            </view>
+            <view><text class="iconfont icon-jiaobiao"></text></view>
+        </view>
+        <view  catchtap="preference"
+                class="flex-row-between flex-row_center height-96 border-b2">
+            <view class="flex-row-start flex-row_center">
+                <text class="iconfont icon-pianhaoshoucang"></text>
+                <text class="margin-l20 font-20 font-regular color-333">偏好设置</text>
+            </view>
+            <view><text class="iconfont icon-jiaobiao"></text></view>
+        </view>
+        <view  catchtap="address"
+                class="flex-row-between flex-row_center height-96 border-b2">
+            <view class="flex-row-start flex-row_center">
+                <text class="iconfont icon-dizhi1"></text>
+                <text class="margin-l20 font-20 font-regular color-333">收货地址</text>
+            </view>
+            <view><text class="iconfont icon-jiaobiao"></text></view>
+        </view>
+        <!-- <view class="flex-row-between flex-row_center height-96 ">
+            <view class="flex-row-start flex-row_center">
+                <text class="iconfont icon-kefu"></text>
+                <text class="margin-l20 font-20 font-regular color-333">联系客服</text>
+            </view>
+            <view><text class="iconfont icon-jiaobiao"></text></view>
+        </view> -->
+    </view>
+    <!-- <view catchtap="quit"
+            class='flex-center height-80 bgc-fff font-24 font-medium color-333 margin-t10 login-out'>
+        退出账号
+    </view> -->
+</view>
+<!-- <nav-tab tabName="mine"></nav-tab> -->
+<view class="nav-tab {{isIphoneX ? 'match-iphone-x' : ''}}" >
+  <button class="nav-tab-item" catchtap="toHome" data-type="index" >
+    <view>
+      <view class="nav-tab-item-icon">
+        <image src="../../../images/index.png"></image>
+      </view>
+      <view class="nav-tab-item-title">首页</view>
+    </view>
+  </button>
+  <button class="nav-tab-item" 
+          open-type="getUserInfo"
+          lang="zh_CN"
+          bindgetuserinfo="switchTab"
+          catchtap="switchTab" 
+          data-type="evaluate" >
+    <view>
+      <view class="nav-tab-item-icon">
+        <image src="../../../images/evaluate.png"></image>
+      </view>
+      <view class="nav-tab-item-title">鉴定</view>
+    </view>
+  </button>
+  <button class="nav-tab-item"
+          open-type="getUserInfo"
+          lang="zh_CN"
+          bindgetuserinfo="switchTab"
+          data-type="mine">
+    <view>
+      <view class="nav-tab-item-icon">
+        <image src="../../../images/mine1.png"></image>
+      </view>
+      <view class="nav-tab-item-title nav-tab-item-selected">我的</view>
+    </view>
+  </button>
+</view>

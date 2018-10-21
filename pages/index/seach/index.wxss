@@ -1,0 +1,174 @@
+page{
+  height: 100%;
+}
+.container{
+  border-top: 1rpx solid #ddd;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.section{
+  width: 100%;
+}
+.searchBar{
+  display: flex;
+  justify-content: center;
+  height: 100rpx;
+  border-bottom: 1rpx solid #ddd;
+}
+.searchBar .searBar-box{
+  display: inline-block;
+  width: 710rpx;
+  height: 64rpx;
+  margin-top: 18rpx;
+  background: #F7F7F7;
+  position: relative;
+}
+.searchBar .searBar-box input{
+  height: 64rpx;
+  padding-left:60rpx;
+}
+.searchBar .searBar-box .place-holder{
+  text-align: left;
+  color: #888;
+  background: #F7F7F7;
+  font-size: 28rpx;
+  opacity: 1;
+}
+.searBar-box .search-icon{
+  position: absolute;
+  left: 20rpx;
+  top: 19rpx;
+  width: 30rpx;
+  height: 30rpx;
+  z-index: 1000;
+}
+
+/* 列表 */
+
+.search-list-item{
+  height: 315rpx;
+  width: 690rpx;
+  margin-left: 30rpx;
+  border-bottom: 1rpx solid #ddd;
+}
+.search-item-left{
+  height: 315rpx;
+  width: 187rpx;
+  margin-right: 24rpx;
+  float: left;
+}
+
+.search-item-left-image{
+  width: 187rpx;
+  height: 117rpx;
+  background: #fff;
+  margin-top: 84rpx;
+}
+.search-item-left-per{
+  margin-top: 50rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #FF6955;
+}
+
+.search-item-right{
+  height: 315rpx;
+  width: 478rpx;
+  float: right;
+}
+.search-item-right-name{
+  width: 425rpx;
+  height: 80rpx;
+  font-family: PingFangSC-Semibold;
+  font-size: 28rpx;
+  color: #000000;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-top: 30rpx;
+}
+.search-item-right-price{
+  font-family: PingFangSC-Semibold;
+  font-size: 36rpx;
+  color: #000000;
+  margin-top: 20rpx;
+}
+.search-item-right-gray{
+  height: 40rpx;
+  opacity: 0.5;
+  font-family: PingFangSC-Light;
+  font-size:20rpx;
+  color: #000000;
+  margin-top: 20rpx;
+}
+.right-gray-price{
+  float: left;
+}
+.right-gray-num{
+  float: right;
+}
+
+.search-item-right-bottom{
+  height: 50rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #000000;
+  margin-top: 15rpx;
+}
+.right-bottom-qg{
+  float: left;
+  width: 160rpx;
+}
+.right-bottom-cs{
+  float: left;
+  width: 130rpx;
+}
+.right-bottom-jy{
+  float: right;
+}
+.colorGreen{
+   color: #35CF95;
+}
+.search-left-per-icon{
+  display: inline-block;
+  width: 12rpx;
+  height: 23rpx;
+}
+.title{
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #000000;
+  margin-left: 20px;
+  margin-top: 40rpx;
+  font-weight: 600;
+  clear: both;
+}
+.title1{
+  margin-top: 50rpx;
+}
+.title-box{
+  width: 100%;
+  padding:0 20rpx;
+  box-sizing: border-box;
+  margin-top:20rpx;
+  overflow: hidden; 
+}
+.title-box view{
+  background: #FAFAFA;
+  height: 80rpx;
+  float: left;
+  line-height: 80rpx;
+  padding: 0 20rpx;
+  margin:15rpx 15rpx;
+}
+
+.clearbtn{
+  position: absolute;
+  right: 40rpx;
+  top: 140rpx;
+  z-index: 1001;
+  font-size: 26rpx;
+  color: #666;
+}

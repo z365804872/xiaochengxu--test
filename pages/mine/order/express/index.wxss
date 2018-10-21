@@ -1,0 +1,68 @@
+/* pages/mine/order/express/index.wxss */
+.tag{
+    padding: 4rpx 12rpx;
+}
+
+.express-flow{
+    padding: 80rpx 0;
+}
+
+.line-flow{
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.circle{
+    width: 16rpx;
+    height: 16rpx;
+    border: 2rpx solid #424242;
+}
+
+.line{
+    width: 2rpx;
+    min-height: 160rpx;
+    background-color: #7E7E7E;
+}
+
+scroll-view{
+    white-space: nowrap;
+    display: flex;
+}
+
+.scroll-view-item{
+    width: 80rpx;
+    height: 80rpx;
+    display: inline-block;
+}
+
+.scroll-view-item:first-child{
+    margin-left: 0;
+}
+
+.express-con{
+    border-left: 2rpx solid #424242;
+    padding-left: 28rpx;
+    margin-left: 19rpx;
+    padding-bottom: 115rpx;
+    margin-right: -30rpx;
+}
+
+.comment-desc{
+    color: #082359;
+}
+
+.express-flow>view:first-child .circle{
+    background-color: #082359;
+    border: 2rpx solid #082359;
+
+}
+
+.express-flow>view:first-child .express-station{
+    font-family: PingFangSC-Semibold;
+    color: #082359;
+}
+
+.express-flow>view:last-child .express-con{
+    padding-bottom: 0;
+    border: 0;
+}

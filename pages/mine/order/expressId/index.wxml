@@ -1,0 +1,26 @@
+<!--pages/mine/order/expressId/index.wxml-->
+<view class="padding-lr30 expressId-con">
+    <view class="flex-row-between flex-row_center padding-tb30 font-regular font-32 lheight-45 color-000">
+        <view><text class="iconfont icon-dizhi1 margin-r10"></text>寄货地址</view>
+        <view class="color-red font-semibold font-24 lheight-33"><text class="iconfont icon-jinggaox color-red margin-r10"></text>请将商品寄到该地址，请认证核对</view>
+    </view>
+    <view class="padding-20 bgc-fa font-light font-28 lheight-40">
+        <view class="flex-row">
+            <view>收货方：鞋客APP</view>
+            <view class="margin-l30">手机号：19941240131</view>
+        </view>
+        <view class="margin-t20">地   址：浙江省 杭州市 江干区白杨街道新加坡科技园16-207室</view>
+    </view>
+</view>
+
+<form bindsubmit="saveExpressId">
+<view class="pos-fixed bottom0 left0 right0 height-120 padding-lr30 flex-row">
+    <input type='text'
+        class="flex1 submit-input" 
+        placeholder-class="submit-input-placeholder-style"
+        name="express"
+        placeholder="请输入您的快递单号" />
+    <button class="width-160 height-80 bgc-green font-32 font-semibold color-fff margin-l30 submit-btn" 
+        form-type="submit">保存</button>
+</view>
+</form>

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "SNCN",
+  "onReachBottomDistance": 200,
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "nav-tab": "../../../components/nav-tab/nav-tab"
+  }
+}

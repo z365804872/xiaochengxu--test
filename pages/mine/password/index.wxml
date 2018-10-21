@@ -1,0 +1,26 @@
+<!--pages/mine/password/index.wxml-->
+<view class="padding-lr50">
+    <view class="logo">
+        <image src="../../../images/register_logo.png"></image>
+    </view>
+    <form bindsubmit="login">
+
+        <view class="password">
+            <text class="iconfont icon-mima"></text>
+            <input type="{{type}}"
+                   name="password"
+                   maxlength="18"
+                   placeholder-class="input-placeholder"
+                   placeholder="请输入密码"/>
+            <text catchtap="showPwd" class="iconfont {{type === 'text' ? 'icon-xianshi' : 'icon-yincang'}}"></text>
+        </view>
+        <button form-type="submit" class="btn btn-submit">登录</button>
+        <view class="agreement">
+            <checkbox-group bindchange="checkboxChange">
+                <label class="checkbox" >
+                    <checkbox name="agreement" value="test" checked="true"/>我已阅读并同意 <text>SneakerCN用户协议</text>
+                </label>
+            </checkbox-group>
+        </view>
+    </form>
+</view>

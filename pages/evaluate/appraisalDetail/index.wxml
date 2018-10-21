@@ -1,0 +1,98 @@
+<!--pages/evaluate/index/index.wxml-->
+<view scroll-y class="container">
+    <view class="detail-header" style='{{dataList.type==3||dataList.type==4?"height:401rpx;":""}}'>
+        <image src="../../../images/jdxq_z.svg" wx:if="{{dataList.type==1}}" style="position: absolute; width:148rpx; height:178rpx;right:0;top:0;z-index:0" />
+        <image src="../../../images/jdxq_j.png" wx:if="{{dataList.type==2}}" style="position: absolute; width:164rpx; height:164rpx;right:0;top:0;z-index:0" />
+        <image src="../../../images/register_logo.png"  style="position: absolute; width:86rpx; height:26rpx;left:328rpx;top:106rpx;z-index:0" />
+        <view class="header-status">
+            <image src="../../../images/jdxq_weixian.svg"  wx:if="{{dataList.type==3||dataList.type==4}}" style=" width:50rpx; height:50rpx;vertical-align:middle;" />
+            <image src="../../../images/jdxq_time.svg"  wx:if="{{dataList.type==0}}" style=" width:50rpx; height:50rpx;vertical-align:middle;" />
+            <text style="vertical-align:middle;"> {{dataList.type==0?"正在鉴定中…":dataList.type==1?"鉴定为真":dataList.type==2?"鉴定为赝品":"无法鉴定..."}}</text>
+        </view>
+        <view class="header-info"  wx:if="{{dataList.type==1}}">
+            鉴别结果由SNCN专家鉴定得出
+        </view>
+        <view class="header-info"  wx:if="{{dataList.type==2||dataList.type==4||dataList.type==3}}">
+            {{dataList.appraisalContent?dataList.appraisalContent:""}}
+        </view>
+        <text class="header-info"  wx:if="{{dataList.type==0}}" style="margin-top:20rpx;">
+            大约需要1~3个工作日\n请耐心等待鉴定结果
+        </text>
+        <!--<text class="header-info"  wx:if="{{dataList.type==3}}" style="margin-top:20rpx;">
+            无法鉴定，请尽可能提供更\n多信息申请鉴定！
+        </text>-->
+        <view  wx:if="{{dataList.type==3}}" class="addMore" bindtap="toNext">
+            补充细节
+        </view>
+
+        <!--<view wx:if="{{dataList.appraisalContent}}" class="appraisalContent">
+            <view>
+                {{dataList.appraisalContent}}
+            </view>
+            
+        </view>-->
+        <view class="header-bottom" wx:if="{{dataList.type!=0}}">
+            <view class="bottom-from">
+                来自：SneakerCN
+            </view>
+            <view class="bottom-date">
+                {{dataList.appraisalTime}}
+            </view>
+        </view>
+    </view>
+    <view class="detail-content">
+        <!--<view class="content-name">
+            {{dataList.content}}
+        </view>-->
+        <view class="user-info">
+            <view class="user-photo"  style="width:80rpx; height:80rpx;background:url('{{dataList.headPhoto}}');background-size:80rpx 80rpx; background-repeat:no-repeat;border-radius:50%;"></view>
+            <view class="user-nt">
+                <view class="user-name">{{dataList.nickName}}</view>
+                <view class="user-time">{{dataList.createTimeFormat}}</view>             
+            </view>
+
+        </view>
+        <view wx:if="{{dataList.content}}" class="user-qustion">
+            Q：{{dataList.content}}
+        </view>
+        <view class="photo-box">
+            <view class="photo-item" wx:for='{{imgArr}}' wx:key="{{index}}" data-index='{{index}}' bindtap='previewImg' style="width:216rpx; height:216rpx;background:url('{{item}}');background-size:cover;background-position:center; background-repeat:no-repeat;"></view>
+            
+        </view>
+        <view class="content-bottom">
+            <view class="bottom-from">
+                来自：SneakerCN
+            </view>
+            <view class="bottom-date">
+                {{dataList.createdAt}}
+            </view>
+        </view>
+    </view>
+    <!--<view class="detail-bottom">
+        <view class="bottom-fake-real">
+            <view class="bottom-fake">
+                <view class="fake">
+                    <view  class="fake-name"> 
+                        Fake
+                    </view>
+                    <view  class="fake-num"> 
+                        {{dataList.fakeShoes}}
+                    </view> 
+                </view>
+            </view>
+            <view class="bottom-real">
+                <view class="real">
+                    <view  class="real-name"> 
+                        Real
+                    </view>
+                    <view  class="real-num"> 
+                        {{dataList.realShoes}}
+                    </view> 
+                </view>               
+            </view>            
+        </view>
+        <view class="bottom-tigong">
+            友情提示：投票结果由<text style="color:#F79999">SneakerCN</text>官方APP提供
+        </view>
+    </view>-->
+</view>

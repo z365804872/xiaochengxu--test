@@ -1,0 +1,105 @@
+<!--pages/evaluate/index/index.wxml-->
+<view scroll-y class="container">
+   <view class="container-header">
+        <view class="evaluate-header-left" style=" position:relative">
+           <image src="../../../images/jdbg.png"  style="  position: absolute; width:344rpx; height:320rpx;left:0;top:0;z-index:-1;" />
+           <view style="position: absolute;bottom:0;height:75rpx;width327rpx;line-height:75rpx;color: #FFFFFF;font-size:28rpx;margin-left:17rpx;">
+               Yeezy 500 真假对比!
+           </view>
+        </view>
+        <view class="evaluate-header-right" >
+            <navigator url="/pages/outer/index?viewId=4" hover-class="none">
+                <view class="header-right-top" style="position:relative">
+                    <image src="../../../images/jdbg-left(2).png"  style="  position: absolute; width:344rpx; height:150rpx;left:0;top:0;z-index:-1;" />
+                    鉴定规则
+                </view>
+			</navigator>
+            <navigator url="/pages/outer/index?viewId=3" hover-class="none">
+                <view class="header-right-bottom" style="position:relative">
+                    <image src="../../../images/jdbg-left(1).png"  style="  position: absolute; width:344rpx; height:150rpx;left:0;top:0;z-index:-1;" />
+                    新手指南
+                </view>
+            </navigator>
+        </view>
+   </view>
+
+
+    <!-- <form bindsubmit="saveFormId" report-submit="true">
+        <button form-type="submit">收集fromId测试</button>
+    </form> -->
+
+   <view class="container-content">
+       <view class='container-content-tab {{typeFixed?"typefixed":""}}'>
+           <view  class="content-tab-jd {{tabtype==1?'select':''}}" bindtap="tabType" data-type="1">
+               球鞋鉴定
+           </view>
+           <view  class="content-tab-wd {{tabtype==2?'select':''}}" bindtap="tabType" data-type="2">
+               我的鉴定
+           </view>
+       </view>
+       <view class='container-content-box {{typeFixed?"typefixed1":""}}'>
+            <view class="container-content-item" wx:for="{{dataList}}" wx:key="{{index}}" bindtap="toDetail" data-id="{{item.appraisalId}}">
+                <view class="item-left">
+                    <view class = "list-item-image"  style="background:url('{{item.photo1}}');background-size:246rpx 246rpx;width:246rpx;height:246rpx; background-repeat:no-repeat;">
+					</view>
+                </view>
+                <view class="item-right">
+                    <view class="item-right-name">
+                        {{item.content}}
+                    </view>
+                    <view class="item-right-gray">
+                        <view class="right-gray-from">
+                            来自：{{item.nickName}}
+                        </view>   
+                        <view class="right-gray-data">
+                                {{item.createdAt}}
+                        </view>                  
+                    </view>
+                    <view class="item-right-status">
+                        <image src="{{item.type == 0?'../../../images/jdz.png':item.type == 1?'../../../images/zd.png':item.type == 2?'../../../images/jd.png':'../../../images/wfjd.png'}}"  style="  position: absolute; width:466rpx; height:98rpx;left:0;bottom:0;" />
+                    </view>
+                </view>
+            </view>
+       </view>
+       <view class="container-content-btn" bindtap="toCheck" style="{{isIphoneX ? 'bottom: 87px;' : ''}}">
+            <image src="../../../images/jdbtn.png"  style="  position: absolute; width:256rpx; height:96rpx;left:0;top:0;z-index:-1;" />
+       </view>
+   </view>
+</view>
+<!-- <nav-tab tabName="evaluate"></nav-tab> -->
+
+<view class="nav-tab {{isIphoneX ? 'match-iphone-x' : ''}}" >
+  <button class="nav-tab-item" catchtap="toHome" data-type="index" >
+    <view>
+      <view class="nav-tab-item-icon">
+        <image src="../../../images/index.png"></image>
+      </view>
+      <view class="nav-tab-item-title ">首页</view>
+    </view>
+  </button>
+  <button class="nav-tab-item" 
+          open-type="getUserInfo"
+          lang="zh_CN"
+          bindgetuserinfo="switchTab"
+          data-type="evaluate" >
+    <view>
+      <view class="nav-tab-item-icon">
+        <image src="../../../images/evaluate1.png"></image>
+      </view>
+      <view class="nav-tab-item-title nav-tab-item-selected">鉴定</view>
+    </view>
+  </button>
+  <button class="nav-tab-item"
+          open-type="getUserInfo"
+          lang="zh_CN"
+          bindgetuserinfo="switchTab"
+          catchtap="switchTab"
+          data-type="mine">
+    <view>
+      <view class="nav-tab-item-icon">
+        <image src="../../../images/mine.png"></image>
+      </view>
+      <view class="nav-tab-item-title">我的</view>
+    </view>
+  </button>
+</view>

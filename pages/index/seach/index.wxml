@@ -1,0 +1,71 @@
+<!--index.wxml-->
+<view class="container">
+	<!-- 顶部搜索栏 -->
+	<view class="section searchBar" wx:if="{{fromFlag}}">
+		<view class="section searBar-box">
+				<image src="../../../images/seach.svg" mode="aspectFill" class="search-icon" />
+				<input type="text" name="searchBar" placeholder="搜索您想要的商品" value="{{keyValue}}" placeholder-class="place-holder" bindconfirm="bindKeyInput" />
+		</view>
+	</view><!-- end-section search searchBar -->
+	<view  wx:if="{{seachList.length==0}}">
+		<view class="title" wx:if="{{hisList.length>0}}">
+			历史搜索
+		</view>
+		<view class="clearbtn"  bindtap="clearHis" wx:if="{{hisList.length>0}}">
+			清除
+		</view>
+		<view class="title-box" wx:if="{{hisList.length>0}}">
+			<view wx:for="{{hisList}}"  wx:key="{{index}}" bindtap="sureHot" data-index="{{item}}">
+				{{item}}
+			</view>
+		</view>
+		<view class="title title1">
+			热门搜索
+		</view>
+		<view class="title-box">
+			<view wx:for="{{hotList}}"  wx:key="{{index}}" bindtap="sureHot" data-index="{{item.brandName}}">
+				{{item.brandName}}
+			</view>
+		</view>
+	</view>
+	<!-- 搜索列表 -->
+	<view class="search-list">
+		<view class="search-list-item"  wx:for="{{seachList}}"  wx:key="{{index}}">
+			<navigator url="/pages/index/detail/index?shoesId={{item.shoesId}}" hover-class="none">
+				<view class="search-item-left">
+					<view class="search-item-left-image" style="background:url('{{item.photo}}');background-size:187rpx 117rpx;background-repeat:no-repeat;"></view>
+					<view class="search-item-left-per {{item.percent<0?'colorGreen':''}}">
+						{{item.percent}}% <view class="search-left-per-icon" wx:if="{{item.percent<0}}" style="background:url('../../../images/down.png');background-size:12rpx 23rpx;background-repeat:no-repeat;}}"></view><view class="search-left-per-icon" wx:else style="background:url('../../../images/up.png');background-size:12rpx 23rpx;background-repeat:no-repeat;}}"></view>
+					</view>
+				</view>
+				<view class="search-item-right">
+					<view class="search-item-right-name">
+						{{item.shoesName}}
+					</view>
+					<view class="search-item-right-price">
+						￥{{item.referencePrice}}
+					</view>
+					<view class="search-item-right-gray">
+						<view class="right-gray-price">
+							发售价：￥{{item.sellMoney}}
+						</view>	
+						<view class="right-gray-num">
+							货号 {{item.shoesArticleNumber}}
+						</view>						
+					</view>
+					<view class="search-item-right-bottom">
+						<view class="right-bottom-qg">
+							求购  {{item.wantBuyTotal}}
+						</view>	
+						<view class="right-bottom-cs">
+							出售  {{item.sellTotal}}
+						</view>	
+						<view class="right-bottom-jy">
+							交易记录  {{item.record}}
+						</view>						
+					</view>				
+				</view>
+			</navigator>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,12 @@
+/* pages/mine/address/index.wxss */
+.add-address-btn{
+    box-shadow: 0 0 8rpx 0 rgba(0,0,0,0.10);
+}
+
+.action-btn {
+    width: 0;
+}
+
+.animation-con{
+    width: 750rpx;
+}

@@ -1,0 +1,8 @@
+/* pages/mine/coupon/index.wxss */
+page{
+    padding-bottom: 124rpx;
+}
+
+.can-not-use{
+    color: #000000;
+}

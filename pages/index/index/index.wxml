@@ -1,0 +1,134 @@
+<!--index.wxml-->
+<view scroll-y class="container">
+	<!-- 顶部搜索栏 -->
+	<view class="section searchBar">
+		<view class="section searBar-box">
+			<navigator url="/pages/index/seach/index" hover-class="none">
+				<text class="iconfont icon-sousuo"></text>
+				<input type="text" name="searchBar" placeholder="搜索您想要的商品" placeholder-class="search-plac" bindtap="toSearch"
+				/>
+			</navigator>
+		</view>
+	</view><!-- end-section search searchBar -->
+
+    	<!-- 首页轮播图 -->
+	<view class="section section-swiper">
+		<swiper class="slide" indicator-dots="{{indicator_dots}}" autoplay="{{autoplay}}" circular="{{circular}}" interval="{{interval}}" duration="{{duration}}">
+			<block wx:for="{{indexSlides}}" wx:key="{{index}}">
+				<swiper-item>
+					<navigator url="/pages/index/detail/index?shoesId={{item.href}}" wx:if="{{item.type==2}}">
+						<view style="background:url('{{item.photo}}');background-size:750rpx 360rpx;background-repeat:no-repeat;" mode="widthFix" class="slide-image" data-id="{{item.shoesId}}"></view>
+					</navigator>
+					<navigator url="/pages/outer/index?viewId={{item.href}}" wx:if="{{item.type==1}}">
+						<view style="background:url('{{item.photo}}');background-size:750rpx 360rpx;background-repeat:no-repeat;" mode="widthFix" class="slide-image" data-id="{{item.shoesId}}"></view>
+					</navigator>
+				</swiper-item>
+			</block>
+		</swiper>
+	</view><!-- end-section section-swiper -->
+
+	<!-- 品牌分类 -->
+	<view class="section navBar">
+		<view class="section nav-list" wx:for="{{brandHome}}" wx:key="{{index}}" wx:if="{{index<3}}">
+			<navigator url="/pages/index/seach/index?seachname={{item.brandName}}" hover-class="none">
+				<view class="nav-item" style="background:url('{{item.photo}}'); background-size:80rpx 80rpx;background-repeat:no-repeat;background-position:68rpx 10rpx;">
+					<text class="item-text">{{item.brandName}}</text>
+				</view>
+			</navigator>
+		</view>
+		<view class="section nav-list-more">
+			<navigator url="/pages/index/brand/index" hover-class="none">
+				<view class="nav-item-more" style="  position: relative;">
+					<image src="../../../images/more.png"  style="  position: absolute; width:41rpx; height:28rpx;left:30rpx;top:48rpx;" />
+					<text class="item-text"></text>
+				</view>
+			</navigator>
+		</view>
+	</view><!-- end-section navBar -->
+
+	<!-- 活动入口 -->
+	<view class="index-enter">
+		<navigator url="/pages/index/activity/index" hover-class="none">
+			<view  class="index-enter-left" style="position: relative;">
+				<image src="../../../images/Group5.png"  style="  position: absolute; width:346rpx; height:160rpx;left:0;top:0;z-index:0" />
+				<image src="../../../images/431523877111_.pic.png"  style="  position: absolute; width:154rpx; height:46rpx;left:100rpx;top:40rpx;z-index:1" />
+				<text class="enter-text-left">SNCN活动</text> 
+			</view>
+		</navigator>
+		<navigator url="" hover-class="none">
+			<view  class="index-enter-right" style="position: relative;"  bindtap="toEvaluate">
+				<image src="../../../images/Group6.png"  style="  position: absolute; width:346rpx; height:160rpx;left:0;top:0;z-index:0" />
+				<image src="../../../images/zd@2x.svg"  style="  position: absolute; width:154rpx; height:46rpx;left:94rpx;top:40rpx;z-index:1" />
+				<text class="enter-text-right">球鞋鉴定</text> 
+			</view>
+		</navigator>
+	</view>
+
+	<!-- 商品列表 -->
+	<view  class="index-list">
+		<view class = "list-title">
+			<text  class="list-text-c">推荐商品</text>
+			<text  class="list-text-e">Recommend</text>
+		</view>
+
+		<view class = "list-content">
+			<view  class = "list-content-list" wx:for="{{listData}}"  wx:key="{{index}}">
+				<navigator url="/pages/index/detail/index?shoesId={{item.shoesId}}" hover-class="none">
+					<view class = "list-item-image"  style="background:url('{{item.shoesNewPath}}');background-size:346rpx 186rpx;background-repeat:no-repeat;">
+					</view>
+					<view class = "list-item-name">
+						{{item.shoesName}} 
+					</view>
+					<view class = "list-item-price">
+						￥{{item.referencePrice}}
+					</view>
+					<view class = "list-sale-qiugou">
+						<text class = "list-sale">出售 {{item.sellTotal}}|</text><text class = "list-qiugou">求购 {{item.wantBuyTotal}}</text>
+					</view>
+				</navigator>
+			</view>
+		</view>
+
+	</view>
+
+</view>
+
+
+<!-- <nav-tab tabName="index"></nav-tab> -->
+
+<view class="nav-tab {{isIphoneX ? 'match-iphone-x' : ''}}" >
+  <button class="nav-tab-item"  data-type="index" >
+    <view>
+      <view class="nav-tab-item-icon">
+        <image src="../../../images/index1.png"></image>
+      </view>
+      <view class="nav-tab-item-title nav-tab-item-selected">首页</view>
+    </view>
+  </button>
+  <button class="nav-tab-item" 
+          open-type="getUserInfo"
+          lang="zh_CN"
+          bindgetuserinfo="switchTab"
+          catchtap="switchTab" 
+          data-type="evaluate" >
+    <view>
+      <view class="nav-tab-item-icon">
+        <image src="../../../images/evaluate.png"></image>
+      </view>
+      <view class="nav-tab-item-title">鉴定</view>
+    </view>
+  </button>
+  <button class="nav-tab-item"
+          open-type="getUserInfo"
+          lang="zh_CN"
+          bindgetuserinfo="switchTab"
+          catchtap="switchTab"
+          data-type="mine">
+    <view>
+      <view class="nav-tab-item-icon">
+        <image src="../../../images/mine.png"></image>
+      </view>
+      <view class="nav-tab-item-title">我的</view>
+    </view>
+  </button>
+</view>

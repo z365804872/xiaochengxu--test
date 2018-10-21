@@ -1,0 +1,43 @@
+/* pages/mine/preference/index.wxss */
+
+scroll-view{
+    height: 140rpx;
+}
+
+scroll-view view{
+    display: inline-block;
+    width: 140rpx;
+    height: 140rpx;
+    background-color: #FAFAFA;
+    color: #7c7c7c;
+    font-size: 44rpx;
+    line-height: 140rpx;
+    text-align: center;
+    margin-left: 10rpx;
+    font-family: PingFangSC-Light;
+}
+
+scroll-view view:first-child{
+    margin-left: 0;
+}
+
+.icon-jiaobiao{
+    transform: rotate(90deg);
+    transform-origin: center;
+}
+
+.preference-size{
+    background-color: #7F7F7F;
+    font-family: PingFangSC-Semibold;
+    font-size: 44rpx;
+    color: #f7f7f7;
+}
+
+page{
+    padding-bottom: 200rpx;
+}
+
+button{
+    box-shadow: 0 0 8rpx 0 rgba(0,0,0,0.20);
+}
+

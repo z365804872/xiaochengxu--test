@@ -1,0 +1,146 @@
+<!--index.wxml-->
+<view class="container">
+	    	<!-- 详情轮播图 -->
+	<view class="section section-swiper">
+		<swiper class="slide" indicator-dots="{{indicator_dots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+			<block wx:for="{{detailData.photoList}}" wx:key="{{index}}">
+				<swiper-item>
+					<navigator url="">
+						<view style="background:url('{{item}}');background-size:750rpx 400rpx;background-repeat:no-repeat;" mode="widthFix" class="slide-image" data-id="{{item.shoesId}}"></view>
+					</navigator>
+				</swiper-item>
+			</block>
+		</swiper>
+	</view><!-- end-section section-swiper -->
+	<!-- 详情信息 -->
+	<view class="detail-header">
+		<view class="detail-header-name">
+			<text class="header-name">{{detailData.shoesName}}</text>
+			<text class="header-info">{{detailData.shoesArticleNumber}} {{detailData.sellDate}}</text>
+		</view>
+		<view class="detail-header-price">
+			<view class="header-price">
+				￥{{detailData.referencePrice}}
+			</view>
+			<view class="header-priceIcon">
+				今日参考价 
+			</view>
+			<view class="header-fprice">	
+				发售价：￥{{detailData.sellMoney}}
+			</view>		
+		</view>		
+	</view>
+
+	<!-- 曲线图 -->
+<!--	<view class="calendar">
+		
+	</view>
+-->
+
+	<!-- 尺码选择 -->
+	<view class="sizeList">
+		<view class="sizeList-title">
+			尺码选择
+		</view>	
+		<view class="sizeList-box">
+			<view  wx:for="{{detailData.sizeList}}" wx:key="{{index}}"  class="sizeList-item {{detailData.defaultSize==item.shoesSize?'size-choode':''}}" data-index="{{item.shoesSize}}" data-price="{{item.sellMoney}}" bindtap="changeSize">
+				<view class="sizeList-size">
+					{{item.shoesSize}}码
+				</view>
+				<view class="sizeList-price">
+					{{item.sellMoney}}
+				</view>
+			</view>	
+		</view>			
+	</view>
+	
+	<!-- 尺码选择 -->
+	<view class="sellList">
+		<view class="sellList-tab">
+			<view class="sellList-tab-cj {{chooseTab==1?'sellList-tab-active':''}}" bindtap="clickTba1">
+				成交记录
+			</view>	
+			<view class="sellList-tab-cs {{chooseTab==2?'sellList-tab-active':''}}" bindtap="clickTba2">
+				出售列表
+			</view>	
+			<view class="sellList-tab-qg {{chooseTab==3?'sellList-tab-active':''}}" bindtap="clickTba3">
+				求购列表
+			</view>	
+		</view>	
+		<view class="sellList-num" wx:if="{{tabDataList.length>0}}">
+			总{{chooseTab==1?'成交':chooseTab==2?'出售':'求购'}}量: {{chooseTab==1?tabData.orderNum:chooseTab==2?tabData.sellNum:tabData.wantBuyNum}}双
+		</view>
+		<view class="sellList-box" wx:if="{{tabDataList.length>0}}">
+			<block wx:for="{{tabDataList}}" wx:key="{{index}}">
+				<button class="list-btn"
+				hover-class="none"
+				data-index="{{chooseTab==1?'0':chooseTab==2?'2':'1'}}" 
+				data-buyorsellid="{{item.buyOrSellId}}"
+				open-type="getUserInfo"
+				lang="zh_CN"
+				bindgetuserinfo="toOrder">
+					<view class="box-cj-item"  >
+							<view class="flex-row_center">
+								<view class="font-28 color-333 font-semibold">
+									{{item.shoesSize}}码
+								</view>
+								<view class="font-regular font-24 color-333 opacity5 margin-l30">
+									{{item.createTime}}
+								</view>
+							</view>
+							<view class="flex-row_center">
+								<view class="font-28 color-333 font-semibold">
+									￥{{item.money}}
+								</view>
+								<view class="cj-item-price font-24 color-fff font-semibold margin-l30 bgc-green lheight-33">
+									{{chooseTab==1?"成交":chooseTab==2?"出售":"求购"}}价
+								</view>
+							</view>
+						</view>
+				</button>
+				
+			</block>
+			
+			<view class="addmore-btn" bindtap="addmoreData"  wx:if="{{tabDataList.length<(chooseTab==1?tabData.orderNum:chooseTab==2?tabData.sellNum:tabData.wantBuyNum)&&!addFlag}}">
+				加载更多
+			</view>
+		</view>
+
+			<view class="sellList-box-no" wx:else>
+				<view><text class="iconfont icon-xiangq"></text> 暂无{{chooseTab==1?"成交":chooseTab==2?"出售":"求购"}}商品</view>
+			</view>	
+
+	</view>
+
+	<!-- 底部 -->
+	<view class="detail-buttom">
+			<view class="detail-buttom-price" wx:if="{{choosePrice!='￥0'}}">
+				{{choosePrice}}
+			</view>
+			<text class="detail-buttom-info" wx:else>
+				暂无该码球鞋在售\n点击求购立即求购
+			</text>
+			<!-- <view class="detail-buttom-buy" data-index="2" bindtap="toOrder">
+				购买
+			</view>
+			<view class="detail-buttom-sell"  data-index="1" bindtap="toOrder">
+				出售
+			</view> -->
+			<button
+				data-index="2"
+				class="detail-buttom-buy"
+				open-type="getUserInfo"
+				lang="zh_CN"
+				bindgetuserinfo="toOrder"
+			>购买
+			</button>
+
+			<button 
+				data-index="1"
+				open-type="getUserInfo"
+				lang="zh_CN"
+				bindgetuserinfo="toOrder"
+				class="detail-buttom-sell">出售</button>
+	</view>	
+
+</view>

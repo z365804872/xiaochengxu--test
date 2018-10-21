@@ -1,0 +1,36 @@
+<!--pages/evaluate/index/index.wxml-->
+<view scroll-y class="container">
+    <view class="appra-two">
+        <view class="appra-one-title">
+            上传图片
+        </view>
+        <view class="appra-one-box">
+            <view wx:for="{{saveImg}}" wx:key="{{index}}" class="nav-item" bindtap="changeTab" data-index="{{index}}">
+                <view class="nav-item-box">
+                    <view  wx:if="{{item.selectImg.length==0}}">
+                        <image src="../../../images/{{item.mrbg}}.png"  style="  position: absolute; width:216rpx; height:216rpx;left:0;top:0;z-index:1;" />
+                    </view>
+                    
+                    <view  wx:else style="width:216rpx; height:216rpx;background:url('{{item.selectImg}}');background-size:cover;background-position:center; background-repeat:no-repeat;"></view>
+                    <!--<image wx:if="{{item.selectImg.length==0}}" src="../../../images/{{item.mrbg}}.png"  style="width:100%; height:100%;" />
+                    <image wx:else src="{{item.selectImg}}" style="width:100%; height:100%;" />-->
+                </view>
+            </view>
+
+            <view class="nav-item" bindtap="addMore" wx:if="{{saveImg.length<9}}">
+                <view class="nav-item-box">
+                    <image src="../../../images/bc.png" style="width:100%; height:100%;" />
+                </view>
+            </view>            
+        </view>
+
+        
+        <view class="input-box">
+            <input placeholder="输入你的备注信息 如：货号/尺码/颜色…" placeholder-class="place-holder" value="{{inputValue}}"  bindinput="getValue" type="text"/>
+        </view>
+
+        <view class="next-btn {{isUploading ? 'disabled' : ''}}"  bindtap="{{isUploading ? '' : 'uploadImg'}}">
+            发布(2/2)
+        </view>
+    </view>
+</view>

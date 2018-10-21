@@ -1,0 +1,39 @@
+{
+  "pages":[
+    "pages/index/index/index",
+    "pages/index/detail/index",
+    "pages/index/brand/index",
+    "pages/index/order/index",
+    "pages/evaluate/index/index",
+    "pages/mine/index/index",
+    "pages/mine/register/index",
+    "pages/mine/password/index",
+    "pages/mine/wallet/index",
+    "pages/mine/trade/list/index",
+    "pages/mine/coupon/index/index",
+    "pages/mine/coupon/exchange/index",
+    "pages/mine/preference/index",
+    "pages/mine/address/index/index",
+    "pages/mine/address/add/index",
+    "pages/mine/order/list/index",
+    "pages/mine/order/buyDetail/index",
+    "pages/mine/order/sellDetail/index",
+    "pages/mine/order/detail/index",
+    "pages/mine/order/express/index",
+    "pages/mine/order/expressId/index",
+    "pages/index/seach/index",
+    "pages/evaluate/appraisal/index",
+    "pages/evaluate/appraisalNext/index",
+    "pages/evaluate/appraisalDetail/index",
+    "pages/evaluate/success/index",
+    "pages/outer/index",
+    "pages/index/activity/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fafafa",
+    "navigationBarTitleText": "SNCN",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh": true
+  }
+}

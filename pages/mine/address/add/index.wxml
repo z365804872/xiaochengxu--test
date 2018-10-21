@@ -1,0 +1,49 @@
+<!--pages/mine/add_address/index.wxml-->
+<form bindsubmit="submitAddress">
+<view class="padding-lr30 add-address">
+    <view class="height-160 border-b2 flex-center">
+        <input type="text"
+               maxlength="20"
+               name="name"
+               value="{{name}}"
+               placeholder-class="placeholder"
+               placeholder="姓名" />
+    </view>
+    <view class="height-160 border-b2 flex-center">
+        <input type="number"
+               maxlength="11"
+               name="mobile"
+               value="{{mobile}}"
+               placeholder-class="placeholder"
+               placeholder="手机号码" />
+    </view>
+    <view class="height-160 border-b2 flex-row-start flex-row_center font-30 color-000 opacity5">
+        <picker mode="region"
+                bindchange="bindRegionChange"
+                value="{{region}}"
+                custom-item="{{customItem}}">
+            <view class="picker font-regular font-36 color-000 {{region.length ? ' opacity-all' : 'opacity3'}}">
+                {{region.length ? region[0] + ' ' + region[1] + ' ' + region[2] : '省、市、区'}}
+            </view>
+        </picker>
+    </view>
+    <view class="height-160 border-b2 flex-center">
+        <input type="text"
+               maxlength="60"
+               placeholder-class="placeholder"
+               name="detailAddress"
+               value="{{detailAddress}}"
+               placeholder="地址（街道、小区、门牌号）" />
+    </view>
+    <view class="height-160 border-b2 flex-row-between flex-row_center color-000 font-regular font-32">
+        <view>设为默认收货地址</view>
+        <view><switch checked="{{defaultAddress}}" bindchange="switchChange"></switch></view>
+    </view>
+</view>
+
+<view class="flex-row pos-fixed bottom0 bgc-fff height-120 width100 btn-group">
+    <!--修改地址时显示-->
+    <!--<button form-type=submit class="width-210 flex-center font-semibold font-32 color-fff bgc-red">删除</button>-->
+    <button form-type="submit" class=" flex1 flex-center  font-semibold font-32 color-333 save-btn">保存</button>
+</view>
+</form>

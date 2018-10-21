@@ -1,0 +1,84 @@
+// pages/index/home/home.js
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    viewId:'',  //1- *[买家交易说明](明](http://www.sneakercn.com/trade/sell/want.html)2[卖家交易说明](明](http://www.sneakercn.com/trade/sell/sell.html)3[鉴定新手教程](程](http://www.sneakercn.com/appraisal/new/appraisalNews.html)4[鉴定规则h5](5](http://www.sneakercn.com/appraisal/rule/rules.html) //5 优惠券说明*
+    flag:false
+  },         
+
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    console.log(options.viewId)
+    if(options.viewId==4){
+      wx.setNavigationBarTitle({
+        title: "鉴定规则"//页面标题为路由参数
+      })
+    }
+    this.setData({
+      viewId: options.viewId,
+      flag:!(options.viewId==5||options.viewId==4||options.viewId==3||options.viewId==2||options.viewId==1)
+    })
+  },
+  /**
+   * tab选择
+   */
+  selectTab:function(e){
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+  
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+  
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+  
+  }
+
+})
