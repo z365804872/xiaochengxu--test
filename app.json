@@ -28,7 +28,8 @@
     "pages/evaluate/success/index",
     "pages/outer/index",
     "pages/index/activity/index",
-    "pages/cutPrice/index/index"
+    "pages/cutPrice/index/index",
+    "pages/cutPrice/order/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
