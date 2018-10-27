@@ -215,7 +215,13 @@
 }
 
 .padding-tb20{
-  padding: 20rpx 0;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.padding-tb24{
+   padding-top: 24rpx;
+  padding-bottom: 24rpx;
 }
 
 .padding-tb18{

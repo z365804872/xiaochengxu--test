@@ -1,4 +1,10 @@
 <!--pages/cutPrice/order/index.wxml-->
 <view>
+    <view class="padding-tb12">
 
+    </view>
+</view>
+<view class="pos-fixed bottom0 left0 right0 flex-row-between flex-row_center padding-tb24 padding-lr30 height-120  submit-btn">
+    <view>实付款：<text>¥980</text></view>
+    <view class="width-1">提交订单</view>
 </view>

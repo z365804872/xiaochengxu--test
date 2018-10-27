@@ -1,0 +1,6 @@
+<view wx:if="{{show}}"  class="modal">
+    <view class="modal-con">
+        <view class="modal-content">请先授权</view>
+        <button class="get-user-info-btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">确定</button>
+    </view>
+</view>
