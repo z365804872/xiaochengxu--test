@@ -48,7 +48,7 @@
 
 	<!-- 活动入口 -->
 	<view class="index-enter">
-		<navigator url="/pages/index/activity/index" hover-class="none">
+		<navigator url="/pages/cutPrice/cutList/index" hover-class="none">
 			<view  class="index-enter-left" style="position: relative;">
 				<image src="../../../images/Group5.png"  style="  position: absolute; width:346rpx; height:160rpx;left:0;top:0;z-index:0" />
 				<image src="../../../images/431523877111_.pic.png"  style="  position: absolute; width:154rpx; height:46rpx;left:100rpx;top:40rpx;z-index:1" />

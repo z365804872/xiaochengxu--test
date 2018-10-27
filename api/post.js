@@ -188,7 +188,18 @@ export default {
     "addFormId": {
         title: '发布鉴定新增',
         path: '/addFormId'
+    },
+    //二期
+
+
+    "selectDownMyPriceList": {
+        title: '我的砍价列表',
+        path: '/selectDownMyPriceList',
+        port: 9002,
+        needUid
     }
+
+
     
 
 }

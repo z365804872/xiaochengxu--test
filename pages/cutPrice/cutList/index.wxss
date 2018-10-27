@@ -1,0 +1,40 @@
+.cut-header{
+    width: 750rpx;
+    height: 100rpx;
+    padding: 0 100rpx;
+    box-sizing: border-box;
+    background: #fafafa;
+}
+.cutbox{
+    width: 275rpx;
+    height: 72rpx;
+    line-height: 72rpx;
+    font-family: PingFangSC;
+    float: left;
+    text-align: center;
+    font-size: 32rpx;
+    position: relative;
+    color: #BABABA;
+}
+.mycutbox{
+    width: 275rpx;
+    height: 72rpx;
+    line-height: 72rpx;
+    float: right;
+    text-align: center;
+    font-family: PingFangSC;
+    font-size: 32rpx;
+    position: relative;
+    color: #BABABA;
+}
+.blackBar{
+    position: absolute;
+    background: #000;
+    width: 64rpx;
+    left: 106rpx;
+    height: 6rpx;
+}
+.colorB{
+    color: #000;
+    font-weight: bold;
+}

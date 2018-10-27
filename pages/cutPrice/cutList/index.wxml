@@ -1,0 +1,27 @@
+<view>
+    <view class="cut-header">
+        <view  class="cutbox {{isMy ? '' : 'colorB'}}" bindtap="tabclick"  data-type="0">
+            砍价商品
+            <view class="blackBar" wx:if="{{!isMy}}"></view>
+        </view>
+        <view class="mycutbox  {{isMy ? 'colorB' : ''}}" bindtap="tabclick"  data-type="1">
+            我的砍价
+            <view class="blackBar"  wx:if="{{isMy}}"></view>
+        </view>
+    </view>
+    <view class="cut-list">
+        <view class="cut-box">
+            <view class="box-left">
+                
+            </view>
+            <view class="box-right">
+                <view class="right-name">
+                    
+                </view>
+                <view class="right-info">
+                    
+                </view>                  
+            </view>                  
+        </view>        
+    </view>
+</view>

@@ -1,7 +1,6 @@
 import config from '../config/config';
 import apiObj from '../api/api';
 import auth from '../common/auth';
-
 let isDev = wx.isDev;
 
 /***
@@ -108,9 +107,15 @@ let request = function (obj) {
 
   let startTime = Date.now();
   if (needLoading) wx.showLoading({mask: true})
+  let urlData = "";
+  if(apiObj[apiKey].port === 9002){
+    urlData =  `${config.host2}${config.prefix}${apiObj[apiKey].path}`
+  }else{
+    urlData =  `${config.host}${config.prefix}${apiObj[apiKey].path}`
+  }
   return new Promise(function (resolve, reject) {
     wx.request({
-      url: `${config.host}${config.prefix}${apiObj[apiKey].path}`,
+      url: urlData,
       data: postData,
       header: {
         'content-type': 'application/x-www-form-urlencoded',

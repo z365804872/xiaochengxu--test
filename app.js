@@ -1,4 +1,4 @@
-// import './core/global_variable';
+import './core/global_variable';
 import './utils/date_format';
 import './utils/promise_finally';
 import './core/wx_api_modify';
