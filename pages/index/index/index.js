@@ -1,5 +1,6 @@
 // pages/index/home/home.js
 import auth from '../../../common/auth';
+import {WX_ENCRYPTED_INFO, WX_USER_INFO} from "../../../common/constants";
 
 Page({
 
@@ -41,6 +42,16 @@ Page({
         //   }
         // })
         this.init()
+    },
+
+    authorize(){
+        let wxUserInfo = wx.getStorageSync(WX_USER_INFO);
+        let wxEncryptedInfo = wx.getStorageSync(WX_ENCRYPTED_INFO);
+        wx.hasAuthorized = !!wxUserInfo && !!wxEncryptedInfo ;
+        this.setData({
+            showAuthorize: !wx.hasAuthorized
+        })
+
     },
 
 

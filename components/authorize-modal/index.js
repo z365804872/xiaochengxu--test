@@ -1,12 +1,14 @@
 // components/action/action.js
+import auth from '../../common/auth';
+
 Component({
     /**
      * 组件的属性列表
      */
     properties: {
-        show: {
+        showAuthorize: {
             type: Boolean,
-            value: false
+            value: true
         },
 
         type: String
@@ -22,7 +24,17 @@ Component({
      */
     methods: {
         getUserInfo(e){
-            wx.showToast({content: 'dfafaß'})
+            let that = this;
+            auth.authorizedVerify(e)
+                .then(res => {
+                    that.setData({
+                        showAuthorize: false
+                    })
+                }).catch(()=>{
+                that.setData({
+                    showAuthorize: false
+                })
+            })
         }
     }
 })

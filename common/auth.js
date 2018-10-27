@@ -70,8 +70,8 @@ class Auth {
                 wx.setStorageSync(WX_ENCRYPTED_INFO, e.detail)
             }catch(e){}
            
-
-            wx.hideLoading()
+            wx && (wx.hasAuthorized = true);
+            wx.hideLoading();
             return Promise.resolve(true)
 
             // let app = getApp()

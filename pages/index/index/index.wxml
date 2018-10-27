@@ -133,4 +133,4 @@
   </button>
 </view>
 
-<authorize-modal></authorize-modal>
+<authorize-modal showAuthorize="{{showAuthorize}}"></authorize-modal>
