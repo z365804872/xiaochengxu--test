@@ -31,9 +31,9 @@ Component({
                         showAuthorize: false
                     })
                 }).catch(()=>{
-                that.setData({
-                    showAuthorize: false
-                })
+                    that.setData({
+                        showAuthorize: false
+                    })
             })
         }
     }

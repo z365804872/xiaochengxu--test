@@ -1,10 +1,63 @@
-<!--pages/cutPrice/order/index.wxml-->
-<view>
-    <view class="padding-tb12">
-
+<!--pages/order/order.wxml-->
+<view class='order-wrapper'>
+  <view class='order-address'>
+    <view class='order-adr-msg'>
+      <text>收件人：ggg</text>
+      <text>15267079036</text>
     </view>
-</view>
-<view class="pos-fixed bottom0 left0 right0 flex-row-between flex-row_center padding-tb24 padding-lr30 height-120  submit-btn">
-    <view>实付款：<text>¥980</text></view>
-    <view class="width-1">提交订单</view>
+    <view class='order-adr-detail'>
+      <text>地址：浙江省杭州市江干区浙江经济职业技术学院生活区16幢207室</text>
+      <image src='/img/arrow-b.png'></image>
+    </view>
+  </view>
+  <view class='order-detail'>
+    <view class='order-de-msg'>
+      <image src='/img/1.jpg'></image>
+      <view class='order-de-mr'>
+        <view>Kobe A.D.EKobe A.D.EKobe A.D.EEE EKobe…</view>
+        <view>货号 852427-107</view>
+        <view>
+          <text>42码</text>
+          <text>￥1000</text>
+        </view>
+      </view>
+    </view>
+    <view class='order-de-ep'>
+      <view>
+        <text>砍价立减：</text>
+        <text class='cut-p'>-¥50</text>
+      </view>
+      <view>
+        <text>顺丰速运：</text>
+        <text class='or-ep'>包邮</text>
+      </view>
+    </view>
+    <view class='order-de-coupon'>
+      <view>优惠券:(可添加）</view>
+      <view>
+        通用优惠券
+        <image src='/img/arrow-b.png'></image>
+      </view>
+    </view>
+  </view>
+  <view class='order-price'>
+    <view>
+      合计：
+      <text>￥980</text>
+    </view>
+  </view>
+  <view class='order-explain'>
+    <view>
+      交易说明
+      <image src='/img/arrow-b.png'></image>
+    </view>
+  </view>
+  <view class='order-submit'>
+    <view>
+      实付款：<text>￥980</text>
+    </view>
+    <view>
+      <text>提交订单</text>
+    </view>
+  </view>
 </view>
