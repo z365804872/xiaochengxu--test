@@ -1,0 +1,8 @@
+<!--pages/authorize/index.wxml-->
+<view class="authorize-con">
+  <view class="logo" style="background-image: url('https://sneakercn.oss-cn-shanghai.aliyuncs.com/test/sncn/201810171455490871935.png')"></view>
+  <view class="desc">鞋客小程序</view>
+  <button  class="btn" open-type="getUserInfo"
+          lang="zh_CN"
+          bindgetuserinfo="getUserInfo">授权</button>
+</view>

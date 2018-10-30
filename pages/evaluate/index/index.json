@@ -3,6 +3,7 @@
   "onReachBottomDistance": 200,
   "enablePullDownRefresh": true,
   "usingComponents": {
-    "nav-tab": "../../../components/nav-tab/nav-tab"
+    "nav-tab": "../../../components/nav-tab/nav-tab",
+    "authorize-modal": "../../../components/authorize-modal/index"
   }
 }

@@ -8,7 +8,7 @@ Component({
     properties: {
         showAuthorize: {
             type: Boolean,
-            value: true
+            value: false
         },
 
         type: String
@@ -24,17 +24,8 @@ Component({
      */
     methods: {
         getUserInfo(e){
-            let that = this;
+            this.setData({showAuthorize: false})
             auth.authorizedVerify(e)
-                .then(res => {
-                    that.setData({
-                        showAuthorize: false
-                    })
-                }).catch(()=>{
-                    that.setData({
-                        showAuthorize: false
-                    })
-            })
         }
     }
 })

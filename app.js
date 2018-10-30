@@ -6,13 +6,16 @@ import './core/ajax';
 import auth from './common/auth';
 
 App({
-  onLaunch: function () {
-    let that = this;
-    //初始化方法
-    auth.init()
+    onLaunch: function () {
+        let that = this;
+        //初始化方法
+        auth.init()
 
-  },
-  globalData: {
-    userInfo: null
-  }
+    },
+    onShow() {
+        auth.hasVerified()
+    },
+    globalData: {
+        userInfo: null
+    }
 })

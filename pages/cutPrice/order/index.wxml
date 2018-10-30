@@ -32,13 +32,13 @@
         <text class='or-ep'>包邮</text>
       </view>
     </view>
-    <view class='order-de-coupon'>
-      <view>优惠券:(可添加）</view>
-      <view>
-        通用优惠券
-        <image src='/img/arrow-b.png'></image>
-      </view>
-    </view>
+    <!--<view class='order-de-coupon'>-->
+      <!--<view>优惠券:(可添加）</view>-->
+      <!--<view>-->
+        <!--通用优惠券-->
+        <!--<image src='/img/arrow-b.png'></image>-->
+      <!--</view>-->
+    <!--</view>-->
   </view>
   <view class='order-price'>
     <view>

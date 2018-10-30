@@ -1,0 +1,38 @@
+/* pages/authorize/index.wxss */
+
+.authorize-con{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50rpx;
+}
+
+.logo{
+    width: 200rpx;
+    height: 200rpx;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin-top: 20%;
+    background-position: center;
+    background-size: cover;
+}
+
+.desc{
+    margin-top: 10%;
+    font-size: 30rpx;
+    color: #484855;
+}
+
+.btn{
+    width: 100%;
+    margin-top: 30%;
+    box-sizing: border-box;
+    background-color: #0CABF5;
+    color: #ffffff;
+    border-radius: 10rpx;
+}
