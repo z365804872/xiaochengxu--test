@@ -1,0 +1,33 @@
+page{
+    background: #F2F4F5;
+    height: 100%;
+}
+.cutPage-header{
+    height: 138rpx;
+}
+.header-left{
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    float: left;
+    margin-left: 30rpx;
+    margin-top: 30rpx;
+}
+.header-center{
+    height: 80rpx;
+    border-radius: 50%;
+    float: left;
+    line-height: 80rpx;
+    margin-left: 30rpx;
+    margin-top: 30rpx;
+}
+.header-right{
+    height: 138rpx;
+    line-height: 138rpx;
+    text-align: right;
+    margin-right: 30rpx;
+    font-size:28rpx;
+    font-family:PingFangSC-Semibold;
+    font-weight:bold;
+    color:#606162;
+}

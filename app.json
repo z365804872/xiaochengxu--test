@@ -29,7 +29,9 @@
     "pages/outer/index",
     "pages/index/activity/index",
     "pages/cutPrice/index/index",
-    "pages/cutPrice/cutList/index"
+    "pages/cutPrice/cutList/index",
+    "pages/cutPrice/cutPage/index"
+    
   ],
   "window":{
     "backgroundTextStyle":"light",

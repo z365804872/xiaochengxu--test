@@ -197,8 +197,21 @@ export default {
         path: '/selectDownMyPriceList',
         port: 9002,
         needUid
-    }
+    },
+    "selectDownPriceBeanList": {
+        title: '我的砍价列表',
+        path: '/selectDownPriceBeanList',
+        port: 9002,
+        needUid
+    },
+    "saveMyPrice": {
+        title: '砍价详情',
+        path: '/saveMyPrice',
+        port: 9002,
+        needUid
+    },
 
+    
 
     
 

@@ -1,0 +1,13 @@
+<view>
+    <view class="cutPage-header">
+        <view class="header-left" style="background:url('{{myPriceData.uidPhoto}}');background-size:80rpx 80rpx;background-repeat:no-repeat;">
+            
+        </view>
+        <view class="header-center">
+            {{myPriceData.difftime}}
+        </view>
+        <view class="header-right">
+            活动规则
+        </view>
+    </view>
+</view>

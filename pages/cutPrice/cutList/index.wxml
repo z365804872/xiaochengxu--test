@@ -9,19 +9,98 @@
             <view class="blackBar"  wx:if="{{isMy}}"></view>
         </view>
     </view>
-    <view class="cut-list">
+    <view class="cut-list" wx:if="{{!isMy}}" wx:for='{{goodsData}}' wx:key="{{index}}">
         <view class="cut-box">
             <view class="box-left">
-                
+                    <view class = "item-image"  style="background:url('{{item.photo}}');background-size:188rpx 100rpx;background-repeat:no-repeat;">
+					</view>
             </view>
             <view class="box-right">
                 <view class="right-name">
-                    
+                    {{item.shoesName}}
                 </view>
-                <view class="right-info">
+                <view class="right-info">  
+                    <view class="info-left">
+                        <view class="info-price">
+                            ￥{{item.shoesPrice}}
+                        </view>
+                        <view class="hasNum">
+                            <text>仅剩 <text style="color:rgba(12,171,245,1)">{{item.surplusStock}}</text> 双可砍</text>
+                            <view class="process-box" >
+                                <view class="process-content" style="width:{{item.progressBar*246}}rpx;">
+                                
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="info-right">
+                        <view  wx:if="{{!item.isOver}}" class="cut-time">
+                            {{item.info}}
+                        </view>
+                        <navigator url="/pages/cutPrice/cutPage/index?downPriceId={{item.downPriceId}}" hover-class="none">
+                            <view wx:if="{{item.isOver}}" class="cut-price">
+                                砍￥{{item.cutPrice}}
+                            </view>
+                        </navigator>
+                        <view wx:if="{{!item.isOver}}" class="cut-price wait-cut-price">
+                            砍￥{{item.cutPrice}}
+                        </view>
+                    </view>
                     
                 </view>                  
             </view>                  
         </view>        
     </view>
+    <view class="cut-list" wx:if="{{isMy}}" wx:for='{{myGoodsData}}' wx:key="{{index}}">
+
+        <view class="cut-box cut-box-my" >
+            <view wx:if="{{item.difftime}}" class="has-time">
+                <text>{{item.difftime}}</text> 后结束
+            </view>
+            <view class="has-time" wx:if="{{!item.difftime}}">
+                已结束
+            </view>
+            <view class="has-time" wx:if="{{item.isOver == 3}}">
+                已成功砍价购买
+            </view>
+            <view class="box-left">
+                    <view class = "item-image"  style="background:url('{{item.photo}}');background-size:188rpx 100rpx;background-repeat:no-repeat;">
+					</view>
+            </view>
+            <view class="box-right">
+                <view class="right-name">
+                    {{item.shoesName}}
+                </view>
+                <view class="right-info">  
+                    <view class="info-left">
+                        <view class="info-price price-from-to">
+                            <text wx:if="{{item.minPrice!='--'}}">￥</text>{{item.minPrice||"--"}}~<text wx:if="{{item.minPrice!='--'}}">￥</text>{{item.maxPrice||"--"}}
+                        </view>
+                        <view class="has-cut"  wx:if="{{item.isOver == 0||item.isOver == 3}}">
+                            已砍￥{{item.cutPrice}}
+                        </view>
+                        <view class="no-cut"  wx:if="{{item.isOver == 2}}">
+                            砍价失效
+                        </view>                        
+                    </view>
+                    <view class="info-right">
+                        <view wx:if="{{item.isOver == 0}}" class="toCut">
+                            继续砍价
+                        </view>
+                        <view wx:if="{{item.isOver == 1}}" class="toBuy">
+                            立刻购买
+                        </view>
+                    </view>
+                    
+                </view>                  
+            </view>                  
+        </view>
+       
+    </view>
+    <view class="no-cut-data" wx:if="{{myGoodsData.length == 0&&isMy}}">
+        <image src="../../../images/no_myCut.png"  style="  position: absolute; width:750rpx; height:750rpx;" />
+    </view>
+    <view class="no-cut-data" wx:if="{{goodsData.length == 0&&!isMy}}">
+        <image src="../../../images/no_cutdata.png"  style="  position: absolute; width:750rpx; height:750rpx;" />
+    </view>  
 </view>

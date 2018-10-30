@@ -1,3 +1,7 @@
+page{
+    background: #fafafa;
+    height: 100%;
+}
 .cut-header{
     width: 750rpx;
     height: 100rpx;
@@ -37,4 +41,158 @@
 .colorB{
     color: #000;
     font-weight: bold;
+}
+.cut-box{
+    width: 750rpx;
+    height: 296rpx;
+    background: #fff;
+    border-bottom: 20rpx solid #f8f8f8;
+}
+.box-left{
+    width: 230rpx;
+    height: 296rpx;
+    float: left;
+}
+.box-right{
+    width: 520rpx;
+    height: 296rpx;
+    float: right;
+}
+.item-image{
+    width: 188rxp;
+    height: 100rpx;
+    margin-top: 98rpx;
+    margin-left: 21rpx;
+}
+.right-name{
+    width: 478rpx;
+    height: 76rpx;
+    margin-left: 14rpx;
+    margin-top: 40rpx;
+    margin-bottom: 30rpx;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+    overflow:hidden;
+}
+.right-info{
+    margin-left: 14rpx;
+}
+.info-left{
+    float: left;
+    width: 300rpx;
+}
+.info-price{
+    color: #333;
+    font-weight: bold;
+    font-size:28rpx;
+    font-family:Arial-Black;
+    line-height:38rpx;
+    margin-bottom: 15rpx;
+}
+.hasNum text{
+    font-size:24rpx;
+    font-family:PingFangSC-Light;
+    font-weight:300;
+    color:#828282;
+    line-height:34rpx;
+}
+.process-box{
+    margin-top: 8rpx;
+    width:246rpx;
+    height:12rpx;
+    border-radius:10px;
+    border: 1rpx solid rgba(12,171,245,1);
+    position: relative;
+}
+.process-content{
+    position: absolute;
+    left: 0;
+    width:210rpx;
+    height:12rpx;
+    background:rgba(12,171,245,1);
+    border-radius:10px 0px 0px 10px;
+}
+.info-right{
+    float: right;
+    width: 172rpx;
+    margin-right: 30rpx;
+}
+.cut-time{
+    font-size:24rpx;
+    width: 100%;
+    text-align: center;
+    font-family:PingFangSC-Medium;
+    font-weight:500;
+    color:#999999;
+    line-height:34rpx;
+}
+.cut-price{
+    width: 172rpx;
+    height: 68rpx;
+    text-align: center;
+    font-family:PingFangSC-Medium;
+    line-height: 68rpx;
+    border-radius: 8rpx;
+    margin-top: 10rpx;
+    color: #fff;
+    background: #40BFF9;
+    font-size:32rpx;
+}
+.info-right .wait-cut-price{
+    background: #B5B5B5;
+}
+
+
+.cut-box-my{
+    height: 340rpx;
+}
+.has-time{
+    padding-top: 20rpx;
+    height: 44rpx;
+    line-height: 44rpx;
+    font-size:28rpx;
+    font-family:PingFangSC-Medium;
+    font-weight:500;
+    color:#999;
+    box-sizing: border-box;
+    padding-left: 30rpx;
+}
+.has-time text{
+    color: #000;
+    font-weight: 800;
+}
+.price-from-to{
+    color:#ADADAD;
+}
+.has-cut{
+    font-size:32rpx;
+    font-family:PingFangSC-Semibold;
+    font-weight:600;
+    color:rgba(255,72,74,1);
+    line-height:38rpx;
+    margin-top: 36rpx;
+}
+.no-cut{
+    font-size:32rpx;
+    font-family:PingFangSC-Semibold;
+    font-weight:600;
+    color:#7F7F7F;
+    line-height:38rpx;
+    margin-top: 36rpx; 
+}
+.toBuy,.toCut{
+    width: 172rpx;
+    height: 68rpx;
+    background: #47C2FC;
+    line-height: 68rpx;
+    text-align: center;
+    color: #fff;
+    border-radius: 8rpx;
+    font-family:PingFangSC-Medium;
+    margin-top: 42rpx;
+
+}
+.no-cut-data{
+    position: relative;
 }
