@@ -40,7 +40,7 @@
     "enablePullDownRefresh": true
   },
   "tabBar": {
-    "backgroundColor": "white",
+    "backgroundColor": "#FFFFFF",
     "selectedColor": "#3C407E",
     "list": [{
       "pagePath": "pages/index/index/index",

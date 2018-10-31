@@ -11,7 +11,7 @@
     </view>
   </view>
   <view class='order-detail'>
-    <view class='order-de-msg'>
+    <view class='order-de-msg' catchtap="toDetail">
       <image src='/img/1.jpg'></image>
       <view class='order-de-mr'>
         <view>Kobe A.D.EKobe A.D.EKobe A.D.EEE EKobe…</view>

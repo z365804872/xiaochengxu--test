@@ -135,7 +135,7 @@ page {
 
 .order-de-ep {
   padding: 30rpx 0;
-  border-bottom: 1px solid #dbdbdb;
+  /* border-bottom: 1px solid #dbdbdb; */
 }
 
 .order-de-ep view {
