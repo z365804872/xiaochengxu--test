@@ -1,6 +1,7 @@
 // pages/evaluate/index/index.js
 import auth from '../../../common/auth';
 import {OPEN_ID} from "../../../common/constants";
+import utils from '../../../utils/util';
 
 Page({
 
@@ -38,7 +39,8 @@ Page({
     //     })
       // })
 
-      this.init()
+      utils.isAuthorizedFun(this.init)
+      
 
   },
     init(){

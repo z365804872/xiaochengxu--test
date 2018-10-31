@@ -1,3 +1,5 @@
+import {WX_ENCRYPTED_INFO, WX_USER_INFO, URL} from "../common/constants";
+
 /***
  * 工具函数
  * ***/
@@ -52,5 +54,36 @@ export default {
         num = index === -1 ? num + '.00' : num + '00'
         index = num.indexOf('.')
         return  num.slice(0, index + 3)
+    },
+
+    isAuthorizedFun(callback){
+        let wxUserInfo = wx.getStorageSync(WX_USER_INFO);
+        let wxEncryptedInfo = wx.getStorageSync(WX_ENCRYPTED_INFO);
+        wx.hasAuthorized = !!wxUserInfo && !!wxEncryptedInfo ;
+
+        let pages = getCurrentPages()
+        let currentPage = pages[pages.length - 1]
+
+        // setTimeout(()=>{
+        //     let pages = getCurrentPages()
+        //     let currentPage = pages[pages.length - 1]
+        //     currentPage.setData({
+        //         showAuthorize: !wx.hasAuthorized
+        //     })
+        // })
+
+        if(!wx.hasAuthorized) {
+            let route = currentPage.route
+            let options = currentPage.options
+            let url = route + this.queryStringify(options)
+            wx.setStorageSync(URL, url);
+
+            wx.redirectTo({
+                url: '/pages/authorize/index'
+            });
+        }else if(typeof callback == 'function'){
+            callback()
+        }
+
     }
 }

@@ -1,5 +1,7 @@
 // pages/index/home/home.js
 import auth from '../../../common/auth';
+import {WX_ENCRYPTED_INFO, WX_USER_INFO} from "../../../common/constants";
+import utils from '../../../utils/util';
 
 Page({
 
@@ -24,26 +26,18 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        // wx.authorize({
-        //   scope: 'scope.userInfo'
-        // }).then(res => {
-        //   console.log(res)
-        // })
-
-        // wx.getSetting().then(res => {
-        //   console.log(res)
-        //   if(res.authSetting && res.authSetting['scope.userInfo']){
-        //     wx.authorize({
-        //       scope: 'scope.userInfo'
-        //     }).then(res => {
-        //       console.log(res)
-        //     })
-        //   }
-        // })
+        this.authorizeModal()
         this.init()
+
     },
-
-
+    authorizeModal(){
+        let wxUserInfo = wx.getStorageSync(WX_USER_INFO);
+        let wxEncryptedInfo = wx.getStorageSync(WX_ENCRYPTED_INFO);
+        wx.hasAuthorized = !!wxUserInfo && !!wxEncryptedInfo ;
+        this.setData({
+                    showAuthorize: !wx.hasAuthorized
+                })
+    },
     /**
      * 生命周期函数--监听页面显示
      */

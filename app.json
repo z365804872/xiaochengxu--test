@@ -30,8 +30,9 @@
     "pages/index/activity/index",
     "pages/cutPrice/index/index",
     "pages/cutPrice/cutList/index",
-    "pages/cutPrice/cutPage/index"
-    
+    "pages/cutPrice/cutPage/index",
+    "pages/cutPrice/order/index",
+    "pages/authorize/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -39,5 +40,26 @@
     "navigationBarTitleText": "SNCN",
     "navigationBarTextStyle":"black",
     "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "backgroundColor": "#FFFFFF",
+    "selectedColor": "#3C407E",
+    "list": [{
+      "pagePath": "pages/index/index/index",
+      "text": "首页",
+      "iconPath": "./images/index.png",
+      "selectedIconPath": "./images/index1.png"
+    }, {
+      "pagePath": "pages/evaluate/index/index",
+      "text": "鉴定",
+      "iconPath": "./images/evaluate.png",
+      "selectedIconPath": "./images/evaluate1.png"
+    },
+      {
+        "pagePath": "pages/mine/index/index",
+        "text": "我的",
+        "iconPath": "./images/mine.png",
+        "selectedIconPath": "./images/mine1.png"
+      }]
   }
 }

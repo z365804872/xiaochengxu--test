@@ -18,10 +18,11 @@ Page({
      */
     onLoad: function (options) {
         let that = this
-        auth.checkLogin()
-          .then(res => {
-              that.init()
-          })
+        // auth.checkLogin()
+        //   .then(res => {
+        //       that.init()
+        //   })
+        utils.isAuthorizedFun(that.init)
     },
 
     //初始化

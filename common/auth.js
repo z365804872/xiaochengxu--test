@@ -61,7 +61,6 @@ class Auth {
      * 按钮授权
      * **/
     authorizedVerify(e) {
-        console.log(e)
         let that = this
         if (!!e && e.type === "getuserinfo" && !!e.detail.userInfo) {
             wx.showLoading({title: '加载中'})
@@ -70,8 +69,8 @@ class Auth {
                 wx.setStorageSync(WX_ENCRYPTED_INFO, e.detail)
             }catch(e){}
            
-
-            wx.hideLoading()
+            wx && (wx.hasAuthorized = true);
+            wx.hideLoading();
             return Promise.resolve(true)
 
             // let app = getApp()
@@ -235,6 +234,38 @@ class Auth {
           })
         }
       })
+    }
+
+    /**
+     *
+     */
+    hasVerified(){
+        const that = this
+        that.checkAuthorizeVerified()
+            .then(res => {
+                let wxUserInfo = wx.getStorageSync(WX_USER_INFO)
+                let wxEncryptedINfo = wx.getStorageSync(WX_ENCRYPTED_INFO)
+
+                if(!!wxUserInfo && !!wxEncryptedINfo){
+                    wx.hasAuthorized = true
+                }else{
+                    return that._getUserInfo()
+                }
+            })
+            .catch(err => {
+                wx.hasAuthorized = false
+            })
+    }
+
+    _getUserInfo(){
+        return wx.getUserInfo().then(res => {
+            try{
+                wx.setStorageSync(WX_USER_INFO, res.userInfo)
+                wx.setStorageSync(WX_ENCRYPTED_INFO, res)
+            }catch(e){}
+            wx.hasAuthorized = true
+            return true
+        })
     }
 }
 

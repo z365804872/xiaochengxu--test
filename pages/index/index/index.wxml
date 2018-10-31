@@ -94,41 +94,4 @@
 </view>
 
 
-<!-- <nav-tab tabName="index"></nav-tab> -->
-
-<view class="nav-tab {{isIphoneX ? 'match-iphone-x' : ''}}" >
-  <button class="nav-tab-item"  data-type="index" >
-    <view>
-      <view class="nav-tab-item-icon">
-        <image src="../../../images/index1.png"></image>
-      </view>
-      <view class="nav-tab-item-title nav-tab-item-selected">首页</view>
-    </view>
-  </button>
-  <button class="nav-tab-item" 
-          open-type="getUserInfo"
-          lang="zh_CN"
-          bindgetuserinfo="switchTab"
-          catchtap="switchTab" 
-          data-type="evaluate" >
-    <view>
-      <view class="nav-tab-item-icon">
-        <image src="../../../images/evaluate.png"></image>
-      </view>
-      <view class="nav-tab-item-title">鉴定</view>
-    </view>
-  </button>
-  <button class="nav-tab-item"
-          open-type="getUserInfo"
-          lang="zh_CN"
-          bindgetuserinfo="switchTab"
-          catchtap="switchTab"
-          data-type="mine">
-    <view>
-      <view class="nav-tab-item-icon">
-        <image src="../../../images/mine.png"></image>
-      </view>
-      <view class="nav-tab-item-title">我的</view>
-    </view>
-  </button>
-</view>
+<authorize-modal showAuthorize="{{showAuthorize}}"></authorize-modal>
