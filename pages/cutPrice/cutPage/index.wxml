@@ -4,10 +4,147 @@
             
         </view>
         <view class="header-center">
-            {{myPriceData.difftime}}
+            <text>{{A}}</text>
+            <text>{{B}}</text> :
+            <text>{{C}}</text>
+            <text>{{D}}</text> :
+            <text>{{E}}</text>
+            <text>{{F}}</text>　后结束
         </view>
         <view class="header-right">
             活动规则
         </view>
     </view>
+    <view class="cutPage-goodsInfo">
+        <view class="goodsInfo-photo"  style="background:url('{{myPriceData.photo}}');background-size:420rpx 224rpx;background-repeat:no-repeat;">
+        </view>
+        <view  class="goodsInfo-name">
+            {{myPriceData.shoesName}}
+        </view>
+        <view  class="goodsInfo-bttom">
+            <view  class="goodsInfo-price">
+                <text wx:if="{{myPriceData.minPrice!=''}}">￥</text>{{myPriceData.minPrice||"--"}}~<text wx:if="{{myPriceData.minPrice!=''}}">￥</text>{{myPriceData.maxPrice||"--"}}
+            </view>
+            <view  class="goodsInfo-size">
+                查看尺码 <view id="triangle-down"></view>
+            </view>            
+        </view>
+    </view>
+
+    <view  class="cutPage-cutPirceArray">
+
+        <view>
+            <view  wx:for="{{myPriceData.cutPirceArrayNew}}" wx:key="{{index}}" class="cutPirceArray-icon {{item<myPriceData.cutPricePosition+14?'cur':''}}" style="left:{{item}}rpx">
+                <view>
+                    ￥{{myPriceData.cutPirceArray[index]}}
+                </view>
+            </view>            
+        </view>
+        <view class="cutPirceArray-bar" style="width:{{myPriceData.cutPriceBar}}rpx">
+        </view>
+
+
+        <view  class="cutPirceNum"  style="left:{{myPriceData.cutPricePosition}}rpx" >
+            <i></i>
+            <view></view>
+        </view>
+        <view  class="cutPirceNum-content"  style="left:{{myPriceData.cutPricePosition-30<-30?-30:myPriceData.cutPricePosition-30>530?530:myPriceData.cutPricePosition-30}}rpx" >
+            已砍￥{{myPriceData.cutPrice||"0"}}
+        </view>
+
+    </view>
+
+    <view class="btn-box">
+        <view class="now-help-box">
+            <view class="now-buy">
+                立刻购买
+            </view>
+            <view class="help-cut">
+                好友帮砍
+            </view>           
+        </view>
+    </view>
+
+    <view class="share-box">
+        <image src="../../../images/share.png"  style="  position: absolute; width:46rpx; height:46rpx;left:216rpx;top:19rpx;z-index:0" />
+        分享到朋友圈帮砍
+    </view>
+
+    <view class='cut-record'>
+        <view class='cut-record-title'>
+            <view>帮砍记录</view>
+            <view>
+                28位好友砍价
+                <image src='../../../images/arrow-b.png'></image>
+            </view>
+        </view>
+        <view class='cut-record-list'>
+            <view class='cut-record-inner'>
+                <image src='../../../images/share.png'></image>
+                <text>Hibe Neted</text>
+                <text>-¥5.68</text>
+            </view>
+            <view class='cut-record-inner'>
+                <image src='../../../images/share.png'></image>
+                <text>Hibe Neted</text>
+                <text>-¥5.68</text>
+            </view>
+            <view class='cut-record-inner'>
+                <image src='../../../images/share.png'></image>
+                <text>Hibe Neted</text>
+                <text>-¥5.68</text>
+            </view>
+            <view class='cut-record-inner'>
+                <image src='../../../images/share.png'></image>
+                <text>Hibe Neted</text>
+                <text>-¥5.68</text>
+            </view>
+            <view class='cut-record-inner'>
+                <image src='../../../images/share.png'></image>
+                <text>Hibe Neted</text>
+                <text>-¥5.68</text>
+            </view>
+            
+
+        </view>
+    </view>
+
+    <view class="cut-show">
+        <image src="../../../images/cutShow.png"  style="  position: absolute; width:750rpx; height:560rpx;left:0;top:0;z-index:0" />
+    </view>
+
+    <view class="hot-box">
+        <view class="hot-title">
+            <image src="../../../images/hotIcon.png"  style="  position: absolute; width:26rpx; height:33rpx;left:290rpx;top:18rpx;z-index:0" />
+            人气商品
+        </view>
+
+        <view class = "list-content">
+			<view  class = "list-content-list" wx:for="{{listData}}"  wx:key="{{index}}">
+				<navigator url="/pages/index/detail/index?shoesId={{item.shoesId}}" hover-class="none">
+					<view class = "list-item-image"  style="background:url('{{item.shoesNewPath}}');background-size:346rpx 186rpx;background-repeat:no-repeat;">
+					</view>
+					<view class = "list-item-name">
+						{{item.shoesName}} 
+					</view>
+					<view class = "list-item-price">
+						￥{{item.referencePrice}}
+					</view>
+					<view class = "list-sale-qiugou">
+						<text class = "list-sale">出售 {{item.sellTotal}} | </text><text class = "list-qiugou">成交 {{item.record}}</text>
+					</view>
+				</navigator>
+			</view>
+		</view>
+    </view>
+
+
+    <navigator url="/pages/index/index/index" hover-class="none">
+        <view class="back-home" >
+            首页
+        </view>
+    </navigator>
+
+
+    
 </view>

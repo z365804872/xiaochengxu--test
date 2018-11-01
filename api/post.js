@@ -210,6 +210,12 @@ export default {
         port: 9002,
         needUid
     },
+    "findMyPrice": {
+        title: '我的砍价详情',
+        path: '/findMyPrice',
+        port: 9002,
+        needUid
+    },
 
     
 

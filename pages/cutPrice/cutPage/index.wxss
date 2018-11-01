@@ -1,6 +1,7 @@
 page{
     background: #F2F4F5;
     height: 100%;
+    position: relative;
 }
 .cutPage-header{
     height: 138rpx;
@@ -20,6 +21,22 @@ page{
     line-height: 80rpx;
     margin-left: 30rpx;
     margin-top: 30rpx;
+    font-weight:bold;
+    color: #000;
+}
+.header-center text{
+    display: inline-block;
+    width: 26rpx;
+    height: 44rpx;
+    text-align: center;
+    line-height: 44rpx;
+    background: #000;
+    color: #fff;
+    margin-right: 4rpx;
+    border-radius: 8rpx;
+}
+.header-center text:nth-child(2n+2){
+    margin-right: 0;
 }
 .header-right{
     height: 138rpx;
@@ -31,3 +48,391 @@ page{
     font-weight:bold;
     color:#606162;
 }
+
+.cutPage-goodsInfo{
+    width: 690rpx;
+    height: 496rpx;
+    background: #fff;
+    box-shadow:0rpx 6rpx 10rpx 0rpx #f0f0f0;
+    border-radius:16rpx;
+    margin-left: 30rpx;
+    overflow: hidden;
+}
+.goodsInfo-photo{
+    width: 420rpx;
+    height: 224rpx;
+    margin-top: 50rpx;
+    margin-left: 165rpx;
+}
+.goodsInfo-name{
+    width: 536rpx;
+    height: 100rpx;
+    margin-left: 78rpx;
+    margin-top: 20rpx;
+    text-align: center;
+    font-size:36rpx;
+    font-family:PingFangSC-Light;
+    color:rgba(51,51,51,1);
+    line-height:50rpx;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+    overflow:hidden;
+}
+
+.goodsInfo-bttom{
+    width: 690rpx;
+    height: 40rpx;
+    margin-top: 20rpx;
+}
+.goodsInfo-price{
+    float: left;
+    margin-left: 36rpx;
+
+    font-size:32rpx;
+    font-family:Arial-Black;
+    font-weight:bold;
+    color:rgba(170,175,181,1);
+    line-height:40rpx;
+}
+.goodsInfo-size{
+    float: right;
+    margin-right: 30rpx;
+    font-size:28rpx;
+    font-family:PingFangSC-Medium;
+    font-weight:500;
+    color:rgba(0,0,0,1);
+    line-height:40rpx;
+}
+#triangle-down {
+    width: 0;
+    height: 0;
+    border-left: 10rpx solid transparent;
+    border-right: 10rpx solid transparent;
+    border-top: 15rpx solid #000;
+    display: inline-block;
+    vertical-align: center;
+  }
+
+  .cutPage-cutPirceArray{
+    width:668rpx;
+    height:12rpx;
+    background:rgba(230,230,230,1);
+    border-radius:6rpx;
+    margin-left: 41rpx;
+    margin-top: 122rpx;
+    position: relative;
+  }
+  .cutPirceArray-bar{
+    height:12rpx;
+    background:rgba(255,72,74,1);
+    border-radius:6rpx;
+  }
+  .cutPirceArray-icon{
+    width:24rpx;
+    height:24rpx;
+    border-radius: 50%;
+    background:rgba(230,230,230,1);
+    position: absolute;
+    top: -6rpx;
+  }
+  .cutPirceArray-icon view{
+    font-size:24rpx;
+    font-family:Arial-Black;
+    font-weight:900;
+    color:#A8AAAB;
+    line-height:34rpx;
+    position: absolute;
+    top: 35rpx;
+    left:-15rpx;
+    width:80rpx;
+  }
+  .cutPirceArray-icon:first-child view{
+    left:-4rpx;
+  }
+  .cutPirceArray-icon:last-child view{
+    text-align: right;
+    left:-56rpx;
+  }
+
+  .cutPirceNum{
+    position: absolute;
+    width:52rpx;
+    height:52rpx;
+    background:rgba(255,255,255,1);
+    box-shadow:8rpx 10rpx 30rpx 0rpx rgba(72,74,75,0.11);
+    border-radius: 50%;
+    top: -20rpx;
+  }
+  .cutPirceNum i{
+    width: 0;
+    height: 0;
+    border-left: 10rpx solid transparent;
+    border-right: 10rpx solid transparent;
+    border-top: 15rpx solid rgba(255,72,74,1);
+    display: inline-block;
+    vertical-align: center;
+    position: absolute;
+    left:16rpx;
+    top:-22rpx;
+
+  }
+  .cutPirceNum view{
+    width:16rpx;
+    height:16rpx;
+    border-radius: 50%;
+    background:#1C1C1C;
+    position: absolute;
+    top: 18rpx;
+    left: 18rpx;
+  }
+  .cutPirceNum-content{
+    position: absolute;
+    width:163rpx;
+    height:50rpx;
+    background: rgba(255,72,74,1);
+    border-radius: 25rpx;
+    top: -90rpx;
+    color: #fff;
+    line-height: 50rpx;
+    text-align: center;
+    font-size: 20rpx;
+  }
+
+  .cur{
+      background: rgba(255,72,74,1);
+  }
+
+
+  .now-help-box{
+      height: 100rpx;
+      width: 750rpx;
+      margin-top: 90rpx;
+  }
+  .now-buy{
+    width:220rpx;
+    height:100rpx;
+    background:rgba(72,72,85,1);
+    box-shadow:0rpx 16rpx 20rpx 0rpx rgba(0,0,0,0.1);
+    border-radius:8rpx;
+    float: left;
+    margin-left: 30rpx;
+    font-size:32rpx;
+    font-family:PingFangSC-Semibold;
+    font-weight:600;
+    color:rgba(255,255,255,1);
+    line-height:100rpx;
+    text-align: center;
+  }
+
+  .help-cut{
+    width:440rpx;
+    height:100rpx;
+    background:linear-gradient(149deg,rgba(74,196,253,1) 0%,rgba(12,162,232,1) 100%);
+    box-shadow:0rpx 16rpx 20rpx 0rpx rgba(20,44,54,0.1);
+    border-radius:8rpx;
+    float: left;
+    margin-left: 30rpx;
+    font-size:36rpx;
+    font-family:PingFangSC-Semibold;
+    font-weight:600;
+    color:rgba(255,255,255,1);
+    line-height:100rpx;
+    text-align: center;
+  }
+
+  .share-box{
+        margin-top: 40rpx;
+        height: 84rpx;
+        line-height: 84rpx;
+        text-align: left;
+        width: 750rpx;
+        background: #fff;
+        position: relative;
+        font-size:32rpx;
+        font-family:PingFangSC-Regular;
+        color:rgba(12,171,245,1);
+        padding-left: 274rpx;
+        box-sizing: border-box;
+        margin-bottom: 30rpx;
+  }
+
+
+  
+.cut-record {
+    padding: 30rpx;
+    background-color: #fff;
+  }
+  
+  .cut-record-title {
+    display: flex;
+    line-height: 50rpx;
+    justify-content: space-between;
+  }
+  
+  .cut-record-title view:nth-child(1) {
+    font-size: 36rpx;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .cut-record-title view:nth-child(2) {
+    font-size: 28rpx;
+    color: rgba(51,51,51,0.5);
+  }
+  
+  .cut-record-title view:nth-child(2) image {
+    width: 24rpx;
+    height: 24rpx;
+    margin-bottom: 7rpx;
+    vertical-align: middle;
+  }
+  
+  .cut-record-list {
+    display: flex;
+    margin-top: 30rpx;
+    justify-content: space-between;
+  }
+  
+  .cut-record-inner {
+    min-width: 80rpx;
+    text-align: center;
+  }
+  
+  .cut-record-inner image {
+    display: block;
+    width: 80rpx;
+    height: 80rpx;
+    margin: 0 auto;
+    border-radius: 100%;
+  }
+  
+  .cut-record-inner text:nth-child(2) {
+    display: block;
+    margin: 20rpx 0 0;
+    text-align: center;
+    font-size: 20rpx;
+    color: #1c172f;
+  }
+  
+  .cut-record-inner text:nth-child(3) {
+    color: #ff484a;
+    font-size: 30rpx; 
+    font-weight: bold;
+  }
+
+  .cut-show{
+    width: 750rpx;
+    height: 560rpx;
+    margin-top: 20rpx;
+    position: relative;
+  }
+
+
+  .hot-box{
+    margin-top: 8rpx;
+
+  }
+  .hot-title{
+    height: 68rpx;
+    line-height: 68rpx;
+    font-size:32rpx;
+    font-family:PingFangSC-Regular;
+    color:rgba(0,0,0,1);
+    padding-left: 332rpx;
+    position: relative;
+  }
+
+  .list-content{
+    overflow: hidden;
+    /* background: #fff; */
+  }
+  .list-content-list{
+    width: 373rpx;
+    height: 442rpx;
+    background: #fff;
+    margin-top: 4rpx;
+    margin-bottom: 4rpx;
+    /* border-radius:10rpx; */
+    overflow:hidden;
+    position: relative;
+    box-shadow: 0 2rpx 12rpx 0 rgba(0,0,0,0.10);
+  }
+  .list-content-list:nth-child(2n){
+    float: left;
+    /* margin-left: 20rpx; */
+  }
+  .list-content-list:nth-child(2n+1){
+    float: right;
+    /* margin-right: 20rpx; */
+  }
+  .list-item-image{
+    margin-top: 58rpx;
+    height: 202rpx;
+    width: 373rpx;
+    margin-bottom: 24rpx;
+  }
+  .list-item-name{
+    width: 313rpx;
+    height: 66rpx;
+    padding: 12rpx 30rpx;
+    opacity: 0.8;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+
+    font-size:28rpx;
+    font-family:PingFangSC-Regular;
+    color:rgba(51,51,51,1);
+  }
+  .list-sale-qiugou{
+    width: 346rpx;
+    height: 67rpx;
+  }
+  .list-item-price{
+    line-height: 67rpx;
+    text-align: left;
+    font-size: 28rpx;
+    position: absolute; 
+    bottom: 0;
+    left: 30rpx;
+    opacity: 0.8;
+    font-size:28rpx;
+    font-family:Arial-Black;
+    font-weight:900;
+    color:rgba(235,75,66,1);
+  }
+  .list-sale-qiugou{
+    text-align: right;
+    color: #333333;
+    opacity: 0.4;
+    position: absolute;
+    bottom: 31rpx;
+    right: 30rpx;
+    height:30rpx;
+    font-size:20rpx;
+    font-family:PingFangSC-Regular;
+
+    line-height:28px;
+  }
+
+
+
+  .back-home{
+        position: fixed;
+        right: 30rpx;
+        top: 992rpx;
+
+        width:96rpx;
+        height:96rpx;
+        background:rgba(0,0,0,1);
+        box-shadow:0rpx 10rpx 20rpx 0rpx rgba(0,0,0,0.26);
+        opacity:0.57;
+        font-size:28rpx;
+        font-family:PingFangSC-Regular;
+        color:rgba(255,255,255,1);
+        line-height:96rpx;
+        text-align: center;
+        border-radius: 50%;
+  }

@@ -6,7 +6,16 @@ Page({
    */
   data: {
     downPriceId:"",
+    type:'',  //1砍价列表2.我的砍价
     myPriceData:"",
+    A:"0",
+    B:"0",
+    C:"0",
+    D:"0",
+    E:"0",
+    F:"0",
+    page: 1,
+    listData: [],
   },
   /**
    * 生命周期函数--监听页面加载
@@ -15,25 +24,70 @@ Page({
     // console.log(options.downPriceId)
     let _this = this;
     this.setData({
+      type: options.type
+    })
+    this.setData({
       downPriceId: options.downPriceId
     })
-
-    wx.post({
-      api:'saveMyPrice', 
-      data:{
-        downPriceId:options.downPriceId
-      }
-    }).then(res => {
-      this.setData({
-        myPriceData: res.myPrice
+    if(options.type == 1){
+      wx.post({
+        api:'saveMyPrice', 
+        data:{
+          downPriceId:options.downPriceId
+        }
+      }).then(res => {
+        let args = res.myPrice.cutPirceArray
+        // res.myPrice.cutPrice = 300;
+        res.myPrice.cutPirceArrayNew=args.map((value)=>{
+          let num = (value/args[args.length - 1])*668-12;
+          return num
+        })
+        res.myPrice.cutPricePosition =  (res.myPrice.cutPrice/args[args.length - 1])*668-26;
+        res.myPrice.cutPriceBar =  (res.myPrice.cutPrice/args[args.length - 1])*668;
+        this.setData({
+          myPriceData: res.myPrice
+        })
+        this.nowTime();
+        var timer = setInterval(function(){
+          _this.nowTime()
+          // console.log(_this.data.myPriceData)
+        }, 1000);
+  
       })
-      this.nowTime();
-      var timer = setInterval(function(){
-        _this.nowTime()
-        // console.log(_this.data.myPriceData)
-      }, 1000);
+    }else if(options.type == 2){
+      wx.post({
+        api:'findMyPrice', 
+        data:{
+          downMyPriceId:options.downPriceId
+        }
+      }).then(res => {
+        console.log(res)
+        let args = res.cutPirceArray
+        // res.cutPrice = 300;
+        res.cutPirceArrayNew=args.map((value)=>{
+          let num = (value/args[args.length - 1])*668-12;
+          return num
+        })
+        res.cutPricePosition =  (res.cutPrice/args[args.length - 1])*668-26;
+        res.cutPriceBar =  (res.cutPrice/args[args.length - 1])*668;
+        this.setData({
+          myPriceData: res
+        })
+        this.nowTime();
+        var timer = setInterval(function(){
+          _this.nowTime()
+          // console.log(_this.data.myPriceData)
+        }, 1000);
+  
+      })
+    }
 
-    })
+    // 热门商品
+    wx.post({api: 'hotShoes', data: {pageNum: this.data.page, pageSize: 10}}).then(res => {
+      this.setData({
+          listData: res
+      })
+  })
   },
   /**
    * 倒计时
@@ -55,6 +109,27 @@ Page({
         var str = false;  
       }
       res.difftime = str;
+      if(str.length>8){
+        str = str.substring(1,9)
+      }
+      this.setData({
+        A: str.substring(0,1)
+      })
+      this.setData({
+        B: str.substring(1,2)
+      })
+      this.setData({
+        C: str.substring(3,4)
+      })
+      this.setData({
+        D: str.substring(4,5)
+      })
+      this.setData({
+        E: str.substring(6,7)
+      })
+      this.setData({
+        F: str.substring(7,8)
+      })
       this.setData({
         myPriceData: res
       })
