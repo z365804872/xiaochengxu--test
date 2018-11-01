@@ -62,31 +62,31 @@ Page({
       let orderType = wx.getStorageSync('orderType');
       !!orderType && _this.setData({ orderType: orderType })
 
-      if (orderType == 2) {
-        if (!_this.data.orderData.fastBuy) {
-          _this.setData({
-            baytab: 1
-          })
-        } else {
-          _this.setData({
-            defaultPrise: _this.data.orderData.fastBuy.sellMoney.toFixed(2)
-          })
-        }
+      // if (orderType == 2) {
+      //   if (!_this.data.orderData.fastBuy) {
+      //     _this.setData({
+      //       baytab: 1
+      //     })
+      //   } else {
+      //     _this.setData({
+      //       defaultPrise: _this.data.orderData.fastBuy.sellMoney.toFixed(2)
+      //     })
+      //   }
 
-      } else if (orderType == 1) {
-        if (_this.data.orderData.fastSell) {
-          _this.setData({
-            baytab: 1
-          })
-        } else {
-          try{
-            _this.setData({
-              defaultPrise: _this.data.orderData.fastSell.sellMoney.toFixed(2)
-            })
-          }catch(e){console.error(e)}
-        }
-      }
-      _this.calcServiceFee();
+      // } else if (orderType == 1) {
+      //   if (_this.data.orderData.fastSell) {
+      //     _this.setData({
+      //       baytab: 1
+      //     })
+      //   } else {
+      //     try{
+      //       _this.setData({
+      //         defaultPrise: _this.data.orderData.fastSell.sellMoney.toFixed(2)
+      //       })
+      //     }catch(e){console.error(e)}
+      //   }
+      // }
+      // _this.calcServiceFee();
     } catch (e) {console.error(e) }
 
 
@@ -152,27 +152,6 @@ Page({
       }else{
         _this.setData({addressList: addressList[0], addressId: addressList[0].addressId || ''})
       }
-      // addressList.forEach(address => {
-      //   if (_this.data.addressId && address.addressId == _this.data.addressId) {
-      //     _this.setData({
-      //       addressList: address
-      //     })
-      //   } else {
-      //     if (address.defaultAddress) {
-      //       _this.setData({
-      //         addressList: address,
-      //         addressId: address.addressId
-      //       })
-      //     }
-      //   }
-      // })
-
-      // if (!_this.data.addressList && addressList.length > 0) {
-      //   _this.setData({
-      //     addressList: addressList[0],
-      //     addressId: addressList[0].addressId
-      //   })
-      // }
 
     })
   },
@@ -505,6 +484,10 @@ Page({
     wx.navigateTo({
       url: `/pages/index/detail/index?shoesId=${shoesId}`
     });
+  },
+
+  submitOrder(){
+    
   }
 
 

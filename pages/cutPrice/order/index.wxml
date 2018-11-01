@@ -1,15 +1,25 @@
 <!--pages/order/order.wxml-->
 <view class='order-wrapper'>
-  <view class='order-address'>
+  <view wx:if="{{addressList.length}}" class='order-address'>
     <view class='order-adr-msg'>
-      <text>收件人：ggg</text>
-      <text>15267079036</text>
+      <text>收件人：{{addressList.name}}</text>
+      <text>{{addressList.mobile}}</text>
     </view>
     <view class='order-adr-detail'>
-      <text>地址：浙江省杭州市江干区浙江经济职业技术学院生活区16幢207室</text>
-      <image src='/img/arrow-b.png'></image>
+      <text class='iconfont icon-dizhi1'></text>
+      <text>地址：{{addressList.address}}{{addressList.detailAddress}}</text>
+      <text class='iconfont icon-jiaobiao'></text>
     </view>
   </view>
+
+  <view wx:else class='no-address' catchtap="toAddress">
+      <view>
+        <text class='iconfont icon-dizhi1'></text>
+        <text class='add-address-desc'>新增收货地址</text>
+      </view>
+      <text class='iconfont icon-jiaobiao'></text>
+  </view>
+
   <view class='order-detail'>
     <view class='order-de-msg' catchtap="toDetail">
       <image src='/img/1.jpg'></image>
@@ -56,7 +66,7 @@
     <view>
       实付款：<text>￥980</text>
     </view>
-    <view>
+    <view catchtap="submitOrder">
       <text>提交订单</text>
     </view>
   </view>

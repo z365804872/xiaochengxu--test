@@ -8,11 +8,11 @@ import auth from './common/auth';
 App({
     onLaunch: function () {
         let that = this;
-        //初始化方法
-        auth.init()
 
     },
     onShow() {
+        //初始化方法
+        auth.init()
         auth.hasVerified()
     },
     globalData: {
