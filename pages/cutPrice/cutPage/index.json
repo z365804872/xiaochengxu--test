@@ -3,6 +3,7 @@
     "onReachBottomDistance": 200,
     "enablePullDownRefresh": false,
     "usingComponents": {
-      "cut-modal": "../../../components/cut-modal/index"
+      "cut-modal": "../../../components/cut-modal/index",
+      "authorize-modal": "../../../components/authorize-modal/index"
     }
   }

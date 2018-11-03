@@ -73,17 +73,17 @@ class Auth {
             wx.hideLoading();
             return Promise.resolve(true)
 
-            // let app = getApp()
-            // if(!!app.globalData.uid) return true
-            // return that.getAppGlobalData().then(globalData => {
-            //     if(!!globalData.uid) return true
-            //     //根据用户信息，发起登陆请求
-            //     return that.login().then(res => {
-            //         return true
-            //     }).finally(() => {
-            //         wx.hideLoading()
-            //     })
-            // })
+            let app = getApp()
+            if(!!app.globalData.uid) return true
+            return that.getAppGlobalData().then(globalData => {
+                if(!!globalData.uid) return true
+                //根据用户信息，发起登陆请求
+                return that.login().then(res => {
+                    return true
+                }).finally(() => {
+                    wx.hideLoading()
+                })
+            })
 
         } else {
             return Promise.reject(false)

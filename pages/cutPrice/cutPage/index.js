@@ -1,5 +1,6 @@
 // pages/cutPrice/index/index.js
-import {OPEN_ID} from "../../../common/constants";
+import {OPEN_ID, WX_ENCRYPTED_INFO, WX_USER_INFO} from "../../../common/constants";
+import utils from "../../../utils/util";
 
 Page({
 
@@ -24,17 +25,30 @@ Page({
      */
     onLoad: function (options) {
 
-        console.log('options', options)
+        this.data.options = options
 
-        let _this = this;
-        // 热门商品
-        wx.post({api: 'hotShoes', data: {pageNum: this.data.page, pageSize: 10}}).then(res => {
-            this.setData({
-                listData: res
+        // this.authorizeModal()
+
+        utils.isAuthorizedFun(function () {
+            // 热门商品
+            wx.post({api: 'hotShoes', data: {pageNum: this.data.page, pageSize: 10}}).then(res => {
+                this.setData({
+                    listData: res
+                })
             })
+            //friendCut：好友帮砍； init：正常进入
+            !!options.scene ? this.friendCut(this.data.options.scene) : this.init(this.data.options)
+        }.bind(this))
+
+
+    },
+    authorizeModal(){
+        let wxUserInfo = wx.getStorageSync(WX_USER_INFO);
+        let wxEncryptedInfo = wx.getStorageSync(WX_ENCRYPTED_INFO);
+        wx.hasAuthorized = !!wxUserInfo && !!wxEncryptedInfo ;
+        this.setData({
+            showAuthorize: !wx.hasAuthorized
         })
-        //friendCut：好友帮砍； init：正常进入
-        !!options.scene ? _this.friendCut(options.scene) : _this.init(options)
     },
     //小程序正常进入
     init(options) {
@@ -206,13 +220,6 @@ Page({
             wx.getShareInfo({
                 shareTicket: String(shareTicket),
                 success: (info)=>{
-
-                    console.log('group', JSON.stringify(info))
-                    wx.showModal({
-                        title: info.errMsg,
-                        content: JSON.stringify(info)
-                    })
-
                     try{
                         delete info.errMsg
                     }catch (err){}

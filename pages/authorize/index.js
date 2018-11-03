@@ -36,7 +36,7 @@ Page({
                         url: `/${url}`
                     })
                 }else{
-                    wx.redirectTo({url: url})
+                    wx.redirectTo({url: `/${url}`})
                 }
             })
     }
