@@ -139,7 +139,7 @@
     </view>
 
 
-    <navigator url="/pages/index/index/index" hover-class="none">
+    <navigator  hover-class="none">
         <view class="back-home" >
             首页
         </view>
@@ -149,4 +149,4 @@
     
 </view>
 
-<cut-modal modalType="4"></cut-modal>
+<!--<cut-modal modalType="4"></cut-modal>-->
