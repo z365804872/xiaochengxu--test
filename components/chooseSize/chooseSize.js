@@ -16,6 +16,7 @@ Component({
      */
     data: {
         choosePrice:'',
+        price:"",
         detailData:[],
         photo:'',
         isFalse:true,
@@ -29,10 +30,13 @@ Component({
      */
     methods: {
         sizeClick(e){
+            let rightPrice = e.currentTarget.dataset.price.replace(/￥/g,"")>0?(e.currentTarget.dataset.price.replace(/￥/g,"")-this.data.cutPrice).toFixed(2):"--"
+            let price = e.currentTarget.dataset.price.replace(/￥/g,"")
             this.setData({
                 chooseSize:e.currentTarget.dataset.size,
-                choosePrice:e.currentTarget.dataset.price.replace(/￥/g,""),
+                choosePrice:rightPrice,
                 sellId:e.currentTarget.dataset.sellid,
+                price
             })
             console.log(e.currentTarget.dataset.sellid)
         },
@@ -62,9 +66,9 @@ Component({
                         key: "orderType",
                         data: e.currentTarget.dataset.index
                       })
-            
+                      let url =  `/pages/cutPrice/order/index?cutPrice=${this.data.cutPrice}&cutChooseSize=${this.data.chooseSize}&choosePrice=${this.data.choosePrice}&price=${this.data.price}`
                       wx.navigateTo({
-                        url: "/pages/cutPrice/order/index"
+                        url
                       })
                     } else {
                       wx.showToast({
