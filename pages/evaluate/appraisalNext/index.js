@@ -181,9 +181,11 @@ Page({
       }
     })
   },
-  uploadImg:function(){
+  uploadImg:function(e){
     let _this = this
     let {saveImg, isUploading}  = _this.data
+
+    let formId = e.detail.formId
    
 
     for(let i=0;i<saveImg.length;i++){
@@ -243,7 +245,7 @@ Page({
       try{
         wx.hideLoading();
       }catch(e){}
-      wx.post({api:'appraisal',data:prama}).then(res=>{
+      wx.post({api:'appraisal',data:{...prama, formId}}).then(res=>{
         _this.setData({isUploading: !isUploading})
           wx.reLaunch({
             url:"/pages/evaluate/success/index"

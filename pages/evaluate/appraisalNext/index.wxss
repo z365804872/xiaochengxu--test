@@ -55,7 +55,7 @@ page{
 .next-btn{
     width: 750rpx;
     height: 120rpx;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     font-family: PingFangSC-Semibold;
     font-size: 32rpx;
@@ -94,4 +94,9 @@ page{
 
 .disabled{
     background-color: #cccccc;
+}
+
+.submit-btn{
+    padding: 0;
+    margin: 0;
 }

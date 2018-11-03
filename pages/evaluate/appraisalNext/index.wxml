@@ -29,8 +29,11 @@
             <input placeholder="输入你的备注信息 如：货号/尺码/颜色…" placeholder-class="place-holder" value="{{inputValue}}"  bindinput="getValue" type="text"/>
         </view>
 
-        <view class="next-btn {{isUploading ? 'disabled' : ''}}"  bindtap="{{isUploading ? '' : 'uploadImg'}}">
-            发布(2/2)
-        </view>
+        <form bindsubmit="{{isUploading ? '' : 'uploadImg'}}" report-submit="true">
+            <button class="submit-btn" form-type="submit" class="next-btn {{isUploading ? 'disabled' : ''}}">
+                发布(2/2)
+            </button>
+        </form>
+
     </view>
 </view>

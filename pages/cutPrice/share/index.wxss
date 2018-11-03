@@ -1,0 +1,78 @@
+page{
+  background-color: rgb(242, 244, 245);
+}
+
+.share-wrapper {
+  padding: 30rpx;
+}
+
+.share-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+.share-h-right {
+  border: 1rpx solid #0CABF5;
+  box-shadow: 0 8rpx 10rpx 0 rgba(20,44,54,0.10);
+  border-radius: 36rpx;
+  height: 72rpx;
+  padding: 0 24rpx;
+}
+
+.share-h-right view {
+  width: 230rpx;
+  height: 72rpx;
+  text-align: center;
+  color: #0CABF5;
+  border: 2rpx solid #0CABF5;
+  box-shadow: 0 16rpx 20rpx 0 rgba(20,44,54,0.10);
+  border-radius: 36rpx;
+}
+
+.share-h-right text {
+  font-size: 28rpx;
+  line-height: 72rpx;
+}
+
+.share-h-right icon {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.share-content {
+ margin-top: 20rpx;
+}
+
+.share-con-inner {
+  width: 100%;
+  margin-top: 20rpx;
+  height: 1000rpx;
+  position: relative;
+}
+
+.share-con-inner image {
+  width: 100%;
+  height: 100%;
+}
+
+.share-con-inner .shoes-info {
+  position: absolute;
+  top: 330rpx;
+  width: 100%;
+  padding: 0 60rpx;
+  box-sizing: border-box;
+}
+.shoe-img{
+  width: 400rpx;
+  height: 200rpx;
+  background-color: #eeeeee;
+  margin: 0 auto;
+}
+
+.shoe-name{
+  color: #484855;
+  margin-top: 20rpx;
+  text-align: center;
+}

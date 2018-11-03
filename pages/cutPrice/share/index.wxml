@@ -1,0 +1,21 @@
+<view class='share-wrapper'>
+  <view class='share-header'>
+    <view class='share-h-left'>
+      <text class="font-medium font-36 color-333 lheight-33">点击去朋友圈砍价</text>
+      <view class="font-light font-28 margin-t20">分享到朋友圈，邀请朋友帮砍</view>
+    </view>
+    <view class='share-h-right '>
+      <icon class="iconfont icon-fenxiangx"></icon>
+      <text class="margin-l20">去朋友圈砍价</text>
+    </view>
+  </view>
+  <view class='share-content'>
+    <view class='share-con-inner'>
+      <image mode="aspectFill" src='../../../images/share_to_message.png'></image>
+      <view class="shoes-info">
+        <view class="shoe-img"></view>
+        <view class="font-regular font-28 lheight-40 shoe-name">Air Jordan 1 BG Bred Toe AJ1 黑红脚趾</view>
+      </view>
+    </view>
+  </view>
+</view>
