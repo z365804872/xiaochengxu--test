@@ -85,7 +85,7 @@ let ajax = function (method, params, needLoading) {
     let app = getApp()
     let uid = app.globalData.uid
     if (!uid) {
-      return auth.login().then(() => {
+      return auth.getUid().then(() => {
         postData.uid = getApp().globalData.uid
         return request({ method, postData, needLoading, apiKey, toastResult })
       })
@@ -187,5 +187,6 @@ wx.get = function () {
 wx.post = function () {
   return ajax.apply(null, ['post', ...arguments])
 }
+
 
 

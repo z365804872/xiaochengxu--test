@@ -15,7 +15,6 @@ App({
         auth.init()
         auth.hasVerified()
 
-        console.log('on show', opts)
         //获取群id
         opts.scene && (opts.scene == 1044) && (this.globalData.shareTicket = opts.shareTicket)
 

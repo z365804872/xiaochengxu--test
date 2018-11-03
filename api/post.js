@@ -221,6 +221,11 @@ export default {
         path: '/findFrientList',
         port: 9002
     },
+    "programCode": {
+        title: '生成小程序二维码图片',
+        path: '/programCode',
+        port: 9002
+    }
 
 
 

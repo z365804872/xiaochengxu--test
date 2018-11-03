@@ -200,7 +200,7 @@ class Auth {
      * 页面初始化，获取openId
      * ***/
     init() {
-        this.getLoginCode().then(loginCode => this.getOpenId(loginCode))
+        return this.getLoginCode().then(loginCode => this.getOpenId(loginCode))
     }
 
     /***
@@ -264,7 +264,42 @@ class Auth {
                 wx.setStorageSync(WX_ENCRYPTED_INFO, res)
             }catch(e){}
             wx.hasAuthorized = true
-            return true
+            return res
+        })
+    }
+
+
+    getUid(){
+        const that = this
+        return that.checkAuthorizeVerified()
+            .then(res => {
+                return that.init().then(res=> {
+                    return that._getUserInfo()
+                            .then(info => {
+                                return that._loginMember(info)
+                        })
+                })
+            })
+    }
+
+    _loginMember(res){
+        let userInfo = res.userInfo
+        let postData = {}
+        postData.headPhoto = userInfo.avatarUrl
+        postData.nickName = userInfo.nickName
+        postData.sex = userInfo.gender
+
+        postData.encryptedData = res.encryptedData
+        postData.iv = res.iv
+
+        postData.unionId = res.unionId || wx.getStorageSync(UNION_ID)
+        postData.openId = res.openId || wx.getStorageSync(OPEN_ID)
+        wx.post({
+            api: 'loginMember',
+            data: postData
+        }).then(res => {
+            getApp().globalData.uid = res.uid
+            return res.uid
         })
     }
 }

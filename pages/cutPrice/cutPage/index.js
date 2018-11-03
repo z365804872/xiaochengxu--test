@@ -42,74 +42,6 @@ Page({
           !!options.scene ? this.friendCut(this.data.options.scene) : this.init(this.data.options)
       }.bind(this))
 
-
-    // console.log(options.downPriceId)
-  //   let _this = this;
-  //   this.setData({
-  //     type: options.type
-  //   })
-  //   this.setData({
-  //     downPriceId: options.downPriceId
-  //   })
-  //   if(options.type == 1){
-  //     wx.post({
-  //       api:'saveMyPrice',
-  //       data:{
-  //         downPriceId:options.downPriceId
-  //       }
-  //     }).then(res => {
-  //       let args = res.myPrice.cutPirceArray
-  //       // res.myPrice.cutPrice = 300;
-  //       res.myPrice.cutPirceArrayNew=args.map((value)=>{
-  //         let num = (value/args[args.length - 1])*668-12;
-  //         return num
-  //       })
-  //       res.myPrice.cutPricePosition =  (res.myPrice.cutPrice/args[args.length - 1])*668-26;
-  //       res.myPrice.cutPriceBar =  (res.myPrice.cutPrice/args[args.length - 1])*668;
-  //       this.setData({
-  //         myPriceData: res.myPrice
-  //       })
-  //       this.nowTime();
-  //       var timer = setInterval(function(){
-  //         _this.nowTime()
-  //         // console.log(_this.data.myPriceData)
-  //       }, 1000);
-  //
-  //     })
-  //   }else if(options.type == 2){
-  //     wx.post({
-  //       api:'findMyPrice',
-  //       data:{
-  //         downMyPriceId:options.downPriceId
-  //       }
-  //     }).then(res => {
-  //       console.log(res)
-  //       let args = res.cutPirceArray
-  //       // res.cutPrice = 300;
-  //       res.cutPirceArrayNew=args.map((value)=>{
-  //         let num = (value/args[args.length - 1])*668-12;
-  //         return num
-  //       })
-  //       res.cutPricePosition =  (res.cutPrice/args[args.length - 1])*668-26;
-  //       res.cutPriceBar =  (res.cutPrice/args[args.length - 1])*668;
-  //       this.setData({
-  //         myPriceData: res
-  //       })
-  //       this.nowTime();
-  //       var timer = setInterval(function(){
-  //         _this.nowTime()
-  //         // console.log(_this.data.myPriceData)
-  //       }, 1000);
-  //
-  //     })
-  //   }
-  //
-  //   // 热门商品
-  //   wx.post({api: 'hotShoes', data: {pageNum: this.data.page, pageSize: 10}}).then(res => {
-  //     this.setData({
-  //         listData: res
-  //     })
-  // })
   },
     authorizeModal(){
         let wxUserInfo = wx.getStorageSync(WX_USER_INFO);
@@ -301,6 +233,7 @@ Page({
             }).then(res => {
                 // console.log('group', res)
                 that.setData({...res})
+                that.filterData(res.myPrice)
         })
     },
 
