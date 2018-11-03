@@ -246,13 +246,16 @@ Page({
         wx.hideLoading();
       }catch(e){}
       wx.post({api:'appraisal',data:{...prama, formId}}).then(res=>{
-        _this.setData({isUploading: !isUploading})
+        _this.setData({isUploading: !_this.data.isUploading})
           wx.reLaunch({
             url:"/pages/evaluate/success/index"
           })
+      }).catch(()=>{
+          _this.setData({isUploading: !_this.data.isUploading})
       })
     }).catch(err => {
       console.log('promise all error', err)
+      _this.setData({isUploading: !_this.data.isUploading})
     })
     
     
