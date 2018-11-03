@@ -1,46 +1,200 @@
-.modal{
+@import '../../styles/iconfont.wxss';
+
+.cut-modal{
     position: fixed;
-    top: 0;
-    bottom: 0;
+    background-color: rgba(4,4,15, 0.6);
+    z-index: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     left: 0;
     right: 0;
-    background-color: rgba(4,4,15,0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 500;
-
+    top: 0;
+    bottom: 0;
 }
 
-.modal-con{
-    width: 540rpx;
-    height: 250rpx;
-    border-radius: 28rpx;
-    background-color: rgba(248,248,248,0.82);
-    overflow: hidden;
+.cut-modal-con{
+    background-color: #fff;
+    z-index: 550;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 16rpx;
+}
+
+.logo-img {
+    width: 124rpx;
+    height: 124rpx;
+    border: 2rpx solid #FFFFFF;
+    background-size: cover;
+    background-position: center;
+    background-image: url("https://sneakercn.oss-cn-shanghai.aliyuncs.com/test/sncn/201810171455490871935.png");
+    border-radius: 50%;
+    position: absolute;
+    top: -64rpx;
+    left: 221rpx;
+}
+
+.cut-modal-content{
+    width: 570rpx;
+    min-height: 556rpx;
+    border-radius: 16rpx;
+    padding: 60rpx 80rpx;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    z-index: 550;
+    justify-content: space-around;
+    color: #000;
 }
 
-.modal-content{
-    border-bottom: 1rpx solid #EFEFEF;
-    min-height: 100rpx;
-    flex: 1;
+.cut-modal-top{
     display: flex;
+    flex-direction: row;
+}
+
+.btn{
+    width: 100%;
+    border-radius: 50rpx;
+    height: 76rpx;
+    display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    font-size: 36rpx;
-    border-bottom: 1rpx solid rgba(0,0,80,0.1);
-    background-color: rgba(248,248,248,0.82);
 }
 
-.get-user-info-btn{
-    height: 86rpx;
-    width: 100%;
+.cut-img{
+    width: 64rpx;
+    height: 64rpx;
+    border-radius: 50%;
+    background-color: #cccccc;
+    background-position: center;
+    background-size: cover;
+}
+
+.thank-text{
+    background-color: #F2F4F5;
+    border-radius: 32rpx 32rpx 32rpx 8rpx;
     font-family: PingFangSC-Regular;
-    font-size: 34rpx;
-    color: #007AFF;
+    font-size: 24rpx;
+    color: #000000;
     text-align: center;
-    background-color: rgba(248,248,248,0.82);
+    line-height: 64rpx;
+    margin-left: 16rpx;
+    padding: 0 18rpx;
+}
+
+.cut-modal-top{
+    margin-top: 20rpx;
+}
+
+.cut-modal-middle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60rpx;
+}
+
+.cut-modal-middle-title{
+    font-family: PingFangSC-Medium;
+    font-size: 32rpx;
+    color: #000000;
+    letter-spacing: -0.6rpx;
+    text-align: center;
+    line-height: 45rpx;
+}
+
+.cut-modal-middle-desc{
+    font-family: PingFangSC-Light;
+    font-size: 24rpx;
+    color: #000000;
+    letter-spacing: 14.26rpx;
+    text-align: center;
+    line-height: 33rpx;
+    margin-top: 10rpx;
+}
+
+.cut-modal-middle-price{
+    font-family: PingFangSC-Semibold;
+    font-size: 92rpx;
+    color: #FF484A;
+    letter-spacing: -0.24rpx;
+    text-align: center;
+    line-height: 110rpx;
+}
+
+.cut-modal-bottom{
+    margin-top: 66rpx;
+}
+
+.friend-cut-btn{
+    background-image: linear-gradient(-149deg, #4AC4FD 0%, #0CA2E8 100%);
+    box-shadow: 0 1r6px 20rpx 0 rgba(20,44,54,0.10);
+    border-radius: 50rpx;
+    line-height: 76rpx;
+    text-align: center;
+    font-family: PingFangSC-Semibold;
+    font-size: 32rpx;
+    color: #FFFFFF;
+}
+
+.timeline-cut-btn{
+    margin-top: 30rpx;
+    border: 2rpx solid #0CABF5;
+    box-shadow: 0 16rpx 20rpx 0 rgba(20,44,54,0.10);
+    border-radius: 50rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 32rpx;
+    color: #0CABF5;
+    text-align: center;
+    line-height: 76rpx;
+    background-color: #fff;
+}
+
+
+.bg-img{
+    background-position: center ;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.share-img{
+    width: 45rpx;
+    height: 45rpx;
+    display: inline-block;
+    line-height: 75rpx;
+}
+
+.share-text{
+    margin-left: 16rpx;
+}
+
+.share-img-frined{
+    width: 45rpx;
+    height: 45rpx;
+}
+
+.need-cut-message{
+    font-family: PingFangSC-Medium;
+    font-size: 32rpx;
+    color: #000000;
+    letter-spacing: -0.6rpx;
+    text-align: center;
+    line-height: 45rpx;
+    padding: 100rpx 0;
+    width: 100%;
+}
+
+.close-btn{
+    position: absolute;
+    bottom: -100rpx;
+    left: 275rpx;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 54rpx;
+    height: 54rpx;
+    color: #999999;
+    text-align: center;
+    line-height: 54rpx;
+    opacity: 0.6;
 }

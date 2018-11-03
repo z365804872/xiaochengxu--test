@@ -1,17 +1,11 @@
 // components/action/action.js
-import auth from '../../common/auth';
 
 Component({
     /**
      * 组件的属性列表
      */
     properties: {
-        showAuthorize: {
-            type: Boolean,
-            value: false
-        },
 
-        type: String
     },
 
     /**
@@ -23,9 +17,6 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        getUserInfo(e){
-            this.setData({showAuthorize: false})
-            auth.authorizedVerify(e)
-        }
+
     }
 })
