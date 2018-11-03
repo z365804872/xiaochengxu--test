@@ -1,6 +1,6 @@
 <!--pages/order/order.wxml-->
 <view class='order-wrapper'>
-  <view wx:if="{{addressList.length}}" class='order-address'>
+  <view wx:if="{{addressList}}" class='order-address'>
     <view class='order-adr-msg'>
       <text>收件人：{{addressList.name}}</text>
       <text>{{addressList.mobile}}</text>

@@ -294,7 +294,7 @@ class Auth {
 
         postData.unionId = res.unionId || wx.getStorageSync(UNION_ID)
         postData.openId = res.openId || wx.getStorageSync(OPEN_ID)
-        wx.post({
+        return wx.post({
             api: 'loginMember',
             data: postData
         }).then(res => {
