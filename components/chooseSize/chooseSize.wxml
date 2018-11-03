@@ -19,7 +19,7 @@
             <view bindtap="close"><text class="iconfont icon-guanbi guanbi"></text></view>
         </view>
         <view class="action-text font-regular font-28 lheight-40 contents">
-            <view wx:for="{{detailData}}" wx:key="{{index}}" class="size-item {{item.shoesSize == chooseSize?'choose':''}}"  bindtap="sizeClick" data-size="{{item.shoesSize}}" data-price="{{item.sellMoney}}">
+            <view wx:for="{{detailData}}" wx:key="{{index}}" class="size-item {{item.shoesSize == chooseSize?'choose':''}}"  bindtap="sizeClick" data-size="{{item.shoesSize}}" data-price="{{item.sellMoney}}" data-sellid="{{item.sellId}}" >
                 <view class="size">{{item.shoesSize}}</view>
                 <view class="price">{{item.sellMoney}}</view>
             </view>

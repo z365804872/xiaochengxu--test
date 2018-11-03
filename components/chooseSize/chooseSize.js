@@ -20,7 +20,8 @@ Component({
         photo:'',
         isFalse:true,
         chooseSize:'',
-        shoesName:''
+        shoesName:'',
+        sellId:''
     },
 
     /**
@@ -30,13 +31,47 @@ Component({
         sizeClick(e){
             this.setData({
                 chooseSize:e.currentTarget.dataset.size,
-                choosePrice:e.currentTarget.dataset.price,
+                choosePrice:e.currentTarget.dataset.price.replace(/￥/g,""),
+                sellId:e.currentTarget.dataset.sellid,
             })
+            console.log(e.currentTarget.dataset.sellid)
         },
         btnBuy(e){
             let canBuy = e.currentTarget.dataset.type;
             if(canBuy){
-
+                wx.post({
+                    api: 'confirm', data: {
+                      shoesId: this.data.shoesId,
+                      shoesSize: this.data.chooseSize,
+                      type:"2",
+                      wantBuyId:"",
+                      sellId: this.data.sellId
+                    }
+                  }).then(res => {
+                    console.log(res)
+                    if (res) {
+                      wx.setStorage({
+                        key: "orderData",
+                        data: res
+                      })
+                      wx.setStorage({
+                        key: "detailData",
+                        data: this.data.detailData
+                      })
+                      wx.setStorage({
+                        key: "orderType",
+                        data: e.currentTarget.dataset.index
+                      })
+            
+                      wx.navigateTo({
+                        url: "/pages/cutPrice/order/index"
+                      })
+                    } else {
+                      wx.showToast({
+                        title: '接口异常'
+                      })
+                    }
+                  })
             }
         },
         close(){

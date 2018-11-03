@@ -74,7 +74,7 @@
         <view class='cut-record-title'>
             <view>帮砍记录</view>
             <view>
-                28位好友砍价
+                {{frientCount}}位好友砍价
                 <image src='../../../images/arrow-b.png'></image>
             </view>
         </view>
