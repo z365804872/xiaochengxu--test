@@ -1,5 +1,6 @@
 // pages/index/home/home.js
 import  calc from '../../../utils/calc';
+import post from "../../../api/post";
 
 Page({
 
@@ -30,6 +31,7 @@ Page({
    */
   onLoad: function (options) {
     let _this = this;
+    console.log('options', options)
 
     this.setData({options: options})
     if(options.shoesCost) this.data.defaultPrise1 = options.shoesCost
@@ -433,6 +435,7 @@ Page({
       wx.removeStorageSync('couponId')
       wx.removeStorageSync('couponName')
       wx.removeStorageSync('coupon')
+      wx.removeStorageSync('addressId')
     }catch(e){}
   },
 
@@ -487,7 +490,21 @@ Page({
   },
 
   submitOrder(){
-    
+
+    wx.post({
+        api: 'generatingOrder',
+        data: {
+            sellerUid,
+            orderType,
+            buyerUid,
+            buySellId,
+            addressId,
+            downMyPriceId,
+            cutPrice
+        }
+    }).then(res => {
+
+    })
   }
 
 

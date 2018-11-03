@@ -30,7 +30,8 @@ page {
 .order-adr-detail {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .order-adr-detail>text:nth-child(2){
@@ -51,7 +52,7 @@ page {
 } */
 
 .order-adr-detail .iconfont{
-  margin-top: 10rpx;
+  /* margin-top: 10rpx; */
 }
 
 .order-adr-detail text.icon-dizhi1 {
