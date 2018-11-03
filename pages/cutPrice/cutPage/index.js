@@ -139,7 +139,9 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+      wx.showShareMenu({
+          withShareTicket: true
+      })
   },
 
   /**
@@ -181,6 +183,19 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+      wx.showToast({title: 'share share share'})
+      let downMyPriceId = this.data.myPriceData.downMyPriceId
+      return {
+          title: '鞋客小程序',
+          path: `/pages/cutPrice/cutPage/index?downMyPriceId=${downMyPriceId}`,
+          imageUrl: 'https://wx2.sinaimg.cn/mw690/7386bfe8gy1fh3dzjltukj20qo0qon58.jpg',
+          success: function(res){
+              JSON.stringify(res)
+              wx.showModal({
+                  title: 'test',
+                  content: JSON.stringify(res)
+              });
+          }
+      }
   }
 })

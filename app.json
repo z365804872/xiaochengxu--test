@@ -32,7 +32,8 @@
     "pages/cutPrice/cutList/index",
     "pages/cutPrice/cutPage/index",
     "pages/cutPrice/order/index",
-    "pages/authorize/index"
+    "pages/authorize/index",
+    "pages/cutPrice/share/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

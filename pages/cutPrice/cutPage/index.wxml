@@ -149,4 +149,4 @@
     
 </view>
 
-<cut-modal></cut-modal>
+<cut-modal modalType="4"></cut-modal>

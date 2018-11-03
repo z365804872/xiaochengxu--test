@@ -198,3 +198,27 @@
     line-height: 54rpx;
     opacity: 0.6;
 }
+
+.modal-type1-price{
+    margin-top: 15rpx;
+}
+
+.modal-type4{
+    /*border-top: 1rpx solid #484855;*/
+    position: relative;
+}
+
+.line{
+    position: absolute;
+    top: 0rpx;
+    left: -40rpx;
+    right: -40rpx;
+    height: 2rpx;
+    background-color: #484855;
+}
+
+.share-img-xieke{
+    width: 100%;
+    height: 290rpx;
+    margin-top: 20rpx;
+}

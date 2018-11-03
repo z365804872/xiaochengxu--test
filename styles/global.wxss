@@ -623,6 +623,10 @@ button::after{
   font-size: 16rpx;
 }
 
+.font-14{
+    font-size: 14rpx;
+}
+
 /**********************line-height*************************************************/
 .lheight-124{
     line-height: 124rpx;
