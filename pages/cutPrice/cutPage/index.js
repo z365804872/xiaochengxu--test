@@ -22,8 +22,9 @@ Page({
     show:false, //尺码显示与否
     isWatch:false,//是否是查看
     helpData:[],//帮砍纪录
-    myType:"",//是否是第一次砍价
-
+    modalType:"",//是否是第一次砍价
+    waitPrice:"",//待砍金额
+    cutPrice:"",//已砍金额
   },
   /**
    * 生命周期函数--监听页面加载
@@ -71,7 +72,7 @@ Page({
                 }
             }).then(res => {
                 this.setData({
-                    myType: res.myType==1?"1":""
+                    modalType: res.myType==1?"1":""
                 })
                 console.log(this.data.myType)
                 _this.filterData(res.myPrice)
@@ -99,10 +100,13 @@ Page({
         })
         res.cutPricePosition =  (res.cutPrice/args[args.length - 1])*668-26;
         res.cutPriceBar =  (res.cutPrice/args[args.length - 1])*668;
+        let waitPrice = args[1]-res.cutPrice;
         this.setData({
             myPriceData: res,
             downMyPriceId:res.downMyPriceId,
-            frientCount:res.frientCount
+            frientCount:res.frientCount,
+            cutPrice:res.cutPrice,
+            waitPrice
         })
         this.gethelpList();
         this.nowTime();
