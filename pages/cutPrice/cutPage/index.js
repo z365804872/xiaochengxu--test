@@ -1,4 +1,6 @@
 // pages/cutPrice/index/index.js
+import {OPEN_ID} from "../../../common/constants";
+
 Page({
 
     /**
@@ -176,10 +178,21 @@ Page({
     friendCut(downMyPriceId) {
         let that = this
         that.data.downMyPriceId = downMyPriceId
+        let openId = wx.getStorageSync(OPEN_ID)
         that.getGroupInfo()
             .then(groupInfo => {
-
-            })
+                return wx.post({
+                    api: 'saveFrientCut',
+                    data: {
+                        ...groupInfo,
+                        downMyPriceId,
+                        openId
+                    }
+                })
+            }).then(res => {
+                // console.log('group', res)
+                that.setData({...res})
+        })
     },
 
     //获取群信息

@@ -139,7 +139,7 @@
     </view>
 
 
-    <navigator  hover-class="none">
+    <navigator open-type="switchTab" url="/pages/index/index/index"  hover-class="none">
         <view class="back-home" >
             首页
         </view>
