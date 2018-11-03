@@ -4,13 +4,16 @@
         <view class="height-136  font-regular font-32">
             <view class = "item-image"  style="background:url('{{photo}}');background-size:187.5rpx 100rpx;background-repeat:no-repeat;">
             </view>
-            <view class="size-info">
+            <view class="size-info" wx:if="{{!isWatch}}">
                 <view class="cut-price" wx:if="{{cutPrice}}">
                     <text style="font-size:24rpx;font-weight:bold;">-￥</text> <text style="font-size:36rpx;font-weight:bold;">{{cutPrice}}</text>　砍价立减 
                 </view>
                 <view class="has-choose" wx:if="{{chooseSize}}">
                     已选: {{chooseSize}}码
                 </view>                
+            </view>
+            <view class="size-info nameBox" wx:if="{{isWatch}}">
+                {{shoesName}}               
             </view>
 
             <view bindtap="close"><text class="iconfont icon-guanbi guanbi"></text></view>
@@ -21,7 +24,7 @@
                 <view class="price">{{item.sellMoney}}</view>
             </view>
         </view>
-        <view class="height-120 ">
+        <view class="height-120 "  wx:if="{{!isWatch}}">
             <view class="total-price" wx:if="{{choosePrice}}">
                 ￥{{choosePrice}}
             </view>

@@ -25,7 +25,7 @@
             <view  class="goodsInfo-price">
                 <text wx:if="{{myPriceData.minPrice!=''}}">￥</text>{{myPriceData.minPrice||"--"}}~<text wx:if="{{myPriceData.minPrice!=''}}">￥</text>{{myPriceData.maxPrice||"--"}}
             </view>
-            <view  class="goodsInfo-size">
+            <view  class="goodsInfo-size" bindtap="watchSize" data-cutprice = "{{myPriceData.cutPrice}}" data-shoesid = "{{myPriceData.shoesId}}">
                 查看尺码 <view id="triangle-down"></view>
             </view>            
         </view>
@@ -56,7 +56,7 @@
 
     <view class="btn-box">
         <view class="now-help-box">
-            <view class="now-buy">
+            <view class="now-buy"  bindtap="fastBuy" data-cutprice = "{{myPriceData.cutPrice}}" data-shoesid = "{{myPriceData.shoesId}}">
                 立刻购买
             </view>
             <view class="help-cut">
@@ -79,32 +79,12 @@
             </view>
         </view>
         <view class='cut-record-list'>
-            <view class='cut-record-inner'>
-                <image src='../../../images/share.png'></image>
-                <text>Hibe Neted</text>
-                <text>-¥5.68</text>
+            <view class='cut-record-inner' wx:for="{{helpData}}" wx:key="index">
+                <image src='{{item.headPhoto}}'></image>
+                <text>{{item.nickName}}</text>
+                <text>-¥{{item.cutPrice}}</text>
             </view>
-            <view class='cut-record-inner'>
-                <image src='../../../images/share.png'></image>
-                <text>Hibe Neted</text>
-                <text>-¥5.68</text>
-            </view>
-            <view class='cut-record-inner'>
-                <image src='../../../images/share.png'></image>
-                <text>Hibe Neted</text>
-                <text>-¥5.68</text>
-            </view>
-            <view class='cut-record-inner'>
-                <image src='../../../images/share.png'></image>
-                <text>Hibe Neted</text>
-                <text>-¥5.68</text>
-            </view>
-            <view class='cut-record-inner'>
-                <image src='../../../images/share.png'></image>
-                <text>Hibe Neted</text>
-                <text>-¥5.68</text>
-            </view>
-            
+
 
         </view>
     </view>
@@ -148,6 +128,14 @@
 
     
 </view>
+<chooseSize
+    shoesId="{{shoesId}}"
+    show = "{{show}}"
+    isWatch = "{{isWatch}}"
+    cutPrice = "{{cutPrice}}"
+    bindcloseEvent="closeEvent"
+    wx:if="{{show}}"
+></chooseSize>
 
 <!--<cut-modal modalType="4"></cut-modal>-->
 <authorize-modal showAuthorize="{{showAuthorize}}"></authorize-modal>

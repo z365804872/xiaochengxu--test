@@ -216,12 +216,14 @@ export default {
         port: 9002,
         needUid
     },
-    saveFrientCut: {
-        title: '好友帮砍',
-        path: '/saveFrientCut',
-        port: 9002,
-        needUid
-    }
+    "findFrientList": {
+        title: '帮砍列表',
+        path: '/findFrientList',
+        port: 9002
+    },
+
+
+
     
 
     

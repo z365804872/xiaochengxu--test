@@ -5,6 +5,7 @@ Component({
      */
     properties: {
         show: Boolean,
+        isWatch: Boolean,
         cutPrice:String,
         type: String,
         shoesId:String
@@ -18,7 +19,8 @@ Component({
         detailData:[],
         photo:'',
         isFalse:true,
-        chooseSize:''
+        chooseSize:'',
+        shoesName:''
     },
 
     /**
@@ -42,14 +44,15 @@ Component({
         }
     },
     attached() {
-        console.log(this.data.shoesId)
+        console.log(this.data.isWatch)
         // if(this.data.shoesId){
             wx.post({ 
                 api: 'shoesDetail', 
                 data: { shoesId: this.data.shoesId, uid: null } 
             }).then(res => {
                 this.setData({
-                    photo: res.photoList[0]
+                    photo: res.photoList[0],
+                    shoesName:res.shoesName
                   })
                 for (let i in res.sizeList) {
                   if (res.sizeList[i].sellMoney > 0) {

@@ -84,7 +84,6 @@ Page({
         isOver = e.currentTarget.dataset.isover,
         type = e.currentTarget.dataset.type,
         info = e.currentTarget.dataset.info
-    console.log(e.currentTarget.dataset)
     if(isOver=='0'){
       wx.showToast({
         title: `砍价将在${info}`,

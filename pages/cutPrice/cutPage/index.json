@@ -4,6 +4,7 @@
     "enablePullDownRefresh": false,
     "usingComponents": {
       "cut-modal": "../../../components/cut-modal/index",
+      "chooseSize": "../../../components/chooseSize/chooseSize",
       "authorize-modal": "../../../components/authorize-modal/index"
     }
   }
