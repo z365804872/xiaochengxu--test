@@ -10,8 +10,8 @@
         </view>
     </view>
     <view class="cut-list" wx:if="{{!isMy}}" wx:for='{{goodsData}}' wx:key="{{index}}">
-        <navigator url="/pages/cutPrice/cutPage/index?downPriceId={{item.downPriceId}}&type=1" hover-class="none">
-            <view class="cut-box">
+        <!-- <navigator url="/pages/cutPrice/cutPage/index?downPriceId={{item.downPriceId}}&type=1" hover-class="none"> -->
+            <view class="cut-box" bindtap="toDetail" data-downPriceId="{{item.downPriceId}}" data-type="1" data-isover="{{item.isOver}}" data-info="{{item.info}}">
                 <view class="box-left">
                         <view class = "item-image"  style="background:url('{{item.photo}}');background-size:188rpx 100rpx;background-repeat:no-repeat;">
                         </view>
@@ -51,7 +51,7 @@
                     </view>                  
                 </view>                  
             </view>
-        </navigator>      
+        <!-- </navigator>       -->
     </view>
     <view class="cut-list" wx:if="{{isMy}}" wx:for='{{myGoodsData}}' wx:key="{{index}}">
         <navigator url="/pages/cutPrice/cutPage/index?downPriceId={{item.downMyPriceId}}&type=2" hover-class="none">
@@ -78,7 +78,7 @@
                             <view class="info-price price-from-to">
                                 <text wx:if="{{item.minPrice!='--'}}">￥</text>{{item.minPrice||"--"}}~<text wx:if="{{item.minPrice!='--'}}">￥</text>{{item.maxPrice||"--"}}
                             </view>
-                            <view class="has-cut"  wx:if="{{item.isOver == 0||item.isOver == 3}}">
+                            <view class="has-cut"  wx:if="{{item.isOver == 0||item.isOver == 3|| item.isOver == 1}}">
                                 已砍￥{{item.cutPrice}}
                             </view>
                             <view class="no-cut"  wx:if="{{item.isOver == 2}}">
@@ -89,7 +89,7 @@
                             <view wx:if="{{item.isOver == 0}}" class="toCut">
                                 继续砍价
                             </view>
-                            <view wx:if="{{item.isOver == 1}}" class="toBuy">
+                            <view wx:if="{{item.isOver == 1}}" class="toBuy" catchtap="fastBuy" data-cutprice = "{{item.cutPrice}}" data-shoesid = "{{item.shoesId}}">
                                 立刻购买
                             </view>
                         </view>
@@ -104,5 +104,13 @@
     </view>
     <view class="no-cut-data" wx:if="{{goodsData.length == 0&&!isMy}}">
         <image src="../../../images/no_cutdata.png"  style="  position: absolute; width:750rpx; height:750rpx;" />
-    </view>  
+    </view>
+    <chooseSize
+        shoesId="{{shoesId}}"
+        show = "{{show}}"
+        cutPrice = "{{cutPrice}}"
+        bindcloseEvent="closeEvent"
+
+        wx:if="{{show}}"
+    ></chooseSize>
 </view>

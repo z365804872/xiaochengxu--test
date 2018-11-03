@@ -7,7 +7,10 @@ Page({
   data: {
     isMy:false,
     goodsData:[],
-    myGoodsData:[]
+    myGoodsData:[],
+    show:false,
+    cutPrice:'',//立刻购买的的砍价金额
+    shoesId:'',//立刻购买的鞋子id
   },
   tabclick: function (e) {
     console.log(e.currentTarget.dataset.type)
@@ -75,6 +78,35 @@ Page({
       myGoodsData: res
     })
 
+  },
+  toDetail: function(e){
+    let downPriceId = e.currentTarget.dataset.downpriceid,
+        isOver = e.currentTarget.dataset.isover,
+        type = e.currentTarget.dataset.type,
+        info = e.currentTarget.dataset.info
+    console.log(e.currentTarget.dataset)
+    if(isOver=='0'){
+      wx.showToast({
+        title: `砍价将在${info}`,
+        duration: 2000
+      })
+    }else{
+      wx.navigateTo({
+        url:`/pages/cutPrice/cutPage/index?downPriceId=${downPriceId}&type=${type}`
+      })
+    }
+  },
+  closeEvent(e){
+    this.setData({
+      show:e.detail.show
+    })
+  },
+  fastBuy(e){
+    this.setData({
+      show:true,
+      cutPrice:e.currentTarget.dataset.cutprice,
+      shoesId:e.currentTarget.dataset.shoesid
+    })
   },
   /**
    * 生命周期函数--监听页面加载
