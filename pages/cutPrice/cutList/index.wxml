@@ -11,7 +11,7 @@
     </view>
     <view class="cut-list" wx:if="{{!isMy}}" wx:for='{{goodsData}}' wx:key="{{index}}">
         <!-- <navigator url="/pages/cutPrice/cutPage/index?downPriceId={{item.downPriceId}}&type=1" hover-class="none"> -->
-            <view class="cut-box" bindtap="toDetail" data-downPriceId="{{item.downPriceId}}" data-type="1" data-isover="{{item.isOver}}" data-info="{{item.info}}">
+            <view class="cut-box" bindtap="toDetail" data-downPriceId="{{item.downPriceId}}" data-type="1" data-isover="{{item.isOver}}" data-info="{{item.info}}"  data-isjoin="{{item.isJoin}}" data-status="{{item.status}}">
                 <view class="box-left">
                         <view class = "item-image"  style="background:url('{{item.photo}}');background-size:188rpx 100rpx;background-repeat:no-repeat;">
                         </view>

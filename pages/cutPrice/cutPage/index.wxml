@@ -137,5 +137,5 @@
     wx:if="{{show}}"
 ></chooseSize>
 
-<!--<cut-modal modalType="4"></cut-modal>-->
+<cut-modal modalType="1"></cut-modal>
 <authorize-modal showAuthorize="{{showAuthorize}}"></authorize-modal>

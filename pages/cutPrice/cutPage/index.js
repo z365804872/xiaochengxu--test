@@ -19,9 +19,11 @@ Page({
     F:"0",
     page: 1,
     listData: [],
-      show:false, //尺码显示与否
-      isWatch:false,//是否是查看
-      helpData:[],//帮砍纪录
+    show:false, //尺码显示与否
+    isWatch:false,//是否是查看
+    helpData:[],//帮砍纪录
+    myType:"",//是否是第一次砍价
+
   },
   /**
    * 生命周期函数--监听页面加载
@@ -68,6 +70,10 @@ Page({
                     downPriceId: options.downPriceId
                 }
             }).then(res => {
+                this.setData({
+                    myType: res.myType==1?"1":""
+                })
+                console.log(this.data.myType)
                 _this.filterData(res.myPrice)
 
             })
