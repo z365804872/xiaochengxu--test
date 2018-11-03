@@ -19,6 +19,7 @@ Component({
         choosePrice:'',
         price:"",
         detailData:[],
+        detailDatas:{},
         photo:'',
         isFalse:true,
         chooseSize:'',
@@ -61,11 +62,7 @@ Component({
                       })
                       wx.setStorage({
                         key: "detailData",
-                        data: this.data.detailData
-                      })
-                      wx.setStorage({
-                        key: "orderType",
-                        data: e.currentTarget.dataset.index
+                        data: this.data.detailDatas
                       })
 
                       let url =  `/pages/cutPrice/order/index?cutPrice=${this.data.cutPrice}&cutChooseSize=${this.data.chooseSize}&choosePrice=${this.data.choosePrice}&price=${this.data.price}&sellId=${this.data.sellId}&downMyPriceId=${this.data.downMyPriceId}`
@@ -108,7 +105,8 @@ Component({
                   }
                 }
                 this.setData({
-                  detailData: res.sizeList
+                  detailData: res.sizeList,
+                  detailDatas: res,
                 })
                 console.log(this.data.detailData)
             })
