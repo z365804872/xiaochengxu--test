@@ -1,0 +1,33 @@
+<!--components/action/action.wxml-->
+<view class="pos-fixed top0 bottom0 left0 right0 action-container">
+    <view class="bgc-fff  content pos-fixed bottom0 left0 right0">
+        <view class="height-136  font-regular font-32">
+            <view class = "item-image"  style="background:url('{{photo}}');background-size:187.5rpx 100rpx;background-repeat:no-repeat;">
+            </view>
+            <view class="size-info">
+                <view class="cut-price" wx:if="{{cutPrice}}">
+                    <text style="font-size:24rpx;font-weight:bold;">-￥</text> <text style="font-size:36rpx;font-weight:bold;">{{cutPrice}}</text>　砍价立减 
+                </view>
+                <view class="has-choose" wx:if="{{chooseSize}}">
+                    已选: {{chooseSize}}码
+                </view>                
+            </view>
+
+            <view bindtap="close"><text class="iconfont icon-guanbi guanbi"></text></view>
+        </view>
+        <view class="action-text font-regular font-28 lheight-40 contents">
+            <view wx:for="{{detailData}}" wx:key="{{index}}" class="size-item {{item.shoesSize == chooseSize?'choose':''}}"  bindtap="sizeClick" data-size="{{item.shoesSize}}" data-price="{{item.sellMoney}}">
+                <view class="size">{{item.shoesSize}}</view>
+                <view class="price">{{item.sellMoney}}</view>
+            </view>
+        </view>
+        <view class="height-120 ">
+            <view class="total-price" wx:if="{{choosePrice}}">
+                ￥{{choosePrice}}
+            </view>
+            <view class="fast-buy {{choosePrice>0?'':'no-active'}}" bindtap="btnBuy" data-type="{{choosePrice>0}}">
+                立刻购买
+            </view>
+        </view>
+    </view>
+</view>

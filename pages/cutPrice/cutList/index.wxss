@@ -89,6 +89,7 @@ page{
     font-family:Arial-Black;
     line-height:38rpx;
     margin-bottom: 15rpx;
+    white-space:nowrap;
 }
 .hasNum text{
     font-size:24rpx;
