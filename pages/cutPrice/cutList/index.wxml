@@ -59,7 +59,7 @@
                 <view wx:if="{{item.difftime}}" class="has-time">
                     <text>{{item.difftime}}</text> 后结束
                 </view>
-                <view class="has-time" wx:if="{{!item.difftime}}">
+                <view class="has-time" wx:if="{{!item.difftime&&item.isOver != 3}}">
                     已结束
                 </view>
                 <view class="has-time" wx:if="{{item.isOver == 3}}">

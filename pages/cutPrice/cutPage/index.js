@@ -6,6 +6,7 @@ Page({
    */
   data: {
     downPriceId:"",
+    downMyPriceId:'',
     type:'',  //1砍价列表2.我的砍价
     myPriceData:"",
     A:"0",
@@ -16,6 +17,9 @@ Page({
     F:"0",
     page: 1,
     listData: [],
+    show:false, //尺码显示与否
+    isWatch:false,//是否是查看
+    helpData:[],//帮砍纪录
   },
   /**
    * 生命周期函数--监听页面加载
@@ -36,23 +40,7 @@ Page({
           downPriceId:options.downPriceId
         }
       }).then(res => {
-        let args = res.myPrice.cutPirceArray
-        // res.myPrice.cutPrice = 300;
-        res.myPrice.cutPirceArrayNew=args.map((value)=>{
-          let num = (value/args[args.length - 1])*668-12;
-          return num
-        })
-        res.myPrice.cutPricePosition =  (res.myPrice.cutPrice/args[args.length - 1])*668-26;
-        res.myPrice.cutPriceBar =  (res.myPrice.cutPrice/args[args.length - 1])*668;
-        this.setData({
-          myPriceData: res.myPrice
-        })
-        this.nowTime();
-        var timer = setInterval(function(){
-          _this.nowTime()
-          // console.log(_this.data.myPriceData)
-        }, 1000);
-  
+        this.filterData(res.myPrice)
       })
     }else if(options.type == 2){
       wx.post({
@@ -61,24 +49,7 @@ Page({
           downMyPriceId:options.downPriceId
         }
       }).then(res => {
-        console.log(res)
-        let args = res.cutPirceArray
-        // res.cutPrice = 300;
-        res.cutPirceArrayNew=args.map((value)=>{
-          let num = (value/args[args.length - 1])*668-12;
-          return num
-        })
-        res.cutPricePosition =  (res.cutPrice/args[args.length - 1])*668-26;
-        res.cutPriceBar =  (res.cutPrice/args[args.length - 1])*668;
-        this.setData({
-          myPriceData: res
-        })
-        this.nowTime();
-        var timer = setInterval(function(){
-          _this.nowTime()
-          // console.log(_this.data.myPriceData)
-        }, 1000);
-  
+        this.filterData(res)
       })
     }
 
@@ -87,7 +58,35 @@ Page({
       this.setData({
           listData: res
       })
-  })
+    })
+  },
+  filterData(res){
+    let _this = this;
+    let args = res.cutPirceArray;
+    res.cutPirceArrayNew=args.map((value)=>{
+      let num = (value/args[args.length - 1])*668-12;
+      return num
+    })
+    res.cutPricePosition =  (res.cutPrice/args[args.length - 1])*668-26;
+    res.cutPriceBar =  (res.cutPrice/args[args.length - 1])*668;
+    this.setData({
+      myPriceData: res,
+      downMyPriceId:res.downMyPriceId,
+      frientCount:res.frientCount
+    })
+    this.gethelpList();
+    this.nowTime();
+    var timer = setInterval(function(){
+      _this.nowTime()
+      // console.log(_this.data.myPriceData)
+    }, 1000);
+  },
+  gethelpList(){
+    wx.post({api: 'findFrientList', data: {downMyPriceId:this.data.downMyPriceId,pageNum: this.data.page, pageSize: 10}}).then(res => {
+      this.setData({
+          helpData: res
+      })
+    })
   },
   /**
    * 倒计时
@@ -134,6 +133,27 @@ Page({
         myPriceData: res
       })
 
+  },
+
+  watchSize(e){
+    this.setData({
+      show:true,
+      shoesId:e.currentTarget.dataset.shoesid,
+      isWatch:true
+    })   
+  },
+  fastBuy(e){
+    this.setData({
+      show:true,
+      cutPrice:e.currentTarget.dataset.cutprice,
+      shoesId:e.currentTarget.dataset.shoesid,
+      isWatch:false
+    })
+  },
+  closeEvent(e){
+    this.setData({
+      show:e.detail.show
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
