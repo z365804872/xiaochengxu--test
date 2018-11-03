@@ -31,8 +31,9 @@ Page({
    */
   onLoad: function (options) {
     let _this = this;
-    console.log('options', options)
+    console.log('options', JSON.stringify(options))
 
+    this.setData({...options})
     this.setData({options: options})
     if(options.shoesCost) this.data.defaultPrise1 = options.shoesCost
 
@@ -490,20 +491,70 @@ Page({
   },
 
   submitOrder(){
+    const that = this
+    let {fastBuy} = that.data.orderData
+
+    let {sellId, addressId, cutPrice, downMyPriceId} = that.data
 
     wx.post({
         api: 'generatingOrder',
         data: {
-            sellerUid,
-            orderType,
-            buyerUid,
-            buySellId,
+            sellerUid: fastBuy.sellUid,
+            orderType: 3,
+            buyerUid: getApp().globalData.uid,
+            buySellId: sellId,
             addressId,
             downMyPriceId,
             cutPrice
         }
     }).then(res => {
+      wx.showToast('成功')
+        let paramData = {
+            paySnNo: res.paySnId,
+            payType: "1",
+            payMoney: res.payMoney,
+            orderType: res.orderType,
+            buySellId: res.buySellId,
+        }
+        wx.post({ api: 'payMoney', data: paramData }).then(res => {
+            wx.requestPayment({
+                'timeStamp': res.timeStamp,
+                'nonceStr': res.nonceStr,
+                'package': res.package,
+                'signType': res.signType,
+                'paySign': res.paySign,
+                'success': function (res) {
 
+                    // if (this.data.orderType == 2) {
+                        wx.navigateTo({
+                            url: `/pages/mine/order/list/index?type=1`
+                        });
+                    // } else {
+                    //     wx.navigateTo({
+                    //         url: `/pages/mine/order/list/index?type=2`
+                    //     });
+                    // }
+                    that.delStorage()
+                },
+                'fail': function (res) {
+                    console.log(res)
+
+                    if(res.errMsg === 'requestPayment:fail cancel'){
+                        wx.showLoading({title:res.errMsg})
+                        // if (that.data.orderType == 2) {
+                            wx.redirectTo({
+                                url: `/pages/mine/order/list/index?type=1`
+                            });
+                        // } else {
+                        //     wx.redirectTo({
+                        //         url: `/pages/mine/order/list/index?type=2`
+                        //     });
+                        // }
+                    }
+                }
+            })
+
+        })
     })
   }
 

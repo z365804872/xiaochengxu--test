@@ -176,7 +176,8 @@ Page({
     this.setData({
       show:true,
       cutPrice:e.currentTarget.dataset.cutprice,
-      shoesId:e.currentTarget.dataset.shoesid
+      shoesId:e.currentTarget.dataset.shoesid,
+      downMyPriceId: e.currentTarget.dataset.downmypriceid
     })
   },
 

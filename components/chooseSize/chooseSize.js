@@ -8,7 +8,8 @@ Component({
         isWatch: Boolean,
         cutPrice:String,
         type: String,
-        shoesId:String
+        shoesId:String,
+        downMyPriceId: String
     },
     
     /**
@@ -66,7 +67,8 @@ Component({
                         key: "orderType",
                         data: e.currentTarget.dataset.index
                       })
-                      let url =  `/pages/cutPrice/order/index?cutPrice=${this.data.cutPrice}&cutChooseSize=${this.data.chooseSize}&choosePrice=${this.data.choosePrice}&price=${this.data.price}`
+
+                      let url =  `/pages/cutPrice/order/index?cutPrice=${this.data.cutPrice}&cutChooseSize=${this.data.chooseSize}&choosePrice=${this.data.choosePrice}&price=${this.data.price}&sellId=${this.data.sellId}&downMyPriceId=${this.data.downMyPriceId}`
                       wx.navigateTo({
                         url
                       })

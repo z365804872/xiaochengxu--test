@@ -89,7 +89,7 @@
                             <view wx:if="{{item.isOver == 0}}" class="toCut">
                                 继续砍价
                             </view>
-                            <view wx:if="{{item.isOver == 1}}" class="toBuy" catchtap="fastBuy" data-cutprice = "{{item.cutPrice}}" data-shoesid = "{{item.shoesId}}">
+                            <view wx:if="{{item.isOver == 1}}" class="toBuy" catchtap="fastBuy" data-downmypriceid="{{item.downMyPriceId}}" data-cutprice = "{{item.cutPrice}}" data-shoesid = "{{item.shoesId}}">
                                 立刻购买
                             </view>
                         </view>
@@ -110,7 +110,7 @@
         show = "{{show}}"
         cutPrice = "{{cutPrice}}"
         bindcloseEvent="closeEvent"
-
+        downMyPriceId="{{downMyPriceId}}"
         wx:if="{{show}}"
     ></chooseSize>
 </view>

@@ -114,6 +114,7 @@ page {
 }
 
 .order-de-mr view:nth-child(3) text {
+  font-family: PingFangSC-Semibold;
   display: block;
   flex-grow: 1;
 }
@@ -156,6 +157,7 @@ page {
 }
 
 .order-de-ep .cut-p {
+  font-family: PingFangSC-Semibold;
   font-size: 24rpx;
   color: #e71418;
 }
@@ -212,6 +214,7 @@ page {
 }
 
 .order-price text {
+  font-family: PingFangSC-Semibold;
   font-size: 32rpx;
   color: #e71418;
   font-weight: bold;
