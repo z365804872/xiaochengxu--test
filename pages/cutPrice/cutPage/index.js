@@ -106,7 +106,13 @@ Page({
         }, 1000);
     },
     gethelpList(){
-        wx.post({api: 'findFrientList', data: {downMyPriceId:this.data.downMyPriceId,pageNum: this.data.page, pageSize: 10}}).then(res => {
+        wx.post({api: 'findFrientList',
+        data: {downMyPriceId:this.data.downMyPriceId,pageNum: this.data.page, pageSize: 10}
+    }).then(res => {
+        res=res.filter(function (element, index) {
+            console.log(index<5)
+          return index<5
+        })
             this.setData({
                 helpData: res
             })
