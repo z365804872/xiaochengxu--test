@@ -165,6 +165,28 @@
 		</view>
     </view>
 
+    <view class="share-model pos-fixed top0 bottom0 left0 right0 action-container">
+        <view class="model-box">
+            <view class="model-title">
+                帮砍纪录
+            </view>
+            <view class="model-list">
+                <view class="list-photo"></view>
+                <view class="name-time">
+                    <view class="list-name">
+                        我的名字我的名字...
+                    </view>
+                    <view class="list-time">
+                        234
+                    </view>
+                </view>
+                <view  class="list-cut">
+                    -¥3.68
+                </view>
+            </view>
+        </view>
+    </view>
+
 
     <navigator open-type="switchTab" url="/pages/index/index/index"  hover-class="none">
         <view class="back-home" >

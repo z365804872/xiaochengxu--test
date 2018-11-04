@@ -77,7 +77,6 @@ Page({
                 this.setData({
                     modalType: res.myType==1?"1":""
                 })
-                console.log(this.data.myType)
                 _this.filterData(res.myPrice)
 
             })

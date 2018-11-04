@@ -8,8 +8,10 @@
                 <view class="cut-modal-middle-price modal-type1-price">- ¥{{cutPrice}}</view>
             </view>
             <view class="cut-modal-bottom">
-                <button class="btn friend-cut-btn"><image class="share-img share-img-frined" src="../../images/friend.png"></image><text class="share-text">好友帮砍</text></button>
-                <button class="btn timeline-cut-btn"><image class="share-img" src="../../images/message.png"></image><text class="share-text">朋友圈帮砍</text></button>
+                <button open-type="share" class="btn friend-cut-btn"><image class="share-img share-img-frined" src="../../images/friend.png"></image><text class="share-text">好友帮砍</text></button>
+                <navigator url="/pages/cutPrice/share/index?shoesName={{shoesName}}&shoesUrl={{shoesUrl}}&downMyPriceId={{downMyPriceId}}" hover-class="none">
+                    <button class="btn timeline-cut-btn"><image class="share-img" src="../../images/message.png"></image><text class="share-text">朋友圈帮砍</text></button>
+                </navigator>
             </view>
         </view>
 
