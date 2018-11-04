@@ -22,19 +22,21 @@ Page({
     show:false, //尺码显示与否
     isWatch:false,//是否是查看
     helpData:[],//帮砍纪录
+    allHelpData:[],//帮砍纪录
     modalType:"",//弹窗type
     waitPrice:"",//待砍金额
     cutPrice:"",//已砍金额
     toastFlag:true,
     listFlag:true,
     pageShow:false,
+    helpShow:false,
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
       this.data.options = options
-
+        console.log(this.changeTime(1541075829))
       // this.authorizeModal()
 
       utils.isAuthorizedFun(function () {
@@ -120,13 +122,22 @@ Page({
         }, 1000);
     },
     gethelpList(){
+        let _this=this;
         wx.post({api: 'findFrientList',
-        data: {downMyPriceId:this.data.downMyPriceId,pageNum: this.data.page, pageSize: 10}
-    }).then(res => {
-        res=res.filter(function (element, index) {
-            console.log(index<5)
-          return index<5
-        })
+        data: {downMyPriceId:this.data.downMyPriceId,pageNum: this.data.page, pageSize: 1000}
+        }).then(res => {
+            res=res.map(function (item) {
+                item.createdTime = _this.changeTime(item.createdTime);
+                return item
+            })
+            console.log(res)
+            this.setData({
+                allHelpData: res
+            })
+            res=res.filter(function (element, index) {
+                console.log(index<5)
+            return index<5
+            })
             this.setData({
                 helpData: res
             })
@@ -335,6 +346,40 @@ Page({
             this.setData({
                 listData: [...this.data.listData, ...res]
             })
+        })
+    },
+    changeTime(num){
+        var nums = num * 1000
+        // (res.endTime*1000-Date.parse(new Date()))/1000;//获取数据中的时间戳
+        var nowTime = Date.parse(new Date())
+        if(nowTime-num*1000<24*60*60*1000){
+            return `${parseInt((nowTime-num*1000)/(60*60*1000))}小时前`
+        }else if(nowTime-num*1000>24*60*60*1000&&nowTime-num*1000<7*24*60*60*1000){
+            return `${parseInt((nowTime-num*1000)/(24*60*60*1000))}天前`
+        }else{
+            var time = new Date(num*1000);
+            var y = time.getFullYear();
+            var m = time.getMonth()+1;
+            var d = time.getDate();
+            var h = time.getHours();
+            var mm = time.getMinutes();
+            var s = time.getSeconds();
+            return y+'-'+this.add0(m)+'-'+this.add0(d);
+            // return `${parseInt((nowTime-num*1000)/(24*60*60*1000))}天前`
+        }
+        
+    },
+    add0(m){
+        return m<10?'0'+m:m 
+    },
+    showHelp(){
+        this.setData({
+            showHelp:true
+        })
+    },
+    closeHelp(){
+        this.setData({
+            showHelp:false
         })
     },
 })
