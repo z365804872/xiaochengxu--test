@@ -437,3 +437,10 @@ page{
         border-radius: 50%;
         z-index: 300;
   }
+
+  .over{
+    background:rgba(170,175,181,1);
+  }
+  .cutPirceNum i.overs{
+    border-top:15rpx solid rgba(170,175,181,1);
+  }

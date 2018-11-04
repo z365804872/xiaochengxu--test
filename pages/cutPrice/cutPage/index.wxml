@@ -3,13 +3,16 @@
         <view class="header-left" style="background:url('{{myPriceData.uidPhoto}}');background-size:80rpx 80rpx;background-repeat:no-repeat;">
             
         </view>
-        <view class="header-center">
+        <view class="header-center" wx:if="{{isOver == 0||isOver == 1}}" >
             <text>{{A}}</text>
             <text>{{B}}</text> :
             <text>{{C}}</text>
             <text>{{D}}</text> :
             <text>{{E}}</text>
             <text>{{F}}</text>　后结束
+        </view>
+        <view class="header-center" wx:elseif="{{isOver == 2||isOver == 3}}">
+            砍价已结束
         </view>
         <view class="header-right">
             活动规则
@@ -31,44 +34,56 @@
         </view>
     </view>
 
-    <view  class="cutPage-cutPirceArray">
+    <view  class="cutPage-cutPirceArray" wx:if="{{pageShow}}">
 
         <view>
-            <view  wx:for="{{myPriceData.cutPirceArrayNew}}" wx:key="{{index}}" class="cutPirceArray-icon {{item<myPriceData.cutPricePosition+14?'cur':''}}" style="left:{{item}}rpx">
+            <view  wx:for="{{myPriceData.cutPirceArrayNew}}" wx:key="{{index}}" class="cutPirceArray-icon {{(isOver>=2&&item<myPriceData.cutPricePosition+14)?'over':''}} {{item<myPriceData.cutPricePosition+14?'cur':''}}" style="left:{{item}}rpx">
                 <view>
                     ￥{{myPriceData.cutPirceArray[index]}}
                 </view>
             </view>            
         </view>
-        <view class="cutPirceArray-bar" style="width:{{myPriceData.cutPriceBar}}rpx">
+        <view class="cutPirceArray-bar {{isOver>=2?'over':''}}" style="width:{{myPriceData.cutPriceBar}}rpx">
         </view>
 
 
         <view  class="cutPirceNum"  style="left:{{myPriceData.cutPricePosition}}rpx" >
-            <i></i>
+            <i class="{{isOver>=2?'overs':''}}"></i>
             <view></view>
         </view>
-        <view  class="cutPirceNum-content"  style="left:{{myPriceData.cutPricePosition-30<-30?-30:myPriceData.cutPricePosition-30>530?530:myPriceData.cutPricePosition-30}}rpx" >
+        <view  class="cutPirceNum-content {{isOver>=2?'over':''}}"  style="left:{{myPriceData.cutPricePosition-30<-30?-30:myPriceData.cutPricePosition-30>530?530:myPriceData.cutPricePosition-30}}rpx" >
             已砍￥{{myPriceData.cutPrice||"0"}}
         </view>
 
     </view>
 
-    <view class="btn-box">
+    <view class="btn-box"  wx:if="{{isOver == 0||isOver == 1}}">
         <view class="now-help-box">
             <view class="now-buy"  bindtap="fastBuy" data-cutprice = "{{myPriceData.cutPrice}}" data-shoesid = "{{myPriceData.shoesId}}">
                 立刻购买
             </view>
-            <view class="help-cut">
+            <button class="help-cut"  open-type="share">
                 好友帮砍
-            </view>           
+            </button>           
         </view>
     </view>
-
-    <view class="share-box">
-        <image src="../../../images/share.png"  style="  position: absolute; width:46rpx; height:46rpx;left:216rpx;top:19rpx;z-index:0" />
-        分享到朋友圈帮砍
+    <view class="btn-box"  wx:elseif="{{isOver >= 2}}">
+        <view class="now-help-box">
+            <view wx:if="{{isOver == 2}}" class="now-buy" style="width:690rpx;background:rgba(170,175,181,1);">
+                砍价失效
+            </view>
+            <view wx:if="{{isOver == 3}}" class="now-buy" style="width:690rpx;background:rgba(170,175,181,1);">
+                已成功砍价购买
+            </view>
+        </view>    
     </view>
+
+    <navigator url="/pages/cutPrice/share/index?shoesName={{myPriceData.shoesName}}&shoesUrl={{myPriceData.photo}}&downMyPriceId={{myPriceData.downMyPriceId}}" hover-class="none">        
+        <view class="share-box">
+            <image src="../../../images/share.png"  style="  position: absolute; width:46rpx; height:46rpx;left:216rpx;top:19rpx;z-index:0" />
+            分享到朋友圈帮砍
+        </view>
+    </navigator>
 
     <view class='cut-record'>
         <view class='cut-record-title'>
@@ -141,6 +156,13 @@
     modalType="{{modalType}}"
     waitPrice="{{waitPrice}}"
     cutPrice="{{cutPrice}}"
-    wx:if="{{modalType == 1}}"
+    bindcloseFn="closeFn"
+    shoesId="{{shoesId}}"
+    shoesName="{{myPriceData.shoesName}}"
+    shoesUrl="{{myPriceData.photo}}"
+    downMyPriceId="{{myPriceData.downMyPriceId}}"
+    
+
+    wx:if="{{toastFlag&&(modalType>0)}}"
 ></cut-modal>
 <authorize-modal showAuthorize="{{showAuthorize}}"></authorize-modal>

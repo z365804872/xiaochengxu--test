@@ -8,6 +8,10 @@ Component({
         modalType: Number,
         waitPrice: String,
         cutPrice: String,
+        shoesId: String,
+        shoesName: String,
+        shoesUrl: String,
+        downMyPriceId: String,
     },
 
     /**
@@ -19,6 +23,8 @@ Component({
      * 组件的方法列表
      */
     methods: {
-
+        closeFn(){
+            this.triggerEvent('closeFn');
+        }
     }
 })
