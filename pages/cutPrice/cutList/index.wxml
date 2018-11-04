@@ -114,3 +114,4 @@
         wx:if="{{show}}"
     ></chooseSize>
 </view>
+<authorize-modal showAuthorize="{{showAuthorize}}"></authorize-modal>
