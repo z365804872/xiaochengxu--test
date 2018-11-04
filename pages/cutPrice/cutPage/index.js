@@ -299,7 +299,6 @@ Page({
                 }
             })
 
-            resolve('fasfafafafaa')
         })
 
     },
