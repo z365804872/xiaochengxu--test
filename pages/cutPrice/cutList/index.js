@@ -117,9 +117,9 @@ Page({
             content: '该商品正在砍价中，去邀请好友 帮忙砍价吧',
             showCancel: true,//是否显示取消按钮
             cancelText:"取消",//默认是“取消”
-            cancelColor:'rgba(0,0,0,1)',//取消文字的颜色
+            // cancelColor:'rgba(0,0,0,1)',//取消文字的颜色
             confirmText:"是",//默认是“确定”
-            confirmColor: 'rgba(0,0,0,1)',//确定文字的颜色
+            // confirmColor: 'rgba(0,0,0,1)',//确定文字的颜色
             success: function (res) {
                if (res.cancel) {
                   //点击取消,默认隐藏弹框
@@ -138,9 +138,9 @@ Page({
             content: '您已参与过该商品砍价，去看看其他商品吧',
             showCancel: true,//是否显示取消按钮
             cancelText:"取消",//默认是“取消”
-            cancelColor:'rgba(0,0,0,1)',//取消文字的颜色
+            // cancelColor:'rgba(0,0,0,1)',//取消文字的颜色
             confirmText:"是",//默认是“确定”
-            confirmColor: 'rgba(0,0,0,1)',//确定文字的颜色
+            // confirmColor: 'rgba(0,0,0,1)',//确定文字的颜色
             success: function (res) {
                if (res.cancel) {
                   //点击取消,默认隐藏弹框

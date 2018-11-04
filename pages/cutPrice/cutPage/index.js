@@ -22,9 +22,12 @@ Page({
     show:false, //尺码显示与否
     isWatch:false,//是否是查看
     helpData:[],//帮砍纪录
-    modalType:"",//是否是第一次砍价
+    modalType:"",//弹窗type
     waitPrice:"",//待砍金额
     cutPrice:"",//已砍金额
+    toastFlag:true,
+    listFlag:true,
+    pageShow:false,
   },
   /**
    * 生命周期函数--监听页面加载
@@ -106,7 +109,9 @@ Page({
             downMyPriceId:res.downMyPriceId,
             frientCount:res.frientCount,
             cutPrice:res.cutPrice,
-            waitPrice
+            waitPrice,
+            isOver:res.isOver,
+            pageShow:true
         })
         this.gethelpList();
         this.nowTime();
@@ -148,27 +153,30 @@ Page({
         var str = false;  
       }
       res.difftime = str;
-      if(str.length>8){
-        str = str.substring(1,9)
+      if(str){
+        if(str.length>8){
+            str = str.substring(1,9)
+          }
+          this.setData({
+            A: str.substring(0,1)
+          })
+          this.setData({
+            B: str.substring(1,2)
+          })
+          this.setData({
+            C: str.substring(3,4)
+          })
+          this.setData({
+            D: str.substring(4,5)
+          })
+          this.setData({
+            E: str.substring(6,7)
+          })
+          this.setData({
+            F: str.substring(7,8)
+          })
       }
-      this.setData({
-        A: str.substring(0,1)
-      })
-      this.setData({
-        B: str.substring(1,2)
-      })
-      this.setData({
-        C: str.substring(3,4)
-      })
-      this.setData({
-        D: str.substring(4,5)
-      })
-      this.setData({
-        E: str.substring(6,7)
-      })
-      this.setData({
-        F: str.substring(7,8)
-      })
+
       this.setData({
         myPriceData: res
       })
@@ -182,16 +190,30 @@ Page({
         })
     },
     fastBuy(e){
-        this.setData({
-            show:true,
-            cutPrice:e.currentTarget.dataset.cutprice,
-            shoesId:e.currentTarget.dataset.shoesid,
-            isWatch:false
-        })
+        if(this.data.waitPrice>0){
+            this.setData({
+                toastFlag:true,
+                shoesId:e.currentTarget.dataset.shoesid,
+                modalType:'2'
+            })
+        }else{
+            this.setData({
+                show:true,
+                cutPrice:e.currentTarget.dataset.cutprice,
+                shoesId:e.currentTarget.dataset.shoesid,
+                isWatch:false
+            })
+        }
+
     },
     closeEvent(e){
         this.setData({
             show:e.detail.show
+        })
+    },
+    closeFn(){
+        this.setData({
+            toastFlag:false
         })
     },
   /**
@@ -281,5 +303,33 @@ Page({
 
     buyShoe(){
 
-    }
+    },
+        /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function () {
+
+        if (!this.data.listFlag) {
+            wx.showToast({
+                title: '没有更多商品~'
+            })
+            return false
+        }
+
+
+        this.setData({
+            page: this.data.page + 1
+        })
+        wx.post({api: 'hotShoes', data: {pageNum: this.data.page, pageSize: 10}, needLoading: false}).then(res => {
+            console.log(res)
+            if (res.length == 0) {
+                this.setData({
+                    listFlag: false
+                })
+            }
+            this.setData({
+                listData: [...this.data.listData, ...res]
+            })
+        })
+    },
 })

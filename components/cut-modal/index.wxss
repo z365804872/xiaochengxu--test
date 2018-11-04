@@ -124,7 +124,7 @@
 }
 
 .cut-modal-bottom{
-    margin-top: 66rpx;
+    margin-top: 8rpx;
 }
 
 .friend-cut-btn{
@@ -176,7 +176,8 @@
 
 .need-cut-message{
     font-family: PingFangSC-Medium;
-    font-size: 32rpx;
+    font-size: 40rpx;
+    font-weight:500;
     color: #000000;
     letter-spacing: -0.6rpx;
     text-align: center;
@@ -221,4 +222,18 @@
     width: 100%;
     height: 290rpx;
     margin-top: 20rpx;
+}
+
+.fastBuy{
+    width: 100%;
+    text-align: center;
+    font-size:28rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(12,171,245,1);
+    margin-top: 40rpx;
+}
+.jiaobiao{
+    color: #000;
+    font-size: 24rpx;
 }
