@@ -223,8 +223,8 @@
     shoesName="{{myPriceData.shoesName}}"
     shoesUrl="{{myPriceData.photo}}"
     downMyPriceId="{{myPriceData.downMyPriceId}}"
-
-
+    sncnCutPrice="{{myPriceData.sncnCutPrice}}"
+    uidPhoto="{{myPriceData.uidPhoto}}"
     wx:if="{{toastFlag&&(modalType>0)}}"
 ></cut-modal>
 <authorize-modal showAuthorize="{{showAuthorize}}"></authorize-modal>

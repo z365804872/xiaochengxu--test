@@ -245,7 +245,7 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-        wx.showToast({title: 'share share share'})
+
         let downMyPriceId = this.data.myPriceData.downMyPriceId
         return {
             title: '鞋客小程序',
@@ -301,7 +301,7 @@ Page({
         let app = getApp()
         let shareTicket = app.globalData.shareTicket
 
-        return new Promise((resolve, reject)=>{
+        return shareTicket ? new Promise((resolve, reject)=>{
 
             wx.getShareInfo({
                 shareTicket: String(shareTicket),
@@ -313,7 +313,7 @@ Page({
                 }
             })
 
-        })
+        }) : Promise.resolve({})
 
     },
 
