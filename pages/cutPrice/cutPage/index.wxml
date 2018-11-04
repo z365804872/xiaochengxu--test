@@ -11,7 +11,7 @@
             <text>{{E}}</text>
             <text>{{F}}</text>　后结束
         </view>
-        <view class="header-center" wx:elseif="{{isOver == 2||isOver == 3}}">
+        <view class="header-center" wx:if="{{isOver == 2||isOver == 3}}">
             砍价已结束
         </view>
         <view class="header-right">
@@ -92,7 +92,7 @@
             </button>
         </view>
     </view>
-    <view class="btn-box"  wx:elseif="{{isOver >= 2}}">
+    <view class="btn-box"  wx:if="{{isOver >= 2}}">
         <view class="now-help-box">
             <view wx:if="{{isOver == 2}}" class="now-buy" style="width:690rpx;background:rgba(170,175,181,1);">
                 砍价失效
@@ -162,6 +162,28 @@
 				</navigator>
 			</view>
 		</view>
+    </view>
+
+    <view class="share-model pos-fixed top0 bottom0 left0 right0 action-container">
+        <view class="model-box">
+            <view class="model-title">
+                帮砍纪录
+            </view>
+            <view class="model-list">
+                <view class="list-photo"></view>
+                <view class="name-time">
+                    <view class="list-name">
+                        我的名字我的名字...
+                    </view>
+                    <view class="list-time">
+                        234
+                    </view>
+                </view>
+                <view  class="list-cut">
+                    -¥3.68
+                </view>                
+            </view>
+        </view>
     </view>
 
 
