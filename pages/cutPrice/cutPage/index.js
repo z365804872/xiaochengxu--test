@@ -30,15 +30,18 @@ Page({
     listFlag:true,
     pageShow:false,
     helpShow:false,
+    imageHeight:''
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      this.data.options = options
-        console.log(this.changeTime(1541075829))
-      // this.authorizeModal()
-
+      this.data.options = options;
+      var a=wx.getSystemInfoSync().windowWidth;
+      var b=wx.getSystemInfoSync().windowHeight;
+      this.setData({
+        imageHeight: 750*b/a-250
+      })   
       utils.isAuthorizedFun(function () {
           // 热门商品
           wx.post({api: 'hotShoes', data: {pageNum: this.data.page, pageSize: 10}}).then(res => {
@@ -130,6 +133,7 @@ Page({
                 item.createdTime = _this.changeTime(item.createdTime);
                 return item
             })
+
             console.log(res)
             this.setData({
                 allHelpData: res
