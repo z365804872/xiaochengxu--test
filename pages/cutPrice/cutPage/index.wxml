@@ -169,26 +169,30 @@
             <view class="model-title">
                 帮砍纪录
             </view>
-            <view class="model-list" wx:for="{{allHelpData}}" wx:key="index">
-                <view class="list-photo" style="background:url({{item.headPhoto}});background-size:64rpx 64rpx;background-repeat:no-repeat;"></view>
-                <view class="name-time">
-                    <view class="list-name">
-                        {{item.nickName}}
+            <view class="model-list-box" style="height:{{imageHeight}}">
+                <view class="model-list" wx:for="{{allHelpData}}" wx:key="index">
+                    <view class="list-photo" style="background:url({{item.headPhoto}});background-size:64rpx 64rpx;background-repeat:no-repeat;"></view>
+                    <view class="name-time">
+                        <view class="list-name">
+                            {{item.nickName}}
+                        </view>
+                        <view class="list-time">
+                            234
+                        </view>
                     </view>
-                    <view class="list-time">
-                        234
-                    </view>
+                    <view  class="list-cut">
+                        -¥{{item.cutPrice}}
+                    </view>                
                 </view>
-                <view  class="list-cut">
-                    -¥{{item.cutPrice}}
-                </view>                
             </view>
+
+
+        </view>
             <view class="bottom-box">
                 <view class="back-btn" bindtap="closeHelp">
                     返回
                 </view>
-            </view>
-        </view>
+            </view>        
     </view>
 
 

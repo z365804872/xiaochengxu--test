@@ -567,7 +567,7 @@ page{
   line-height:50rpx;
   margin-top: 20rpx;
   margin-left: 28rpx;
-  margin-bottom: 60rpx;
+  margin-bottom: 20rpx;
 }
 .model-list{
   width: 548rpx;
@@ -619,10 +619,11 @@ page{
   background:#FDFCFD;
   box-shadow:0rpx 1rpx 0rpx 0rpx rgba(0,0,0,0.25);
   /* filter:blur(10rpx); */
-  position: absolute;
+  position: fixed;
   bottom: 0rpx;
   border-top: 1rpx solid #ddd;
   z-index:1000;
+  right: 0;
 }
 .back-btn{
   width:490rpx;
@@ -637,4 +638,8 @@ page{
   text-align: center;
   margin-top: 20rpx;
   margin-left: 30rpx;
+}
+.model-list-box{
+  overflow: scroll;
+  height: 80%;
 }
