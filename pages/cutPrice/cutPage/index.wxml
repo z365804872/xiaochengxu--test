@@ -31,6 +31,31 @@
         </view>
     </view>
 
+    <!--start分享链接进来-->
+
+    <view wx:if="{{typeCode == 2 || typeCode == 3 || typeCode == 4}}" class='cut-msg'>
+        <image src='{{myPriceData.uidPhoto}}'></image>
+        <view>
+            <text>邀你帮忙砍价啦～</text>
+        </view>
+    </view>
+    <view wx:if="{{typeCode == 2 || typeCode == 3 || typeCode == 4}}" class='cut-goods'>
+        <view class='cut-goods-block'>
+            <view class='cut-goods-pic'>
+                <image src='{{myPriceData.photo}}'></image>
+            </view>
+            <view class='cut-goods-con'>
+                <text class='cut-goods-title'>{{myPriceData.shoesName}}</text>
+                <view class='cut-goods-price flex-row-between flex-row_center'>
+                    <text>¥{{myPriceData.minPrice ? myPriceData.minPrice : '--'}}～¥{{myPriceData.maxPrice ? myPriceData.maxPrice : '--'}}</text>
+                    <text class="iconfont icon-jiaobiao"></text>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <!--end-->
+
     <view  class="cutPage-cutPirceArray">
 
         <view>
@@ -69,6 +94,12 @@
         <image src="../../../images/share.png"  style="  position: absolute; width:46rpx; height:46rpx;left:216rpx;top:19rpx;z-index:0" />
         分享到朋友圈帮砍
     </view>
+
+    <!--分享链接进来start-->
+    <view catchtap="buyShoe" wx:if="{{typeCode == 2 || typeCode == 3 || typeCode == 4}}" class='cut-button'>
+        <text>我也要优惠买鞋</text>
+    </view>
+    <!--分享链接进来end-->
 
     <view class='cut-record'>
         <view class='cut-record-title'>

@@ -247,10 +247,11 @@ Page({
                     }
                 })
             }).then(res => {
-                // console.log('group', res)
+
                 that.setData({...res})
+                if(res.typeCode && res.typeCode == 1) that.setData({modalType: 3})
                 that.filterData(res.myPrice)
-        })
+        }).catch(err => console.log('err', err))
     },
 
     //获取群信息
@@ -261,22 +262,24 @@ Page({
             content: String(shareTicket)
         })
         return new Promise((resolve, reject)=>{
-            wx.getShareInfo({
-                shareTicket: String(shareTicket),
-                success: (info)=>{
-                    try{
-                        delete info.errMsg
-                    }catch (err){}
-                    resolve(info)
-                }
-            })
+            // wx.getShareInfo({
+            //     shareTicket: String(shareTicket),
+            //     success: (info)=>{
+            //         try{
+            //             delete info.errMsg
+            //         }catch (err){}
+            //         resolve(info)
+            //     }
+            // })
+
+
+            resolve('fasfafafafaa')
         })
 
     },
 
 
-    //获取帮砍信息
-    getFriendCutInfo(){
+    buyShoe(){
 
     }
 })

@@ -225,8 +225,13 @@ export default {
         title: '生成小程序二维码图片',
         path: '/programCode',
         port: 9002
+    },
+    "saveFrientCut": {
+        title: '好友帮砍',
+        path: '/saveFrientCut',
+        port: 9002,
+        needUid
     }
-
 
 
     
