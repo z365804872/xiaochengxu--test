@@ -176,7 +176,7 @@
 
 .need-cut-message{
     font-family: PingFangSC-Medium;
-    font-size: 40rpx;
+    font-size: 32rpx;
     font-weight:500;
     color: #000000;
     letter-spacing: -0.6rpx;

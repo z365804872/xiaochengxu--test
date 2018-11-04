@@ -296,7 +296,9 @@ Page({
     getGroupInfo(){
         let app = getApp()
         let shareTicket = app.globalData.shareTicket
-
+        // wx.showModal({
+        //     content: String(shareTicket)
+        // })
         return shareTicket ? new Promise((resolve, reject)=>{
 
             wx.getShareInfo({

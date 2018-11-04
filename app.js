@@ -15,6 +15,10 @@ App({
         auth.init()
         auth.hasVerified()
 
+        // wx.showModal({
+        //     title: 'opts',
+        //     content: JSON.stringify(opts)
+        // })
         //获取群id
         opts.scene && (opts.scene == 1044) && (this.globalData.shareTicket = opts.shareTicket)
 
