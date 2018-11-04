@@ -34,7 +34,7 @@
 
         <view wx:if="{{modalType == 3}}" class="cut-modal-content">
             <view class="cut-modal-top">
-                <view class="cut-img"></view>
+                <view class="cut-img" style="background-image: url('{{uidPhoto}}')"></view>
                 <view class="thank-text">谢谢你帮我砍了¥{{cutPrice}}</view>
             </view>
             <view class="cut-modal-middle">
@@ -50,7 +50,7 @@
 
         <view wx:if="{{modalType == 4}}" class="cut-modal-content">
             <view class="cut-modal-top">
-                <view class="cut-img"></view>
+                <view class="cut-img" style="background-image: url('{{uidPhoto}}')"></view>
                 <view class="thank-text">谢谢你帮我砍了¥{{cutPrice}}</view>
             </view>
             <view class="cut-modal-middle">
