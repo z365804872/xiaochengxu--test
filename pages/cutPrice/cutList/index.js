@@ -1,4 +1,6 @@
 // pages/cutPrice/index/index.js
+import utils from "../../../utils/util";
+
 Page({
 
   /**
@@ -16,18 +18,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.post({
-      api:'selectDownPriceBeanList', 
-      data:{
-        pageNum:1,
-        pageSize: 20
-      }
-    }).then(res => {
-      console.log(res)
-      this.setData({
-        goodsData: res
-      })
-    })
+    utils.isAuthorizedFun(function () {
+        wx.post({
+            api:'selectDownPriceBeanList',
+            data:{
+                pageNum:1,
+                pageSize: 20
+            }
+        }).then(res => {
+            console.log(res)
+            this.setData({
+                goodsData: res
+            })
+        })
+    }.bind(this))
+
   },
   tabclick: function (e) {
     console.log(e.currentTarget.dataset.type)

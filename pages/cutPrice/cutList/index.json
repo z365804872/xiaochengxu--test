@@ -3,6 +3,7 @@
     "onReachBottomDistance": 200,
     "enablePullDownRefresh": false,
     "usingComponents": {
-      "chooseSize": "../../../components/chooseSize/chooseSize"
+      "chooseSize": "../../../components/chooseSize/chooseSize",
+      "authorize-modal": "../../../components/authorize-modal/index"
     }
   }
