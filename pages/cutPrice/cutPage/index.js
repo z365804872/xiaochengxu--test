@@ -271,7 +271,13 @@ Page({
             }).then(res => {
 
                 that.setData({...res})
-                if(res.typeCode && res.typeCode == 1) that.setData({modalType: 3})
+                if(res.typeCode && res.typeCode == 1) that.data.modalType = 3
+                if(res.typeCode && res.typeCode == 4) that.data.modalType = 4
+                if(res.typeCode == 3){
+                    setTimeout(()=>wx.showToast({title: '今天机会用完啦～'}))
+                }else if(res.typeCode == 5){
+                    setTimeout(()=>wx.showToast({title: '今日砍价人数已上限～'}))
+                }
                 that.filterData(res.myPrice)
         }).catch(err => console.log('err', err))
     },
@@ -280,20 +286,18 @@ Page({
     getGroupInfo(){
         let app = getApp()
         let shareTicket = app.globalData.shareTicket
-        wx.showModal({
-            content: String(shareTicket)
-        })
-        return new Promise((resolve, reject)=>{
-            // wx.getShareInfo({
-            //     shareTicket: String(shareTicket),
-            //     success: (info)=>{
-            //         try{
-            //             delete info.errMsg
-            //         }catch (err){}
-            //         resolve(info)
-            //     }
-            // })
 
+        return new Promise((resolve, reject)=>{
+
+            wx.getShareInfo({
+                shareTicket: String(shareTicket),
+                success: (info)=>{
+                    try{
+                        delete info.errMsg
+                    }catch (err){}
+                    resolve(info)
+                }
+            })
 
             resolve('fasfafafafaa')
         })
@@ -301,8 +305,11 @@ Page({
     },
 
 
+    //我也要优惠买鞋
     buyShoe(){
-
+        wx.redirectTo({
+            url: `/pages/cutPrice/cutList/index`
+        })
     },
         /**
      * 页面上拉触底事件的处理函数

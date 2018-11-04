@@ -528,12 +528,13 @@ page{
 }
 
 .cut-button {
+  margin-top: 100rpx;
     margin-bottom: 60rpx;
     padding: 0 30rpx;
 
 }
 
-.cut-button text {
+.cut-button text, .cut-button button {
     display: block;
     color: #fff;
     text-align: center;
