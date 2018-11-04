@@ -612,3 +612,28 @@ page{
   float: right;
   margin-right: 30rpx;
 }
+.bottom-box{
+  width:548rpx;
+  height:120rpx;
+  background:#FDFCFD;
+  box-shadow:0rpx 1rpx 0rpx 0rpx rgba(0,0,0,0.25);
+  /* filter:blur(10rpx); */
+  position: absolute;
+  bottom: 0rpx;
+  border-top: 1rpx solid #ddd;
+  z-index:1000;
+}
+.back-btn{
+  width:490rpx;
+  height:80rpx;
+  background:linear-gradient(150deg,rgba(74,196,253,1) 0%,rgba(12,162,232,1) 100%);
+  border-radius:8rpx;
+  font-size:32rpx;
+  font-family:PingFangSC-Semibold;
+  font-weight:600;
+  color:rgba(255,255,255,1);
+  line-height:80rpx;
+  text-align: center;
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+}

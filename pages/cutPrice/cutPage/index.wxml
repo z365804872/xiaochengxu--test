@@ -119,7 +119,7 @@
     <view class='cut-record'>
         <view class='cut-record-title'>
             <view>帮砍记录</view>
-            <view>
+            <view bindtap="showHelp">
                 {{frientCount}}位好友砍价
                 <image src='../../../images/arrow-b.png'></image>
             </view>
@@ -164,24 +164,29 @@
 		</view>
     </view>
 
-    <view class="share-model pos-fixed top0 bottom0 left0 right0 action-container">
+    <view class="share-model pos-fixed top0 bottom0 left0 right0 action-container" wx:if="{{showHelp}}">
         <view class="model-box">
             <view class="model-title">
                 帮砍纪录
             </view>
-            <view class="model-list">
-                <view class="list-photo"></view>
+            <view class="model-list" wx:for="{{allHelpData}}" wx:key="index">
+                <view class="list-photo" style="background:url({{item.headPhoto}});background-size:64rpx 64rpx;background-repeat:no-repeat;"></view>
                 <view class="name-time">
                     <view class="list-name">
-                        我的名字我的名字...
+                        {{item.nickName}}
                     </view>
                     <view class="list-time">
-                        234
+                        {{item.createdTime}}
                     </view>
                 </view>
                 <view  class="list-cut">
-                    -¥3.68
+                    -¥{{item.cutPrice}}
                 </view>                
+            </view>
+            <view class="bottom-box">
+                <view class="back-btn" bindtap="closeHelp">
+                    返回
+                </view>
             </view>
         </view>
     </view>
