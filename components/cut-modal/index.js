@@ -12,6 +12,8 @@ Component({
         shoesName: String,
         shoesUrl: String,
         downMyPriceId: String,
+        sncnCutPrice: String,
+        uidPhoto: String
     },
 
     /**

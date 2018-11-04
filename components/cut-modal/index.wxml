@@ -35,12 +35,12 @@
         <view wx:if="{{modalType == 3}}" class="cut-modal-content">
             <view class="cut-modal-top">
                 <view class="cut-img"></view>
-                <view class="thank-text">谢谢你帮我砍了¥10.86</view>
+                <view class="thank-text">谢谢你帮我砍了¥{{cutPrice}}</view>
             </view>
             <view class="cut-modal-middle">
                 <view class="cut-modal-middle-title">鞋客App 邀您一起砍价</view>
                 <view class="cut-modal-middle-desc">首刀已帮您砍了</view>
-                <view class="cut-modal-middle-price">- ¥28.99</view>
+                <view class="cut-modal-middle-price">- ¥{{sncnCutPrice}}</view>
             </view>
             <view class="cut-modal-bottom">
                 <button class="btn friend-cut-btn"><image class="share-img share-img-frined" src="../../images/friend.png"></image><text class="share-text">好友帮砍</text></button>
@@ -51,11 +51,11 @@
         <view wx:if="{{modalType == 4}}" class="cut-modal-content">
             <view class="cut-modal-top">
                 <view class="cut-img"></view>
-                <view class="thank-text">谢谢你帮我砍了¥10.86</view>
+                <view class="thank-text">谢谢你帮我砍了¥{{cutPrice}}</view>
             </view>
             <view class="cut-modal-middle">
                 <!--<view class="cut-modal-middle-title">鞋客App 邀您一起砍价</view>-->
-                <view class="cut-modal-middle-price">- ¥28.99</view>
+                <view class="cut-modal-middle-price">- ¥{{sncnCutPrice}}</view>
             </view>
             <view class="cut-modal-bottom modal-type4">
                 <view class="line"></view>
