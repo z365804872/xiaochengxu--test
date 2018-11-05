@@ -74,6 +74,8 @@ page{
     -webkit-box-orient:vertical;
     -webkit-line-clamp:2;
     overflow:hidden;
+    word-break: keep-all;
+    word-wrap: break-word; 
 }
 .right-info{
     margin-left: 14rpx;

@@ -1,6 +1,6 @@
 <!--components/action/action.wxml-->
-<view class="pos-fixed top0 bottom0 left0 right0 action-container">
-    <view class="bgc-fff  content pos-fixed bottom0 left0 right0">
+<view  bindtap="close" class="pos-fixed top0 bottom0 left0 right0 action-container">
+    <view class="bgc-fff  content pos-fixed bottom0 left0 right0" catchtap="handleTap2">
         <view class="height-136  font-regular font-32">
             <view class = "item-image"  style="background:url('{{photo}}');background-size:187.5rpx 100rpx;background-repeat:no-repeat;">
             </view>

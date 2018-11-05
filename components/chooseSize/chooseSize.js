@@ -31,7 +31,13 @@ Component({
      * 组件的方法列表
      */
     methods: {
+        handleTap2(){
+          return
+        },
         sizeClick(e){
+            if(this.data.isWatch){
+              return
+            }
             let rightPrice = e.currentTarget.dataset.price.replace(/￥/g,"")>0?(e.currentTarget.dataset.price.replace(/￥/g,"")-this.data.cutPrice).toFixed(2):"--"
             let price = e.currentTarget.dataset.price.replace(/￥/g,"")
             this.setData({

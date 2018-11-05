@@ -80,6 +80,11 @@ page{
     -webkit-box-orient:vertical;
     -webkit-line-clamp:2;
     overflow:hidden;
+ 
+}
+.goodsInfo-name text{
+   word-break: keep-all;
+   word-wrap: break-word; 
 }
 
 .goodsInfo-bttom{
@@ -291,14 +296,21 @@ page{
   }
   
   .cut-record-list {
-    display: flex;
+    /* display: flex; */
     margin-top: 30rpx;
     justify-content: space-between;
+    overflow: hidden;
   }
   
   .cut-record-inner {
     min-width: 80rpx;
     text-align: center;
+    float: left;
+    margin-left: 28rpx;
+
+  }
+  .cut-record-inner:first-child{
+    margin-left:0;
   }
   
   .cut-record-inner image {
@@ -580,6 +592,7 @@ page{
   background: red;
   float: left;
   margin-left: 30rpx;
+  border-radius: 50%;
 }
 .name-time{
   margin-left: 20rpx;
