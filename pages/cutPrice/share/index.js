@@ -10,9 +10,10 @@ Page({
      */
     onLoad: function (options) {
         this.setData({...options})
+        this.init()
     },
 
-    share() {
+    init(){
         let that = this
         let {shoesUrl, downMyPriceId} = that.data
         wx.post({
@@ -21,13 +22,15 @@ Page({
                 downMyPriceId, shoesUrl
             }
         }).then(res => {
-            // that.setData({
-            //     url: res
-            // })
-            wx.previewImage({
-                content: res,
-                urls: [res]
-            })
+            if(res) that.setData({url: res})
+
+        })
+    },
+    share() {
+        let url = this.data.url
+        wx.previewImage({
+            content: url,
+            urls: [url]
         })
     }
 

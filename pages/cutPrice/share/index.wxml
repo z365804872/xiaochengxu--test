@@ -10,13 +10,14 @@
     </view>
   </view>
   <view class='share-content'>
-    <view class='share-con-inner'>
-      <image mode="aspectFill" src='../../../images/share_to_message.png'></image>
-      <view class="shoes-info">
-        <view class="shoe-img " style="background-image: url({{shoesUrl}})"></view>
-        <view class="font-regular font-28 lheight-40 shoe-name">{{shoesName}}</view>
-      </view>
-    </view>
+    <!--<view class='share-con-inner'>-->
+      <!--<image mode="aspectFill" src='../../../images/share_to_message.png'></image>-->
+      <!--<view class="shoes-info">-->
+        <!--<view class="shoe-img " style="background-image: url({{shoesUrl}})"></view>-->
+        <!--<view class="font-regular font-28 lheight-40 shoe-name">{{shoesName}}</view>-->
+      <!--</view>-->
+    <!--</view>-->
+    <image mode="aspectFill" src="{{url}}"></image>
   </view>
 
   <!--<view wx:if="{{url != undefined}}" class="image-con">-->
