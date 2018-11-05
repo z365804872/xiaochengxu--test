@@ -269,6 +269,11 @@ Page({
      * 好友帮砍
      */
     friendCut(downMyPriceId) {
+        //更改标题
+        wx.setNavigationBarTitle({
+            title: '砍价'
+        })
+
         let that = this
         that.data.downMyPriceId = downMyPriceId
         let openId = wx.getStorageSync(OPEN_ID)
