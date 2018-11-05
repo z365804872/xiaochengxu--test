@@ -388,4 +388,9 @@ Page({
             showHelp:false
         })
     },
+    toShoesDetail(){
+        wx.navigateTo({
+            url: `/pages/index/detail/index?shoesId=${this.data.myPrice.shoesId}`
+        });
+    }
 })

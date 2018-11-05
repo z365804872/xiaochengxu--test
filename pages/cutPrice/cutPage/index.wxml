@@ -42,7 +42,7 @@
             <text>邀你帮忙砍价啦～</text>
         </view>
     </view>
-    <view wx:if="{{typeCode !== undefined && typeCode != 1}}" class='cut-goods'>
+    <view catch:tap="toShoesDetail" wx:if="{{typeCode !== undefined && typeCode != 1}}" class='cut-goods'>
         <view class='cut-goods-block'>
             <view class='cut-goods-pic'>
                 <image src='{{myPriceData.photo}}'></image>
