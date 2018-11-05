@@ -1,9 +1,9 @@
 <view>
-    <view wx:if="{{typeCode == undefined || typeCode == 1}}" class="cutPage-header">
+    <view wx:if="{{typeCode == undefined || typeCode == 1 || typeCode ==  6}}" class="cutPage-header">
         <view class="header-left" style="background:url('{{myPriceData.uidPhoto}}');background-size:80rpx 80rpx;background-repeat:no-repeat;">
             
         </view>
-        <view class="header-center" wx:if="{{(isOver == 0||isOver == 1) && (typeCode == undefined || typeCode == 1)}}" >
+        <view class="header-center" wx:if="{{(isOver == 0||isOver == 1) && (typeCode == undefined || typeCode == 1 || typeCode ==  6)}}" >
             <text>{{A}}</text>
             <text>{{B}}</text> :
             <text>{{C}}</text>
@@ -11,14 +11,14 @@
             <text>{{E}}</text>
             <text>{{F}}</text>　后结束
         </view>
-        <view class="header-center" wx:if="{{(isOver == 2||isOver == 3) && (typeCode == undefined || typeCode == 1) }}">
+        <view class="header-center" wx:if="{{(isOver == 2||isOver == 3) && (typeCode == undefined || typeCode == 1 || typeCode ==  6) }}">
             砍价已结束
         </view>
         <view catchtap="toRule" class="header-right">
             活动规则
         </view>
     </view>
-    <view wx:if="{{typeCode === undefined || typeCode == 1 }}" class="cutPage-goodsInfo">
+    <view wx:if="{{typeCode === undefined || typeCode == 1 || typeCode ==  6}}" class="cutPage-goodsInfo">
         <view class="goodsInfo-photo"  style="background:url('{{myPriceData.photo}}');background-size:420rpx 224rpx;background-repeat:no-repeat;">
         </view>
         <view  class="goodsInfo-name">
@@ -82,7 +82,7 @@
 
     </view>
 
-    <view class="btn-box"  wx:if="{{(isOver == 0||isOver == 1) && (typeCode == undefined || typeCode == 1)}}">
+    <view class="btn-box"  wx:if="{{(isOver == 0||isOver == 1) && (typeCode == undefined || typeCode == 1 || typeCode ==  6)}}">
         <view class="now-help-box">
             <view class="now-buy"  bindtap="fastBuy" data-cutprice = "{{myPriceData.cutPrice}}" data-shoesid = "{{myPriceData.shoesId}}">
                 立刻购买
@@ -103,7 +103,7 @@
         </view>
     </view>
 
-    <navigator wx:if="{{typeCode == undefined || typeCode == 1}}" url="/pages/cutPrice/share/index?shoesName={{myPriceData.shoesName}}&shoesUrl={{myPriceData.photo}}&downMyPriceId={{myPriceData.downMyPriceId}}" hover-class="none">
+    <navigator wx:if="{{typeCode == undefined || typeCode == 1 || typeCode ==  6}}" url="/pages/cutPrice/share/index?shoesName={{myPriceData.shoesName}}&shoesUrl={{myPriceData.photo}}&downMyPriceId={{myPriceData.downMyPriceId}}" hover-class="none">
         <view class="share-box">
             <image src="../../../images/share.png"  style="  position: absolute; width:46rpx; height:46rpx;left:216rpx;top:19rpx;z-index:0" />
             分享到朋友圈帮砍

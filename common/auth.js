@@ -269,18 +269,18 @@ class Auth {
     }
 
 
-    getUid(){
-        const that = this
-        return that.checkAuthorizeVerified()
-            .then(res => {
-                return that.init().then(res=> {
-                    return that._getUserInfo()
-                            .then(info => {
-                                return that._loginMember(info)
-                        })
-                })
-            })
-    }
+    // getUid(){
+    //     const that = this
+    //     return that.checkAuthorizeVerified()
+    //         .then(res => {
+    //             return that.init().then(res=> {
+    //                 return that._getUserInfo()
+    //                         .then(info => {
+    //                             return that._loginMember(info)
+    //                     })
+    //             })
+    //         })
+    // }
 
     _loginMember(res){
         let userInfo = res.userInfo
@@ -301,6 +301,32 @@ class Auth {
             getApp().globalData.uid = res.uid
             return res.uid
         })
+    }
+
+    getUid(){
+        const that = this
+
+        let uid,
+            isLoading = false,
+            uidPromise = null;
+        return (function () {
+            // if(uid !== undefined) return uid
+            if(isLoading && uidPromise !== null) return uidPromise
+            isLoading = !isLoading
+            return uidPromise = that.checkAuthorizeVerified()
+                .then(res => {
+                    return that.init().then(res=> {
+                        return that._getUserInfo()
+                            .then(info => {
+                                return that._loginMember(info)
+                                    .then(res => {
+                                        uid = res
+                                        isLoading = !isLoading
+                                    })
+                            })
+                    })
+                }).catch(err => isLoading = !isLoading)
+        })()
     }
 }
 
