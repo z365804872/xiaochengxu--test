@@ -45,7 +45,12 @@ page{
  margin-top: 20rpx;
 }
 
-.share-con-inner {
+.share-content image{
+  width: 100%;
+  height: 1100rpx;
+}
+
+/* .share-con-inner {
   width: 100%;
   margin-top: 20rpx;
   height: 1000rpx;
@@ -91,4 +96,4 @@ page{
 .image-con image{
   width: 100%;
   height: 100%;
-}
+} */

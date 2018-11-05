@@ -288,8 +288,8 @@ Page({
             }).then(res => {
 
                 that.setData({...res})
-                if(res.typeCode && res.typeCode == 1) that.data.modalType = 3
-                if(res.typeCode && res.typeCode == 4) that.data.modalType = 4
+                if(res.typeCode && res.typeCode == 1) that.setData({modalType: 3})
+                if(res.typeCode && res.typeCode == 4) that.setData({modalType: 4})
                 if(res.typeCode == 3){
                     setTimeout(()=>wx.showToast({title: '今天机会用完啦～'}))
                 }else if(res.typeCode == 5){
@@ -303,7 +303,9 @@ Page({
     getGroupInfo(){
         let app = getApp()
         let shareTicket = app.globalData.shareTicket
-
+        // wx.showModal({
+        //     content: String(shareTicket)
+        // })
         return shareTicket ? new Promise((resolve, reject)=>{
 
             wx.getShareInfo({
@@ -389,4 +391,14 @@ Page({
             showHelp:false
         })
     },
+    toShoesDetail(){
+        wx.navigateTo({
+            url: `/pages/index/detail/index?shoesId=${this.data.myPrice.shoesId}`
+        });
+    },
+    toRule(){
+        wx.navigateTo({
+            url: `/pages/outer/index?viewId=6`
+        })
+    }
 })

@@ -18,14 +18,14 @@
             活动规则
         </view>
     </view>
-    <view wx:if="{{typeCode === undefined || typeCode == 1 }}" class="cutPage-goodsInfo">
+    <view wx:if="{{typeCode === undefined || typeCode == 1 || typeCode ==  6}}" class="cutPage-goodsInfo">
         <navigator url="/pages/index/detail/index?shoesId={{myPriceData.shoesId}}"  hover-class="none">
             <view class="goodsInfo-photo"  style="background:url('{{myPriceData.photo}}');background-size:420rpx 224rpx;background-repeat:no-repeat;">
             </view>
         </navigator>
 
         <view  class="goodsInfo-name">
-           <text>{{myPriceData.shoesName}}</text> 
+           <text>{{myPriceData.shoesName}}</text>
         </view>
         <view  class="goodsInfo-bttom">
             <view  class="goodsInfo-price">
@@ -133,6 +133,8 @@
                 <text>{{item.nickName}}</text>
                 <text>-¥{{item.cutPrice}}</text>
             </view>
+
+
         </view>
     </view>
 
@@ -165,8 +167,8 @@
 		</view>
     </view>
 
-    <view class="share-model pos-fixed top0 bottom0 left0 right0 action-container" wx:if="{{showHelp}}"  bindtap="closeHelp">
-        <view class="model-box"  catchtap="handleTap2">
+    <view class="share-model pos-fixed top0 bottom0 left0 right0 action-container" wx:if="{{showHelp}}">
+        <view class="model-box">
             <view class="model-title">
                 帮砍纪录
             </view>
@@ -178,7 +180,7 @@
                             {{item.nickName}}
                         </view>
                         <view class="list-time">
-                            {{item.timeInfo}}
+                            234
                         </view>
                     </view>
                     <view  class="list-cut">
