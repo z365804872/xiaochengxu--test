@@ -14,7 +14,7 @@
         <view class="header-center" wx:if="{{(isOver == 2||isOver == 3) && (typeCode == undefined || typeCode == 1) }}">
             砍价已结束
         </view>
-        <view class="header-right">
+        <view catchtap="toRule" class="header-right">
             活动规则
         </view>
     </view>

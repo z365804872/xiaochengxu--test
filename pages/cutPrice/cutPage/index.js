@@ -392,5 +392,10 @@ Page({
         wx.navigateTo({
             url: `/pages/index/detail/index?shoesId=${this.data.myPrice.shoesId}`
         });
+    },
+    toRule(){
+        wx.navigateTo({
+            url: `/pages/outer/index?viewId=6`
+        })
     }
 })
