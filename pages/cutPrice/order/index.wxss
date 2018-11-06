@@ -227,7 +227,7 @@ page {
   background-color: #fff;
 }
 
-.order-explain view {
+/* .order-explain view {
   position: relative;
   display: block;
   padding-left: 50rpx;
@@ -240,7 +240,7 @@ page {
   width: 25rpx;
   height: 15rpx;
   transform: rotate(-90deg) translate(0,-50%);
-}
+} */
 
 .order-submit {
   position: fixed;

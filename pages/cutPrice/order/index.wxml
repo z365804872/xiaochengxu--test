@@ -59,10 +59,15 @@
     </view>
   </view>
   <view class='order-explain'>
-    <view>
-      交易说明
-      <image src='/img/arrow-b.png'></image>
-    </view>
+    <navigator url="/pages/outer/index?viewId=1" hover-class="none">
+      <view class="flex-row-between flex-row_center">
+        <view><text class="iconfont icon-jianding1"></text> 交易说明</view><text class="iconfont icon-jiaobiao iconjiaobiao1"></text>
+      </view>
+    </navigator>
+    <!--<view>-->
+      <!--交易说明-->
+      <!--<image src='/img/arrow-b.png'></image>-->
+    <!--</view>-->
   </view>
   <view class='order-submit'>
     <view>
