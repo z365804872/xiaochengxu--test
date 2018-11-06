@@ -107,7 +107,7 @@
     </view>
 
     <navigator wx:if="{{typeCode == undefined || typeCode == 1}}" url="/pages/cutPrice/share/index?shoesName={{myPriceData.shoesName}}&shoesUrl={{myPriceData.photo}}&downMyPriceId={{myPriceData.downMyPriceId}}" hover-class="none">
-        <view class="share-box">
+        <view class="share-box" wx:if="{{isOver != 3}}">
             <image src="../../../images/share.png"  style="  position: absolute; width:46rpx; height:46rpx;left:216rpx;top:19rpx;z-index:0" />
             分享到朋友圈帮砍
         </view>

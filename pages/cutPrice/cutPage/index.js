@@ -107,7 +107,7 @@ Page({
         })
         res.cutPricePosition =  (res.cutPrice/args[args.length - 1])*668-26;
         res.cutPriceBar =  (res.cutPrice/args[args.length - 1])*668;
-        let waitPrice = args[1]-res.cutPrice;
+        let waitPrice = parseFloat((args[1]-res.cutPrice)*100)/100;
         this.setData({
             myPriceData: res,
             downMyPriceId:res.downMyPriceId,
