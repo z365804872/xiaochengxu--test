@@ -38,7 +38,7 @@ Component({
             if(this.data.isWatch){
               return
             }
-            let rightPrice = e.currentTarget.dataset.price.replace(/￥/g,"")>0?(e.currentTarget.dataset.price.replace(/￥/g,"")-this.data.cutPrice).toFixed(2):"--"
+            let rightPrice = e.currentTarget.dataset.price.replace(/￥/g,"")>0? parseFloat((e.currentTarget.dataset.price.replace(/￥/g,"")-this.data.cutPrice)*100)/100 :"--"
             let price = e.currentTarget.dataset.price.replace(/￥/g,"")
             this.setData({
                 chooseSize:e.currentTarget.dataset.size,
@@ -100,7 +100,7 @@ Component({
                   })
                 for (let i in res.sizeList) {
                   if (res.sizeList[i].sellMoney > 0) {
-                    res.sizeList[i].sellMoney = "￥" + res.sizeList[i].sellMoney.toFixed(2);
+                    res.sizeList[i].sellMoney = "￥" + parseFloat(res.sizeList[i].sellMoney*100)/100;
                   } else {
                     res.sizeList[i].sellMoney = "--"
                   }
