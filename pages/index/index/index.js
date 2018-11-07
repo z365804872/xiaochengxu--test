@@ -98,7 +98,7 @@ Page({
         })
     },
     toEvaluate: function () {
-        wx.navigateTo({
+        wx.switchTab({
             url: "/pages/evaluate/index/index"
         })
     },

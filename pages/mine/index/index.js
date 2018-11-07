@@ -59,7 +59,7 @@ Page({
         let globalData = app.globalData
         Object.keys(globalData).forEach(data => globalData[data] = undefined)
 
-        wx.reLaunch({url: '/pages/index/index/index'})
+        wx.switchTab({url: '/pages/index/index/index'})
     },
 
     //我的钱包
