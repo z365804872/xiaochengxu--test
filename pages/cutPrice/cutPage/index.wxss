@@ -497,33 +497,33 @@ page{
     padding: 50rpx 10rpx;
     background-color: #fff;
     border-radius: 16rpx;
-    justify-content: space-around;
+    height: 164rpx;
 }
 .cut-goods-pic {
-    position: relative;
-    width: 170rpx;
+    width: 168rpx;
     margin-right: 30rpx;
 }
 
 .cut-goods-pic image {
-    position: absolute;
-    left: 0;
-    top: 50%;
+   display: inline-block;
     width: 168rpx;
     height: 118rpx;
-    transform: translate(0,-50%);
+    /* margin-bottom: 14rpx; */
+    margin-top: 32rpx;
 }
 
 .cut-goods-title {
     display: block;
-    margin-bottom: 50rpx;
     font-size: 32rpx;
     color: #333;
     line-height: 38rpx;
 }
 
 .cut-goods-price {
-    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .cut-goods-price text {
@@ -655,4 +655,12 @@ page{
 .model-list-box{
   overflow: scroll;
   height: 80%;
+}
+
+.cut-goods-con{
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+
 }
