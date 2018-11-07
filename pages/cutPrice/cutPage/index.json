@@ -1,7 +1,7 @@
 {
     "navigationBarTitleText": "我的砍价",
     "onReachBottomDistance": 200,
-    "enablePullDownRefresh": true,
+    "enablePullDownRefresh": false,
     "usingComponents": {
       "cut-modal": "../../../components/cut-modal/index",
       "chooseSize": "../../../components/chooseSize/chooseSize",
