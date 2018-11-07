@@ -1,0 +1,75 @@
+<view class='body'>
+  <view class='header' style="background-image: url('{{src}}');">
+
+  <view style='display:flex;justify-content: center;'>
+    <image src='{{ticketUrl}}' class='ticketstyle'></image>
+  </view>
+
+  <view style='display:flex;justify-content: center;margin-top:34rpx;'>
+  <button 
+          open-type="share"
+          lang="zh_CN"
+          bindtap="ToObtain"
+          style='background: #38297c;'
+         >
+   <image  style='background: #38297c;' class='btnGetCoupon' src='{{btnGetCouponUrl}}'></image>
+  </button>
+
+  <!--授权  -->
+
+            <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+          <view class="modal-dialog" wx:if="{{showModal}}">
+            <view class="modal-close" bindtap="closeModal">
+            <button 
+                    open-type="getUserInfo"
+                    lang="zh_CN"
+                  bindtap="ToObtain"
+                  style='position: absolute;background-image:url(../../images/btnClose.png);width:54rpx;height:54rpx;border-radius:50rpx;left:500rpx;top:10rpx'
+
+            >
+        <text style='position: absolute;top:-20rpx;right:14rpx'>×</text>
+
+               </button>
+            </view>
+          
+          
+            <view class="modal-content">
+          
+            <button 
+                    open-type="getUserInfo"
+                    lang="zh_CN"
+                  bindtap="ToObtain"
+             style='height:88rpx;width:474rpx;border-radius:60rpx;background:#fff;'
+             
+            >
+             
+            <image src='https://sneakercn.oss-cn-shanghai.aliyuncs.com/test/test22/201811071455108988758.png' style='height:88rpx;width:474rpx'></image>  
+            </button>
+            </view>
+
+          </view>
+
+<!--  -->
+       
+  </view>
+
+  <view style='display:flex;justify-content: center'>
+    <image class='thousandTicket' src='{{thousandTicketUrl}}'></image>
+  </view>
+
+  <view style='display:flex;justify-content: center;margin-top:40rpx'>
+    <text style='color:#fff;font-weight: 500;font-size:32rpx;' hidden='{{iscountshow}}'>距￥1000优惠券 还差<text style='font-size:50rpx'> {{count}} </text>人</text>
+    <text style='color:#fff;font-weight: 500;font-size:32rpx;' hidden='{{isshows}}'>您已成功获得1666元优惠券</text>
+    
+  </view>
+
+  <view style='display:flex;justify-content: center;margin-top:46rpx'>
+  
+
+      <button style='background: #38297c;' open-type='share'>
+     <image class='btnInviteFriends' src='{{btnInviteFriendsUrl}}'></image>
+    </button>
+  </view>
+
+  </view>
+</view>

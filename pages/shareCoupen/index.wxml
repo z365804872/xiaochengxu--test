@@ -1,0 +1,90 @@
+<view class='body'>
+  
+  <view class='header' style="background-image: url('{{src}}');">
+  <view  style='display:flex;align-items: center;margin:20rpx 0 0 42rpx'>
+      <view class='headPortrait' style="background-image: url('{{headPortrait}}')">
+     
+      </view>
+      <view style="background-image: url('{{dialog}}');height:128rpx;width:496rpx;background-size:100% 100%;display:flex;flex-direction: column;padding-left:60rpx;justify-content: center;color:#fff">
+            <text>我是{{name}}</text><br/>
+            <text>送你1666元双十一优惠券~</text>
+      </view>
+  </view>
+
+
+
+
+  <view style='display:flex;justify-content: center;'>
+    <image src='{{ticketUrl}}' class='ticketstyle'></image>
+  </view>
+
+  <view style='display:flex;justify-content: center;margin-top:38rpx'>
+
+    <!--  -->
+
+        <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+          <view class="modal-dialog" wx:if="{{showModal}}">
+            <view class="modal-close" bindtap="closeModal">
+            <button 
+                    open-type="getUserInfo"
+                    lang="zh_CN"
+                  bindtap="ToObtain"
+                  style='position: absolute;background-image:url(../../images/btnClose.png);width:54rpx;height:54rpx;border-radius:50rpx;left:500rpx;top:10rpx'
+
+            >
+        <text style='position: absolute;top:-20rpx;right:14rpx'>×</text>
+            <!-- <image src='../../images/btnClose.png' style='width:54rpx;height:54rpx;position:absolute;left:500rpx;top:10rpx'></image>   -->
+               </button>
+            </view>
+          
+          
+            <view class="modal-content">
+          
+            <button 
+                    open-type="getUserInfo"
+                    lang="zh_CN"
+                  bindtap="ToObtain"
+             style='height:88rpx;width:474rpx;border-radius:60rpx;background:#fff;'
+             
+            >
+             
+            <image src='https://sneakercn.oss-cn-shanghai.aliyuncs.com/test/test11/201811071452250916947.png' style='height:88rpx;width:474rpx'></image>  
+            </button>
+            </view>
+
+          </view>
+
+<!--  -->
+
+    <button style='background: #38297c;' open-type='share' hidden='{{hiddenURL}}'>
+        <image class='btnGetCoupon' src='{{btnGetCouponUrl}}'></image>
+    </button>
+  </view>
+
+  <view style='display:flex;justify-content: center;'>
+    <image class='thousandTicket' src='{{thousandTicketUrl}}'></image>
+  </view>
+
+  <view style='display:flex;justify-content: center;margin-top:40rpx'>
+    <text style='color:#fff;font-weight: 500;font-size:32rpx;' hidden='{{iscountshow}}'>距￥1000优惠券 还差<text style='font-size:50rpx'> {{count}} </text>人</text>
+    <text style='color:#fff;font-weight: 500;font-size:32rpx;' hidden='{{isshows}}'>您已成功获得1666元优惠券</text>
+    
+  </view>
+
+  <view style='display:flex;justify-content: center;margin-top:46rpx'>
+  
+       <button style='background: #38297c;' open-type='share' hidden='{{hiddenURL}}'>
+        <image class='btnInviteFriends' src='{{btnInviteFriendsUrl}}'></image>
+    </button>
+  </view>
+ 
+  <view style='display:flex;justify-content: center;color:#fff;    margin-bottom: 68rpx;'>
+    <text>可在 鞋客APP-我的-我的钱包-优惠券 中可查看</text>
+  </view>
+  <view class='returnIndex'style="width:96rpx;height:96rpx;z-index:100">
+  
+     <image bindtap="newindex" src='../../images/indexImg.png' style='width:150rpx;height:150rpx;position:fixed;bottom:117rpx;right:20rpx;'></image>
+
+  </view>
+  </view>
+</view>
