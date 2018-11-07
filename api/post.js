@@ -189,6 +189,23 @@ export default {
         title: '发布鉴定新增',
         path: '/addFormId'
     },
+    "addShareInfo": {
+        title: '添加分享人信息',
+        path: '/addShareInfo',
+    },
+    "addShareClickInfo": {
+        title: '添加分享点击人',
+        path: '/addShareClickInfo'
+    },
+    "selectShareInfo": {
+        title: '查询助力人数',
+        path: '/selectShareInfo'
+    },
+    "shareinfo": {
+        title: '分享人信息',
+        path: '/myMember',
+
+    },
     //二期
 
 

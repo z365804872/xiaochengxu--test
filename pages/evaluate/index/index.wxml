@@ -56,7 +56,7 @@
                         </view>                  
                     </view>
                     <view class="item-right-status">
-                        <image src="{{item.type == 0?'../../../images/jdz.png':item.type == 1?'../../../images/zd.png':item.type == 2?'../../../images/jd.png':'../../../images/wfjd.png'}}"  style="  position: absolute; width:466rpx; height:98rpx;left:0;bottom:0;" />
+                        <image src="{{item.type == 0?'../../../images/jdz.png':item.type == 1?'../../../images/zd.png':item.type == 2?'../../../images/jd.png':item.type == 3?'../../../images/xbt.png':'../../../images/wfjd.png'}}"  style="  position: absolute; width:466rpx; height:98rpx;left:0;bottom:0;" />
                     </view>
                 </view>
             </view>

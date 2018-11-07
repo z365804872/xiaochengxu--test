@@ -30,7 +30,7 @@ page{
 .header-info{
     display: block;
     text-align: center;
-    width: 350rpx;
+    width: 360rpx;
     margin: 0 auto;
     margin-top: 50rpx;
     height: 35rx;
@@ -208,7 +208,7 @@ page{
     margin: 0 auto;
     width:fit-content;
 }
-.addMore{
+/* .addMore{
     position: absolute;
     width: 144rpx;
     height: 64rpx;
@@ -223,4 +223,4 @@ page{
     border: 1px solid #333333;
     border-radius: 200rpx;
     
-}
+} */

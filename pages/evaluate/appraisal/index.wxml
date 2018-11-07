@@ -7,7 +7,7 @@
         <view class="appra-one-box">
             <view  wx:for="{{dataList}}" wx:key="{{index}}" class="nav-item {{index==choose?'select':''}}" bindtap="changeTab" data-index="{{index}}" data-brandId="{{item.brandId}}">
                 <view  style="background:url('{{item.photo}}'); background-size:120rpx 120rpx;background-repeat:no-repeat;background-position:48rpx 48rpx;position: absolute;width:216rpx;height:216rpx;left:0;top:0;">
-                    <text class="item-text">{{item.brandName}}</text>
+                    <!-- <text class="item-text">{{item.brandName}}</text> -->
                 </view>
                 
             </view>

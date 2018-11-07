@@ -34,8 +34,8 @@
 
         <view class="bgc-fa margin-t20 padding-20 lheight-40 font-regular font-28 color-000 opacity4">
             <view class="lheight-40"><text class="iconfont icon-jianding1"></text><text class="margin-l20" >提现说明</text></view>
-            <view class="margin-t10">提现功能只在SNCN官方APP开放</view>
-            <view>请下载SneakerCN官方APP，体验更多精彩</view>
+            <view class="margin-t10">提现功能只在鞋客APP开放</view>
+            <view>请下载鞋客APP，体验更多精彩</view>
         </view>
     </view>
 </view>

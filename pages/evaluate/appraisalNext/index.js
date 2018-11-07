@@ -68,6 +68,7 @@ Page({
             _this.setData({
               brandid: res.data.brandId,
               inputValue: res.data.content,
+              appraisalId: res.data.appraisalId,
               saveImg:[
                   {
                     'mrbg':"wg",
@@ -227,7 +228,8 @@ Page({
       
       let prama ={        
         content:_this.data.inputValue,
-        brandId:_this.data.brandid
+        brandId:_this.data.brandid,
+        appraisalId: _this.data.appraisalId
       }
       let j = 0;
       for(let i=0; i<indexList.length;i++){

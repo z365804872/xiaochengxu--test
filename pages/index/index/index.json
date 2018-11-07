@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "SNCN",
+  "navigationBarTitleText": "鞋客APP",
   "onReachBottomDistance": 200,
   "enablePullDownRefresh": true,
   "usingComponents": {

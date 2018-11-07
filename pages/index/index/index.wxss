@@ -59,11 +59,11 @@ page .icon-sousuo{
 
 .section-swiper .slide{
   width: 100%;
-  height: 360rpx;
+  height: 250rpx;
 }
 .section-swiper .slide-image{
   width: 100%;
-  height: 360rpx;
+  height: 250rpx;
   display: block;
 }
 
@@ -130,7 +130,8 @@ page .icon-sousuo{
   margin-top: 90rpx;
   width: 346rpx;
   position: absolute;
-  font-size: 24rpx;
+  font-size: 32rpx;
+  font-weight: bold;
   z-index: 1;
 }
 .enter-text-right{
@@ -140,7 +141,8 @@ page .icon-sousuo{
   margin-top: 90rpx;
   width: 346rpx;
   position: absolute;
-  font-size: 24rpx;
+  font-size: 32rpx;
+  font-weight: bold;
   z-index: 1;
 }
 

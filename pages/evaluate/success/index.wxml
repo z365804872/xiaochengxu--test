@@ -6,7 +6,7 @@
             鉴定发布已成功
         </view>
         <view class="appra-two">
-            请耐心等待鉴定结果大约1~3个工作日
+            请耐心等待鉴定结果大约需要10分钟(工作日)
         </view>
         <view class="btn"  bindtap="nextTab">
             返回首页

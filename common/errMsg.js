@@ -13,7 +13,7 @@ export let passwordErr = {
 
 
 export let agreementErr = {
-    notAgree: '请先同意SneakerCN用户协议，才能进行下一步操作'
+    notAgree: '请先同意鞋客APP用户协议，才能进行下一步操作'
 }
 
 

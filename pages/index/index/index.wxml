@@ -16,12 +16,15 @@
 		<swiper class="slide" indicator-dots="{{indicator_dots}}" autoplay="{{autoplay}}" circular="{{circular}}" interval="{{interval}}" duration="{{duration}}">
 			<block wx:for="{{indexSlides}}" wx:key="{{index}}">
 				<swiper-item>
-					<navigator url="/pages/index/detail/index?shoesId={{item.href}}" wx:if="{{item.type==2}}">
-						<view style="background:url('{{item.photo}}');background-size:750rpx 360rpx;background-repeat:no-repeat;" mode="widthFix" class="slide-image" data-id="{{item.shoesId}}"></view>
-					</navigator>
-					<navigator url="/pages/outer/index?viewId={{item.href}}" wx:if="{{item.type==1}}">
-						<view style="background:url('{{item.photo}}');background-size:750rpx 360rpx;background-repeat:no-repeat;" mode="widthFix" class="slide-image" data-id="{{item.shoesId}}"></view>
-					</navigator>
+        <navigator url="{{item.href}}"  wx:if="{{item.type==3}}">
+						<view style="background:url('{{item.photo}}');background-size:750rpx 250rpx;background-repeat:no-repeat;" mode="widthFix" class="slide-image"></view>
+      	</navigator>
+     		<navigator url="/pages/index/detail/index?shoesId={{item.href}}" wx:if="{{item.type==2}}">
+						<view style="background:url('{{item.photo}}');background-size:750rpx 250rpx;background-repeat:no-repeat;" mode="widthFix" class="slide-image" data-id="{{item.shoesId}}"></view>
+      	</navigator>
+				<navigator url="/pages/outer/index?viewId={{item.href}}" wx:if="{{item.type==1}}">
+						<view style="background:url('{{item.photo}}');background-size:750rpx 250rpx;background-repeat:no-repeat;" mode="widthFix" class="slide-image" data-id="{{item.shoesId}}"></view>
+				</navigator>
 				</swiper-item>
 			</block>
 		</swiper>
@@ -52,7 +55,7 @@
 			<view  class="index-enter-left" style="position: relative;">
 				<image src="../../../images/Group5.png"  style="  position: absolute; width:346rpx; height:160rpx;left:0;top:0;z-index:0" />
 				<image src="../../../images/431523877111_.pic.png"  style="  position: absolute; width:154rpx; height:46rpx;left:100rpx;top:40rpx;z-index:1" />
-				<text class="enter-text-left">SNCN活动</text> 
+				<text class="enter-text-left">鞋客活动</text> 
 			</view>
 		</navigator>
 		<navigator url="/pages/evaluate/index/index" open-type="switchTab" hover-class="none">

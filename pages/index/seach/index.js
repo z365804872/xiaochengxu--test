@@ -121,7 +121,8 @@ Page({
     this.setData({
       page: this.data.page + 1
     })
-    wx.post({api:'queryShoes', data:{keyword:this.data.value,pageNum:this.data.page,pageSize:10}}).then(res => {
+    
+    wx.post({api:'queryShoes', data:{keyword:this.data.keyValue,pageNum:this.data.page,pageSize:10}}).then(res => {
       console.log(res)
       if(res.length == 0){
         this.setData({

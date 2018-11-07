@@ -160,7 +160,7 @@
     background: #656AAA;
     border-radius: 100rpx;
     position: fixed;
-    bottom: 117rpx;
+    bottom: 30rpx;
     right: 20rpx;
     color: #fff;
     font-size: 32rpx;
