@@ -45,7 +45,7 @@
             <text>邀你帮忙砍价啦～</text>
         </view>
     </view>
-    <view  class='cut-goods'>
+    <view wx:if="{{typeCode !== undefined && typeCode != 1 && typeCode != 6}}"  class='cut-goods'>
         <view class='cut-goods-block'>
             <view class='cut-goods-pic'>
                 <image src='{{myPriceData.photo}}'></image>
@@ -167,8 +167,8 @@
 		</view>
     </view>
 
-    <view class="share-model pos-fixed top0 bottom0 left0 right0 action-container" bindtap="closeHelp" wx:if="{{showHelp}}">
-        <view class="model-box"  catchtap="handleTap2">
+    <view class="share-model pos-fixed top0 bottom0 left0 right0 action-container" wx:if="{{showHelp}}">
+        <view class="model-box">
             <view class="model-title">
                 帮砍纪录
             </view>
@@ -180,7 +180,7 @@
                             {{item.nickName}}
                         </view>
                         <view class="list-time">
-                            {{item.timeInfo}}
+                            234
                         </view>
                     </view>
                     <view  class="list-cut">
