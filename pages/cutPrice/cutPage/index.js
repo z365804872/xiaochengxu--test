@@ -1,6 +1,7 @@
 // pages/cutPrice/index/index.js
 import {OPEN_ID, WX_ENCRYPTED_INFO, WX_USER_INFO} from "../../../common/constants";
 import utils from "../../../utils/util";
+import auth from "../../../common/auth";
 
 Page({
 
@@ -279,30 +280,32 @@ Page({
 
         let that = this
         that.data.downMyPriceId = downMyPriceId
-        let openId = wx.getStorageSync(OPEN_ID)
+        // let openId = wx.getStorageSync(OPEN_ID)
         that.getGroupInfo()
             .then(groupInfo => {
-                return wx.post({
-                    api: 'saveFrientCut',
-                    data: {
-                        ...groupInfo,
-                        downMyPriceId,
-                        openId
-                    }
+                auth.init().then(openId => {
+                        return wx.post({
+                            api: 'saveFrientCut',
+                            data: {
+                                ...groupInfo,
+                                downMyPriceId,
+                                openId
+                            }
+                        })
+                    }).then(res => {
+        
+                        that.setData({...res})
+                        if(res.typeCode == 6) wx.setNavigationBarTitle({title: '我的砍价'})
+                        if(res.typeCode && res.typeCode == 1) that.setData({modalType: 3})
+                        if(res.typeCode && res.typeCode == 4) that.setData({modalType: 4})
+                        if(res.typeCode == 3){
+                            setTimeout(()=>wx.showToast({title: '今天机会用完啦～'}))
+                        }else if(res.typeCode == 5){
+                            setTimeout(()=>wx.showToast({title: '今日砍价人数已上限～'}))
+                        }
+                        that.filterData(res.myPrice)
                 })
-            }).then(res => {
-
-                that.setData({...res})
-                if(res.typeCode == 6) wx.setNavigationBarTitle({title: '我的砍价'})
-                if(res.typeCode && res.typeCode == 1) that.setData({modalType: 3})
-                if(res.typeCode && res.typeCode == 4) that.setData({modalType: 4})
-                if(res.typeCode == 3){
-                    setTimeout(()=>wx.showToast({title: '今天机会用完啦～'}))
-                }else if(res.typeCode == 5){
-                    setTimeout(()=>wx.showToast({title: '今日砍价人数已上限～'}))
-                }
-                that.filterData(res.myPrice)
-        }).catch(err => console.log('err', err))
+            }).catch(err => console.log('err', err))
     },
 
     //获取群信息
