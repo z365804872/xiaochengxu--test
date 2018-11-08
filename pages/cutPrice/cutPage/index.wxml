@@ -180,7 +180,7 @@
                             {{item.nickName}}
                         </view>
                         <view class="list-time">
-                            234
+                            {{item.timeInfo}}
                         </view>
                     </view>
                     <view  class="list-cut">
