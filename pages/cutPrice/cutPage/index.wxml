@@ -167,8 +167,8 @@
 		</view>
     </view>
 
-    <view class="share-model pos-fixed top0 bottom0 left0 right0 action-container" wx:if="{{showHelp}}">
-        <view class="model-box">
+    <view class="share-model pos-fixed top0 bottom0 left0 right0 action-container" bindtap="closeHelp" wx:if="{{showHelp}}">
+        <view class="model-box"   catchtap="handleTap2">
             <view class="model-title">
                 帮砍纪录
             </view>
