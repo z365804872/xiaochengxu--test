@@ -57,7 +57,7 @@ data:{
 
       
       wx.post({
-        api: 'selectShareInfo', data: { shareUid: data.uid, shareUrl: 'pages/shareCoupen/index' }
+        api: 'selectShareInfo', data: { shareUid: data.uid, shareUrl: '/pages/shareCoupen/index' }
       }).then(data => {
       
         if(data.length == 0){
@@ -127,7 +127,7 @@ data:{
       // 来自页面内转发按钮
       console.log(res.target)
     
-      wx.post({ api: 'addShareInfo', data: { shareUid: that.data.uid, shareUrl: 'pages/shareCoupen/index' } }).then(data => {
+      wx.post({ api: 'addShareInfo', data: { shareUid: that.data.uid, shareUrl: '/pages/shareCoupen/index' } }).then(data => {
         console.log(data)
         wx.showToast({
           title: '参与活动成功'
@@ -135,29 +135,19 @@ data:{
       })
       
     }else{
-      wx.post({ api: 'addShareInfo', data: { shareUid: that.data.uid, shareUrl: 'pages/shareCoupen/index' } }).then(data => {
+      wx.post({ api: 'addShareInfo', data: { shareUid: that.data.uid, shareUrl: '/pages/shareCoupen/index' } }).then(data => {
         console.log(data)
         wx.showToast({
           title: '参与活动成功'
         })
       })
-      
-      
+
     }
     return {
      
       title: '千元神券,拿到手软!',
-      path: 'pages/shareCoupen/index?uid='+that.data.uid,
-      imageUrl: 'https://sneakercn.oss-cn-shanghai.aliyuncs.com/test/test4/201811031432085249529.jpg'
- 
-      
-        // let app = getApp()
-        // let uid = app.globalData.uid
-        // app.requestDetailid = uid;
-      
-       
-      
-     
+      path: '/pages/shareCoupen/index?uid='+that.data.uid,
+      imageUrl: 'https://sneakercn.oss-cn-shanghai.aliyuncs.com/test/test4/201811031432085249529.jpg'     
     }
  
   }

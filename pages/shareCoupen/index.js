@@ -72,7 +72,7 @@ Page({
 
       that.setData({ clickUid: data.uid })//设置数据
       //点击者信息
-      wx.post({ api: 'addShareClickInfo', data: { clickUid: that.data.clickUid, shareUid: that.data.uid, shareUrl: 'pages/shareCoupen/index' } }).then(data => {
+      wx.post({ api: 'addShareClickInfo', data: { clickUid: that.data.clickUid, shareUid: that.data.uid, shareUrl: '/pages/shareCoupen/index' } }).then(data => {
 
         console.log(data)
 
@@ -82,7 +82,7 @@ Page({
       })
 
       wx.post({//助力人数
-        api: 'selectShareInfo', data: { shareUid: that.data.clickUid, shareUrl: 'pages/shareCoupen/index' }
+        api: 'selectShareInfo', data: { shareUid: that.data.clickUid, shareUrl: '/pages/shareCoupen/index' }
       }).then(res => {
         if (res.length == 0) {
           that.setData({ count: 10 })//设置数据
@@ -240,8 +240,8 @@ Page({
                 clickUid: suc.data.result.uid
 
               })
-              wx.post({ api: 'addShareInfo', data: { shareUid: suc.data.result.uid, shareUrl: 'pages/shareCoupen/index' } }).then(data => {
-                // wx.post({ api: 'addShareInfo', data: { shareUid: '2578', shareUrl: 'pages/shareCoupen/index' } }).then(res => {
+              wx.post({ api: 'addShareInfo', data: { shareUid: suc.data.result.uid, shareUrl: '/pages/shareCoupen/index' } }).then(data => {
+              
                 wx.showToast({
                   title: '参与活动成功'
                 })
@@ -283,8 +283,8 @@ Page({
                 clickUid: suc.data.result.uid
 
               })
-              wx.post({ api: 'addShareInfo', data: { shareUid: suc.data.result.uid, shareUrl: 'pages/shareCoupen/index' } }).then(data => {
-                // wx.post({ api: 'addShareInfo', data: { shareUid: '2578', shareUrl: 'pages/shareCoupen/index' } }).then(res => {
+              wx.post({ api: 'addShareInfo', data: { shareUid: suc.data.result.uid, shareUrl: '/pages/shareCoupen/index' } }).then(data => {
+                
 
                 wx.showToast({
                   title: '参与活动成功'
@@ -307,8 +307,7 @@ Page({
     }
     return {
       title: '千元神券,拿到手软!',
-      // path: 'pages/shareCoupen/index?uid=' + that.data.uid,  //that.data.clickUid
-      path: 'pages/shareCoupen/index?uid=' + that.data.clickUid,  //that.data.clickUid
+      path: '/pages/shareCoupen/index?uid=' + that.data.clickUid,  //that.data.clickUid
       imageUrl: 'https://sneakercn.oss-cn-shanghai.aliyuncs.com/test/test4/201811031432085249529.jpg'
 
 

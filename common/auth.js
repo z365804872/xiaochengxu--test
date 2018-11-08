@@ -201,7 +201,7 @@ class Auth {
      * ***/
     init() {
         return this._checkSession().then(()=>{
-            return wx.getStorageSync(OPEN_ID) 
+            return wx.getStorageSync(OPEN_ID)
         }).catch(()=>{
             return this.getLoginCode().then(loginCode => this.getOpenId(loginCode))
         })

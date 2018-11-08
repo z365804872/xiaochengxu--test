@@ -294,7 +294,7 @@ Page({
                             }
                         })
                     }).then(res => {
-        
+
                         that.setData({...res})
                         if(res.typeCode == 6) wx.setNavigationBarTitle({title: '我的砍价'})
                         if(res.typeCode && res.typeCode == 1) that.setData({modalType: 3})
