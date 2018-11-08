@@ -200,7 +200,11 @@ class Auth {
      * 页面初始化，获取openId
      * ***/
     init() {
-        return this.getLoginCode().then(loginCode => this.getOpenId(loginCode))
+        return this._checkSession().then(()=>{
+            return wx.getStorageSync(OPEN_ID) 
+        }).catch(()=>{
+            return this.getLoginCode().then(loginCode => this.getOpenId(loginCode))
+        })
     }
 
     /***
@@ -327,6 +331,15 @@ class Auth {
                     })
                 }).catch(err => isLoading = !isLoading)
         })()
+    }
+
+    _checkSession(){
+        return new Promise((resolve, reject)=>{
+            wx.checkSession({
+                success: ()=> resolve(),
+                fail: ()=> reject()
+            })
+        })
     }
 }
 

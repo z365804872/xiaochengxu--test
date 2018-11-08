@@ -275,7 +275,7 @@ Page({
     friendCut(downMyPriceId) {
         //更改标题
         wx.setNavigationBarTitle({
-            title: '砍价'
+            title: '帮我砍价,一起到鞋客APP拿走这件优惠666元的潮流单品'
         })
 
         let that = this
@@ -284,6 +284,7 @@ Page({
         that.getGroupInfo()
             .then(groupInfo => {
                 auth.init().then(openId => {
+                    !openId && (openId = wx.getStorageSync(OPEN_ID));
                         return wx.post({
                             api: 'saveFrientCut',
                             data: {
